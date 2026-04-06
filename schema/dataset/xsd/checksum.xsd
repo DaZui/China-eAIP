@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:aisc-cs="https://www.eaipchina.cn/schema/dataset/checksum"
+            xmlns:aisc-ds="https://www.eaipchina.cn/schema/dataset/meta"
+            targetNamespace="https://www.eaipchina.cn/schema/dataset/checksum"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <!-- 导入数据集元数据命名空间 -->
+    <xsd:import namespace="https://www.eaipchina.cn/schema/dataset/meta"
+                schemaLocation="meta.xsd"/>
+
+
+
+    <!-- 单个文件类型定义 -->
+    <xsd:complexType name="FileType">
+        <xsd:sequence>
+            <xsd:element name="filename" type="aisc-ds:FilenameType"/>
+            <xsd:element name="sha256sum" type="aisc-ds:SHA256SumType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- 文件列表类型定义 -->
+    <xsd:complexType name="FilesType">
+        <xsd:sequence>
+            <xsd:element name="file" type="aisc-cs:FileType" maxOccurs="unbounded" minOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+
+
+    <!-- 数据集校验和根元素 -->
+    <xsd:element name="datasetChecksum" >
+        <xsd:complexType >
+            <xsd:sequence>
+                <!-- 数据集元数据，引用导入的元数据类型 -->
+                <xsd:element ref="aisc-ds:datasetMeta"/>
+
+                <!-- 文件列表 -->
+                <xsd:element name="files" type="aisc-cs:FilesType"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

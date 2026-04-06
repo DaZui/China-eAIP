@@ -1,0 +1,1777 @@
+<?xml version="1.0" encoding="UTF-8"?><message:AIXMBasicMessage xmlns:message="http://www.aixm.aero/schema/5.1.1/message" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="uuid.030ed62d-dbde-335a-9890-542429fa50d1">
+    <aixm:messageMetadata>
+        <gmd:MD_Metadata id="uuid.bc9d8eed-55f9-3b31-94d7-42276bc2dd26">
+            <gmd:contact>
+                <gmd:CI_ResponsibleParty>
+                    <gmd:organisationName>
+                        <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                    </gmd:organisationName>
+                    <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                            <gmd:phone>
+                                <gmd:CI_Telephone>
+                                    <gmd:voice>
+                                        <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                    </gmd:voice>
+                                </gmd:CI_Telephone>
+                            </gmd:phone>
+                            <gmd:address>
+                                <gmd:CI_Address>
+                                    <gmd:deliveryPoint>
+                                        <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                    </gmd:deliveryPoint>
+                                    <gmd:city>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:city>
+                                    <gmd:administrativeArea>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:administrativeArea>
+                                    <gmd:postalCode>
+                                        <gco:CharacterString>100018</gco:CharacterString>
+                                    </gmd:postalCode>
+                                    <gmd:country>
+                                        <gco:CharacterString>China</gco:CharacterString>
+                                    </gmd:country>
+                                    <gmd:electronicMailAddress>
+                                        <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                    </gmd:electronicMailAddress>
+                                </gmd:CI_Address>
+                            </gmd:address>
+                        </gmd:CI_Contact>
+                    </gmd:contactInfo>
+                    <gmd:role>
+                        <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                    </gmd:role>
+                </gmd:CI_ResponsibleParty>
+            </gmd:contact>
+            <gmd:dateStamp>
+                <gco:DateTime>2026-03-18T02:07:31Z</gco:DateTime>
+            </gmd:dateStamp>
+            <gmd:identificationInfo>
+                <gmd:MD_DataIdentification>
+                    <gmd:citation>
+                        <gmd:CI_Citation>
+                            <gmd:title>
+                                <gco:CharacterString>Date and time when provided</gco:CharacterString>
+                            </gmd:title>
+                            <gmd:date>
+                                <gmd:CI_Date>
+                                    <gmd:date>
+                                        <gco:DateTime>2026-03-18T02:07:31Z</gco:DateTime>
+                                    </gmd:date>
+                                    <gmd:dateType>
+                                        <gmd:CI_DateTypeCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodeLists.xml#CI_DateTypeCode" codeListValue="revision">revision</gmd:CI_DateTypeCode>
+                                    </gmd:dateType>
+                                </gmd:CI_Date>
+                            </gmd:date>
+                        </gmd:CI_Citation>
+                    </gmd:citation>
+                    <gmd:abstract>
+                        <gco:CharacterString>The aeronautical data for People's Republic of China are collected and published according to ICAO Annex 15, 16th Edition requirements. Refer to the DPS document for detail information.</gco:CharacterString>
+                    </gmd:abstract>
+                    <gmd:pointOfContact>
+                        <gmd:CI_ResponsibleParty>
+                            <gmd:organisationName>
+                                <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                            </gmd:organisationName>
+                            <gmd:contactInfo>
+                                <gmd:CI_Contact>
+                                    <gmd:phone>
+                                        <gmd:CI_Telephone>
+                                            <gmd:voice>
+                                                <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                            </gmd:voice>
+                                        </gmd:CI_Telephone>
+                                    </gmd:phone>
+                                    <gmd:address>
+                                        <gmd:CI_Address>
+                                            <gmd:deliveryPoint>
+                                                <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                            </gmd:deliveryPoint>
+                                            <gmd:city>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:city>
+                                            <gmd:administrativeArea>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:administrativeArea>
+                                            <gmd:postalCode>
+                                                <gco:CharacterString>100018</gco:CharacterString>
+                                            </gmd:postalCode>
+                                            <gmd:country>
+                                                <gco:CharacterString>China</gco:CharacterString>
+                                            </gmd:country>
+                                            <gmd:electronicMailAddress>
+                                                <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                            </gmd:electronicMailAddress>
+                                        </gmd:CI_Address>
+                                    </gmd:address>
+                                </gmd:CI_Contact>
+                            </gmd:contactInfo>
+                            <gmd:role>
+                                <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                            </gmd:role>
+                        </gmd:CI_ResponsibleParty>
+                    </gmd:pointOfContact>
+                    <gmd:resourceConstraints>
+                        <gmd:MD_Constraints>
+                            <gmd:useLimitation>
+                                <gco:CharacterString>For evaluation and testing use only; not for operational purposes.</gco:CharacterString>
+                            </gmd:useLimitation>
+                        </gmd:MD_Constraints>
+                    </gmd:resourceConstraints>
+                    <gmd:spatialRepresentationType>
+                        <gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector">vector</gmd:MD_SpatialRepresentationTypeCode>
+                    </gmd:spatialRepresentationType>
+                    <gmd:language>
+                        <gco:CharacterString>eng</gco:CharacterString>
+                    </gmd:language>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:temporalElement>
+                                <gmd:EX_TemporalExtent>
+                                    <gmd:extent>
+                                        <gml:TimePeriod gml:id="uuid.a8f7d240-d8bb-3dcb-bd24-2f2f0b59a77e">
+                                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                                            <gml:endPosition indeterminatePosition="unknown"/>
+                                        </gml:TimePeriod>
+                                    </gmd:extent>
+                                </gmd:EX_TemporalExtent>
+                            </gmd:temporalElement>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:description>
+                                <gco:CharacterString>AIRAC</gco:CharacterString>
+                            </gmd:description>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                </gmd:MD_DataIdentification>
+            </gmd:identificationInfo>
+        </gmd:MD_Metadata>
+    </aixm:messageMetadata>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.030fbfe6-e749-4fc5-8328-5a526278ea95">
+            <gml:identifier codeSpace="urn:uuid:">030fbfe6-e749-4fc5-8328-5a526278ea95</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.e0e66ffd-7406-4512-8b8c-d0637d1ee0fa">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.daa83c11-edb0-37d8-91ee-4300e3d538b3">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>212.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>32.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">43.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.93f7282e-49d9-3daa-af71-d478057f8593">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:08c4bd04-e074-4168-a694-bffb590d7719"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:7b909ea9-22bc-49b1-98a9-4adfcc364820"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.a4d06963-6915-3a8c-9595-fe8c4e552616">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:a96bf3a1-70f7-428b-add6-f46d1c74e0b0"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.b4e509ad-57f2-4467-9179-938c942564ab">
+                            <aixm:direction>FORWARD</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.09482b3d-0d9d-3c28-94ea-68dc912900db">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.22e28ee1-0032-3462-88fc-8064f9eddf05">
+                                    <aixm:note lang="eng">Minimum flight altitude:2339m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.06fc5994-8496-4496-b945-35aecff0f4fb">
+            <gml:identifier codeSpace="urn:uuid:">06fc5994-8496-4496-b945-35aecff0f4fb</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.3a5097a5-64ae-41ed-8bfb-dcd6453bbb2d">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.50587ee1-fb5f-31ed-a26b-5b6946743a1e">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>198.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>18.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">105.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.53c5826e-a6d1-3224-bef6-c522e72dc932">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:3768552c-b5aa-4c18-92aa-d3f454f4ca6f"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:d0c5bba4-c61e-4745-9f03-973d083f31ff"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.b74814af-a58a-3814-a9bd-a0286bfa887a">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:b1392e25-df20-4c09-868c-ed5ab9559186"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.363bf18f-a123-4b33-920e-39643b03b07e">
+                            <aixm:direction>BACKWARD</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.846557a0-bf6e-3d2b-a039-0295b5f9f1ad">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.8296a101-6694-390a-931b-47c2d2f0fbcb">
+                                    <aixm:note lang="eng">Minimum flight altitude:2074m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.14e6a681-98cd-46c6-aac4-99907fd10142">
+            <gml:identifier codeSpace="urn:uuid:">14e6a681-98cd-46c6-aac4-99907fd10142</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.0e1bed7b-2ee8-4d37-bcd8-ecb6bd5e0bb3">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.601ab1b9-c129-3a13-bf33-7a41a29de216">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>254.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>74.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">71.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.43a254ea-e709-3c24-8770-8f7e3c77109b">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:f83fc662-a316-452d-ac0e-ce2299edc50f"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:7b909ea9-22bc-49b1-98a9-4adfcc364820"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.7d9125c9-b09d-38d8-aeb6-d74853cebf64">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:4aa72e25-d972-4da5-941b-b0b46a1914fd"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.1da20d7b-f8da-41ef-9005-10efd17db692">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.065e4232-d9ce-3c7c-88cc-188fcdb44942">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.f43f54ca-0001-3756-a573-36be30d27bfd">
+                                    <aixm:note lang="eng">Minimum flight altitude:1656m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.1e47fdeb-9eab-4bad-809e-e830f051dbed">
+            <gml:identifier codeSpace="urn:uuid:">1e47fdeb-9eab-4bad-809e-e830f051dbed</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.d7180a50-1534-4d22-b13b-ec3b7f94027b">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.4c07df2d-f044-3036-be33-3064155050b2">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>186.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>6.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">84.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.eb182111-1a0d-3b94-a5a7-b035b8a928a3">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:a96bf3a1-70f7-428b-add6-f46d1c74e0b0"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:7b909ea9-22bc-49b1-98a9-4adfcc364820"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.2845383e-606c-3781-b818-62c45b93481f">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:820c5524-d876-4211-a31d-b9e14be4acb3"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.1958bc0c-7c91-4990-9745-5e5dad46e4c7">
+                            <aixm:direction>FORWARD</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.17db121f-1161-391f-9074-4a188128cc3d">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.f55f80d0-4d42-3147-a740-268f71103a90">
+                                    <aixm:note lang="eng">Minimum flight altitude:2307m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.29541b98-cc75-4cb9-9312-d3bc1eaf9e0f">
+            <gml:identifier codeSpace="urn:uuid:">29541b98-cc75-4cb9-9312-d3bc1eaf9e0f</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.3640f692-d665-46f4-9b43-f209bdaabfb1">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.10b510e1-2b84-3518-8988-b32666a232de">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>57.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>237.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">42.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.c44dc877-fe63-3e17-bbd9-6a5536fed098">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:08c4bd04-e074-4168-a694-bffb590d7719"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:51ddf82a-aa4b-435c-bceb-283c4005463d"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.8152f873-2ebb-3b1a-9d22-add43ec6047b">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:4aa72e25-d972-4da5-941b-b0b46a1914fd"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.031e1c72-b926-4e00-bde6-72e8d53887a0">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.2f903ecb-fb37-35b1-a19f-f8bf883b09ec">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.32af847d-cbea-3f74-bcc0-739cb63fe0dd">
+                                    <aixm:note lang="eng">Minimum flight altitude:2339m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.29d8dedc-be0e-444b-b28d-95b6d5e59289">
+            <gml:identifier codeSpace="urn:uuid:">29d8dedc-be0e-444b-b28d-95b6d5e59289</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.16424692-dbaf-4e46-bc85-29108c1da73d">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.a6f5de11-efe4-3768-a41f-63836bf8e6ab">
+                            <gml:beginPosition>2024-12-25T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition>2026-04-15T16:00:00Z</gml:endPosition>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>3</aixm:sequenceNumber>
+                    <aixm:correctionNumber>3</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>57.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>237.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">114.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.15bdaf70-7ff8-30ed-a237-06268842fcbe">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:5662169c-1564-4a26-8e0f-54ebff372b24"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:51ddf82a-aa4b-435c-bceb-283c4005463d"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.f08000d8-73ae-3738-898f-2bdc772ea3e0">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:84f06660-080e-4114-bcde-2cee15ce0b3b"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.fc6d313f-7f22-4894-931c-fb83f4e6ab48">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.a0d70083-fd0f-38de-bf7c-4cc0a104c744">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.fee6baea-2efa-366b-9899-4f5a2c34f1fd">
+                                    <aixm:note lang="eng">Minimum flight altitude:2374m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.29fba8c9-651b-4b66-a37d-ce220f2aa771">
+            <gml:identifier codeSpace="urn:uuid:">29fba8c9-651b-4b66-a37d-ce220f2aa771</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.f82bca33-38a3-4ab8-9766-09b64f1dcdd5">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.c973ccf6-a347-30a7-9fc5-b0915a26718a">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>26.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>206.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">213.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.f95dc13d-977f-3622-8980-b3946c96844f">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:97ad8939-4059-4972-941a-79856830cdcd"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:319c3f90-d11f-4a83-b549-cbfdb60ea68f"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.d27d1894-fe01-3609-ac2b-03cc7031cddc">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:b88f4f1b-33fb-48f5-9f3e-17ec67fdea1f"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.017df531-e0ef-49e1-b0cc-9c1d4e2ae8a7">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.c6f44d52-d4f4-3aad-a65c-5933e34c51f2">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.4757f582-e92b-3169-b7bf-841037abca9d">
+                                    <aixm:note lang="eng">Minimum flight altitude:1625m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.2f60fb40-dff3-47ec-8d5a-a9d72f45abb0">
+            <gml:identifier codeSpace="urn:uuid:">2f60fb40-dff3-47ec-8d5a-a9d72f45abb0</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.51ab1df1-acc7-4dcb-83a3-d77cff189985">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.b95e1144-328e-3a8c-8557-c8070c03c9e0">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>292.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>112.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">24.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.4cb726ca-4cb5-3577-b9a5-4185a04f91d5">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:f83fc662-a316-452d-ac0e-ce2299edc50f"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:28ef72b5-127d-45d2-956c-b9c47f6ac6dd"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.d43b4e2d-12b8-3693-8290-58aa86ee8d0e">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:d06b9585-8cce-4d69-b037-fa2f2dd7d559"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.b9177943-df4e-482a-9938-0d30e9f82654">
+                            <aixm:direction>FORWARD</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.124f1166-e2f5-3d42-9ce6-5c6fcf507a98">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.3cd9e3c0-8cc6-3d3d-b8e3-fdc44b534d20">
+                                    <aixm:note lang="eng">Minimum flight altitude:1113m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.3eb9fbd8-b7b4-4e0e-84a0-b1cb9fc3fe3d">
+            <gml:identifier codeSpace="urn:uuid:">3eb9fbd8-b7b4-4e0e-84a0-b1cb9fc3fe3d</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.b1f9ce43-10fe-4142-bc7e-300c7440f25e">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.e6ecb21c-1b58-3ce8-ab12-0847281ad09c">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>240.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>60.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">66.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.8d6b433c-6c11-3914-a853-928116af0ce7">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:cbcaad76-79a9-41b7-8bd0-5c69f5b888b1"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:28ef72b5-127d-45d2-956c-b9c47f6ac6dd"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.409fb582-be55-38a6-af73-0d9d38501c73">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:f2554141-2bab-41bc-bf87-6b63a0e427e4"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.f035f5f3-6a09-4324-a77c-7e861148000b">
+                            <aixm:direction>FORWARD</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.d8f5652f-c834-315b-92c4-410fd2318501">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.a18648ea-e3ae-36ea-baf4-e6bfa7cc63d3">
+                                    <aixm:note lang="eng">Minimum flight altitude:2374m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.40c3cbf5-12ee-4993-8329-53c07057ba59">
+            <gml:identifier codeSpace="urn:uuid:">40c3cbf5-12ee-4993-8329-53c07057ba59</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.7cfab369-c35d-42b1-907b-7d5a7cb1f7b9">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.ef20c64e-6954-3110-a9dc-f4e5b05a1ed9">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>230.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>50.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">57.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.a6e27620-e873-3ef4-9af9-b9bc5655546b">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_navaidSystem xlink:href="urn:uuid:0de3e3e8-7c78-43fe-9efb-587d842107d6"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:cb5b8d54-248b-4a1c-913c-7de5f54bb792"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.67e641de-af4e-3c27-b2b8-0b401e4ac621">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:6c9d314b-1202-4b8d-a3ff-1d103c760a03"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.fd78f027-fded-4c00-99d9-e09f851e104a">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.81ef2ae3-c2d6-3991-bcc3-586cb58bc19e">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.5a9d7cd2-8ab5-3647-929f-2ea423ca5d53">
+                                    <aixm:note lang="eng">Minimum flight altitude:2630m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.4a6f3059-00e2-46ce-85b5-cc11cf1e4689">
+            <gml:identifier codeSpace="urn:uuid:">4a6f3059-00e2-46ce-85b5-cc11cf1e4689</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.ae749c9c-f04e-4283-ba2d-da3de43794f4">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.4aad4229-7cfd-3be0-bee0-d5778bc56164">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>232.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>52.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">19.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.1c1afbf7-27e5-33c7-b8fa-565b55ad8abd">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:8d378311-33b1-4238-863c-3ed151be94ce"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:cb5b8d54-248b-4a1c-913c-7de5f54bb792"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.fe0bfb18-bb3c-3888-809b-fdab629d371a">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:2da6926c-8dcf-4146-a0dc-fa0408895e34"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.44514b64-dbe8-4b03-b572-5c0f716a3ea1">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.0980c451-7a24-356a-a003-746879bcb36c">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.f1ddf1ef-1632-3263-99ca-b86edf6ce7cf">
+                                    <aixm:note lang="eng">Minimum flight altitude:1988m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.4c9a4694-f946-4347-92e2-7d5c2ce7e53b">
+            <gml:identifier codeSpace="urn:uuid:">4c9a4694-f946-4347-92e2-7d5c2ce7e53b</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.e8607b79-7292-420d-bad7-e3c355b2a1ec">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.e8685c1b-c635-3ca2-ac01-ab241bae5b05">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>47.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>227.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">67.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.3d34eaf6-11d1-30f0-b69b-8953a32cab4a">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_navaidSystem xlink:href="urn:uuid:d0905d38-a666-4e41-8a03-c579041c59c8"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:c3963818-d082-426b-84a6-663b0588a004"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.ead8c02d-65f5-35a0-9d42-cddbc3e3f752">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:f0bbe39f-0ada-4b8c-8875-b0f60a21145c"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.e099e68f-4d2e-435d-8b22-24c3ba626876">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.ee353d0f-029f-3844-9ae4-4ee1290e2d83">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.7896b0f6-6fff-375e-8bc5-f3e644bd32b7">
+                                    <aixm:note lang="eng">Minimum flight altitude:1631m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.665b8490-a63c-4386-bd30-64d20c771bd6">
+            <gml:identifier codeSpace="urn:uuid:">665b8490-a63c-4386-bd30-64d20c771bd6</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.cf9c203f-873b-48af-ad39-9f02a9aebcbf">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.37463087-29b4-3154-bf94-b8fdb6ebb4af">
+                            <gml:beginPosition>2025-12-24T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition>2026-04-15T16:00:00Z</gml:endPosition>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>9</aixm:sequenceNumber>
+                    <aixm:correctionNumber>2</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>230.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>50.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">143.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.edc73779-69b7-33d0-b6fd-ac16e3fa8ed9">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_navaidSystem xlink:href="urn:uuid:0de3e3e8-7c78-43fe-9efb-587d842107d6"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:cb5b8d54-248b-4a1c-913c-7de5f54bb792"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.4b2253e3-1a7e-3ffe-afd0-5e9d0afb7b2f">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:87ec0906-710b-4620-8e6e-0e51e33d3af5"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.d4573840-ff70-426d-96f0-a386aa670cb8">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.58f1166e-84f5-38fe-ba35-267f5693a802">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.1ead6b7a-97a7-3701-9812-1e407ec5872b">
+                                    <aixm:note lang="eng">Minimum flight altitude:2728m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.705ed1cf-58c0-43fd-b0c3-e2fb31201f3f">
+            <gml:identifier codeSpace="urn:uuid:">705ed1cf-58c0-43fd-b0c3-e2fb31201f3f</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.eed99eb1-1c2a-4a2b-8530-b06568627108">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.f62e681c-b800-32b0-86bb-09d4300f4fa0">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>232.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>52.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">136.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.1b9c9664-eb09-3b11-a929-979c20be1d2e">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:2da6926c-8dcf-4146-a0dc-fa0408895e34"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:cb5b8d54-248b-4a1c-913c-7de5f54bb792"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.e2c85007-a681-3513-a4b5-dfb7af63b746">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_navaidSystem xlink:href="urn:uuid:0de3e3e8-7c78-43fe-9efb-587d842107d6"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.95dabd5f-f776-4ca8-aa4d-c1d7cd15a95b">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.099328e6-0e6f-3d55-9af0-f64f87fe15b3">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.8841ec75-d2ee-3744-8983-396a3a3a1368">
+                                    <aixm:note lang="eng">Minimum flight altitude:2122m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.8e2bfb90-75bc-40ca-935e-16f2da86f7cc">
+            <gml:identifier codeSpace="urn:uuid:">8e2bfb90-75bc-40ca-935e-16f2da86f7cc</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.0753c9aa-dc37-458b-84c4-7d1c6fca0b4a">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.b281db2f-ea70-3149-a1f9-037ae5329004">
+                            <gml:beginPosition>2025-12-24T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition>2026-04-15T16:00:00Z</gml:endPosition>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>9</aixm:sequenceNumber>
+                    <aixm:correctionNumber>2</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>232.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>52.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">155.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.0e233bf2-b4da-3c4b-844d-8a6132874fa4">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:8d378311-33b1-4238-863c-3ed151be94ce"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:cb5b8d54-248b-4a1c-913c-7de5f54bb792"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.1063c45e-b0ed-36fe-a310-c2d81edf803d">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_navaidSystem xlink:href="urn:uuid:0de3e3e8-7c78-43fe-9efb-587d842107d6"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.4504bd7e-6634-47cc-90cd-e27d02e3d3f3">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.abd8e6c2-cfe5-3f7b-804b-fb9aeb08e5ca">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.74ad0c6c-dc0f-33e5-aba9-f27c34f9141b">
+                                    <aixm:note lang="eng">Minimum flight altitude:2122m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.996522bd-8a9c-48a2-bc1e-c039f74ea550">
+            <gml:identifier codeSpace="urn:uuid:">996522bd-8a9c-48a2-bc1e-c039f74ea550</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.dc3fc63f-3648-4328-8f03-24841284fe83">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.205c9d98-1298-3bae-8879-8aeca6797860">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>355.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>175.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">78.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.74c50b40-82d3-3602-81da-d068ee4eae1a">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_navaidSystem xlink:href="urn:uuid:d0905d38-a666-4e41-8a03-c579041c59c8"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:319c3f90-d11f-4a83-b549-cbfdb60ea68f"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.7a6aa0b9-8579-3337-a03b-87941cafcbd8">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:97ad8939-4059-4972-941a-79856830cdcd"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.be9ff265-891a-4b16-ae51-d099856fa6c1">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.46015e78-a649-34b5-9c61-9a45af5580ff">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.df341a3c-4766-3a55-8ef6-1b954e4aaf6b">
+                                    <aixm:note lang="eng">Minimum flight altitude:1625m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.99b4926e-f509-447f-86cd-5310e4ccd1cd">
+            <gml:identifier codeSpace="urn:uuid:">99b4926e-f509-447f-86cd-5310e4ccd1cd</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.7155971e-725a-4e27-9ff5-518658558411">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.189a0c56-5515-3ecd-b099-27e3277dab96">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>95.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>275.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">119.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.62001a88-c415-39da-9c1e-90895986ceb2">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:e2f13a56-6da3-43f0-bf50-5950bb3fa611"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:c3963818-d082-426b-84a6-663b0588a004"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.5ee42d8b-bfe4-3d31-bd31-d47f9dd0ecc9">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_navaidSystem xlink:href="urn:uuid:0de3e3e8-7c78-43fe-9efb-587d842107d6"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.0b4477cc-9563-4d50-aa7c-5b2e7fe165de">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.edca7b2e-99c0-3426-aad3-fdf91c14b26a">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.e406aca9-0aa5-3757-99c8-92ef67de19a6">
+                                    <aixm:note lang="eng">Minimum flight altitude:2096m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.aaa4519e-e15d-4112-a672-09a5e2687fef">
+            <gml:identifier codeSpace="urn:uuid:">aaa4519e-e15d-4112-a672-09a5e2687fef</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.e23137a0-c82e-47a0-892f-3b33a2d75783">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.2850fd52-1c34-33f6-907d-5103ceade038">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>57.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>237.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">29.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.44e7e1a1-e59e-3ff2-ae1a-d038d070e182">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:4aa72e25-d972-4da5-941b-b0b46a1914fd"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:51ddf82a-aa4b-435c-bceb-283c4005463d"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.dc26d912-5a8c-3ffb-8368-3d3cb0677263">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:84f06660-080e-4114-bcde-2cee15ce0b3b"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.46b3dee4-28cf-49e4-b813-648cb64bcc1f">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.9bc47a67-9b9f-3d88-8c35-0ce55f4b9520">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.e565c6dc-dd80-3dd6-bd02-1753a9205f99">
+                                    <aixm:note lang="eng">Minimum flight altitude:1656m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.b075b99a-7dc7-44bc-929e-9b783bc39320">
+            <gml:identifier codeSpace="urn:uuid:">b075b99a-7dc7-44bc-929e-9b783bc39320</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.cc2422d2-d792-4359-a63e-79dfcab4043f">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.aafa3ee0-ebbf-3ca0-9c0a-da4fcd022acc">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>50.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>230.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">105.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.363c3957-d33a-346e-9ab6-f98ca96dedff">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:ffdab9ab-123d-45de-9d3b-56a79829795c"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:c3963818-d082-426b-84a6-663b0588a004"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.ca0a6bdd-7324-3af7-8e51-8120c640b570">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:e2f13a56-6da3-43f0-bf50-5950bb3fa611"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.263bee67-5cb1-4fe8-9519-9991cbc4a423">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.a1de7d8e-c944-3614-bbb0-30f021c360a9">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.f29998bc-a315-390e-a832-4fc83de204b8">
+                                    <aixm:note lang="eng">Minimum flight altitude:1780m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.b2e4fc18-a95e-4db2-9829-d90eadad6af4">
+            <gml:identifier codeSpace="urn:uuid:">b2e4fc18-a95e-4db2-9829-d90eadad6af4</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.586e4f92-a99a-4763-b0ae-9178967a8667">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.9853fc4c-79e0-3572-a726-384eb368b40e">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>237.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>57.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">42.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.2dc4a7a6-c342-38cd-8041-699219a1c5fd">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:4aa72e25-d972-4da5-941b-b0b46a1914fd"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:7b909ea9-22bc-49b1-98a9-4adfcc364820"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.e2ab228a-9e35-31b8-92a3-2a5800009d96">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:08c4bd04-e074-4168-a694-bffb590d7719"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.2445967a-f7e2-460a-8992-4211a46a25bd">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.d8a39c17-abd2-3ed1-865c-38f358452a68">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.48fdf8e4-4bfd-3066-a794-74fbd7d5a2d7">
+                                    <aixm:note lang="eng">Minimum flight altitude:2339m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.b6baff79-c25c-465c-8926-f21b790957d0">
+            <gml:identifier codeSpace="urn:uuid:">b6baff79-c25c-465c-8926-f21b790957d0</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.d826992c-44f4-4791-a87e-2725a5f9347e">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.e7dd2f84-98cf-3b76-bfd2-6b8a81520326">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>26.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>206.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">180.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.65d949db-b8bd-396e-9a65-ef1f865bf93a">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:f0bbe39f-0ada-4b8c-8875-b0f60a21145c"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:c3963818-d082-426b-84a6-663b0588a004"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.2577c311-98b2-3465-82f7-c5f93820d986">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:ffdab9ab-123d-45de-9d3b-56a79829795c"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.7dfaa35c-c4b4-482c-8015-d73959556781">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.17861cd3-b01b-3c2c-a461-443f537f62ec">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.271a386f-05a2-3ec7-b38a-469c8392b4ff">
+                                    <aixm:note lang="eng">Minimum flight altitude:1895m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.b6eadd27-db43-4005-8a3a-2a1ea830ade6">
+            <gml:identifier codeSpace="urn:uuid:">b6eadd27-db43-4005-8a3a-2a1ea830ade6</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.32973197-df9e-4c9e-bcef-b64e3f802781">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.5f09812d-e4f1-38b3-a73a-e44c7e528c7b">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>230.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>50.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">86.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.8d088198-2f32-3466-a729-6504bfd1b7f6">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:6c9d314b-1202-4b8d-a3ff-1d103c760a03"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:cb5b8d54-248b-4a1c-913c-7de5f54bb792"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.1d291338-55fa-3d2d-b589-0e4909ab3a36">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:87ec0906-710b-4620-8e6e-0e51e33d3af5"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.9f5498ab-9fc1-4229-be96-5aa6fe83dd23">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.864d9215-0b90-3d65-910a-f67440a9980b">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.c6afb10b-9310-334e-b5c9-083d622f21b5">
+                                    <aixm:note lang="eng">Minimum flight altitude:2630m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.c12c8425-fbbe-4b7f-b58a-f6e15af88d7b">
+            <gml:identifier codeSpace="urn:uuid:">c12c8425-fbbe-4b7f-b58a-f6e15af88d7b</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.f4ae3e42-71c5-4336-a9df-fe2cee7dba20">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.19b0b6dd-3f76-356a-99f4-65417fe2dce7">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>57.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>237.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">42.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.8eeebfe0-9ce5-3436-b006-4ccb740fed80">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:5662169c-1564-4a26-8e0f-54ebff372b24"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:51ddf82a-aa4b-435c-bceb-283c4005463d"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.814275eb-a1c8-3551-b686-dc08db6edd1c">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:08c4bd04-e074-4168-a694-bffb590d7719"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.423361ee-0dac-4563-a839-612ae51d28ff">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.be438844-5da5-33a8-8e98-18581b055d25">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.8ed20d75-076b-32cc-b478-36fb066f5a94">
+                                    <aixm:note lang="eng">Minimum flight altitude:2339m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.c650b856-c9b1-4a4d-8d63-b217fa220487">
+            <gml:identifier codeSpace="urn:uuid:">c650b856-c9b1-4a4d-8d63-b217fa220487</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.a7277e64-351f-4cba-9fc1-383feeea959b">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.a067ce68-baa7-37a2-b06e-ba0167f451c7">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>262.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>82.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">42.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.d4cb1584-d608-3e94-98eb-e5e5e82deb8f">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:d06b9585-8cce-4d69-b037-fa2f2dd7d559"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:28ef72b5-127d-45d2-956c-b9c47f6ac6dd"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.7d4cbdc5-bedd-3555-9f6a-796bbc59f641">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:cbcaad76-79a9-41b7-8bd0-5c69f5b888b1"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.13b28b5c-b995-4c4e-95e6-7db855464865">
+                            <aixm:direction>FORWARD</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.763069fa-afeb-3241-85c5-1ef8edd74aba">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.5f27cc1a-94da-3a19-87c6-60b33b77ad77">
+                                    <aixm:note lang="eng">Minimum flight altitude:1071m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.d3578388-0e58-4fd5-bd2a-3cc4ab3d85bc">
+            <gml:identifier codeSpace="urn:uuid:">d3578388-0e58-4fd5-bd2a-3cc4ab3d85bc</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.3e9b8d39-4791-49b7-a36b-c9ae87299e89">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.1568e6b5-f4ee-32d2-81e5-2221bb6c9cbc">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>197.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>17.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">101.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.90114cd7-df89-3b8d-9ed6-d3eec11b5cbc">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:820c5524-d876-4211-a31d-b9e14be4acb3"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:7b909ea9-22bc-49b1-98a9-4adfcc364820"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.06f952d1-70a0-3785-b6cb-5424356d5af8">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:82d47205-9b2c-4258-b2d1-74459f2a0165"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.137de68e-913a-4e51-8700-c9ddc52d22ee">
+                            <aixm:direction>FORWARD</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.e2d92a24-0d2e-3151-9634-e3a528655e91">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.d062edcd-add7-31fb-86eb-f835080f9e06">
+                                    <aixm:note lang="eng">Minimum flight altitude:2074m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.e6003d8a-c45e-483d-9898-484d241ff76c">
+            <gml:identifier codeSpace="urn:uuid:">e6003d8a-c45e-483d-9898-484d241ff76c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.69101c5a-1630-4a4e-8ffa-3dc0c959afca">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.7b42b68b-2db4-3463-9f90-f22aa6fdc4f7">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>209.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>29.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">39.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.265d6bd4-b7cc-388d-bc1b-c2880130c89e">
+                            <aixm:reportingATC>ON_REQUEST</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:f2554141-2bab-41bc-bf87-6b63a0e427e4"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:28ef72b5-127d-45d2-956c-b9c47f6ac6dd"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.83eff5d4-9837-3bfc-bed2-ff1482f5d7f9">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:5662169c-1564-4a26-8e0f-54ebff372b24"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.60316e14-074a-4861-be0f-3d8eb0ce895c">
+                            <aixm:direction>FORWARD</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.128ceb79-301e-3cc2-837f-9c3bb85ad90d">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.1449e6ce-df29-3ea7-975b-af626ba72670">
+                                    <aixm:note lang="eng">Minimum flight altitude:2339m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.ee24cf8d-201b-489a-acb9-c601ad3cdfd6">
+            <gml:identifier codeSpace="urn:uuid:">ee24cf8d-201b-489a-acb9-c601ad3cdfd6</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.ac74bd5e-5a1d-4ac2-aee9-8a8a781d40c7">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.fb48b62f-08a4-3c5c-9c59-15bce0d4134f">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>14.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>194.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">79.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.e3fab7cf-73ce-36de-9fd1-56ef0ab0eb11">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:6c9d314b-1202-4b8d-a3ff-1d103c760a03"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:354232a4-56a9-4237-aca1-3423d019bbe6"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.31628098-8042-3af4-be18-c427bf76c1fd">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:12363ae0-eca6-4b14-b0ef-c3bd31358ba6"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.06a98363-60cc-45dc-8f99-0eacbf521690">
+                            <aixm:direction>BOTH</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.e19a0971-9d98-3927-8cb2-563c2c991612">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.983d4ef5-81f1-322e-b779-0e17416f208b">
+                                    <aixm:note lang="eng">Minimum flight altitude:2630m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RouteSegment gml:id="uuid.f906ef17-9247-49dc-b018-a125836b77d0">
+            <gml:identifier codeSpace="urn:uuid:">f906ef17-9247-49dc-b018-a125836b77d0</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RouteSegmentTimeSlice gml:id="uuid.09323de9-a5c2-4014-a1d3-99ec2a182f55">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.66cfe667-00d1-3571-9728-8e5735f92570">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:upperLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:upperLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:minimumObstacleClearanceAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:magneticTrack>186.0</aixm:magneticTrack>
+                    <aixm:reverseMagneticTrack>6.0</aixm:reverseMagneticTrack>
+                    <aixm:length uom="KM">135.0</aixm:length>
+                    <aixm:minimumEnrouteAltitude xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:navigationType xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:requiredNavigationPerformance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:start>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.4b97d747-aac5-3e4d-a927-642bcda3fc47">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:08c4bd04-e074-4168-a694-bffb590d7719"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:start>
+                    <aixm:routeFormed xlink:href="urn:uuid:d0c5bba4-c61e-4745-9f03-973d083f31ff"/>
+                    <aixm:end>
+                        <aixm:EnRouteSegmentPoint gml:id="uuid.cc4ca023-545c-30ce-8d33-fa5eebbfaf82">
+                            <aixm:reportingATC>COMPULSORY</aixm:reportingATC>
+                            <aixm:pointChoice_fixDesignatedPoint xlink:href="urn:uuid:3768552c-b5aa-4c18-92aa-d3f454f4ca6f"/>
+                        </aixm:EnRouteSegmentPoint>
+                    </aixm:end>
+                    <aixm:availability>
+                        <aixm:RouteAvailability gml:id="uuid.cc7a44d6-47df-49d3-a289-6a3f0968f44a">
+                            <aixm:direction>BACKWARD</aixm:direction>
+                        </aixm:RouteAvailability>
+                    </aixm:availability>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.c42c03cd-763e-3636-960e-a61e1dc30e5a">
+                            <aixm:propertyName>minimumFlightAltitude</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.4e190976-3b0d-381b-8646-a5d8854a71b4">
+                                    <aixm:note lang="eng">Minimum flight altitude:2339m</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RouteSegmentTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RouteSegment>
+    </message:hasMember>
+</message:AIXMBasicMessage>

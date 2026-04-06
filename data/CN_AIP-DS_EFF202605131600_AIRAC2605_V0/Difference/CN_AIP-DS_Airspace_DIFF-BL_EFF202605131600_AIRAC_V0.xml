@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?><message:AIXMBasicMessage xmlns:message="http://www.aixm.aero/schema/5.1.1/message" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="uuid.e9e60f0c-03f0-3432-abe2-53ce06b479fe">
+    <aixm:messageMetadata>
+        <gmd:MD_Metadata id="uuid.f206a078-8018-32cd-bfaf-82e8571e7b8a">
+            <gmd:contact>
+                <gmd:CI_ResponsibleParty>
+                    <gmd:organisationName>
+                        <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                    </gmd:organisationName>
+                    <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                            <gmd:phone>
+                                <gmd:CI_Telephone>
+                                    <gmd:voice>
+                                        <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                    </gmd:voice>
+                                </gmd:CI_Telephone>
+                            </gmd:phone>
+                            <gmd:address>
+                                <gmd:CI_Address>
+                                    <gmd:deliveryPoint>
+                                        <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                    </gmd:deliveryPoint>
+                                    <gmd:city>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:city>
+                                    <gmd:administrativeArea>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:administrativeArea>
+                                    <gmd:postalCode>
+                                        <gco:CharacterString>100018</gco:CharacterString>
+                                    </gmd:postalCode>
+                                    <gmd:country>
+                                        <gco:CharacterString>China</gco:CharacterString>
+                                    </gmd:country>
+                                    <gmd:electronicMailAddress>
+                                        <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                    </gmd:electronicMailAddress>
+                                </gmd:CI_Address>
+                            </gmd:address>
+                        </gmd:CI_Contact>
+                    </gmd:contactInfo>
+                    <gmd:role>
+                        <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                    </gmd:role>
+                </gmd:CI_ResponsibleParty>
+            </gmd:contact>
+            <gmd:dateStamp>
+                <gco:DateTime>2026-04-03T04:27:43Z</gco:DateTime>
+            </gmd:dateStamp>
+            <gmd:identificationInfo>
+                <gmd:MD_DataIdentification>
+                    <gmd:citation>
+                        <gmd:CI_Citation>
+                            <gmd:title>
+                                <gco:CharacterString>Date and time when provided</gco:CharacterString>
+                            </gmd:title>
+                            <gmd:date>
+                                <gmd:CI_Date>
+                                    <gmd:date>
+                                        <gco:DateTime>2026-04-03T04:27:43Z</gco:DateTime>
+                                    </gmd:date>
+                                    <gmd:dateType>
+                                        <gmd:CI_DateTypeCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodeLists.xml#CI_DateTypeCode" codeListValue="revision">revision</gmd:CI_DateTypeCode>
+                                    </gmd:dateType>
+                                </gmd:CI_Date>
+                            </gmd:date>
+                        </gmd:CI_Citation>
+                    </gmd:citation>
+                    <gmd:abstract>
+                        <gco:CharacterString>The aeronautical data for People's Republic of China are collected and published according to ICAO Annex 15, 16th Edition requirements. Refer to the DPS document for detail information.</gco:CharacterString>
+                    </gmd:abstract>
+                    <gmd:pointOfContact>
+                        <gmd:CI_ResponsibleParty>
+                            <gmd:organisationName>
+                                <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                            </gmd:organisationName>
+                            <gmd:contactInfo>
+                                <gmd:CI_Contact>
+                                    <gmd:phone>
+                                        <gmd:CI_Telephone>
+                                            <gmd:voice>
+                                                <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                            </gmd:voice>
+                                        </gmd:CI_Telephone>
+                                    </gmd:phone>
+                                    <gmd:address>
+                                        <gmd:CI_Address>
+                                            <gmd:deliveryPoint>
+                                                <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                            </gmd:deliveryPoint>
+                                            <gmd:city>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:city>
+                                            <gmd:administrativeArea>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:administrativeArea>
+                                            <gmd:postalCode>
+                                                <gco:CharacterString>100018</gco:CharacterString>
+                                            </gmd:postalCode>
+                                            <gmd:country>
+                                                <gco:CharacterString>China</gco:CharacterString>
+                                            </gmd:country>
+                                            <gmd:electronicMailAddress>
+                                                <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                            </gmd:electronicMailAddress>
+                                        </gmd:CI_Address>
+                                    </gmd:address>
+                                </gmd:CI_Contact>
+                            </gmd:contactInfo>
+                            <gmd:role>
+                                <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                            </gmd:role>
+                        </gmd:CI_ResponsibleParty>
+                    </gmd:pointOfContact>
+                    <gmd:resourceConstraints>
+                        <gmd:MD_Constraints>
+                            <gmd:useLimitation>
+                                <gco:CharacterString>For evaluation and testing use only; not for operational purposes.</gco:CharacterString>
+                            </gmd:useLimitation>
+                        </gmd:MD_Constraints>
+                    </gmd:resourceConstraints>
+                    <gmd:spatialRepresentationType>
+                        <gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector">vector</gmd:MD_SpatialRepresentationTypeCode>
+                    </gmd:spatialRepresentationType>
+                    <gmd:language>
+                        <gco:CharacterString>eng</gco:CharacterString>
+                    </gmd:language>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:temporalElement>
+                                <gmd:EX_TemporalExtent>
+                                    <gmd:extent>
+                                        <gml:TimePeriod gml:id="uuid.a8f7d240-d8bb-3dcb-bd24-2f2f0b59a77e">
+                                            <gml:beginPosition>2026-05-13T16:00:00Z</gml:beginPosition>
+                                            <gml:endPosition indeterminatePosition="unknown"/>
+                                        </gml:TimePeriod>
+                                    </gmd:extent>
+                                </gmd:EX_TemporalExtent>
+                            </gmd:temporalElement>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:description>
+                                <gco:CharacterString>AIRAC</gco:CharacterString>
+                            </gmd:description>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                </gmd:MD_DataIdentification>
+            </gmd:identificationInfo>
+        </gmd:MD_Metadata>
+    </aixm:messageMetadata>
+    <message:hasMember>
+        <aixm:Airspace gml:id="uuid.5903fca8-2c2e-4550-9763-d0ec8344621c">
+            <gml:identifier codeSpace="urn:uuid:">5903fca8-2c2e-4550-9763-d0ec8344621c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:AirspaceTimeSlice gml:id="uuid.e855c5d0-f797-4c19-8eac-cde6771cd2e9">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.e73252f6-ec73-34e9-b0f2-ba7fb06759c0">
+                            <gml:beginPosition>2026-05-13T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:type>SECTOR</aixm:type>
+                    <aixm:designator>ZBYNAP01W</aixm:designator>
+                    <aixm:name>AP01</aixm:name>
+                    <aixm:geometryComponent>
+                        <aixm:AirspaceGeometryComponent gml:id="uuid.30c052d1-35ad-42cd-863e-8e5540db7f56">
+                            <aixm:theAirspaceVolume>
+                                <aixm:AirspaceVolume gml:id="uuid.2d99b72d-b4c4-4a08-a868-fd2cf1466160">
+                                    <aixm:upperLimit uom="M">3600</aixm:upperLimit>
+                                    <aixm:upperLimitReference>STD</aixm:upperLimitReference>
+                                    <aixm:lowerLimit>GND</aixm:lowerLimit>
+                                    <aixm:lowerLimitReference xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                    <aixm:horizontalProjection>
+                                        <aixm:ElevatedSurface gml:id="uuid.1a60dd8a-85f0-4c52-afea-14ff34e3fdb1" srsName="urn:ogc:def:crs:EPSG::4326">
+                                            <gml:patches>
+                                                <gml:PolygonPatch>
+                                                    <gml:exterior>
+                                                        <gml:Ring>
+                                                            <gml:curveMember>
+                                                                <aixm:Curve gml:id="uuid.fcfe859f-abe5-3d6f-a2f1-9a250ea0ed73">
+                                                                    <gml:segments>
+                                                                        <gml:GeodesicString>
+                                                                            <gml:posList>37.9519444444 113.4913888889 37.8688888889 113.5438888889 37.2675 113.3413888889 37.1041666667 112.9647222222 37.3125 112.5 37.4916666666 112.3444444444 37.7497222222 112.6188888889 37.9430555555 112.8569444444 37.9519444444 113.4913888889</gml:posList>
+                                                                        </gml:GeodesicString>
+                                                                    </gml:segments>
+                                                                </aixm:Curve>
+                                                            </gml:curveMember>
+                                                        </gml:Ring>
+                                                    </gml:exterior>
+                                                </gml:PolygonPatch>
+                                            </gml:patches>
+                                        </aixm:ElevatedSurface>
+                                    </aixm:horizontalProjection>
+                                </aixm:AirspaceVolume>
+                            </aixm:theAirspaceVolume>
+                        </aixm:AirspaceGeometryComponent>
+                    </aixm:geometryComponent>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.8501d88b-212d-3ee1-967c-8fd6b8e04d89">
+                            <aixm:propertyName>activation</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.1035a69b-bb4b-35a0-8241-d0afcff3f273">
+                                    <aixm:note lang="eng">activation</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:AirspaceTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Airspace>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Airspace gml:id="uuid.74ac18b0-8194-450f-84a7-506bb71fb56f">
+            <gml:identifier codeSpace="urn:uuid:">74ac18b0-8194-450f-84a7-506bb71fb56f</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:AirspaceTimeSlice gml:id="uuid.7a3eee10-1aab-444a-a53e-9bb4bbe137f6">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.e820977e-dc31-305b-aff8-172ebbac5971">
+                            <gml:beginPosition>2026-05-13T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:type>SECTOR</aixm:type>
+                    <aixm:designator>ZBAAAR41</aixm:designator>
+                    <aixm:name>AR41</aixm:name>
+                    <aixm:geometryComponent>
+                        <aixm:AirspaceGeometryComponent gml:id="uuid.cd37ea8d-a9e2-4f20-af23-b3c25951dd78">
+                            <aixm:theAirspaceVolume>
+                                <aixm:AirspaceVolume gml:id="uuid.a49a1d92-117b-4833-9892-10d1ef348af0">
+                                    <aixm:upperLimit uom="M">12500</aixm:upperLimit>
+                                    <aixm:upperLimitReference>STD</aixm:upperLimitReference>
+                                    <aixm:lowerLimit>GND</aixm:lowerLimit>
+                                    <aixm:lowerLimitReference>STD</aixm:lowerLimitReference>
+                                    <aixm:horizontalProjection>
+                                        <aixm:ElevatedSurface gml:id="uuid.7dd03fd0-a96c-4d5e-8062-de93cfe4ecb1" srsName="urn:ogc:def:crs:EPSG::4326">
+                                            <gml:patches>
+                                                <gml:PolygonPatch>
+                                                    <gml:exterior>
+                                                        <gml:Ring>
+                                                            <gml:curveMember>
+                                                                <aixm:Curve gml:id="uuid.fe7bd97a-07b2-30bc-807b-3705308137ec">
+                                                                    <gml:segments>
+                                                                        <gml:GeodesicString>
+                                                                            <gml:posList>41.4322222223 113.6936111111 40.26 112.38 40.3408333333 112.64 40.2155555556 114.5819444445 41.4322222223 113.6936111111</gml:posList>
+                                                                        </gml:GeodesicString>
+                                                                    </gml:segments>
+                                                                </aixm:Curve>
+                                                            </gml:curveMember>
+                                                        </gml:Ring>
+                                                    </gml:exterior>
+                                                </gml:PolygonPatch>
+                                            </gml:patches>
+                                        </aixm:ElevatedSurface>
+                                    </aixm:horizontalProjection>
+                                </aixm:AirspaceVolume>
+                            </aixm:theAirspaceVolume>
+                        </aixm:AirspaceGeometryComponent>
+                    </aixm:geometryComponent>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.ada7d4dc-789c-31b4-a6dc-db40b598704f">
+                            <aixm:propertyName>activation</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.96e72b06-a74a-3ee3-bc0a-6ddcfe020ff8">
+                                    <aixm:note lang="eng">activation</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:AirspaceTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Airspace>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Airspace gml:id="uuid.e038c89c-33e3-4539-841f-14bbbbae5c51">
+            <gml:identifier codeSpace="urn:uuid:">e038c89c-33e3-4539-841f-14bbbbae5c51</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:AirspaceTimeSlice gml:id="uuid.d9a93dcd-f808-4a54-8f4e-bc08a0896b22">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.2b76e853-b8c2-3301-b9b5-800715b85219">
+                            <gml:beginPosition>2026-05-13T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:type>SECTOR</aixm:type>
+                    <aixm:designator>ZBAAAR42</aixm:designator>
+                    <aixm:name>AR42</aixm:name>
+                    <aixm:geometryComponent>
+                        <aixm:AirspaceGeometryComponent gml:id="uuid.85196405-c52c-49fd-b9ed-905cfbebbc20">
+                            <aixm:theAirspaceVolume>
+                                <aixm:AirspaceVolume gml:id="uuid.da2f26e3-7bf5-4808-b7fc-092cc3ab54e1">
+                                    <aixm:upperLimit uom="M">12500</aixm:upperLimit>
+                                    <aixm:upperLimitReference>STD</aixm:upperLimitReference>
+                                    <aixm:lowerLimit uom="M">8900</aixm:lowerLimit>
+                                    <aixm:lowerLimitReference>STD</aixm:lowerLimitReference>
+                                    <aixm:horizontalProjection>
+                                        <aixm:ElevatedSurface gml:id="uuid.c051d218-984c-48c5-b640-d889d9e05784" srsName="urn:ogc:def:crs:EPSG::4326">
+                                            <gml:patches>
+                                                <gml:PolygonPatch>
+                                                    <gml:exterior>
+                                                        <gml:Ring>
+                                                            <gml:curveMember>
+                                                                <aixm:Curve gml:id="uuid.6b446fa1-c720-371d-9e9e-1738020830d9">
+                                                                    <gml:segments>
+                                                                        <gml:GeodesicString>
+                                                                            <gml:posList>37.6152777778 114.2325 37.7908333333 113.5933333333 37.9519444444 113.4913888889 38.0241666667 113.4375 38.3166666667 114.0833333333 38.42 114.3305555556 38.8491666666 115.5141666667 38.6675 115.5313888889 38.6644444444 115.6761111111 38.2880555555 115.4388888889 37.8102777778 115.47 37.6691666667 115.3819444445 37.8244444445 114.9641666667 37.6152777778 114.2325</gml:posList>
+                                                                        </gml:GeodesicString>
+                                                                    </gml:segments>
+                                                                </aixm:Curve>
+                                                            </gml:curveMember>
+                                                        </gml:Ring>
+                                                    </gml:exterior>
+                                                </gml:PolygonPatch>
+                                            </gml:patches>
+                                        </aixm:ElevatedSurface>
+                                    </aixm:horizontalProjection>
+                                </aixm:AirspaceVolume>
+                            </aixm:theAirspaceVolume>
+                        </aixm:AirspaceGeometryComponent>
+                    </aixm:geometryComponent>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.46d86481-810f-3ed2-88c8-8a1f4dc1938b">
+                            <aixm:propertyName>activation</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.110487d9-2806-35cb-be37-3dc4477998c0">
+                                    <aixm:note lang="eng">activation</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:AirspaceTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Airspace>
+    </message:hasMember>
+</message:AIXMBasicMessage>

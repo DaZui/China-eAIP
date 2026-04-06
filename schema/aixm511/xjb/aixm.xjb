@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2016, Stephan Heinemann (UVic Center for Aerospace Research)
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without modification,
+    are permitted provided that the following conditions are met:
+
+    1. Redistributions of source code must retain the above copyright notice, this
+    list of conditions and the following disclaimer.
+
+    2. Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+
+    3. Neither the name of the copyright holder nor the names of its contributors
+    may be used to endorse or promote products derived from this software without
+    specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+    FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+    DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+    SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+    CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+    OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-->
+<jaxb:bindings
+	version="2.1"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:aixm="http://www.aixm.aero/schema/5.1.1"
+	xmlns:namespace="http://jaxb2-commons.dev.java.net/namespace-prefix"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jaxb2-commons.dev.java.net/namespace-prefix http://java.net/projects/jaxb2-commons/sources/svn/content/namespace-prefix/trunk/src/main/resources/prefix-namespace-schema.xsd">
+
+	<!--jaxb:bindings scd="x-schema::aixm" xmlns:aixm="http://www.aixm.aero/schema/5.1.1"-->
+	<!-- NOTE: namespace-prefix plugin (xjc dependency) does not work properly with scd attribute -->
+	<jaxb:bindings schemaLocation="../xsd/AIXM_Features.xsd">
+		<jaxb:schemaBindings>
+			<jaxb:package name="aero.aixm"/>
+		</jaxb:schemaBindings>
+		<jaxb:bindings>
+			<namespace:prefix name="aixm"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:AerialRefuellingPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="aerialRefuellingName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:AeronauticalGroundLightPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="aeronauticalGroundLightName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:AirportHeliportPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="airportHeliportName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:AirspacePropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="airspaceName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:ApronPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="apronName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:CityPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="cityName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:ContactInformationPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="contactInformationName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:DesignatedPointPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="designatedPointName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:GeoBorderPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="geoBorderName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:NavaidPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="navaidName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:NavaidEquipmentPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="navaidEquipmentName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:OrganisationAuthorityPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="organisationAuthorityName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:ProcedurePropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="procedureName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:RadarEquipmentPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="radarEquipmentName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:RoutePropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="routeName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:ServicePropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="serviceName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:SpecialDatePropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="specialDateName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:SpecialNavigationStationPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="specialNavigationStationName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:SpecialNavigationSystemPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="specialNavigationSystemName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:StandardLevelTablePropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="standardLevelTableName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:UnitPropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="unitName"/>
+		</jaxb:bindings>
+		<jaxb:bindings scd="/group::aixm:VerticalStructurePropertyGroup/model::sequence/aixm:name">
+			<jaxb:property name="verticalStructureName"/>
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<!--jaxb:bindings scd="x-schema::message" xmlns:message="http://www.aixm.aero/schema/5.1.1/message"-->
+	<!-- NOTE: namespace-prefix plugin (xjc dependency) does not work properly with scd attribute -->
+	<jaxb:bindings schemaLocation="../xsd/message/AIXM_BasicMessage.xsd">
+		<jaxb:schemaBindings>
+			<jaxb:package name="aero.aixm.message"/>
+		</jaxb:schemaBindings>
+		<jaxb:bindings>
+			<namespace:prefix name="message"/>
+		</jaxb:bindings>
+	</jaxb:bindings>
+	
+</jaxb:bindings>
+

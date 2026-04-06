@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:aisc-ds="https://www.eaipchina.cn/schema/dataset/meta"
+            targetNamespace="https://www.eaipchina.cn/schema/dataset/meta"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <!-- 基础类型定义 -->
+    <xsd:simpleType name="UIDType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="ProductType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="AIP-DS"/>
+
+            <!-- 可以添加其他产品类型 -->
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="DataVariantType">
+        <xsd:restriction base="xsd:string">
+            <xsd:enumeration value="BASELINE"/>
+            <xsd:enumeration value="SUPPLEMENTARY"/>
+            <!-- 可以添加其他数据变体类型 -->
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="PubNoType">
+        <xsd:restriction base="xsd:string">
+
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="VersionType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="V[0-9]+"/>
+            <xsd:minLength value="2"/>
+            <xsd:maxLength value="5"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="SHA256SumType">
+        <xsd:restriction base="xsd:string">
+            <xsd:pattern value="[a-fA-F0-9]{64}"/>
+            <xsd:minLength value="64"/>
+            <xsd:maxLength value="64"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+    <xsd:simpleType name="FilenameType">
+        <xsd:restriction base="xsd:string">
+
+        </xsd:restriction>
+    </xsd:simpleType>
+    <!-- 数据集类型定义 -->
+    <xsd:complexType name="DatasetType">
+        <xsd:sequence>
+            <!-- 数据集元数据，引用导入的元数据类型 -->
+            <xsd:element ref="aisc-ds:datasetMeta"/>
+
+            <!-- 数据集文件名 -->
+            <xsd:element name="filename" type="aisc-ds:FilenameType"/>
+
+            <!-- SHA256校验和 -->
+            <xsd:element name="sha256sum" type="aisc-ds:SHA256SumType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- 数据集元数据类型定义 -->
+    <xsd:complexType name="DatasetMetaType">
+        <xsd:sequence>
+            <xsd:element name="uid" type="aisc-ds:UIDType"/>
+            <xsd:element name="product" type="aisc-ds:ProductType"/>
+            <xsd:element name="issueTime" type="xsd:dateTime"/>
+            <xsd:element name="dataVariant" type="aisc-ds:DataVariantType"/>
+            <xsd:element name="pubNo" type="aisc-ds:PubNoType"/>
+            <xsd:element name="effectiveTime" type="xsd:dateTime"/>
+            <xsd:element name="version" type="aisc-ds:VersionType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <!-- 数据集元数据元素声明 -->
+    <xsd:element name="datasetMeta" type="aisc-ds:DatasetMetaType"/>
+
+</xsd:schema>

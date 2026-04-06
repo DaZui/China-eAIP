@@ -1,0 +1,1540 @@
+<?xml version="1.0" encoding="UTF-8"?><message:AIXMBasicMessage xmlns:message="http://www.aixm.aero/schema/5.1.1/message" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="uuid.9f3f40ef-4f41-35c0-8f92-a754a2ec35eb">
+    <aixm:messageMetadata>
+        <gmd:MD_Metadata id="uuid.78d8c784-bcde-3243-9556-d65d847c0c3a">
+            <gmd:contact>
+                <gmd:CI_ResponsibleParty>
+                    <gmd:organisationName>
+                        <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                    </gmd:organisationName>
+                    <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                            <gmd:phone>
+                                <gmd:CI_Telephone>
+                                    <gmd:voice>
+                                        <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                    </gmd:voice>
+                                </gmd:CI_Telephone>
+                            </gmd:phone>
+                            <gmd:address>
+                                <gmd:CI_Address>
+                                    <gmd:deliveryPoint>
+                                        <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                    </gmd:deliveryPoint>
+                                    <gmd:city>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:city>
+                                    <gmd:administrativeArea>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:administrativeArea>
+                                    <gmd:postalCode>
+                                        <gco:CharacterString>100018</gco:CharacterString>
+                                    </gmd:postalCode>
+                                    <gmd:country>
+                                        <gco:CharacterString>China</gco:CharacterString>
+                                    </gmd:country>
+                                    <gmd:electronicMailAddress>
+                                        <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                    </gmd:electronicMailAddress>
+                                </gmd:CI_Address>
+                            </gmd:address>
+                        </gmd:CI_Contact>
+                    </gmd:contactInfo>
+                    <gmd:role>
+                        <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                    </gmd:role>
+                </gmd:CI_ResponsibleParty>
+            </gmd:contact>
+            <gmd:dateStamp>
+                <gco:DateTime>2026-03-18T02:23:46Z</gco:DateTime>
+            </gmd:dateStamp>
+            <gmd:identificationInfo>
+                <gmd:MD_DataIdentification>
+                    <gmd:citation>
+                        <gmd:CI_Citation>
+                            <gmd:title>
+                                <gco:CharacterString>Date and time when provided</gco:CharacterString>
+                            </gmd:title>
+                            <gmd:date>
+                                <gmd:CI_Date>
+                                    <gmd:date>
+                                        <gco:DateTime>2026-03-18T02:23:46Z</gco:DateTime>
+                                    </gmd:date>
+                                    <gmd:dateType>
+                                        <gmd:CI_DateTypeCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodeLists.xml#CI_DateTypeCode" codeListValue="publication">publication</gmd:CI_DateTypeCode>
+                                    </gmd:dateType>
+                                </gmd:CI_Date>
+                            </gmd:date>
+                        </gmd:CI_Citation>
+                    </gmd:citation>
+                    <gmd:abstract>
+                        <gco:CharacterString>The aeronautical data for People's Republic of China are collected and published according to ICAO Annex 15, 16th Edition requirements. Refer to the DPS document for detail information.</gco:CharacterString>
+                    </gmd:abstract>
+                    <gmd:pointOfContact>
+                        <gmd:CI_ResponsibleParty>
+                            <gmd:organisationName>
+                                <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                            </gmd:organisationName>
+                            <gmd:contactInfo>
+                                <gmd:CI_Contact>
+                                    <gmd:phone>
+                                        <gmd:CI_Telephone>
+                                            <gmd:voice>
+                                                <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                            </gmd:voice>
+                                        </gmd:CI_Telephone>
+                                    </gmd:phone>
+                                    <gmd:address>
+                                        <gmd:CI_Address>
+                                            <gmd:deliveryPoint>
+                                                <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                            </gmd:deliveryPoint>
+                                            <gmd:city>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:city>
+                                            <gmd:administrativeArea>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:administrativeArea>
+                                            <gmd:postalCode>
+                                                <gco:CharacterString>100018</gco:CharacterString>
+                                            </gmd:postalCode>
+                                            <gmd:country>
+                                                <gco:CharacterString>China</gco:CharacterString>
+                                            </gmd:country>
+                                            <gmd:electronicMailAddress>
+                                                <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                            </gmd:electronicMailAddress>
+                                        </gmd:CI_Address>
+                                    </gmd:address>
+                                </gmd:CI_Contact>
+                            </gmd:contactInfo>
+                            <gmd:role>
+                                <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                            </gmd:role>
+                        </gmd:CI_ResponsibleParty>
+                    </gmd:pointOfContact>
+                    <gmd:resourceConstraints>
+                        <gmd:MD_Constraints>
+                            <gmd:useLimitation>
+                                <gco:CharacterString>For evaluation and testing use only; not for operational purposes.</gco:CharacterString>
+                            </gmd:useLimitation>
+                        </gmd:MD_Constraints>
+                    </gmd:resourceConstraints>
+                    <gmd:spatialRepresentationType>
+                        <gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector">vector</gmd:MD_SpatialRepresentationTypeCode>
+                    </gmd:spatialRepresentationType>
+                    <gmd:language>
+                        <gco:CharacterString>eng</gco:CharacterString>
+                    </gmd:language>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:temporalElement>
+                                <gmd:EX_TemporalExtent>
+                                    <gmd:extent>
+                                        <gml:TimePeriod gml:id="uuid.a8f7d240-d8bb-3dcb-bd24-2f2f0b59a77e">
+                                            <gml:beginPosition>2026-03-18T16:00:00Z</gml:beginPosition>
+                                            <gml:endPosition indeterminatePosition="unknown"/>
+                                        </gml:TimePeriod>
+                                    </gmd:extent>
+                                </gmd:EX_TemporalExtent>
+                            </gmd:temporalElement>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:description>
+                                <gco:CharacterString>AIRAC</gco:CharacterString>
+                            </gmd:description>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                </gmd:MD_DataIdentification>
+            </gmd:identificationInfo>
+        </gmd:MD_Metadata>
+    </aixm:messageMetadata>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.02f50b6a-6c12-4f11-8806-2732f1171b35">
+            <gml:identifier codeSpace="urn:uuid:">02f50b6a-6c12-4f11-8806-2732f1171b35</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.4cd10710-74c7-4501-9b9e-9a7202e1aa6a">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.34da6ace-e23d-3ffa-a436-f96b4b53e9a4">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>KUNMING APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.058f04f1-ed23-4619-81f5-62a55b71c66c">
+            <gml:identifier codeSpace="urn:uuid:">058f04f1-ed23-4619-81f5-62a55b71c66c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.ed761291-8493-43c9-9330-2c881f3b82db">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.b57b6b35-928c-3e37-808f-243803042e8f">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>YANTAI APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.0c69628d-6060-44f9-91a5-9a3ddb821a85">
+            <gml:identifier codeSpace="urn:uuid:">0c69628d-6060-44f9-91a5-9a3ddb821a85</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.b33bd2ba-25f8-4dbb-9cde-98ece612b09d">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.3bcb4e75-9b41-3c9e-a851-77601e0b104c">
+                            <gml:beginPosition>2024-10-02T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>CHANGZHOU APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.0ffbbdba-0f3c-47a2-8505-f53233c8db0d">
+            <gml:identifier codeSpace="urn:uuid:">0ffbbdba-0f3c-47a2-8505-f53233c8db0d</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.2dbdd9da-3e40-4cc2-bf60-37987914a88b">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.a3230373-e05a-3a15-97ca-bafce86e09ec">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>DALIAN APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.10385833-18f2-4233-8f0c-a59b8568ee5d">
+            <gml:identifier codeSpace="urn:uuid:">10385833-18f2-4233-8f0c-a59b8568ee5d</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.f8ead7cc-c151-40a4-8bc1-961d3cf27c28">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.e56333b4-5485-3120-893d-57aef872e8e4">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>BEIJING ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.1917a314-a458-4029-811f-87008a4b6e3a">
+            <gml:identifier codeSpace="urn:uuid:">1917a314-a458-4029-811f-87008a4b6e3a</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.6130a3dd-0230-49a4-bd91-2e6c40446a98">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.6102e0f3-b13f-3b42-a2f7-503f6311c966">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>ZHUHAI APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.2012c1a6-9f4e-4348-bd92-01e35f131ad3">
+            <gml:identifier codeSpace="urn:uuid:">2012c1a6-9f4e-4348-bd92-01e35f131ad3</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.8f862caf-6f40-4ccb-9191-fae73cf7b430">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.57bf2156-01eb-3203-936e-b1eb30ddafb8">
+                            <gml:beginPosition>2023-11-29T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>2</aixm:correctionNumber>
+                    <aixm:name>XIAMEN ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.22af5e7d-72aa-4633-bdff-68f93bd0e0b1">
+            <gml:identifier codeSpace="urn:uuid:">22af5e7d-72aa-4633-bdff-68f93bd0e0b1</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.8b60b056-ce13-4ef0-8ec6-5eae7115606d">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.0db6ed9d-f785-3eb5-9416-24f30826605f">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>QINGDAO APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.26a5a8f0-6902-43e8-889a-2cff2c237e37">
+            <gml:identifier codeSpace="urn:uuid:">26a5a8f0-6902-43e8-889a-2cff2c237e37</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.70d896f4-ab91-42c4-afcb-b453aacb8a2d">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.7fd57eaa-49e7-3358-9b03-98636ea55547">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>NINGBO APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.34fd0995-aaee-48bf-aab1-e9d97ccc9813">
+            <gml:identifier codeSpace="urn:uuid:">34fd0995-aaee-48bf-aab1-e9d97ccc9813</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.c78ca87e-50c6-4521-88df-4281df7b63c9">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.3802c347-0652-330a-b7a2-70beaf4c986e">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>LHASA ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.38c625a1-8d7a-41de-ad0b-221079736e5c">
+            <gml:identifier codeSpace="urn:uuid:">38c625a1-8d7a-41de-ad0b-221079736e5c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.a3848ded-e33f-40a9-bf2e-74e0d3baf2d9">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.fb0c8083-d334-317a-8922-a77f80dae462">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>LANZHOU APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.3a2f1e76-22ca-4a9f-ab98-022604781304">
+            <gml:identifier codeSpace="urn:uuid:">3a2f1e76-22ca-4a9f-ab98-022604781304</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.0bb2e825-fbfb-4304-a94e-970fe8b96722">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.8f252c8b-fed2-3175-a1a8-ea9d2377091e">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>SANYA APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.3a41b31a-0425-4279-91c0-49a807de23ea">
+            <gml:identifier codeSpace="urn:uuid:">3a41b31a-0425-4279-91c0-49a807de23ea</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.1ebe00d3-6bbe-4e37-a44a-d0b07d290088">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.0fb283cc-8e30-3a07-af98-41658a21a299">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>QINGDAO ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.3cf46fae-bb51-4af9-b650-9ee75420d248">
+            <gml:identifier codeSpace="urn:uuid:">3cf46fae-bb51-4af9-b650-9ee75420d248</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.09fb502b-4bc5-4111-a196-7dc1d807a48c">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.fb2653b8-8f67-3061-a3ab-77b88eb9401a">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>GUANGZHOU APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.3e2353d5-d6bd-4378-ad80-2db076b7e9a8">
+            <gml:identifier codeSpace="urn:uuid:">3e2353d5-d6bd-4378-ad80-2db076b7e9a8</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.093a565f-dbe9-49b7-a70f-8ec74bb3c7a8">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.81d0a5c2-7eef-3991-be05-3496270d76ff">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>GUIYANG ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.4058470d-6a9b-41eb-b3cc-f6f684415230">
+            <gml:identifier codeSpace="urn:uuid:">4058470d-6a9b-41eb-b3cc-f6f684415230</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.135147e1-1924-4f4e-9480-ce9e7dd48075">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.38905140-ce14-3688-a1bb-de286df47b07">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>HOHHOT ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.42080214-149a-454e-a55d-8c681660a6ed">
+            <gml:identifier codeSpace="urn:uuid:">42080214-149a-454e-a55d-8c681660a6ed</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.49df8627-b179-429c-9f8d-4458cab83013">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.ba4f0537-7ece-3651-9c88-f4d13b19cde1">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>URUMQI ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.431e0cf7-34e3-41be-ba69-990dd736ed8e">
+            <gml:identifier codeSpace="urn:uuid:">431e0cf7-34e3-41be-ba69-990dd736ed8e</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.ec838c36-ef9b-4c06-adec-83a1e6d163ea">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.8e3c0a30-84fa-3936-bdea-e1e34b0b3a33">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>SHENYANG APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.4462acd1-8540-4c41-9456-5305d8c8ec78">
+            <gml:identifier codeSpace="urn:uuid:">4462acd1-8540-4c41-9456-5305d8c8ec78</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.6ecaf184-52d5-4897-bbb4-164c53ca16cd">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.9f092f05-09a3-3fb2-add9-c9c4b3593e7b">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>HOHHOT APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.46bca302-a2cd-4a2e-a8d4-6c629ed489b0">
+            <gml:identifier codeSpace="urn:uuid:">46bca302-a2cd-4a2e-a8d4-6c629ed489b0</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.13a13be3-c94c-48ab-b7df-f752fae70107">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.d80c3d1a-d9bd-3abc-aa2c-e24ee9b8ca17">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>HANGZHOU APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.4f4f4ba5-709e-42fc-a678-b6a7d9f09f75">
+            <gml:identifier codeSpace="urn:uuid:">4f4f4ba5-709e-42fc-a678-b6a7d9f09f75</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.d75a90f3-2699-4304-8cc9-49ac0336b4fe">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.42fbd477-8b1b-3b67-a352-8832d8ff0776">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>WUHAN ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.4f6434df-3713-48d7-8a1e-be22b2560610">
+            <gml:identifier codeSpace="urn:uuid:">4f6434df-3713-48d7-8a1e-be22b2560610</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.34fb38e3-37e5-4920-8c49-72383d33adb4">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.ace01f25-eec9-3c5e-ae85-8d2983614ddb">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>HEFEI ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.513516a7-5a14-4c33-a7aa-4d18dd325f87">
+            <gml:identifier codeSpace="urn:uuid:">513516a7-5a14-4c33-a7aa-4d18dd325f87</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.0f7e8add-6767-4917-bef9-b6a4aca3b8b3">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.3b619731-c942-3abe-a916-4171e62979bc">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>XI'AN APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.531f6574-eb48-442a-a681-5c253b2d7182">
+            <gml:identifier codeSpace="urn:uuid:">531f6574-eb48-442a-a681-5c253b2d7182</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.6339adf7-e495-4dbb-a1d3-a551ca944f6f">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.e000b946-48a3-353f-8771-e43bb6bde6ca">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>BEIJING APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.57199de2-969d-40c2-a4c9-c9dca852e5f7">
+            <gml:identifier codeSpace="urn:uuid:">57199de2-969d-40c2-a4c9-c9dca852e5f7</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.09c08dc2-57a9-42b8-88a3-6f901aa8af72">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.bbbc56d1-b4f6-34eb-8506-82fbb25c397b">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>XI'AN ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.5e93ec5c-9258-47a9-9b55-f48a1a4dbd60">
+            <gml:identifier codeSpace="urn:uuid:">5e93ec5c-9258-47a9-9b55-f48a1a4dbd60</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.f70ffc71-9d30-4ccf-bf22-b8cf1ef02f94">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.e0faedb6-7303-398c-bce8-5ea328bf48a7">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>NANNING APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.620ee47a-1738-4b6b-a47c-c05c74a81844">
+            <gml:identifier codeSpace="urn:uuid:">620ee47a-1738-4b6b-a47c-c05c74a81844</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.1ec26a81-8241-4d1a-84a5-ac4c907372f3">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.877ffc6c-7a0a-3f70-a2f8-4d6600ac5b9b">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>NANNING ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.688c839a-ea8a-413c-8040-111f980c6b8c">
+            <gml:identifier codeSpace="urn:uuid:">688c839a-ea8a-413c-8040-111f980c6b8c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.73d4b6bd-2c96-4f58-830e-ca4d54b8a0df">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.260f9f3d-64fb-3807-b626-20b31369c2cb">
+                            <gml:beginPosition>2025-08-06T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>1</aixm:correctionNumber>
+                    <aixm:name>ZHANJIANG APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.68e6383d-6714-436b-a688-d214ad35b8d8">
+            <gml:identifier codeSpace="urn:uuid:">68e6383d-6714-436b-a688-d214ad35b8d8</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.cbd1151c-8a88-41ab-b215-038f68b8277f">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.1a925219-3cea-394f-b90c-26f95e00337a">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>SHENYANG ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.6e5ad5ea-ef8b-4342-9ca4-0e474f56f534">
+            <gml:identifier codeSpace="urn:uuid:">6e5ad5ea-ef8b-4342-9ca4-0e474f56f534</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.471edd33-e56c-4b99-8ecb-2eaaa479351b">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.0415e928-370b-36f4-b883-7335b7eb1eb1">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>KUNMING ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.6fcb692d-8d4d-4136-8f6e-c4de103272f3">
+            <gml:identifier codeSpace="urn:uuid:">6fcb692d-8d4d-4136-8f6e-c4de103272f3</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.9d6a0866-9794-4802-b7c2-91e3c4dc86c3">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.79679993-c142-316d-87f1-3f66d6cf49ac">
+                            <gml:beginPosition>2023-11-29T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>2</aixm:correctionNumber>
+                    <aixm:name>FUZHOU APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.70d02abc-c5d3-4a8d-b85f-fce9e7b538b6">
+            <gml:identifier codeSpace="urn:uuid:">70d02abc-c5d3-4a8d-b85f-fce9e7b538b6</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.ef89c42b-66cd-4169-b2f1-1335c51bb670">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.8bb32cd5-953c-3e21-9ff3-c4210d44023d">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>XISHUANGBANNA APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.7271a9bb-f24b-49b3-ae1c-3d4dc2297c41">
+            <gml:identifier codeSpace="urn:uuid:">7271a9bb-f24b-49b3-ae1c-3d4dc2297c41</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.247b802e-df43-4a43-a679-1cdc2687d42f">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.4762f07e-4b2f-3fcb-9d6c-555ed7d31bab">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>3</aixm:correctionNumber>
+                    <aixm:name>NANJING APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.72c281a9-726a-4ed4-b38c-ea2627f22fe7">
+            <gml:identifier codeSpace="urn:uuid:">72c281a9-726a-4ed4-b38c-ea2627f22fe7</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.94c17ebc-8127-4af8-83ee-e9984a0c66fc">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.234ea80f-4612-3d6b-b1af-a0e622716a67">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>GUIYANG APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.786fa700-7058-4d46-9da4-4a2a515b6c40">
+            <gml:identifier codeSpace="urn:uuid:">786fa700-7058-4d46-9da4-4a2a515b6c40</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.3e36320b-b770-4982-9486-24b6f4e2fd63">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.20fc0647-fb8d-3802-8c1b-2716f87f25a1">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>HARBIN ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.7b73b1c8-7d30-4ae0-b33b-f0f0cc3e7e41">
+            <gml:identifier codeSpace="urn:uuid:">7b73b1c8-7d30-4ae0-b33b-f0f0cc3e7e41</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.d02fe264-3286-4be1-81bd-dffb6852c2b4">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.05258bd8-b6cf-34b7-bdc6-04bc9a1732ec">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>NANCHANG APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.7bd81336-9167-45e3-8b32-f27a2c20a7c6">
+            <gml:identifier codeSpace="urn:uuid:">7bd81336-9167-45e3-8b32-f27a2c20a7c6</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.d9dc6d5a-f43a-418a-948d-4240fe5819f2">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.d51c6da4-855e-30b3-8956-a27da79ed4a2">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>TAIYUAN ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.7e0a5817-9267-41d3-ad32-f18da14f7596">
+            <gml:identifier codeSpace="urn:uuid:">7e0a5817-9267-41d3-ad32-f18da14f7596</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.eef226fc-1d66-4e37-bc54-a1de46976eb3">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.377d6130-6870-36cc-a108-0a4de31df40a">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>CHANGCHUN APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.802b9c43-64f0-46c6-aed2-79bc7733ace4">
+            <gml:identifier codeSpace="urn:uuid:">802b9c43-64f0-46c6-aed2-79bc7733ace4</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.085e6a01-12ab-420f-8778-cee259700f79">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.5c8e8a5f-b6c6-3165-91b8-2e0567cdef71">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>ZHENGZHOU APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.81f7db79-d6dd-40c9-a664-abb40b14b5b9">
+            <gml:identifier codeSpace="urn:uuid:">81f7db79-d6dd-40c9-a664-abb40b14b5b9</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.8fdd8c0f-efdf-4336-8940-9f349a766276">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.8bfb8725-d449-32de-8950-515f3c988cd0">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>CHANGSHA ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.8572b6d9-3634-4879-bba0-35a7655bc952">
+            <gml:identifier codeSpace="urn:uuid:">8572b6d9-3634-4879-bba0-35a7655bc952</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.c376aa7f-f6cc-4c0a-90d8-480fe212425b">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.f742ce66-518a-3834-b6a4-e925b1617bea">
+                            <gml:beginPosition>2023-11-29T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>2</aixm:correctionNumber>
+                    <aixm:name>XIAMEN APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.868ffd23-2d43-4731-9166-b6f28e414ff2">
+            <gml:identifier codeSpace="urn:uuid:">868ffd23-2d43-4731-9166-b6f28e414ff2</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.8615e6fb-e676-44e0-b445-c4445ae2f256">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.81f455db-438d-3e19-8cad-2e96a9643986">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>SHANTOU APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.8b446ef3-6ace-45f0-a71d-e8c23e7f652b">
+            <gml:identifier codeSpace="urn:uuid:">8b446ef3-6ace-45f0-a71d-e8c23e7f652b</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.6de02f0d-1b1a-4678-b659-df524ae3deb7">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.93de0f55-527e-3402-b74c-58c49584e934">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>HEFEI APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.918bf2ad-dfc5-4fb9-81af-6388d7cfe171">
+            <gml:identifier codeSpace="urn:uuid:">918bf2ad-dfc5-4fb9-81af-6388d7cfe171</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.edc6703d-4dea-4925-8af5-7612a19bd04a">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.6ac5cba9-7394-3588-a6f4-ffec81bce22c">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>WUXI APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.96cd67d4-cb9d-49a8-a9ac-cc6a8f888019">
+            <gml:identifier codeSpace="urn:uuid:">96cd67d4-cb9d-49a8-a9ac-cc6a8f888019</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.e9432396-dd97-4af8-bc65-99419bbb27b0">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.881fd187-2694-3826-b2d4-7420e1a61447">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>CHENGDU ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.9ab358a4-7482-4afe-9230-03c88724a10c">
+            <gml:identifier codeSpace="urn:uuid:">9ab358a4-7482-4afe-9230-03c88724a10c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.205bbcca-1733-469b-8c45-d0bcfc83deb7">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.e3e1f78f-0c4b-3749-870c-4ff7b459d433">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>HARBIN APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.9bb3f30f-9822-4c6d-9715-019b4cdad6a5">
+            <gml:identifier codeSpace="urn:uuid:">9bb3f30f-9822-4c6d-9715-019b4cdad6a5</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.d5fb7377-930c-4432-8c04-f9d31aafffe4">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.ddf5e7bc-3547-36ec-89ae-43055465b6bd">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>LIJIANG APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.a01bbe91-6a3c-4f04-ab3b-1202c88f7a25">
+            <gml:identifier codeSpace="urn:uuid:">a01bbe91-6a3c-4f04-ab3b-1202c88f7a25</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.48231b84-9a49-455f-a3c3-47891784e78b">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.1f52c2fa-4718-36aa-901a-8f120717b899">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>DALIAN ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.a024522d-bc54-4ea7-bcb4-bb060640485c">
+            <gml:identifier codeSpace="urn:uuid:">a024522d-bc54-4ea7-bcb4-bb060640485c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.dd7b5bf6-857d-4dda-b79c-0c01b386b7c1">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.652e25ab-dba3-3407-92da-458745f96674">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>CHONGQING APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.a02e5cbf-72c5-4d47-a3b5-642be70964d4">
+            <gml:identifier codeSpace="urn:uuid:">a02e5cbf-72c5-4d47-a3b5-642be70964d4</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.0df99574-5da8-4ca7-a88d-789b78ede8f7">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.523bcb53-3677-3ed5-aacf-4b0f4733c77e">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>SHANGHAI ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.a2e8d323-f6e7-41e1-bf3f-499167391a29">
+            <gml:identifier codeSpace="urn:uuid:">a2e8d323-f6e7-41e1-bf3f-499167391a29</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.65630730-1582-4f24-8d48-7a8482b3c275">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.01baa9a1-de24-360f-8cbc-5b70a70dbaff">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>LHASA APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.a38f61f6-3db6-4182-8d4a-b0db3aa6de72">
+            <gml:identifier codeSpace="urn:uuid:">a38f61f6-3db6-4182-8d4a-b0db3aa6de72</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.55c4bdc0-57b3-42dc-b627-eb6b14bd36f9">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.a88cebcc-066d-3c40-a986-c9d0001555ab">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>WUHAN APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.a45cf5b4-caa8-4af3-b1c6-120c8343e235">
+            <gml:identifier codeSpace="urn:uuid:">a45cf5b4-caa8-4af3-b1c6-120c8343e235</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.297d4686-d219-4448-aafb-76ac9f6e0879">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.907cbb28-fa36-33ad-8334-1fdf55f3c7cd">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>NANCHANG ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.a8ae2263-2145-4e6d-a810-7da5e63aa07a">
+            <gml:identifier codeSpace="urn:uuid:">a8ae2263-2145-4e6d-a810-7da5e63aa07a</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.9a6abe49-b52a-4215-988f-10a3f30919c4">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.3c17a64f-3101-34a0-ad6a-8b2578c7b774">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>LANZHOU ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.ab113b06-dbc1-4e4f-a729-c2675c10f716">
+            <gml:identifier codeSpace="urn:uuid:">ab113b06-dbc1-4e4f-a729-c2675c10f716</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.e82e57a5-1962-4561-b6f2-aa8e92371699">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.cb65dd73-ec63-3154-9fc7-91c84fdf9096">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>CHENGDU APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.afafe9df-1805-433f-9586-f8849f7f6011">
+            <gml:identifier codeSpace="urn:uuid:">afafe9df-1805-433f-9586-f8849f7f6011</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.446b3e18-14a4-48f0-a727-2d9a31293480">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.8de5a62f-21e0-35c1-9322-89f669150810">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>JINAN ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.b032c9b5-2c94-4edd-99cd-b79516b67808">
+            <gml:identifier codeSpace="urn:uuid:">b032c9b5-2c94-4edd-99cd-b79516b67808</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.f2b9cbeb-aee3-4960-9542-a70f1d5b673c">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.978d081b-8add-3b36-99ca-063d208684e1">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>YINCHUAN APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.b2e284b8-dddc-4ed1-8866-1f96c4c9b284">
+            <gml:identifier codeSpace="urn:uuid:">b2e284b8-dddc-4ed1-8866-1f96c4c9b284</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.3111f3b6-bdc6-494b-b972-eb73b0d7cbdb">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.6466154e-0fb5-396d-b7bf-b27b65dcd703">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>WENZHOU APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.b6913883-5234-48e0-abc1-02022a4ec2a9">
+            <gml:identifier codeSpace="urn:uuid:">b6913883-5234-48e0-abc1-02022a4ec2a9</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.e942079d-c983-4a3d-b419-6242b5fbde8a">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.12501169-061f-3884-96ab-882630f2287d">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>SANYA ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.bc3661fd-9e6e-40a7-b21b-ef43bbfecd2c">
+            <gml:identifier codeSpace="urn:uuid:">bc3661fd-9e6e-40a7-b21b-ef43bbfecd2c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.caff7530-f628-46e1-a860-98792de09ccc">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.275a87dc-d844-331a-8f52-1f926d11a9f2">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>XINING APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.bfe88627-292c-4d06-bd74-a818ae9867ec">
+            <gml:identifier codeSpace="urn:uuid:">bfe88627-292c-4d06-bd74-a818ae9867ec</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.aeb64225-bd96-4799-ae47-53d748c2788d">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.914383ee-ae93-36a3-a510-1a3555687aef">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>SHIJIAZHUANG APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.c3083fbd-3e58-42c0-8e29-b0590d5d424c">
+            <gml:identifier codeSpace="urn:uuid:">c3083fbd-3e58-42c0-8e29-b0590d5d424c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.1d22d173-67fb-4bce-9bdf-25acf6c52e1c">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.e551a10b-6c56-3c19-9a87-d3cc4d68d75e">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>SHANGHAI APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.cfa448b1-5562-44b1-b6b1-c6931cd8dc3d">
+            <gml:identifier codeSpace="urn:uuid:">cfa448b1-5562-44b1-b6b1-c6931cd8dc3d</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.e2a7726d-1100-4af6-a4d8-c17bcc92b0e0">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.7b9daea2-76c7-349f-83c7-079823b71f28">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>TAIYUAN APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.db147fde-ca1d-4630-8b52-f8ac00c5b106">
+            <gml:identifier codeSpace="urn:uuid:">db147fde-ca1d-4630-8b52-f8ac00c5b106</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.9429de64-dcef-442e-9c8a-dac0b4e8b0c0">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.14d1569d-4d7e-3716-837c-507fbce663a4">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>CHANGSHA APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.dff91d3a-f95f-4072-86f6-fed6f2839db1">
+            <gml:identifier codeSpace="urn:uuid:">dff91d3a-f95f-4072-86f6-fed6f2839db1</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.37061f89-aa4e-4e51-9475-4fccfd62e9e6">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.d5ae8b5e-dc56-3337-87ee-3955a4b4fbed">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>TIANJIN APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.e0581856-871f-495b-8bd3-9df5a4d9c5f1">
+            <gml:identifier codeSpace="urn:uuid:">e0581856-871f-495b-8bd3-9df5a4d9c5f1</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.f449e102-7a93-4d66-b657-31238bab47f4">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.e3192ca1-9aa8-3fa2-a8c9-a2a120e9dee5">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>JINAN APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.e63d9c7c-0b91-4a85-ac2f-5a293907f24f">
+            <gml:identifier codeSpace="urn:uuid:">e63d9c7c-0b91-4a85-ac2f-5a293907f24f</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.2892b94f-e729-4f5a-89a6-aaeb9f349e6c">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.033b2653-9754-387e-a40b-d9e5331df862">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>HAIKOU APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.eb1131dd-615b-40ce-80ff-5a75ef7445d9">
+            <gml:identifier codeSpace="urn:uuid:">eb1131dd-615b-40ce-80ff-5a75ef7445d9</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.58950356-0ed8-4369-b7b8-a972ba82cf80">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.f17d573f-90ad-3301-aa07-48fcc6a28565">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>GUANGZHOU ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.f5751dfc-22bc-4f42-9894-8c9ead00c95c">
+            <gml:identifier codeSpace="urn:uuid:">f5751dfc-22bc-4f42-9894-8c9ead00c95c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.58773fbf-4314-4fdf-ac48-db42703a6640">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.11c042a7-93bc-3479-be68-e632bccc0c8b">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>URUMQI APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.f9e1bfd0-2b96-4868-ad9e-72e8a0107b9a">
+            <gml:identifier codeSpace="urn:uuid:">f9e1bfd0-2b96-4868-ad9e-72e8a0107b9a</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.5dadd872-7617-4591-aaa9-5bb35b9d5210">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.96fbc875-cd30-37f7-bd93-343b2ea7632c">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>ZHENGZHOU ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.fa8a9d88-8401-4077-81f2-7dbad91a6214">
+            <gml:identifier codeSpace="urn:uuid:">fa8a9d88-8401-4077-81f2-7dbad91a6214</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.d5fcf0a9-d746-46c5-9cab-652de50e07bb">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.b2943a82-e4e3-3563-8fa4-d5888279aa76">
+                            <gml:beginPosition>2025-04-16T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>HULUNBUIR APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.fba6716e-e267-42c5-9db6-84ba18cf5540">
+            <gml:identifier codeSpace="urn:uuid:">fba6716e-e267-42c5-9db6-84ba18cf5540</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.e7e6cb20-6224-4220-a39a-363b0b2eb9db">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.2f570850-ed2a-3d1e-9231-fd2474f983d9">
+                            <gml:beginPosition>2025-12-24T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>2</aixm:sequenceNumber>
+                    <aixm:correctionNumber>1</aixm:correctionNumber>
+                    <aixm:name>GUILIN APP</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Unit gml:id="uuid.fd22529d-a218-4a42-9f13-bc68553c8da8">
+            <gml:identifier codeSpace="urn:uuid:">fd22529d-a218-4a42-9f13-bc68553c8da8</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:UnitTimeSlice gml:id="uuid.1d9df52b-6150-4dfc-86d9-e14d76eb1fed">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.d7b77ef9-aa91-367b-bc22-c69506e568b1">
+                            <gml:beginPosition>2023-10-04T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:name>CHONGQING ACC</aixm:name>
+                </aixm:UnitTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Unit>
+    </message:hasMember>
+</message:AIXMBasicMessage>

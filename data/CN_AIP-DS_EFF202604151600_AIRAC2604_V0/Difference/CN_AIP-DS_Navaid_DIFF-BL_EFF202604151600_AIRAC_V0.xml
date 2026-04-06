@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?><message:AIXMBasicMessage xmlns:message="http://www.aixm.aero/schema/5.1.1/message" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="uuid.02f4b9c9-f0ab-38dd-9059-9e14714ac9fa">
+    <aixm:messageMetadata>
+        <gmd:MD_Metadata id="uuid.bc9d8eed-55f9-3b31-94d7-42276bc2dd26">
+            <gmd:contact>
+                <gmd:CI_ResponsibleParty>
+                    <gmd:organisationName>
+                        <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                    </gmd:organisationName>
+                    <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                            <gmd:phone>
+                                <gmd:CI_Telephone>
+                                    <gmd:voice>
+                                        <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                    </gmd:voice>
+                                </gmd:CI_Telephone>
+                            </gmd:phone>
+                            <gmd:address>
+                                <gmd:CI_Address>
+                                    <gmd:deliveryPoint>
+                                        <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                    </gmd:deliveryPoint>
+                                    <gmd:city>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:city>
+                                    <gmd:administrativeArea>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:administrativeArea>
+                                    <gmd:postalCode>
+                                        <gco:CharacterString>100018</gco:CharacterString>
+                                    </gmd:postalCode>
+                                    <gmd:country>
+                                        <gco:CharacterString>China</gco:CharacterString>
+                                    </gmd:country>
+                                    <gmd:electronicMailAddress>
+                                        <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                    </gmd:electronicMailAddress>
+                                </gmd:CI_Address>
+                            </gmd:address>
+                        </gmd:CI_Contact>
+                    </gmd:contactInfo>
+                    <gmd:role>
+                        <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                    </gmd:role>
+                </gmd:CI_ResponsibleParty>
+            </gmd:contact>
+            <gmd:dateStamp>
+                <gco:DateTime>2026-03-18T02:07:31Z</gco:DateTime>
+            </gmd:dateStamp>
+            <gmd:identificationInfo>
+                <gmd:MD_DataIdentification>
+                    <gmd:citation>
+                        <gmd:CI_Citation>
+                            <gmd:title>
+                                <gco:CharacterString>Date and time when provided</gco:CharacterString>
+                            </gmd:title>
+                            <gmd:date>
+                                <gmd:CI_Date>
+                                    <gmd:date>
+                                        <gco:DateTime>2026-03-18T02:07:31Z</gco:DateTime>
+                                    </gmd:date>
+                                    <gmd:dateType>
+                                        <gmd:CI_DateTypeCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodeLists.xml#CI_DateTypeCode" codeListValue="revision">revision</gmd:CI_DateTypeCode>
+                                    </gmd:dateType>
+                                </gmd:CI_Date>
+                            </gmd:date>
+                        </gmd:CI_Citation>
+                    </gmd:citation>
+                    <gmd:abstract>
+                        <gco:CharacterString>The aeronautical data for People's Republic of China are collected and published according to ICAO Annex 15, 16th Edition requirements. Refer to the DPS document for detail information.</gco:CharacterString>
+                    </gmd:abstract>
+                    <gmd:pointOfContact>
+                        <gmd:CI_ResponsibleParty>
+                            <gmd:organisationName>
+                                <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                            </gmd:organisationName>
+                            <gmd:contactInfo>
+                                <gmd:CI_Contact>
+                                    <gmd:phone>
+                                        <gmd:CI_Telephone>
+                                            <gmd:voice>
+                                                <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                            </gmd:voice>
+                                        </gmd:CI_Telephone>
+                                    </gmd:phone>
+                                    <gmd:address>
+                                        <gmd:CI_Address>
+                                            <gmd:deliveryPoint>
+                                                <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                            </gmd:deliveryPoint>
+                                            <gmd:city>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:city>
+                                            <gmd:administrativeArea>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:administrativeArea>
+                                            <gmd:postalCode>
+                                                <gco:CharacterString>100018</gco:CharacterString>
+                                            </gmd:postalCode>
+                                            <gmd:country>
+                                                <gco:CharacterString>China</gco:CharacterString>
+                                            </gmd:country>
+                                            <gmd:electronicMailAddress>
+                                                <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                            </gmd:electronicMailAddress>
+                                        </gmd:CI_Address>
+                                    </gmd:address>
+                                </gmd:CI_Contact>
+                            </gmd:contactInfo>
+                            <gmd:role>
+                                <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                            </gmd:role>
+                        </gmd:CI_ResponsibleParty>
+                    </gmd:pointOfContact>
+                    <gmd:resourceConstraints>
+                        <gmd:MD_Constraints>
+                            <gmd:useLimitation>
+                                <gco:CharacterString>For evaluation and testing use only; not for operational purposes.</gco:CharacterString>
+                            </gmd:useLimitation>
+                        </gmd:MD_Constraints>
+                    </gmd:resourceConstraints>
+                    <gmd:spatialRepresentationType>
+                        <gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector">vector</gmd:MD_SpatialRepresentationTypeCode>
+                    </gmd:spatialRepresentationType>
+                    <gmd:language>
+                        <gco:CharacterString>eng</gco:CharacterString>
+                    </gmd:language>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:temporalElement>
+                                <gmd:EX_TemporalExtent>
+                                    <gmd:extent>
+                                        <gml:TimePeriod gml:id="uuid.a8f7d240-d8bb-3dcb-bd24-2f2f0b59a77e">
+                                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                                            <gml:endPosition indeterminatePosition="unknown"/>
+                                        </gml:TimePeriod>
+                                    </gmd:extent>
+                                </gmd:EX_TemporalExtent>
+                            </gmd:temporalElement>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:description>
+                                <gco:CharacterString>AIRAC</gco:CharacterString>
+                            </gmd:description>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                </gmd:MD_DataIdentification>
+            </gmd:identificationInfo>
+        </gmd:MD_Metadata>
+    </aixm:messageMetadata>
+    <message:hasMember>
+        <aixm:Navaid gml:id="uuid.582301de-ac4b-46c2-84e8-bb4efc333993">
+            <gml:identifier codeSpace="urn:uuid:">582301de-ac4b-46c2-84e8-bb4efc333993</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:NavaidTimeSlice gml:id="uuid.a8810aee-575e-4f10-91ff-bd6dd08cf0a6">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.9fb7ff24-6e40-3c13-b12e-4a4d5881d295">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:type>ILS_DME</aixm:type>
+                    <aixm:designator>ITH</aixm:designator>
+                    <aixm:name>ILS CAT I</aixm:name>
+                    <aixm:purpose>TERMINAL</aixm:purpose>
+                    <aixm:navaidEquipment>
+                        <aixm:NavaidComponent gml:id="uuid.6f1209e1-7429-4eb7-82d5-6b90e8e930c1">
+                            <aixm:theNavaidEquipment xlink:href="urn:uuid:a81bde85-131d-4356-a50a-69cb9696693f"/>
+                        </aixm:NavaidComponent>
+                    </aixm:navaidEquipment>
+                    <aixm:navaidEquipment>
+                        <aixm:NavaidComponent gml:id="uuid.65cb3c02-a0ea-4684-a292-273c6f9588a3">
+                            <aixm:theNavaidEquipment xlink:href="urn:uuid:b025807a-dde1-4a69-ba4e-4d1d3d0ee22b"/>
+                        </aixm:NavaidComponent>
+                    </aixm:navaidEquipment>
+                    <aixm:navaidEquipment>
+                        <aixm:NavaidComponent gml:id="uuid.a809a672-0ded-482a-b75a-4b5ed2526e1d">
+                            <aixm:theNavaidEquipment xlink:href="urn:uuid:e067ab1c-5c9e-4000-a659-70936e008cc9"/>
+                        </aixm:NavaidComponent>
+                    </aixm:navaidEquipment>
+                    <aixm:location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:servedAirport xlink:href="urn:uuid:0358a015-5213-4aaa-80da-d60c2d14f5fb"/>
+                </aixm:NavaidTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Navaid>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:Navaid gml:id="uuid.bdf95f58-5365-407e-85f7-2a5472af46fc">
+            <gml:identifier codeSpace="urn:uuid:">bdf95f58-5365-407e-85f7-2a5472af46fc</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:NavaidTimeSlice gml:id="uuid.31ca95f5-8cf4-4b33-a2ff-f64fe4e63d61">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.3c0c9b82-a361-305f-b5b5-38c8b3ff455e">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:type>ILS_DME</aixm:type>
+                    <aixm:designator>IPB</aixm:designator>
+                    <aixm:name>ILS CAT I</aixm:name>
+                    <aixm:purpose>TERMINAL</aixm:purpose>
+                    <aixm:navaidEquipment>
+                        <aixm:NavaidComponent gml:id="uuid.2bf6ae82-dd02-4e27-a4a4-8cafbce41a45">
+                            <aixm:theNavaidEquipment xlink:href="urn:uuid:bc479d86-7f09-4d57-af69-b32c402bbc81"/>
+                        </aixm:NavaidComponent>
+                    </aixm:navaidEquipment>
+                    <aixm:navaidEquipment>
+                        <aixm:NavaidComponent gml:id="uuid.1223c5c2-849a-41b5-b8d4-57a9711c450b">
+                            <aixm:theNavaidEquipment xlink:href="urn:uuid:2b1ac4a6-e254-4bdc-81c7-ff5787384241"/>
+                        </aixm:NavaidComponent>
+                    </aixm:navaidEquipment>
+                    <aixm:navaidEquipment>
+                        <aixm:NavaidComponent gml:id="uuid.9f03f479-5dde-4127-a8e3-136b103978ad">
+                            <aixm:theNavaidEquipment xlink:href="urn:uuid:e602950a-5a0f-4f76-ab0d-862c3e0089fa"/>
+                        </aixm:NavaidComponent>
+                    </aixm:navaidEquipment>
+                    <aixm:location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:servedAirport xlink:href="urn:uuid:0358a015-5213-4aaa-80da-d60c2d14f5fb"/>
+                </aixm:NavaidTimeSlice>
+            </aixm:timeSlice>
+        </aixm:Navaid>
+    </message:hasMember>
+</message:AIXMBasicMessage>

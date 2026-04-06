@@ -1,0 +1,22 @@
+http://china-eaip-dataset.hanming.li, http://china-eaip-dataset.lihanming.cn {
+	# basicauth {
+	# 	jason $2a$14$bVTLIhMXUXKCFfrC5ZYale5ezNvvH30ilIG0kaObjm9OO3CWjaa4e # feb8cfd9
+	# }
+	handle /api* {
+		reverse_proxy http://backend:8000
+	}
+	handle /docs {
+		reverse_proxy http://backend:8000
+	}
+	handle /redoc {
+		reverse_proxy http://backend:8000
+	}
+	handle /openapi.json {
+		reverse_proxy http://backend:8000
+	}
+	handle {
+		root * /srv
+		file_server
+		try_files {path} /index.html
+	}
+}

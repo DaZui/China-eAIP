@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright (c) 2016, Stephan Heinemann (UVic Center for Aerospace Research)
+    All rights reserved.
+
+    Redistribution and use in source and binary forms, with or without modification,
+    are permitted provided that the following conditions are met:
+
+    1. Redistributions of source code must retain the above copyright notice, this
+    list of conditions and the following disclaimer.
+
+    2. Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation
+    and/or other materials provided with the distribution.
+
+    3. Neither the name of the copyright holder nor the names of its contributors
+    may be used to endorse or promote products derived from this software without
+    specific prior written permission.
+
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+    DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+    FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+    DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+    SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+    CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+    OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+    OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+-->
+<jaxb:bindings
+	version="2.1"
+	xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+	xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:namespace="http://jaxb2-commons.dev.java.net/namespace-prefix"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://jaxb2-commons.dev.java.net/namespace-prefix http://java.net/projects/jaxb2-commons/sources/svn/content/namespace-prefix/trunk/src/main/resources/prefix-namespace-schema.xsd">
+
+	<!--jaxb:bindings scd="x-schema::gco" xmlns:gco="http://www.isotc211.org/2005/gco"-->
+	<!-- NOTE: namespace-prefix plugin (xjc dependency) does not work properly with scd attribute -->
+	<jaxb:bindings schemaLocation="../xsd/ISO_19139_Schemas/gco/gco.xsd">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.isotc211.gco"/>
+		</jaxb:schemaBindings>
+		<jaxb:bindings>
+			<namespace:prefix name="gco"/>
+		</jaxb:bindings>
+	</jaxb:bindings>
+	
+	<!--jaxb:bindings scd="x-schema::gmd" xmlns:gmd="http://www.isotc211.org/2005/gmd"-->
+	<!-- NOTE: namespace-prefix plugin (xjc dependency) does not work properly with scd attribute -->
+	<jaxb:bindings schemaLocation="../xsd/ISO_19139_Schemas/gmd/gmd.xsd">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.isotc211.gmd"/>
+		</jaxb:schemaBindings>
+		<jaxb:bindings>
+			<namespace:prefix name="gmd"/>
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+	<!--jaxb:bindings scd="x-schema::gmx" xmlns:gmx="http://www.isotc211.org/2005/gmx"-->
+	<!-- NOTE: namespace-prefix plugin (xjc dependency) does not work properly with scd attribute -->
+	<!--jaxb:bindings schemaLocation="../xsd/ISO_19139_Schemas/gmx/gmx.xsd">	
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.isotc211.gmx"/>
+		</jaxb:schemaBindings>
+		<jaxb:bindings>
+			<namespace:prefix name="gmx"/>
+		</jaxb:bindings>
+	</jaxb:bindings-->
+
+	<!--jaxb:bindings scd="x-schema::gsr" xmlns:gsr="http://www.isotc211.org/2005/gsr"-->
+	<!-- NOTE: namespace-prefix plugin (xjc dependency) does not work properly with scd attribute -->
+	<jaxb:bindings schemaLocation="../xsd/ISO_19139_Schemas/gsr/gsr.xsd">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.isotc211.gsr"/>
+		</jaxb:schemaBindings>
+		<jaxb:bindings>
+			<namespace:prefix name="gsr"/>
+		</jaxb:bindings>
+	</jaxb:bindings>
+	
+	<!--jaxb:bindings scd="x-schema::gss" xmlns:gss="http://www.isotc211.org/2005/gss"-->
+	<!-- NOTE: namespace-prefix plugin (xjc dependency) does not work properly with scd attribute -->
+	<jaxb:bindings schemaLocation="../xsd/ISO_19139_Schemas/gss/gss.xsd">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.isotc211.gss"/>
+		</jaxb:schemaBindings>
+		<jaxb:bindings>
+			<namespace:prefix name="gss"/>
+		</jaxb:bindings>
+	</jaxb:bindings>
+	
+	<!--jaxb:bindings scd="x-schema::gts" xmlns:gts="http://www.isotc211.org/2005/gts"-->
+	<!-- NOTE: namespace-prefix plugin (xjc dependency) does not work properly with scd attribute -->
+	<jaxb:bindings schemaLocation="../xsd/ISO_19139_Schemas/gts/gts.xsd">
+		<jaxb:schemaBindings>
+			<jaxb:package name="org.isotc211.gts"/>
+		</jaxb:schemaBindings>
+		<jaxb:bindings>
+			<namespace:prefix name="gts"/>
+		</jaxb:bindings>
+	</jaxb:bindings>
+
+</jaxb:bindings>

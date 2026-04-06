@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="UTF-8"?><message:AIXMBasicMessage xmlns:message="http://www.aixm.aero/schema/5.1.1/message" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="uuid.ff97680a-13e4-3863-9b1c-d501b74cddd4">
+    <aixm:messageMetadata>
+        <gmd:MD_Metadata id="uuid.bc9d8eed-55f9-3b31-94d7-42276bc2dd26">
+            <gmd:contact>
+                <gmd:CI_ResponsibleParty>
+                    <gmd:organisationName>
+                        <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                    </gmd:organisationName>
+                    <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                            <gmd:phone>
+                                <gmd:CI_Telephone>
+                                    <gmd:voice>
+                                        <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                    </gmd:voice>
+                                </gmd:CI_Telephone>
+                            </gmd:phone>
+                            <gmd:address>
+                                <gmd:CI_Address>
+                                    <gmd:deliveryPoint>
+                                        <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                    </gmd:deliveryPoint>
+                                    <gmd:city>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:city>
+                                    <gmd:administrativeArea>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:administrativeArea>
+                                    <gmd:postalCode>
+                                        <gco:CharacterString>100018</gco:CharacterString>
+                                    </gmd:postalCode>
+                                    <gmd:country>
+                                        <gco:CharacterString>China</gco:CharacterString>
+                                    </gmd:country>
+                                    <gmd:electronicMailAddress>
+                                        <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                    </gmd:electronicMailAddress>
+                                </gmd:CI_Address>
+                            </gmd:address>
+                        </gmd:CI_Contact>
+                    </gmd:contactInfo>
+                    <gmd:role>
+                        <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                    </gmd:role>
+                </gmd:CI_ResponsibleParty>
+            </gmd:contact>
+            <gmd:dateStamp>
+                <gco:DateTime>2026-03-18T02:07:31Z</gco:DateTime>
+            </gmd:dateStamp>
+            <gmd:identificationInfo>
+                <gmd:MD_DataIdentification>
+                    <gmd:citation>
+                        <gmd:CI_Citation>
+                            <gmd:title>
+                                <gco:CharacterString>Date and time when provided</gco:CharacterString>
+                            </gmd:title>
+                            <gmd:date>
+                                <gmd:CI_Date>
+                                    <gmd:date>
+                                        <gco:DateTime>2026-03-18T02:07:31Z</gco:DateTime>
+                                    </gmd:date>
+                                    <gmd:dateType>
+                                        <gmd:CI_DateTypeCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodeLists.xml#CI_DateTypeCode" codeListValue="revision">revision</gmd:CI_DateTypeCode>
+                                    </gmd:dateType>
+                                </gmd:CI_Date>
+                            </gmd:date>
+                        </gmd:CI_Citation>
+                    </gmd:citation>
+                    <gmd:abstract>
+                        <gco:CharacterString>The aeronautical data for People's Republic of China are collected and published according to ICAO Annex 15, 16th Edition requirements. Refer to the DPS document for detail information.</gco:CharacterString>
+                    </gmd:abstract>
+                    <gmd:pointOfContact>
+                        <gmd:CI_ResponsibleParty>
+                            <gmd:organisationName>
+                                <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                            </gmd:organisationName>
+                            <gmd:contactInfo>
+                                <gmd:CI_Contact>
+                                    <gmd:phone>
+                                        <gmd:CI_Telephone>
+                                            <gmd:voice>
+                                                <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                            </gmd:voice>
+                                        </gmd:CI_Telephone>
+                                    </gmd:phone>
+                                    <gmd:address>
+                                        <gmd:CI_Address>
+                                            <gmd:deliveryPoint>
+                                                <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                            </gmd:deliveryPoint>
+                                            <gmd:city>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:city>
+                                            <gmd:administrativeArea>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:administrativeArea>
+                                            <gmd:postalCode>
+                                                <gco:CharacterString>100018</gco:CharacterString>
+                                            </gmd:postalCode>
+                                            <gmd:country>
+                                                <gco:CharacterString>China</gco:CharacterString>
+                                            </gmd:country>
+                                            <gmd:electronicMailAddress>
+                                                <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                            </gmd:electronicMailAddress>
+                                        </gmd:CI_Address>
+                                    </gmd:address>
+                                </gmd:CI_Contact>
+                            </gmd:contactInfo>
+                            <gmd:role>
+                                <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                            </gmd:role>
+                        </gmd:CI_ResponsibleParty>
+                    </gmd:pointOfContact>
+                    <gmd:resourceConstraints>
+                        <gmd:MD_Constraints>
+                            <gmd:useLimitation>
+                                <gco:CharacterString>For evaluation and testing use only; not for operational purposes.</gco:CharacterString>
+                            </gmd:useLimitation>
+                        </gmd:MD_Constraints>
+                    </gmd:resourceConstraints>
+                    <gmd:spatialRepresentationType>
+                        <gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector">vector</gmd:MD_SpatialRepresentationTypeCode>
+                    </gmd:spatialRepresentationType>
+                    <gmd:language>
+                        <gco:CharacterString>eng</gco:CharacterString>
+                    </gmd:language>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:temporalElement>
+                                <gmd:EX_TemporalExtent>
+                                    <gmd:extent>
+                                        <gml:TimePeriod gml:id="uuid.a8f7d240-d8bb-3dcb-bd24-2f2f0b59a77e">
+                                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                                            <gml:endPosition indeterminatePosition="unknown"/>
+                                        </gml:TimePeriod>
+                                    </gmd:extent>
+                                </gmd:EX_TemporalExtent>
+                            </gmd:temporalElement>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:description>
+                                <gco:CharacterString>AIRAC</gco:CharacterString>
+                            </gmd:description>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                </gmd:MD_DataIdentification>
+            </gmd:identificationInfo>
+        </gmd:MD_Metadata>
+    </aixm:messageMetadata>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.08c4bd04-e074-4168-a694-bffb590d7719">
+            <gml:identifier codeSpace="urn:uuid:">08c4bd04-e074-4168-a694-bffb590d7719</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.7735dad2-a925-4485-ab72-eba32aa4d6c3">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.2ee5aa5e-bc12-3468-b9b2-70fdddb379f3">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>RURBU</aixm:designator>
+                    <aixm:name>RURBU</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.5ec15234-3c2c-43da-9f16-67550df10895" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>31.0875 116.25</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.12363ae0-eca6-4b14-b0ef-c3bd31358ba6">
+            <gml:identifier codeSpace="urn:uuid:">12363ae0-eca6-4b14-b0ef-c3bd31358ba6</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.6772d9e3-7ebb-4bf6-b3c5-e3c7f8ad57ef">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.484a275c-3313-3e65-a97e-9b7a2199daa3">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>TOCEF</aixm:designator>
+                    <aixm:name>TOCEF</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.db47ea64-447b-4e5a-9767-ccc4308863e1" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>28.7633333333 117.6738888889</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.2da6926c-8dcf-4146-a0dc-fa0408895e34">
+            <gml:identifier codeSpace="urn:uuid:">2da6926c-8dcf-4146-a0dc-fa0408895e34</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.cfaac80f-7b3c-42b7-8e19-285e635ba7d9">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.66a7d957-e3a7-3772-8a10-7ee75f80cfee">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>KIGUN</aixm:designator>
+                    <aixm:name>KIGUN</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.06e456e0-b7be-481d-a107-dec2b77f8db7" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>29.2455555555 119.0</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.3768552c-b5aa-4c18-92aa-d3f454f4ca6f">
+            <gml:identifier codeSpace="urn:uuid:">3768552c-b5aa-4c18-92aa-d3f454f4ca6f</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.a7f7d0ce-739e-4b55-af6d-83aa0d6e8487">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.7fd01781-69c5-37ea-920f-ac2ee9a11da8">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>KAKBA</aixm:designator>
+                    <aixm:name>KAKBA</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.8b2ae597-1fc9-4ded-bef1-28c19c1fb7ff" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>29.8763888889 116.25</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.4aa72e25-d972-4da5-941b-b0b46a1914fd">
+            <gml:identifier codeSpace="urn:uuid:">4aa72e25-d972-4da5-941b-b0b46a1914fd</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.0c7090de-ede3-4fe0-bcb9-d8137cf0a44e">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.0943c388-474d-37e9-82a2-988a7c5ac635">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>IDUKI</aixm:designator>
+                    <aixm:name>IDUKI</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.69455a96-b2d6-4f1c-9e47-e91615ab114e" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>31.3191666667 116.6016666667</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.6c9d314b-1202-4b8d-a3ff-1d103c760a03">
+            <gml:identifier codeSpace="urn:uuid:">6c9d314b-1202-4b8d-a3ff-1d103c760a03</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.405b0aff-e026-4ace-9d6b-025268cab848">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.bc6f998b-ac9f-3cac-bba3-5a4ee329f555">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>3</aixm:sequenceNumber>
+                    <aixm:correctionNumber>1</aixm:correctionNumber>
+                    <aixm:designator>OMDEM</aixm:designator>
+                    <aixm:name>OMDEM</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.488c14ac-f3e7-428f-8cc9-fb36c5d980de" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>28.0594444444 117.5494444444</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.820c5524-d876-4211-a31d-b9e14be4acb3">
+            <gml:identifier codeSpace="urn:uuid:">820c5524-d876-4211-a31d-b9e14be4acb3</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.82339d10-1db6-4921-b811-4003efed7be7">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.1bfd2b76-660d-39c8-81ca-06f74bfc977b">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>DYTES</aixm:designator>
+                    <aixm:name>DYTES</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.73cb851e-bea5-4ad6-aa96-2981e7105a10" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>29.9902777777 116.05</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.97ad8939-4059-4972-941a-79856830cdcd">
+            <gml:identifier codeSpace="urn:uuid:">97ad8939-4059-4972-941a-79856830cdcd</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.398061f4-1bc8-43d1-9e70-f8419eeff9f2">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.c3f5dfaa-cf33-3853-85b6-b176a25575fe">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>SEOGA</aixm:designator>
+                    <aixm:name>SEOGA</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.5f5513e6-343c-4628-8e8c-85f80771ac5c" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>26.5 114.75</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.a96bf3a1-70f7-428b-add6-f46d1c74e0b0">
+            <gml:identifier codeSpace="urn:uuid:">a96bf3a1-70f7-428b-add6-f46d1c74e0b0</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.35687ffd-f8d1-4367-9918-a7cf5bbbd54f">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.665f2cfd-6c6b-30e0-93f4-f911c083e2e6">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>IPDEP</aixm:designator>
+                    <aixm:name>IPDEP</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.1cc40ce8-0404-4ce5-b6a9-cbd66a151396" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>30.7461111111 116.05</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.b1392e25-df20-4c09-868c-ed5ab9559186">
+            <gml:identifier codeSpace="urn:uuid:">b1392e25-df20-4c09-868c-ed5ab9559186</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.5a5364fa-04c1-4a2a-a242-7c5182aa7b42">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.9f2bb1ed-3184-3a42-820a-131e1103d055">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>IKINU</aixm:designator>
+                    <aixm:name>IKINU</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.3adc3899-5041-4e78-9639-d112eae682f2" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>28.9572222222 116.0163888889</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.cbcaad76-79a9-41b7-8bd0-5c69f5b888b1">
+            <gml:identifier codeSpace="urn:uuid:">cbcaad76-79a9-41b7-8bd0-5c69f5b888b1</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.27a75abf-bf6f-4095-aa4d-53571bb07910">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.4c028a30-64f5-3c34-86f9-e80ace970774">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>ENPAX</aixm:designator>
+                    <aixm:name>ENPAX</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.73d4ad59-c716-440a-adfa-41a5c98ec845" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>31.525 116.6186111111</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.e2f13a56-6da3-43f0-bf50-5950bb3fa611">
+            <gml:identifier codeSpace="urn:uuid:">e2f13a56-6da3-43f0-bf50-5950bb3fa611</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.9b5319d6-8de3-41ec-8ad9-39debf3cecf9">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.9ad6599b-f2ab-3cd0-9c8b-2944a7a3a613">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>ATMOX</aixm:designator>
+                    <aixm:name>ATMOX</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.d624c936-3f00-4e0b-8c7d-6a5ede3e98ce" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>28.4166666667 116.75</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.f0bbe39f-0ada-4b8c-8875-b0f60a21145c">
+            <gml:identifier codeSpace="urn:uuid:">f0bbe39f-0ada-4b8c-8875-b0f60a21145c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.fb686cf7-f7a2-46c2-a567-6d2de100468c">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.cb092980-c799-37fc-8e1e-68cefc52be36">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>DOVOR</aixm:designator>
+                    <aixm:name>DOVOR</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.fa8abc00-36b2-4245-a2d5-341d7e80b7c6" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>26.25 115.3333333333</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.f2554141-2bab-41bc-bf87-6b63a0e427e4">
+            <gml:identifier codeSpace="urn:uuid:">f2554141-2bab-41bc-bf87-6b63a0e427e4</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.20399d60-0e3d-4d8c-86e8-a943fabc4af0">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.923b4d68-d0af-390c-ad1b-af866b96e702">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>AKOGE</aixm:designator>
+                    <aixm:name>AKOGE</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.646578ad-4147-440f-a3e9-b88ad4cfe935" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>31.1755555556 116.0613888889</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:DesignatedPoint gml:id="uuid.ffdab9ab-123d-45de-9d3b-56a79829795c">
+            <gml:identifier codeSpace="urn:uuid:">ffdab9ab-123d-45de-9d3b-56a79829795c</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:DesignatedPointTimeSlice gml:id="uuid.b9c4f345-7b37-4593-9e89-bea46c2f6653">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.16f3bf26-bed5-3c77-9c5b-4547bd1afc95">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:designator>UPVIR</aixm:designator>
+                    <aixm:name>UPVIR</aixm:name>
+                    <aixm:location>
+                        <aixm:Point gml:id="uuid.e996d36e-128f-410a-99a1-7df0c7f25771" srsName="urn:ogc:def:crs:EPSG::4326">
+                            <gml:pos>27.75 116.0</gml:pos>
+                            <aixm:horizontalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:Point>
+                    </aixm:location>
+                </aixm:DesignatedPointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:DesignatedPoint>
+    </message:hasMember>
+</message:AIXMBasicMessage>

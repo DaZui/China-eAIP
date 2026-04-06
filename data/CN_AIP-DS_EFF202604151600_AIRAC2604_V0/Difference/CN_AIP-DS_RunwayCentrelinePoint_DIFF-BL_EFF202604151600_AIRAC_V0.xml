@@ -1,0 +1,577 @@
+<?xml version="1.0" encoding="UTF-8"?><message:AIXMBasicMessage xmlns:message="http://www.aixm.aero/schema/5.1.1/message" xmlns:aixm="http://www.aixm.aero/schema/5.1.1" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsr="http://www.isotc211.org/2005/gsr" xmlns:gss="http://www.isotc211.org/2005/gss" xmlns:gts="http://www.isotc211.org/2005/gts" xmlns:xlink="http://www.w3.org/1999/xlink" gml:id="uuid.d1f901a5-73f5-3f08-9b4d-f18def1c472a">
+    <aixm:messageMetadata>
+        <gmd:MD_Metadata id="uuid.bc9d8eed-55f9-3b31-94d7-42276bc2dd26">
+            <gmd:contact>
+                <gmd:CI_ResponsibleParty>
+                    <gmd:organisationName>
+                        <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                    </gmd:organisationName>
+                    <gmd:contactInfo>
+                        <gmd:CI_Contact>
+                            <gmd:phone>
+                                <gmd:CI_Telephone>
+                                    <gmd:voice>
+                                        <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                    </gmd:voice>
+                                </gmd:CI_Telephone>
+                            </gmd:phone>
+                            <gmd:address>
+                                <gmd:CI_Address>
+                                    <gmd:deliveryPoint>
+                                        <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                    </gmd:deliveryPoint>
+                                    <gmd:city>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:city>
+                                    <gmd:administrativeArea>
+                                        <gco:CharacterString>Beijing</gco:CharacterString>
+                                    </gmd:administrativeArea>
+                                    <gmd:postalCode>
+                                        <gco:CharacterString>100018</gco:CharacterString>
+                                    </gmd:postalCode>
+                                    <gmd:country>
+                                        <gco:CharacterString>China</gco:CharacterString>
+                                    </gmd:country>
+                                    <gmd:electronicMailAddress>
+                                        <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                    </gmd:electronicMailAddress>
+                                </gmd:CI_Address>
+                            </gmd:address>
+                        </gmd:CI_Contact>
+                    </gmd:contactInfo>
+                    <gmd:role>
+                        <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                    </gmd:role>
+                </gmd:CI_ResponsibleParty>
+            </gmd:contact>
+            <gmd:dateStamp>
+                <gco:DateTime>2026-03-18T02:07:30Z</gco:DateTime>
+            </gmd:dateStamp>
+            <gmd:identificationInfo>
+                <gmd:MD_DataIdentification>
+                    <gmd:citation>
+                        <gmd:CI_Citation>
+                            <gmd:title>
+                                <gco:CharacterString>Date and time when provided</gco:CharacterString>
+                            </gmd:title>
+                            <gmd:date>
+                                <gmd:CI_Date>
+                                    <gmd:date>
+                                        <gco:DateTime>2026-03-18T02:07:30Z</gco:DateTime>
+                                    </gmd:date>
+                                    <gmd:dateType>
+                                        <gmd:CI_DateTypeCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodeLists.xml#CI_DateTypeCode" codeListValue="revision">revision</gmd:CI_DateTypeCode>
+                                    </gmd:dateType>
+                                </gmd:CI_Date>
+                            </gmd:date>
+                        </gmd:CI_Citation>
+                    </gmd:citation>
+                    <gmd:abstract>
+                        <gco:CharacterString>The aeronautical data for People's Republic of China are collected and published according to ICAO Annex 15, 16th Edition requirements. Refer to the DPS document for detail information.</gco:CharacterString>
+                    </gmd:abstract>
+                    <gmd:pointOfContact>
+                        <gmd:CI_ResponsibleParty>
+                            <gmd:organisationName>
+                                <gco:CharacterString>Aeronautical Information Service Center of Air Traffic Management Bureau, Civil Aviation Administration of China</gco:CharacterString>
+                            </gmd:organisationName>
+                            <gmd:contactInfo>
+                                <gmd:CI_Contact>
+                                    <gmd:phone>
+                                        <gmd:CI_Telephone>
+                                            <gmd:voice>
+                                                <gco:CharacterString>86-10-57803699</gco:CharacterString>
+                                            </gmd:voice>
+                                        </gmd:CI_Telephone>
+                                    </gmd:phone>
+                                    <gmd:address>
+                                        <gmd:CI_Address>
+                                            <gmd:deliveryPoint>
+                                                <gco:CharacterString>No.9 Xiedao West Road, Chaoyang District Beijing 100018, People's Republic of China</gco:CharacterString>
+                                            </gmd:deliveryPoint>
+                                            <gmd:city>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:city>
+                                            <gmd:administrativeArea>
+                                                <gco:CharacterString>Beijing</gco:CharacterString>
+                                            </gmd:administrativeArea>
+                                            <gmd:postalCode>
+                                                <gco:CharacterString>100018</gco:CharacterString>
+                                            </gmd:postalCode>
+                                            <gmd:country>
+                                                <gco:CharacterString>China</gco:CharacterString>
+                                            </gmd:country>
+                                            <gmd:electronicMailAddress>
+                                                <gco:CharacterString>aipchina@atmb.net.cn</gco:CharacterString>
+                                            </gmd:electronicMailAddress>
+                                        </gmd:CI_Address>
+                                    </gmd:address>
+                                </gmd:CI_Contact>
+                            </gmd:contactInfo>
+                            <gmd:role>
+                                <gmd:CI_RoleCode codeList="http://www.aixm.aero/schema/5.1/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml#CI_RoleCode" codeListValue="publisher">publisher</gmd:CI_RoleCode>
+                            </gmd:role>
+                        </gmd:CI_ResponsibleParty>
+                    </gmd:pointOfContact>
+                    <gmd:resourceConstraints>
+                        <gmd:MD_Constraints>
+                            <gmd:useLimitation>
+                                <gco:CharacterString>For evaluation and testing use only; not for operational purposes.</gco:CharacterString>
+                            </gmd:useLimitation>
+                        </gmd:MD_Constraints>
+                    </gmd:resourceConstraints>
+                    <gmd:spatialRepresentationType>
+                        <gmd:MD_SpatialRepresentationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/ML_gmxCodelists.xml#MD_SpatialRepresentationTypeCode" codeListValue="vector">vector</gmd:MD_SpatialRepresentationTypeCode>
+                    </gmd:spatialRepresentationType>
+                    <gmd:language>
+                        <gco:CharacterString>eng</gco:CharacterString>
+                    </gmd:language>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:temporalElement>
+                                <gmd:EX_TemporalExtent>
+                                    <gmd:extent>
+                                        <gml:TimePeriod gml:id="uuid.a8f7d240-d8bb-3dcb-bd24-2f2f0b59a77e">
+                                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                                            <gml:endPosition indeterminatePosition="unknown"/>
+                                        </gml:TimePeriod>
+                                    </gmd:extent>
+                                </gmd:EX_TemporalExtent>
+                            </gmd:temporalElement>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                    <gmd:extent>
+                        <gmd:EX_Extent>
+                            <gmd:description>
+                                <gco:CharacterString>AIRAC</gco:CharacterString>
+                            </gmd:description>
+                        </gmd:EX_Extent>
+                    </gmd:extent>
+                </gmd:MD_DataIdentification>
+            </gmd:identificationInfo>
+        </gmd:MD_Metadata>
+    </aixm:messageMetadata>
+    <message:hasMember>
+        <aixm:RunwayCentrelinePoint gml:id="uuid.0df7cde8-a721-494b-8277-e05b665e97e5">
+            <gml:identifier codeSpace="urn:uuid:">0df7cde8-a721-494b-8277-e05b665e97e5</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RunwayCentrelinePointTimeSlice gml:id="uuid.0bd08b6c-9dca-4aeb-99e9-32e63539e9b6">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.c58cd7f6-f338-320e-bde8-5e2aade73cdf">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:role>THR</aixm:role>
+                    <aixm:location>
+                        <aixm:ElevatedPoint gml:id="uuid.67c783f0-3902-4d7e-945c-abcc015b88ce">
+                            <gml:pos/>
+                            <aixm:elevation uom="M">2098.0</aixm:elevation>
+                            <aixm:verticalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:ElevatedPoint>
+                    </aixm:location>
+                    <aixm:onRunway xlink:href="urn:uuid:91085f58-4d18-4ef8-80cc-1d6b84394021"/>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.1131ae0a-7660-41da-b024-05c107cfa0e3">
+                            <aixm:type>LDA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.84ac6f03-ff38-3e84-9d6b-3dde079136c1">
+                                    <aixm:distance uom="M">4000.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.1a193648-2c2d-4126-86e2-3e35b9bf4a0a">
+                            <aixm:type>TODA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.44bf7597-868d-333c-8b80-5543d829fff6">
+                                    <aixm:distance uom="M">4000.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.5a3fd4fe-7d01-4e0d-89d1-694890357835">
+                            <aixm:type>TORA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.c84f1668-1e4f-3291-82d7-b8d8b9bbe024">
+                                    <aixm:distance uom="M">4000.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.78927670-28ef-488f-98d1-d69353b37e0d">
+                            <aixm:type>ASDA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.54eb938f-4684-3028-ab9a-205404665d7f">
+                                    <aixm:distance uom="M">4000.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                </aixm:RunwayCentrelinePointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RunwayCentrelinePoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RunwayCentrelinePoint gml:id="uuid.7755be68-0e5e-4090-934f-0c43ca947363">
+            <gml:identifier codeSpace="urn:uuid:">7755be68-0e5e-4090-934f-0c43ca947363</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RunwayCentrelinePointTimeSlice gml:id="uuid.82f5fcf0-b89a-461b-a325-f340229a1395">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.a23a1a90-0dc5-3df3-b246-2b58a3d342a8">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:role>START_RUN</aixm:role>
+                    <aixm:location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:onRunway xlink:href="urn:uuid:836c9085-d693-49f7-a77f-d45213ffae83"/>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.9ca949b2-f502-4907-809b-bbacfd995a5f">
+                            <aixm:type>TODA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.8df2e16a-f90b-33fe-bda6-62df0e9920f3">
+                                    <aixm:distance uom="M">3250.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.b79a048a-8c15-43b4-a22f-a1f13f795c60">
+                            <aixm:type>ASDA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.8d2d46af-8c45-3f00-bea2-70ff7ee9acf1">
+                                    <aixm:distance uom="M">3250.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.dbc25b15-ad3f-4b1f-be13-78f52683b345">
+                            <aixm:type>TORA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.f3668512-3967-38a9-9c64-954fa1818bf1">
+                                    <aixm:distance uom="M">3250.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.91052227-b980-3271-adf0-55a9be59d9c3">
+                            <aixm:propertyName>REMARK</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.e756d8e5-36bc-3b59-a5ad-dd444ba91eba">
+                                    <aixm:note lang="eng">FM J31,FM J32</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RunwayCentrelinePointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RunwayCentrelinePoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RunwayCentrelinePoint gml:id="uuid.863c8a9c-de45-4901-a772-eabe2da3d449">
+            <gml:identifier codeSpace="urn:uuid:">863c8a9c-de45-4901-a772-eabe2da3d449</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RunwayCentrelinePointTimeSlice gml:id="uuid.391be310-a515-4a57-add5-3b9edd7f300d">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.c7e77330-ba06-3f20-acde-b09a0345ba14">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:role>START_RUN</aixm:role>
+                    <aixm:location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:onRunway xlink:href="urn:uuid:91085f58-4d18-4ef8-80cc-1d6b84394021"/>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.1b51eda3-c58a-4ce3-906a-c546621ef4bf">
+                            <aixm:type>ASDA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.07978df0-cf66-35a4-93ab-2b0b5ea4e7b7">
+                                    <aixm:distance uom="M">3450.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.c6acce57-1772-416e-84dc-5f56f922f651">
+                            <aixm:type>TODA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.631e3447-6ec6-3376-8626-f0a8b101bd29">
+                                    <aixm:distance uom="M">3450.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.e6d07b0f-c7b4-4351-91c5-6118582678b9">
+                            <aixm:type>TORA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.f994e631-8569-31f3-ae5e-9afb69e5e053">
+                                    <aixm:distance uom="M">3450.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.684b30a7-1c09-3e06-9a68-b01b20f5472d">
+                            <aixm:propertyName>REMARK</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.c65fcfaa-ec0e-309d-a67a-ee84df9453c9">
+                                    <aixm:note lang="eng">FM J21,FM J22</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RunwayCentrelinePointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RunwayCentrelinePoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RunwayCentrelinePoint gml:id="uuid.a355c897-3be5-4b95-b353-c73499e51a7b">
+            <gml:identifier codeSpace="urn:uuid:">a355c897-3be5-4b95-b353-c73499e51a7b</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RunwayCentrelinePointTimeSlice gml:id="uuid.2b5045dd-33de-468d-b0e6-4b25a89ac577">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.20a1c0b0-d240-3ee3-8bba-835475d14ab4">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:role>DISTHR</aixm:role>
+                    <aixm:location>
+                        <aixm:ElevatedPoint gml:id="uuid.4650ecb3-a2e3-498d-a04f-c62d1015e68d">
+                            <gml:pos/>
+                            <aixm:elevation uom="M">2100.9</aixm:elevation>
+                            <aixm:verticalAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                        </aixm:ElevatedPoint>
+                    </aixm:location>
+                    <aixm:onRunway xlink:href="urn:uuid:836c9085-d693-49f7-a77f-d45213ffae83"/>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.39041f7d-7312-4cd8-b490-6d27cd4d59fa">
+                            <aixm:type>TORA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.13f6078e-20ea-3ae3-b898-a08564cc5a4f">
+                                    <aixm:distance uom="M">4000.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.7ba8679a-4e95-47b3-be21-048a2e2d0d6e">
+                            <aixm:type>TODA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.cf93bb74-7592-35f6-8e50-da5d21481000">
+                                    <aixm:distance uom="M">4000.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.9d97b0c9-f310-4ef9-942c-4eda7c360c1f">
+                            <aixm:type>LDA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.a7488e72-3f23-37c6-8847-0c7b7175552e">
+                                    <aixm:distance uom="M">3700.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.a42f63ec-45f5-4d8b-a982-6cc0d59c10af">
+                            <aixm:type>ASDA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.7bf584bf-5413-339f-8b94-ac16c4976a24">
+                                    <aixm:distance uom="M">4000.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.e45e1785-fb59-4500-abc6-43c99003fece">
+                            <aixm:type>DTHR</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.e33b394f-62fe-493e-a894-c98837c518ee">
+                                    <aixm:distance uom="M">300.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.956a4fcd-528b-3eef-93bc-522c5a430649">
+                            <aixm:propertyName>REMARK</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.413ac6a0-a203-374c-a8fb-a7ba16ebc6ae">
+                                    <aixm:note lang="eng">THR displaced 300m inwards</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RunwayCentrelinePointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RunwayCentrelinePoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RunwayCentrelinePoint gml:id="uuid.c2b38343-64db-44e7-92c4-449e22f64206">
+            <gml:identifier codeSpace="urn:uuid:">c2b38343-64db-44e7-92c4-449e22f64206</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RunwayCentrelinePointTimeSlice gml:id="uuid.a44d7233-5bb5-4262-b951-a5241107eb91">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.4fc1db25-2ba7-34e6-a7b6-80fa28317fbd">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:role>START_RUN</aixm:role>
+                    <aixm:location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:onRunway xlink:href="urn:uuid:836c9085-d693-49f7-a77f-d45213ffae83"/>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.07000b92-d021-4d51-8459-db4816255dd1">
+                            <aixm:type>TODA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.8510a123-3cf0-3d63-ba65-e24de791538d">
+                                    <aixm:distance uom="M">3250.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.4e196197-ccb3-4085-a959-cdfb0e765ba8">
+                            <aixm:type>ASDA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.7410d361-14a9-3740-a20f-c2582709a88f">
+                                    <aixm:distance uom="M">3250.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.5d752f1f-bf0f-4919-9222-556e5d99921f">
+                            <aixm:type>TORA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.163ed01b-b04b-31cb-9f3e-24cc3072e197">
+                                    <aixm:distance uom="M">3250.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.0f8c9cec-dbc4-3e89-8d1a-254905e1721d">
+                            <aixm:propertyName>REMARK</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.f40775b3-f02c-3440-a8e9-1763f74de5fd">
+                                    <aixm:note lang="eng">FM J31,FM J32</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RunwayCentrelinePointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RunwayCentrelinePoint>
+    </message:hasMember>
+    <message:hasMember>
+        <aixm:RunwayCentrelinePoint gml:id="uuid.c43d2a65-0c46-4b7c-b9d4-2f31eab8c0bb">
+            <gml:identifier codeSpace="urn:uuid:">c43d2a65-0c46-4b7c-b9d4-2f31eab8c0bb</gml:identifier>
+            <aixm:timeSlice>
+                <aixm:RunwayCentrelinePointTimeSlice gml:id="uuid.fe94ce8f-197c-47a3-96e0-14d621e7ffc1">
+                    <gml:validTime>
+                        <gml:TimePeriod gml:id="uuid.4feff5d3-9fde-39db-8ee7-a078bca97f48">
+                            <gml:beginPosition>2026-04-15T16:00:00Z</gml:beginPosition>
+                            <gml:endPosition indeterminatePosition="unknown"/>
+                        </gml:TimePeriod>
+                    </gml:validTime>
+                    <aixm:interpretation>BASELINE</aixm:interpretation>
+                    <aixm:sequenceNumber>1</aixm:sequenceNumber>
+                    <aixm:correctionNumber>0</aixm:correctionNumber>
+                    <aixm:role>START_RUN</aixm:role>
+                    <aixm:location xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                    <aixm:onRunway xlink:href="urn:uuid:91085f58-4d18-4ef8-80cc-1d6b84394021"/>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.89d4e071-7929-444b-afc0-b75e9ccdc369">
+                            <aixm:type>TODA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.a5f977b8-04bb-3b39-b72f-2ed9c53df43c">
+                                    <aixm:distance uom="M">3450.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.c06e5112-88fc-47ee-994f-beb1f978c5c2">
+                            <aixm:type>ASDA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.db30ce84-8357-31d9-9485-ec2908574081">
+                                    <aixm:distance uom="M">3450.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:associatedDeclaredDistance>
+                        <aixm:RunwayDeclaredDistance gml:id="uuid.efa3f16f-27f1-49b4-a95b-1c298bfe7194">
+                            <aixm:type>TORA</aixm:type>
+                            <aixm:declaredValue>
+                                <aixm:RunwayDeclaredDistanceValue gml:id="uuid.6bb0f199-9efe-3974-aeff-03380764f81d">
+                                    <aixm:distance uom="M">3450.0</aixm:distance>
+                                    <aixm:distanceAccuracy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" nilReason="unknown" xsi:nil="true"/>
+                                </aixm:RunwayDeclaredDistanceValue>
+                            </aixm:declaredValue>
+                        </aixm:RunwayDeclaredDistance>
+                    </aixm:associatedDeclaredDistance>
+                    <aixm:annotation>
+                        <aixm:Note gml:id="uuid.886d21db-d335-31bb-8292-cacfb8d565ee">
+                            <aixm:propertyName>REMARK</aixm:propertyName>
+                            <aixm:purpose>DESCRIPTION</aixm:purpose>
+                            <aixm:translatedNote>
+                                <aixm:LinguisticNote gml:id="uuid.57c51d5d-e52d-35af-aae6-d8591adfbcc1">
+                                    <aixm:note lang="eng">FM J21,FM J22</aixm:note>
+                                </aixm:LinguisticNote>
+                            </aixm:translatedNote>
+                        </aixm:Note>
+                    </aixm:annotation>
+                </aixm:RunwayCentrelinePointTimeSlice>
+            </aixm:timeSlice>
+        </aixm:RunwayCentrelinePoint>
+    </message:hasMember>
+</message:AIXMBasicMessage>

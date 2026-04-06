@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:aisc-cl="https://www.eaipchina.cn/schema/dataset/checklist"
+            xmlns:aisc-ds="https://www.eaipchina.cn/schema/dataset/meta"
+            targetNamespace="https://www.eaipchina.cn/schema/dataset/checklist"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <!-- 导入数据集元数据命名空间 -->
+    <xsd:import namespace="https://www.eaipchina.cn/schema/dataset/meta"
+                schemaLocation="meta.xsd"/>
+
+    <!-- 数据集清单根元素 -->
+    <xsd:element name="datasetsChecklist">
+        <xsd:complexType>
+            <xsd:sequence>
+                <!-- 数据集列表，至少包含一个数据集 -->
+                <xsd:element name="dataset" type="aisc-ds:DatasetType" maxOccurs="unbounded" minOccurs="1"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>
