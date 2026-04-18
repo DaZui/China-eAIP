@@ -36,7 +36,6 @@ ALLOWED_HOSTS = ["10.19.97.2", "127.0.0.1", "localhost", "[::1]"]
 
 INSTALLED_APPS = [
     "app.apps.AppConfig",
-    "chinese_administrative_division.apps.ChineseAdministrativeDivisionConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
