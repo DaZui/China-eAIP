@@ -1,9 +1,18 @@
-http://maps.hanming.li, http://maps.lihanming.cn {
+http://china-eaip-dataset.hanming.li, http://china-eaip-dataset.lihanming.cn {
 	# basicauth {
 	# 	jason $2a$14$bVTLIhMXUXKCFfrC5ZYale5ezNvvH30ilIG0kaObjm9OO3CWjaa4e # feb8cfd9
 	# }
 	handle /api* {
-		reverse_proxy http://100.74.34.39:8000
+		reverse_proxy http://100.66.44.107:8000
+	}
+	handle /docs* {
+		reverse_proxy http://100.66.44.107:8000
+	}
+	handle /redoc* {
+		reverse_proxy http://100.66.44.107:8000
+	}
+	handle /openapi.json* {
+		reverse_proxy http://100.66.44.107:8000
 	}
 	handle {
 		root * /srv

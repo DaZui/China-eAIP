@@ -86,7 +86,7 @@ DATABASES: dict[str, dict[str, str]] = {
         "NAME": "postgres",
         "USER": "postgres",
         "PASSWORD": "postgres",
-        "HOST": "100.74.34.39",
+        "HOST": "100.66.44.107",
         "PORT": "5432",
     }
 }

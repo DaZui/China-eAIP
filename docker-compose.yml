@@ -32,45 +32,45 @@ services:
     volumes:
       - ./postgresql:/var/lib/postgresql
 
-  # backend:
-  #   depends_on:
-  #     - db
-  #   entrypoint: /code/entrypoint.sh
-  #   environment:
-  #     - DEBUG=FALSE
-  #   image: ghcr.io/astral-sh/uv:python3.14-bookworm-slim
-  #   network_mode: service:tailscale
-  #   restart: unless-stopped
-  #   volumes:
-  #     - uv-venv:/code/.venv
-  #     - ./backend:/code
-  #     - ./data:/data
-  #     - ./schema:/schema
-  #   working_dir: /code
+  backend:
+    depends_on:
+      - db
+    entrypoint: /code/entrypoint.sh
+    environment:
+      - DEBUG=FALSE
+    image: ghcr.io/astral-sh/uv:python3.14-bookworm-slim
+    network_mode: service:tailscale
+    restart: unless-stopped
+    volumes:
+      - uv-venv:/code/.venv
+      - ./backend:/code
+      - ./data:/data
+      - ./schema:/schema
+    working_dir: /code
 
-  # frontend:
-  #   entrypoint: /code/entrypoint.sh
-  #   image: oven/bun:slim
-  #   restart: on-failure
-  #   volumes:
-  #     - bun-dist:/code/dist
-  #     - bun-node-modules:/code/node_modules
-  #     - ./frontend:/code
-  #   working_dir: /code
+  frontend:
+    entrypoint: /code/entrypoint.sh
+    image: oven/bun:slim
+    restart: on-failure
+    volumes:
+      - bun-dist:/code/dist
+      - bun-node-modules:/code/node_modules
+      - ./frontend:/code
+    working_dir: /code
 
-  # app:
-  #   depends_on:
-  #     - backend
-  #   image: caddy
-  #   labels:
-  #     traefik.enable: True
-  #     traefik.http.routers.china-eaip-dataset.rule: Host(`china-eaip-dataset.hanming.li`) || Host(`china-eaip-dataset.lihanming.cn`)
-  #   networks:
-  #     - web
-  #   volumes:
-  #     - bun-dist:/srv
-  #     - ./Caddyfile:/etc/caddy/Caddyfile
-  #   restart: unless-stopped
+  app:
+    depends_on:
+      - backend
+    image: caddy
+    labels:
+      traefik.enable: True
+      traefik.http.routers.china-eaip-dataset.rule: Host(`china-eaip-dataset.hanming.li`) || Host(`china-eaip-dataset.lihanming.cn`)
+    networks:
+      - web
+    volumes:
+      - bun-dist:/srv
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    restart: unless-stopped
 
 volumes:
   bun-dist:
