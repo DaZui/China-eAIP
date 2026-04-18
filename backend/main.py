@@ -1,7 +1,9 @@
+from api.wsgi import application  # isort:skip
 import collections.abc
 import datetime
 import functools
 import json
+import os
 import pathlib
 import re
 import typing
@@ -12,8 +14,21 @@ import output_schemas.airport_heliport
 import pydantic
 import uvicorn
 import xmlschema
+from fastapi import staticfiles
+from fastapi.middleware import cors, wsgi
 
-web_app = fastapi.FastAPI(debug=True)
+web_app = fastapi.FastAPI(
+    debug=os.environ.get("DEBUG", default="True") == "True",
+    title="Aeronautical Map",
+    summary="API endpoints for various aviation related information.",
+    version="1.0.0",
+    # description="API endpoints for various aviation related information.",
+    terms_of_service="https://hanming.li",
+    contact={
+        "name": '李瀚明 Li Hanming "Jason" @ Li & Li 李及李',
+        "url": "https://hanming.li",
+    },
+)
 File = typing.Literal[
     "AirportHeliport",
     "Airspace",
@@ -144,6 +159,15 @@ class BaselineDataPackage(
         raise FileNotFoundError
 
 
+# 允许 CORS 跨站访问
+web_app.add_middleware(
+    middleware_class=cors.CORSMiddleware,
+    allow_origins=[
+        "*",
+    ],
+)
+
+
 @web_app.get(path="/api/china-eaip-datasets")
 def list_all_datasets(
     timestamp: datetime.datetime = datetime.datetime.now(tz=datetime.UTC),
@@ -174,5 +198,19 @@ def fetch_china_eaip_dataset_by_timestamp(filename: str, keyword: File) -> typin
     return BaselineDataPackage(filename=filename).read_file(keyword=keyword)
 
 
+# 挂载 django app 的其他部分
+web_app.mount(
+    path="/static",
+    app=staticfiles.StaticFiles(
+        directory="./static",
+    ),
+)
+web_app.mount(
+    path="/",
+    app=wsgi.WSGIMiddleware(
+        app=application,
+    ),
+)
+
 if __name__ == "__main__":
-    uvicorn.run(app="main:web_app", reload=True)
+    uvicorn.run(app="main:web_app", reload=True, host="::")

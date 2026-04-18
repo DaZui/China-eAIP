@@ -3,78 +3,77 @@ networks:
     external: True
 
 services:
-  # tailscale:
-  #   cap_add:
-  #     - net_admin
-  #   devices:
-  #     - /dev/net/tun:/dev/net/tun
-  #   environment:
-  #     - TS_AUTHKEY=tskey-client-kNnQyDjzFu11CNTRL-7Y46n34KMgcnDoLgNR6GgcSKxwycSkyw
-  #     - TS_EXTRA_ARGS=--advertise-tags=tag:docker
-  #     - TS_STATE_DIR=/var/lib/tailscale
-  #   hostname: china-eaip-dataset # 请编辑此处以改变主机名
-  #   image: tailscale/tailscale:latest
-  #   restart: unless-stopped
-  #   volumes:
-  #     - tailscale-state:/var/lib/tailscale
+  tailscale:
+    cap_add:
+      - net_admin
+    devices:
+      - /dev/net/tun:/dev/net/tun
+    environment:
+      - TS_AUTHKEY=tskey-client-kNnQyDjzFu11CNTRL-7Y46n34KMgcnDoLgNR6GgcSKxwycSkyw
+      - TS_EXTRA_ARGS=--advertise-tags=tag:docker
+      - TS_STATE_DIR=/var/lib/tailscale
+    hostname: china-eaip-dataset # 请编辑此处以改变主机名
+    image: tailscale/tailscale:latest
+    restart: unless-stopped
+    volumes:
+      - tailscale-state:/var/lib/tailscale
 
-  # db:
+  db:
+    environment:
+      - POSTGRES_PASSWORD=postgres # 修改时请同时修改 backend/api/settings.py 中的设置
+    healthcheck:
+      interval: 1s
+      retries: 10
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      timeout: 5s
+    image: postgres:18-trixie
+    network_mode: service:tailscale
+    restart: unless-stopped
+    volumes:
+      - ./postgresql:/var/lib/postgresql
+
+  # backend:
+  #   depends_on:
+  #     - db
+  #   entrypoint: /code/entrypoint.sh
   #   environment:
-  #     - POSTGRES_PASSWORD=postgres # 修改时请同时修改 backend/api/settings.py 中的设置
-  #   healthcheck:
-  #     interval: 1s
-  #     retries: 10
-  #     test: ["CMD-SHELL", "pg_isready -U postgres"]
-  #     timeout: 5s
-  #   image: postgres:18-trixie
+  #     - DEBUG=FALSE
+  #   image: ghcr.io/astral-sh/uv:python3.14-bookworm-slim
   #   network_mode: service:tailscale
   #   restart: unless-stopped
   #   volumes:
-  #     - ./postgresql:/var/lib/postgresql
+  #     - uv-venv:/code/.venv
+  #     - ./backend:/code
+  #     - ./data:/data
+  #     - ./schema:/schema
+  #   working_dir: /code
 
-  backend:
-    # depends_on:
-    #   - db
-    entrypoint: /code/entrypoint.sh
-    environment:
-      - DEBUG=FALSE
-    image: ghcr.io/astral-sh/uv:python3.14-bookworm-slim
-    # network_mode: service:tailscale
-    restart: unless-stopped
-    volumes:
-      - uv-venv:/code/.venv
-      - ./backend:/code
-      - ./data:/data
-      - ./schema:/schema
-    working_dir: /code
+  # frontend:
+  #   entrypoint: /code/entrypoint.sh
+  #   image: oven/bun:slim
+  #   restart: on-failure
+  #   volumes:
+  #     - bun-dist:/code/dist
+  #     - bun-node-modules:/code/node_modules
+  #     - ./frontend:/code
+  #   working_dir: /code
 
-  frontend:
-    entrypoint: /code/entrypoint.sh
-    image: oven/bun:slim
-    restart: on-failure
-    volumes:
-      - bun-dist:/code/dist
-      - bun-node-modules:/code/node_modules
-      - ./frontend:/code
-    working_dir: /code
-
-  app:
-    depends_on:
-      - backend
-    image: caddy
-    labels:
-      traefik.enable: True
-      traefik.http.routers.china-eaip-dataset.rule: Host(`china-eaip-dataset.hanming.li`) || Host(`china-eaip-dataset.lihanming.cn`)
-    networks:
-      - default
-      - web
-    volumes:
-      - bun-dist:/srv
-      - ./Caddyfile:/etc/caddy/Caddyfile
-    restart: unless-stopped
+  # app:
+  #   depends_on:
+  #     - backend
+  #   image: caddy
+  #   labels:
+  #     traefik.enable: True
+  #     traefik.http.routers.china-eaip-dataset.rule: Host(`china-eaip-dataset.hanming.li`) || Host(`china-eaip-dataset.lihanming.cn`)
+  #   networks:
+  #     - web
+  #   volumes:
+  #     - bun-dist:/srv
+  #     - ./Caddyfile:/etc/caddy/Caddyfile
+  #   restart: unless-stopped
 
 volumes:
   bun-dist:
   bun-node-modules:
-  # tailscale-state:
+  tailscale-state:
   uv-venv:

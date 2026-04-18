@@ -5,8 +5,28 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
+    "django-stubs-ext>=5.2.7",
+    "django>=6.0.4",
     "fastapi[all]>=0.135.3",
-    "pydantic>=2.12.5",
-    "typer>=0.24.1",
+    "httpx[http2]>=0.28.1",
+    "psycopg[binary]>=3.3.3",
+    "pydantic>=2.13.2",
+    "pyproj>=3.7.2",
+    "shapely>=2.1.2",
+    "tzfpy[tzdata]>=1.1.0",
+    "uvicorn>=0.44.0",
+    "whenever>=0.9.3",
     "xmlschema>=4.3.1",
 ]
+
+[dependency-groups]
+dev = [
+    "deptry>=0.23.1",
+    "django-stubs[compatible-mypy]>=5.2.7",
+    "mypy>=1.18.2",
+    "types-shapely>=2.1.0.20260408",
+    "watchfiles>=1.1.1",
+]
+
+[tool.deptry.per_rule_ignores]
+DEP002 = ["psycopg"]
