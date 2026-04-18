@@ -18,12 +18,16 @@ class Point(WithAtGmlId, WithAtSrsName):
         ValDistanceType | None, Field(alias="aixm:horizontalAccuracy")
     ] = None
 
+    @property
+    def latitude(self) -> float:
+        return self.gml_pos.dollar[0] if self.gml_pos else 0
+
+    @property
+    def longitude(self) -> float:
+        return self.gml_pos.dollar[1] if self.gml_pos else 0
+
     def point(self, elevation: float = 0) -> geojson.Point:
-        if self.gml_pos is None:
-            return geojson.Point(coordinates=(0, 0, elevation))
-        return geojson.Point(
-            coordinates=(self.gml_pos.dollar[1], self.gml_pos.dollar[0], elevation)
-        )
+        return geojson.Point(coordinates=(self.longitude, self.latitude, elevation))
 
 
 class ElevatedPoint(Point):

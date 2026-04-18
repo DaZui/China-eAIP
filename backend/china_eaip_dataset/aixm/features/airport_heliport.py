@@ -1,8 +1,9 @@
+import datetime
 from typing import Annotated
 
 from pydantic import Field
 
-from ...base import BaseModel, Link, WithAtGmlId
+from ...base import BaseModel, Link, Nil, WithAtGmlId
 from ..abstract_feature import AixmTimeSlice
 from ..data_types import (
     CodeAirportHeliportDesignatorType,
@@ -98,34 +99,96 @@ class AirportHeliport(AixmTimeSlice, WithAixmAnnotation):
     aixm_designator_iata: Annotated[CodeIATAType, Field(alias="aixm:designatorIATA")]
     aixm_type: Annotated[CodeAirportHeliportType, Field(alias="aixm:type")]
     aixm_certified_icao: Annotated[CodeYesNoType, Field(alias="aixm:certifiedICAO")]
+
+    @property
+    def aixm_certified_icao_bool(self) -> bool | None:
+        if not isinstance(self.aixm_certified_icao, Nil):
+            if self.aixm_certified_icao.dollar == "YES":
+                return True
+            if self.aixm_certified_icao.dollar == "NO":
+                return False
+
     aixm_control_type: Annotated[
         CodeMilitaryOperationsType, Field(alias="aixm:controlType")
     ]
     aixm_field_elevation: Annotated[
         ValDistanceVerticalType, Field(alias="aixm:fieldElevation")
     ]
+
+    @property
+    def aixm_field_elevation_float(self) -> float | None:
+        if not isinstance(self.aixm_field_elevation, Nil):
+            return self.aixm_field_elevation.in_m
+
     aixm_field_elevation_accuracy: Annotated[
         ValDistanceVerticalType, Field(alias="aixm:fieldElevationAccuracy")
     ]
+
+    @property
+    def aixm_field_elevation_accuracy_float(self) -> float | None:
+        if not isinstance(self.aixm_field_elevation_accuracy, Nil):
+            return self.aixm_field_elevation_accuracy.in_m
+
     aixm_magnetic_variation: Annotated[
         ValMagneticVariationType, Field(alias="aixm:magneticVariation")
     ]
+
+    @property
+    def aixm_magnetic_variation_float(self) -> float | None:
+        if not isinstance(self.aixm_magnetic_variation, Nil):
+            return float(self.aixm_magnetic_variation.dollar)
+
     aixm_magnetic_variation_accuracy: Annotated[
         ValAngleType, Field(alias="aixm:magneticVariationAccuracy")
     ]
+
+    @property
+    def aixm_magnetic_variation_accuracy_float(self) -> float | None:
+        if not isinstance(self.aixm_magnetic_variation_accuracy, Nil):
+            return float(self.aixm_magnetic_variation_accuracy.dollar)
+
     aixm_date_magnetic_variation: Annotated[
         DateYearType, Field(alias="aixm:dateMagneticVariation")
     ]
+
+    @property
+    def aixm_date_magnetic_variation_int(self) -> int | None:
+        if not isinstance(self.aixm_date_magnetic_variation, Nil):
+            return int(self.aixm_date_magnetic_variation.dollar)
+
     aixm_magnetic_variation_change: Annotated[
         ValMagneticVariationChangeType, Field(alias="aixm:magneticVariationChange")
     ]
+
+    @property
+    def aixm_magnetic_variation_change_float(self) -> float | None:
+        if not isinstance(self.aixm_magnetic_variation_change, Nil):
+            return float(self.aixm_magnetic_variation_change.dollar)
+
     aixm_reference_temperature: Annotated[
         ValTemperatureType, Field(alias="aixm:referenceTemperature")
     ]
+
+    @property
+    def aixm_reference_temperature_float(self) -> float | None:
+        if not isinstance(self.aixm_reference_temperature, Nil):
+            return self.aixm_reference_temperature.in_celsius
+
     aixm_certification_date: Annotated[DateType, Field(alias="aixm:certificationDate")]
+
+    @property
+    def aixm_certification_date_datetime_date(self) -> datetime.date | None:
+        if not isinstance(self.aixm_certification_date, Nil):
+            return self.aixm_certification_date.dollar
+
     aixm_certification_expiration_date: Annotated[
         DateType, Field(alias="aixm:certificationExpirationDate")
     ]
+
+    @property
+    def aixm_certification_expiration_date_datetime_date(self) -> datetime.date | None:
+        if not isinstance(self.aixm_certification_expiration_date, Nil):
+            return self.aixm_certification_expiration_date.dollar
 
     class _AixmArpItem(BaseModel):
         aixm_elevated_point: Annotated[ElevatedPoint, Field(alias="aixm:ElevatedPoint")]

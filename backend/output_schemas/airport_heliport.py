@@ -8,7 +8,7 @@ from china_eaip_dataset import geojson
 from china_eaip_dataset.base import Nil, WithDollar
 
 
-class _Properties(pydantic.BaseModel):
+class Properties(pydantic.BaseModel):
     designator: str
     name: str
     locationIndicatorICAO: str
@@ -25,6 +25,11 @@ class _Properties(pydantic.BaseModel):
     annotations: str
     servedCity: str
     availability: str
+
+
+class Feature(geojson.Feature):
+    geometry: geojson.Point
+    properties: Properties
 
 
 def none_or_value[Inner: typing.Any](x: Nil | WithDollar[Inner]) -> None | Inner:
@@ -72,8 +77,8 @@ class Output(china_eaip_dataset.base.BaseModel):
 
     @pydantic.computed_field
     @property
-    def properties(self) -> _Properties:
-        return _Properties(
+    def properties(self) -> Properties:
+        return Properties(
             designator=f"{self.value.aixm_designator}".upper(),
             name=f"{self.value.aixm_name}".capitalize(),
             locationIndicatorICAO=f"{self.value.aixm_location_indicator_icao}".upper(),

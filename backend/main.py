@@ -1,4 +1,5 @@
-from api.wsgi import application  # isort:skip
+from api.wsgi import application  # pyright: ignore[reportUnusedImport] # isort:skip # noqa: F401
+from app import models  # pyright: ignore[reportUnusedImport] # isort:skip # noqa: F401
 import collections.abc
 import datetime
 import functools
@@ -9,6 +10,7 @@ import re
 import typing
 
 import china_eaip_dataset.aixm.features
+import china_eaip_dataset.geojson
 import fastapi
 import output_schemas.airport_heliport
 import pydantic
@@ -132,10 +134,14 @@ class BaselineDataPackage(
             tzinfo=datetime.UTC
         )
 
+    @functools.cached_property
+    def effective_until(self) -> datetime.datetime:
+        return self.effective_since + datetime.timedelta(days=28)
+
     @pydantic.computed_field
     @functools.cached_property
     def status(self) -> typing.Literal["expired", "current", "upcoming"]:
-        if self.reference >= self.effective_since + datetime.timedelta(days=28):
+        if self.reference >= self.effective_until:
             return "expired"
         if self.reference >= self.effective_since:
             return "current"
@@ -187,10 +193,50 @@ def airport_heliport_dataset_by_timestamp(
 @web_app.get(path="/api/china-eaip-datasets/{filename}/AirportHeliport/elements")
 def list_all_airports_heliports(
     filename: str,
-) -> list[output_schemas.airport_heliport.Output]:
-    return output_schemas.airport_heliport.Output.list_all(
-        obj=airport_heliport_dataset_by_timestamp(filename, "AirportHeliport")
-    )
+) -> list[output_schemas.airport_heliport.Feature]:
+    package: BaselineDataPackage = BaselineDataPackage(filename=filename)
+
+    return [
+        output_schemas.airport_heliport.Feature(
+            geometry=china_eaip_dataset.geojson.Point(
+                coordinates=(
+                    x.aixm_longitude,
+                    x.aixm_latitude,
+                    x.aixm_field_elevation or 0,
+                )
+            ),
+            properties=output_schemas.airport_heliport.Properties(
+                designator=x.aixm_designator,
+                locationIndicatorICAO=x.aixm_location_indicator_icao,
+                designatorIATA=x.aixm_designator_iata,
+                name=x.aixm_name,
+                type=x.aixm_type,
+                certifiedICAO="YES"
+                if x.aixm_certified_icao is True
+                else "NO"
+                if x.aixm_certified_icao is False
+                else "OTHER",
+                controlType=x.aixm_control_type,
+                fieldElevationInMeter=x.aixm_field_elevation or 0,
+                magneticVariation=f"{x.aixm_magnetic_variation}",
+                dateMagneticVariation=f"{x.aixm_date_magnetic_variation}",
+                referenceTemperatureInCelcius=x.aixm_reference_temperature or 0,
+                certificationDate=x.aixm_certification_date,
+                certificationExpirationDate=x.aixm_certification_expiration_date,
+                annotations="",
+                servedCity=x.aixm_city,
+                availability="",
+            ),
+            id=x.uuid,
+        )
+        for x in models.AirportHeliport.objects.filter(
+            information_valid_since__lte=package.effective_since,
+            information_valid_until__gte=package.effective_until,
+        ).order_by("aixm_location_indicator_icao")
+    ]
+    # return output_schemas.airport_heliport.Output.list_all(
+    #     obj=airport_heliport_dataset_by_timestamp(filename, "AirportHeliport")
+    # )
 
 
 @web_app.get(path="/api/china-eaip-datasets/{filename}/{keyword}")
