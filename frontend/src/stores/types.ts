@@ -52,22 +52,19 @@ interface FeatureCollection {
 interface 机场 extends Feature {
   geometry: Point
   properties: {
-    designator: string
-    name: string
-    locationIndicatorICAO: string
-    designatorIATA: string
-    type: string
-    certifiedICAO: string
-    controlType: string
-    fieldElevationInMeter: number
-    magneticVariation: string
-    dateMagneticVariation: string
-    referenceTemperatureInCelcius: number
-    certificationDate: string
-    certificationExpirationDate: string
-    annotations: string
-    servedCity: string
-    availability: string
+    uuid: string
+    information_valid_since: string
+    information_valid_until: string
+    aixm_sequence_number: number
+    aixm_correction_number: number
+    aixm_location_indicator_icao: string
+    aixm_designator_iata: string
+    aixm_annotations: string
+
+    aixm_name_display: string
+    aixm_field_elevation_display: string[]
+    aixm_reference_temperature_display: string[]
+    aixm_magnetic_variation_display: string[]
   }
   id: string
 }

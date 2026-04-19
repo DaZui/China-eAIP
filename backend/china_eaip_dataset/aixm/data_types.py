@@ -84,9 +84,9 @@ type _ValDistanceVerticalBaseType = (
     decimal.Decimal | Literal["UNL", "GND", "FLOOR", "CEILING"]
 )
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceVerticalBaseType.html"""
-type _UomDistanceVerticalType = Literal["FT", "M", "FL", "SM", "OTHER"]
+type UomDistanceVerticalType = Literal["FT", "M", "FL", "SM", "OTHER"]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_UomDistanceVerticalType.html"""
-CONVERT_TO_METER: dict[_UomDistanceType | _UomDistanceVerticalType, float] = {
+CONVERT_TO_METER: dict[_UomDistanceType | UomDistanceVerticalType, float] = {
     "CM": 0.01,
     "FL": 30.48,
     "FT": 0.3048,
@@ -100,7 +100,7 @@ CONVERT_TO_METER: dict[_UomDistanceType | _UomDistanceVerticalType, float] = {
 
 
 class _ValDistanceVerticalTypeInner(WithDollar[_ValDistanceVerticalBaseType]):
-    at_uom: Annotated[_UomDistanceVerticalType, Field(alias="@uom")] = "M"
+    at_uom: Annotated[UomDistanceVerticalType, Field(alias="@uom")] = "M"
 
     def __str__(self) -> str:
         return f"{self.dollar} {self.at_uom}"

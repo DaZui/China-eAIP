@@ -1,77 +1,25 @@
 <template>
   <div class="card">
     <div class="card-body">
-      <h5 class="card-title" v-if="airport.properties.servedCity === airport.properties.name">
-        {{ airport.properties.servedCity }}
-      </h5>
-      <h5 class="card-title" v-else>
-        {{ airport.properties.servedCity }} / {{ airport.properties.name }}
-      </h5>
+      <h5 class="card-title">{{ airport.properties.aixm_name_display }}</h5>
       <h6 class="card-subtitle mb-2 text-body-secondary">
-        {{ airport.properties.designatorIATA }} / {{ airport.properties.locationIndicatorICAO }}
+        {{ airport.properties.aixm_designator_iata }} /
+        {{ airport.properties.aixm_location_indicator_icao }}
       </h6>
       <h6 class="card-subtitle mb-2 text-body-secondary">
         {{ airport.geometry.coordinates[1].toFixed(6) }}°N,
         {{ airport.geometry.coordinates[0].toFixed(6) }}°E
       </h6>
       <p class="card-text"></p>
-      <table class="table spread">
+      <table class="table table-sm spread">
         <tbody>
-          <tr>
-            <th>Designator</th>
-            <td>{{ airport.properties.designator }}</td>
-          </tr>
-          <tr>
-            <th>Type</th>
-            <td>{{ airport.properties.type }}</td>
-          </tr>
-          <tr>
-            <th>ICAO Certified</th>
-            <td>{{ airport.properties.certifiedICAO }}</td>
-          </tr>
-          <tr>
-            <th>Control Type</th>
-            <td>{{ airport.properties.controlType }}</td>
-          </tr>
-          <tr>
-            <th>Field Elevation</th>
-            <td>
-              {{ airport.properties.fieldElevationInMeter.toFixed(1) }} m<br />
-              ({{ (airport.properties.fieldElevationInMeter / 0.3048).toFixed(1) }} ft)
-            </td>
-          </tr>
-          <tr>
-            <th>Reference Temperature</th>
-            <td>
-              {{ airport.properties.referenceTemperatureInCelcius.toFixed(1) }} ℃<br />
-              ({{ (airport.properties.referenceTemperatureInCelcius * 1.8 + 32).toFixed(1) }} ℉)
-            </td>
-          </tr>
-          <tr>
-            <th>Magnetic Variation</th>
-            <td>
-              <div>{{ airport.properties.magneticVariation }}°</div>
-              <div v-if="airport.properties.dateMagneticVariation">
-                (Updated in {{ airport.properties.dateMagneticVariation }})
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <th>Certification Date</th>
-            <td>{{ airport.properties.certificationDate }}</td>
-          </tr>
-          <tr>
-            <th>Certification Expiration Date</th>
-            <td>{{ airport.properties.certificationExpirationDate }}</td>
-          </tr>
-          <tr>
-            <th>Annotations</th>
-            <td>{{ airport.properties.annotations }}</td>
-          </tr>
-          <tr>
-            <th>Availability</th>
-            <td>{{ airport.properties.availability }}</td>
-          </tr>
+          <DisplayList
+            v-for="([a, b, c], idx) in items"
+            :key="idx"
+            :title="a"
+            :horizontal="b"
+            :items="c"
+          />
         </tbody>
       </table>
     </div>
@@ -79,7 +27,35 @@
 </template>
 <script setup lang="ts">
 import type { 机场 } from '@/stores/types'
-defineProps<{ airport: 机场 }>()
+import DisplayList from './DisplayList.vue'
+import { computed, type ComputedRef } from 'vue'
+const props = defineProps<{ airport: 机场 }>()
+
+const items: ComputedRef<[string, boolean, string[]][]> = computed(() => [
+  ['Field Elevation', true, props.airport.properties.aixm_field_elevation_display],
+  ['Reference Temperature', true, props.airport.properties.aixm_reference_temperature_display],
+  ['Magnetic Variation', false, props.airport.properties.aixm_magnetic_variation_display],
+  [
+    'Annotations',
+    false,
+    props.airport.properties.aixm_annotations.split(/[:,]/).map((x) => x.trim()),
+  ],
+  [
+    'Version',
+    false,
+    [
+      `Version ${props.airport.properties.aixm_sequence_number}.${props.airport.properties.aixm_correction_number}`,
+    ],
+  ],
+  [
+    'Validity',
+    false,
+    [
+      `Since ${props.airport.properties.information_valid_since}`,
+      `Until ${props.airport.properties.information_valid_until}`,
+    ],
+  ],
+])
 </script>
 <style scoped>
 .spread td {

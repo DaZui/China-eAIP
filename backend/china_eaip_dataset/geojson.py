@@ -50,3 +50,12 @@ class Feature(pydantic.BaseModel, title="GeoJSON Feature"):
     geometry: Point
     properties: typing.Any
     id: str
+
+
+class TypedFeature[Geometry: Point, Properties: typing.Any](
+    pydantic.BaseModel, title="Typed GeoJSON Feature"
+):
+    type: typing.Literal["Feature"] = "Feature"
+    geometry: Geometry
+    properties: Properties
+    id: str

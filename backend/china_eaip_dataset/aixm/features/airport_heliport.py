@@ -212,6 +212,27 @@ class AirportHeliport(AixmTimeSlice, WithAixmAnnotation):
         tuple[_AixmAvailabilityItem], Field(alias="aixm:availability")
     ]
 
+    @property
+    def availability(self) -> str:
+        return "\n".join(
+            ["military,purpose,rule,type"]
+            + sorted(
+                {
+                    ",".join(
+                        [
+                            f"{z.aixm_flight_characteristic.aixm_military}",
+                            f"{z.aixm_flight_characteristic.aixm_purpose}",
+                            f"{z.aixm_flight_characteristic.aixm_rule}",
+                            f"{z.aixm_flight_characteristic.aixm_type}",
+                        ]
+                    )
+                    for x in self.aixm_availability
+                    for y in x.aixm_airport_heliport_availability.aixm_usage
+                    for z in y.aixm_airport_heliport_usage.aixm_selection.aixm_condition_combination.aixm_flight
+                }
+            )
+        )
+
 
 class Runway(AixmTimeSlice, WithAixmAnnotation):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_Runway.html"""

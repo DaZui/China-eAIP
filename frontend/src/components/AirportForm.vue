@@ -6,12 +6,11 @@
         :value="airport"
         class="monospace"
         v-for="airport of store.allAirportsHeliports.filter((x) =>
-          x.properties.locationIndicatorICAO.startsWith(prefix),
+          x.properties.aixm_location_indicator_icao.startsWith(prefix),
         )"
       >
-        {{ airport.properties.locationIndicatorICAO }} {{ airport.properties.designatorIATA }}
-        {{ airport.properties.servedCity }} /
-        {{ airport.properties.name }}
+        {{ airport.properties.aixm_location_indicator_icao }}
+        {{ airport.properties.aixm_designator_iata }} {{ airport.properties.aixm_name_display }}
       </option>
     </optgroup>
   </select>
