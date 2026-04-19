@@ -9,7 +9,6 @@ import re
 import typing
 
 import china_eaip_dataset.aixm.features
-import china_eaip_dataset.geojson
 import fastapi
 import pydantic
 import uvicorn
@@ -203,20 +202,23 @@ def list_all_airports_heliports(
     ]
 
 
-@web_app.get(path="/api/china-eaip-datasets/{filename}/Airspace/elements")
+@web_app.get(
+    path="/api/china-eaip-datasets/{filename}/Airspace/elements",
+    response_model=list[schemas.Airspace],
+)
 def list_all_airspaces(
     filename: str,
-) -> list[china_eaip_dataset.geojson.FeatureCollection]:
+) -> collections.abc.Iterable[models.Airspace]:
     package: BaselineDataPackage = BaselineDataPackage(filename=filename)
     return [
-        y
+        x
         for x in models.Airspace.objects.filter(
-            aixm_type="FIR",
+            # aixm_type="FIR",
             # aixm_name="BEIJING FIR",
             information_valid_since__lte=package.effective_since,
             information_valid_until__gte=package.effective_until,
-        ).order_by("aixm_designator")
-        if len((y := x.feature).features) > 1
+        ).order_by("aixm_type", "aixm_designator", "aixm_name")
+        if len(x.features.features) > 0
     ]
 
 

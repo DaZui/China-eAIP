@@ -22,12 +22,12 @@
 
 <script setup lang="ts">
 import { useGreatCircleMapStore } from '@/stores/GreatCircleMap'
-import { type 机场 } from '@/stores/types'
+import { type AirportHeliport } from '@/stores/types'
 import { computed, type ComputedRef } from 'vue'
-import DisplayList from './DisplayList.vue'
+import DisplayList from '../DisplayList.vue'
 
 const store = useGreatCircleMapStore()
-const props = defineProps<{ airport: 机场 }>()
+const props = defineProps<{ airport: AirportHeliport }>()
 
 const items: ComputedRef<[string, string[]][]> = computed(() => [
   ['Field Elevation', [store.转换高度(props.airport.properties.aixm_field_elevation)]],

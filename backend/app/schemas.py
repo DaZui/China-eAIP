@@ -2,6 +2,10 @@ import datetime
 
 import pydantic
 from china_eaip_dataset import geojson
+from china_eaip_dataset.aixm.data_types import (
+    CodeVerticalReferenceBaseType,
+    ValDistanceVerticalBaseType,
+)
 
 
 class _Common(pydantic.BaseModel):
@@ -38,6 +42,26 @@ class Properties2(_Common):
     aixm_designator: str
     aixm_name: str
 
+    upper_limit: tuple[
+        float | None, ValDistanceVerticalBaseType | CodeVerticalReferenceBaseType
+    ]
+    lower_limit: tuple[
+        float | None, ValDistanceVerticalBaseType | CodeVerticalReferenceBaseType
+    ]
 
-class Airspace(geojson.TypedFeature[geojson.GeometryCollection, Properties2]):
-    pass
+
+class Airspace(_Common):
+    aixm_type: str
+    aixm_designator: str
+    aixm_name: str
+
+    features: geojson.FeatureCollection
+
+
+class AirspaceComponent(pydantic.BaseModel):
+    upper_limit: tuple[
+        float | None, ValDistanceVerticalBaseType | CodeVerticalReferenceBaseType
+    ]
+    lower_limit: tuple[
+        float | None, ValDistanceVerticalBaseType | CodeVerticalReferenceBaseType
+    ]

@@ -22,29 +22,40 @@
       <LGeoJson
         v-for="(item, idx) in store.selectedAirportsHeliports"
         :key="idx"
-        :geojson="store.转换Feature(item)"
+        :geojson="converter.convert(item)"
       >
         <LPopup><AirportHint :airport="item" /></LPopup>
         <LTooltip><AirportHint :airport="item" /></LTooltip>
       </LGeoJson>
 
-      <template v-for="[category, items] in store.项目s" :key="category">
-        <LGeoJson v-for="(item, idx) in items" :key="idx" :geojson="store.转换Feature(item.object)">
-          <LPopup :content="item.description" />
-          <LTooltip :content="item.description" />
-        </LGeoJson>
-      </template>
+      <LGeoJson
+        v-for="(item, idx) in store.selectedAirspaces"
+        :key="idx"
+        :geojson="converter.convert(item.features)"
+      >
+        <LPopup><AirspaceHint :airspace="item" /></LPopup>
+        <LTooltip><AirspaceHint :airspace="item" /></LTooltip>
+      </LGeoJson>
     </LMap>
   </div>
 </template>
+
 <script setup lang="ts">
+import AirportHint from '@/components/AirportHeliport/AirportHint.vue'
+import AirspaceHint from '@/components/Airspace/AirspaceHint.vue'
+import TileLayerBase from '@/components/底图/TileLayerBase.vue'
+import { useGreatCircleMapStore } from '@/stores/GreatCircleMap'
+import { Converter } from '@/stores/wgsgcj'
+import GreatCircleMapSettings from '@/views/GreatCircleMapSettings.vue'
 import { LGeoJson, LMap, LPopup, LTooltip } from '@vue-leaflet/vue-leaflet'
 import 'leaflet/dist/leaflet.css'
-import TileLayerBase from '../components/底图/TileLayerBase.vue'
-import AirportHint from '../components/AirportHint.vue'
-import { useGreatCircleMapStore } from '../stores/GreatCircleMap'
-import GreatCircleMapSettings from './GreatCircleMapSettings.vue'
+import { computed, type ComputedRef } from 'vue'
+
 const store = useGreatCircleMapStore()
+
+const converter: ComputedRef<Converter> = computed(
+  () => new Converter(store.使用中国坐标, store.底图中心.lng),
+)
 </script>
 
 <style scoped>
@@ -54,6 +65,7 @@ const store = useGreatCircleMapStore()
   top: 5px;
   z-index: 1;
 }
+
 #map {
   height: 100%;
   left: 0%;

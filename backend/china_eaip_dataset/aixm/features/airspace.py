@@ -18,8 +18,10 @@ from ..abstract_feature import AixmTimeSlice
 from ..data_types import (
     CodeAirspaceDesignatorType,
     CodeAirspaceType,
+    CodeVerticalReferenceBaseType,
     CodeVerticalReferenceType,
     TextNameType,
+    ValDistanceVerticalBaseType,
     ValDistanceVerticalType,
 )
 from .notes import WithAixmAnnotation
@@ -64,14 +66,57 @@ class _GmlCircleByCenterPointItem(_WithAtNumDerivatives):
         _Unit[typing.Literal["KM"]], pydantic.Field(alias="gml:radius")
     ]
 
+    @functools.cached_property
+    def start_angle(self) -> float:
+        return 0
+
+    @functools.cached_property
+    def end_angle(self) -> float:
+        return 360
+
+    @functools.cached_property
+    def center(self) -> geojson.Position2D | None:
+        if self.gml_pos:
+            latitude, longitude = self.gml_pos.dollar
+            return longitude, latitude
+        if self.gml_point_property:
+            print(self.gml_point_property)
+
+    @functools.cached_property
+    def points(self) -> list[geojson.Position2D]:
+        if self.center is None:
+            return []
+        return geojson.给定距离求一圈所有点(
+            点=self.center,
+            距离=self.gml_radius.dollar,
+            起始角度=self.start_angle,
+            终止角度=self.end_angle,
+        )
+
+    @functools.cached_property
+    def is_valid(self) -> bool:
+        return len(self.points) > 1
+
+    @functools.cached_property
+    def geometry(self) -> geojson.LineString:
+        return geojson.LineString(coordinates=self.points)
+
 
 class _GmlArcByCenterPointItem(_GmlCircleByCenterPointItem):
-    gml_end_angle: typing.Annotated[
-        _Unit[typing.Literal["deg"]], pydantic.Field(alias="gml:endAngle")
-    ]
     gml_start_angle: typing.Annotated[
         _Unit[typing.Literal["deg"]], pydantic.Field(alias="gml:startAngle")
     ]
+    gml_end_angle: typing.Annotated[
+        _Unit[typing.Literal["deg"]], pydantic.Field(alias="gml:endAngle")
+    ]
+
+    @functools.cached_property
+    def start_angle(self) -> float:
+        return self.gml_start_angle.dollar
+
+    @functools.cached_property
+    def end_angle(self) -> float:
+        return self.gml_end_angle.dollar
 
 
 class _GmlGeodesicStringItem(_WithAtNumDerivatives):
@@ -145,6 +190,26 @@ class _AixmElevatedSurface(WithAtGmlId, WithAtSrsName):
     gml_patches: typing.Annotated[_GmlPatches, pydantic.Field(alias="gml:patches")]
 
 
+type _LimitAndReference = tuple[
+    float | None, ValDistanceVerticalBaseType | CodeVerticalReferenceBaseType
+]
+
+
+def _display_upper_lower_limit(
+    limit: ValDistanceVerticalType, reference: CodeVerticalReferenceType
+) -> _LimitAndReference:
+    if isinstance(limit, Nil):
+        return None, "OTHER"
+
+    if limit.dollar in ("GND", "UNL", "FLOOR", "CEILING"):
+        return None, limit.dollar
+
+    if isinstance(reference, Nil):
+        return limit.in_m, "OTHER"
+
+    return limit.in_m, reference.dollar
+
+
 class _AirspaceVolume(WithAtGmlId):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_AirspaceVolume.html"""
 
@@ -160,6 +225,18 @@ class _AirspaceVolume(WithAtGmlId):
     aixm_lower_limit_reference: typing.Annotated[
         CodeVerticalReferenceType, pydantic.Field(alias="aixm:lowerLimitReference")
     ]
+
+    @functools.cached_property
+    def 高度上限(self) -> _LimitAndReference:
+        return _display_upper_lower_limit(
+            limit=self.aixm_upper_limit, reference=self.aixm_upper_limit_reference
+        )
+
+    @functools.cached_property
+    def 高度下限(self) -> _LimitAndReference:
+        return _display_upper_lower_limit(
+            limit=self.aixm_lower_limit, reference=self.aixm_lower_limit_reference
+        )
 
     class _AixmHorizontalProjection(BaseModel):
         aixm_elevated_surface: typing.Annotated[
@@ -191,42 +268,12 @@ class _AixmGeometryComponentItem(BaseModel):
     ]
 
     @functools.cached_property
-    def upper_limit_display(self) -> str:
-        limit = self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.aixm_upper_limit
-        reference = self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.aixm_upper_limit_reference
-        if isinstance(limit, Nil):
-            return "Not Available"
-        text: str = (
-            ""
-            if isinstance(reference, Nil)
-            else {
-                "SFC": "SFC: from the surface of the Earth (Above Ground Level, AGL)",
-                "MSL": "MSL: from mean sea level (Altitude)",
-                "W84": "W84: from the WGS84 ellipsoid",
-                "STD": "STD: with an altimeter set to the standard atmosphere",
-                "OTHER": "OTHER",
-            }[reference.dollar]
-        )
-        return limit.text + text
+    def 高度上限(self) -> _LimitAndReference:
+        return self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.高度上限
 
     @functools.cached_property
-    def lower_limit_display(self) -> str:
-        limit = self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.aixm_lower_limit
-        reference = self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.aixm_lower_limit_reference
-        if isinstance(limit, Nil):
-            return "Not Available"
-        text: str = (
-            ""
-            if isinstance(reference, Nil)
-            else {
-                "SFC": "SFC: from the surface of the Earth (Above Ground Level, AGL)",
-                "MSL": "MSL: from mean sea level (Altitude)",
-                "W84": "W84: from the WGS84 ellipsoid",
-                "STD": "STD: with an altimeter set to the standard atmosphere",
-                "OTHER": "OTHER",
-            }[reference.dollar]
-        )
-        return limit.text + text
+    def 高度下限(self) -> _LimitAndReference:
+        return self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.高度下限
 
 
 class AixmGeometryCompoents(pydantic.RootModel[list[_AixmGeometryComponentItem]]):

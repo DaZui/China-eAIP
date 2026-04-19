@@ -1,7 +1,11 @@
 import collections.abc
+import math
 import typing
 
 import pydantic
+import pyproj
+
+geod = pyproj.Geod(ellps="WGS84")
 
 type Longitude = typing.Annotated[
     float,
@@ -84,3 +88,13 @@ class TypedFeature[Geometry: Point | GeometryCollection, Properties: typing.Any]
 class FeatureCollection(pydantic.BaseModel):
     type: typing.Literal["FeatureCollection"] = "FeatureCollection"
     features: collections.abc.Sequence[Feature]
+
+
+@pydantic.validate_call
+def 给定距离求一圈所有点(
+    点: Position, 距离: float, 起始角度: float, 终止角度: float
+) -> list[Position2D]:
+    azs: list[float] = [
+        起始角度 + i for i in range(math.floor(终止角度 - 起始角度))
+    ] + [终止角度]
+    return [geod.fwd(lons=点[0], lats=点[1], az=i, dist=距离)[:2] for i in azs]

@@ -39,7 +39,7 @@ interface GeometryCollection {
 
 interface Feature {
   geometry: Geometry | GeometryCollection
-  id?: string
+  id: string
   properties: object
   type: 'Feature'
 }
@@ -49,7 +49,7 @@ interface FeatureCollection {
   features: Feature[]
 }
 
-interface 机场 extends Feature {
+interface AirportHeliport extends Feature {
   geometry: Point
   properties: {
     uuid: string
@@ -67,7 +67,29 @@ interface 机场 extends Feature {
     aixm_name_display: string
     aixm_magnetic_variation_display: string[]
   }
-  id: string
+}
+
+interface AirspaceFeature extends Feature {
+  geometry: LineString
+  properties: {
+    uuid: string
+    information_valid_since: string
+    information_valid_until: string
+    aixm_sequence_number: number
+    aixm_correction_number: number
+  }
+}
+
+interface Airspace {
+  uuid: string
+  information_valid_since: string
+  information_valid_until: string
+  aixm_sequence_number: number
+  aixm_correction_number: number
+  aixm_type: string
+  aixm_designator: string
+  aixm_name: string
+  features: FeatureCollection
 }
 
 interface BaselineDataPackage {
@@ -79,6 +101,8 @@ interface BaselineDataPackage {
 }
 
 export type {
+  AirportHeliport,
+  Airspace,
   BaselineDataPackage,
   Feature,
   FeatureCollection,
@@ -91,5 +115,4 @@ export type {
   Point,
   Polygon,
   Position,
-  机场,
 }
