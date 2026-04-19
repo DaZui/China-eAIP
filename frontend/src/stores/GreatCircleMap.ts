@@ -80,8 +80,8 @@ function 标准化角(角度: number, 中心角度: number): number {
 }
 
 export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
-  const 国内模式: ComputedRef<boolean> = computed(
-    () => true || window.location.hostname === 'maps.lihanming.cn',
+  const 国内模式: ComputedRef<boolean> = computed(() =>
+    window.location.hostname.endsWith('lihanming.cn'),
   )
   const 底图语言: Ref<'zh-CN' | 'en-US' | string> = ref('zh-CN')
   const 底图风格: Ref<'street' | 'satellite' | 'hybrid' | 'terrain'> = ref('street')
