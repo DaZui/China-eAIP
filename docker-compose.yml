@@ -43,6 +43,7 @@ services:
     restart: unless-stopped
     volumes:
       - uv-venv:/code/.venv
+      - django-static:/code/static
       - ./backend:/code
       - ./data:/data
       - ./schema:/schema
@@ -75,5 +76,6 @@ services:
 volumes:
   bun-dist:
   bun-node-modules:
+  django-static:
   tailscale-state:
   uv-venv:
