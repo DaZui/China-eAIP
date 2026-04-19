@@ -1,5 +1,5 @@
 <template>
-  <div class="row mb-3" v-if="options.length > 0">
+  <div class="row mb-3" v-if="options.length > 1">
     <label class="col-form-label text-end" :class="[labelWidth]">{{ label }}</label>
     <div :class="[inputWidth]">
       <select class="form-select" v-model="model">

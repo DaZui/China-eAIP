@@ -25,6 +25,13 @@
     label="Jurisdiction"
     v-model="store.底图边界标准"
   />
+  <ColSelect
+    v-if="!store.国内模式"
+    :options="coordinates"
+    :size="labelWidth"
+    label="Coordinate System"
+    v-model="store.使用中国坐标"
+  />
 </template>
 
 <script setup lang="ts">
@@ -85,5 +92,12 @@ const jurisdictions: ComputedRef<Options> = computed(
           ['us', 'United States'],
         ]
       : [],
+)
+
+const coordinates: ComputedRef<Options> = computed(
+  (): Options => [
+    ['wgs84', 'WGS-84'],
+    ['gcj02', 'GCJ-02 (only for Reference)'],
+  ],
 )
 </script>
