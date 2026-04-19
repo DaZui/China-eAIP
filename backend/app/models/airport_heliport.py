@@ -69,16 +69,6 @@ class AirportHeliport(common.Common):
         )
 
     @property
-    def aixm_reference_temperature_display(self) -> list[str]:
-        if self.aixm_reference_temperature_in_celcius is None:
-            return []
-
-        in_c: float = self.aixm_reference_temperature_in_celcius
-        in_f: float = in_c * 1.8 + 32
-
-        return [f"{in_c:.1f} ℃", f"{in_f:.1f} ℉"]
-
-    @property
     def aixm_magnetic_variation_display(self) -> list[str]:
         if self.aixm_magnetic_variation is None:
             return []

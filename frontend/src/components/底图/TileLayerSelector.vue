@@ -38,6 +38,12 @@
     label="Vertical Unit"
     v-model="store.高度单位"
   />
+  <ColSelect
+    :options="温度单位s"
+    :size="labelWidth"
+    label="Temperature Unit"
+    v-model="store.温度单位"
+  />
 </template>
 
 <script setup lang="ts">
@@ -109,10 +115,17 @@ const coordinates: ComputedRef<Options> = computed(
 
 const 高度单位s: ComputedRef<Options> = computed(
   (): Options => [
-    ['M', 'Meters'],
-    ['FT', 'Feet'],
-    ['FL', 'Flight Level (hundreds of feet)'],
-    ['SM', 'Standard Meters (tens of meters)'],
+    ['m', 'm: Meters'],
+    ['ft', 'ft: Feet'],
+    ['FL', 'FL: Flight Level (hundreds of feet)'],
+  ],
+)
+
+const 温度单位s: ComputedRef<Options> = computed(
+  (): Options => [
+    ['°C', '°C: Celsius'],
+    ['°F', '°F: Fahrenheit'],
+    ['K', 'K: Kelvin'],
   ],
 )
 </script>

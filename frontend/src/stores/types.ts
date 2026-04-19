@@ -62,9 +62,9 @@ interface 机场 extends Feature {
     aixm_annotations: string
 
     aixm_field_elevation: [number | null, number | null]
+    aixm_reference_temperature_in_celcius: number | null
 
     aixm_name_display: string
-    aixm_reference_temperature_display: string[]
     aixm_magnetic_variation_display: string[]
   }
   id: string

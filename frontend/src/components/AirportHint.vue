@@ -17,6 +17,10 @@
             <th>Field Elevation</th>
             <td>{{ store.转换高度(airport.properties.aixm_field_elevation) }}</td>
           </tr>
+          <tr>
+            <th>Reference Temperature</th>
+            <td>{{ store.转换温度(airport.properties.aixm_reference_temperature_in_celcius) }}</td>
+          </tr>
           <DisplayList
             v-for="([a, b, c], idx) in items"
             :key="idx"
@@ -39,7 +43,6 @@ const store = useGreatCircleMapStore()
 const props = defineProps<{ airport: 机场 }>()
 
 const items: ComputedRef<[string, boolean, string[]][]> = computed(() => [
-  ['Reference Temperature', true, props.airport.properties.aixm_reference_temperature_display],
   ['Magnetic Variation', false, props.airport.properties.aixm_magnetic_variation_display],
   [
     'Annotations',

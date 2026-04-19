@@ -84,9 +84,9 @@ type ValDistanceVerticalBaseType = (
     decimal.Decimal | Literal["UNL", "GND", "FLOOR", "CEILING"]
 )
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceVerticalBaseType.html"""
-type UomDistanceVerticalType = Literal["FT", "M", "FL", "SM", "OTHER"]
+type _UomDistanceVerticalType = Literal["FT", "M", "FL", "SM", "OTHER"]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_UomDistanceVerticalType.html"""
-CONVERT_TO_METER: dict[_UomDistanceType | UomDistanceVerticalType, float] = {
+CONVERT_TO_METER: dict[_UomDistanceType | _UomDistanceVerticalType, float] = {
     "CM": 0.01,
     "FL": 30.48,
     "FT": 0.3048,
@@ -100,7 +100,7 @@ CONVERT_TO_METER: dict[_UomDistanceType | UomDistanceVerticalType, float] = {
 
 
 class _ValDistanceVerticalTypeInner(WithDollar[ValDistanceVerticalBaseType]):
-    at_uom: Annotated[UomDistanceVerticalType, Field(alias="@uom")] = "M"
+    at_uom: Annotated[_UomDistanceVerticalType, Field(alias="@uom")] = "M"
 
     def __str__(self) -> str:
         return f"{self.dollar} {self.at_uom}"
@@ -168,7 +168,7 @@ class _ValTemperatureTypeInner(WithDollar[_ValTemperatureBaseType]):
     @property
     def in_celsius(self) -> float:
         subtract: float = {"K": 273.15, "F": 32}.get(self.at_uom, 0)
-        return (float(self.dollar) - subtract) * {"F": 5 / 9}.get(self.at_uom, 1)
+        return (float(self.dollar) - subtract) / {"F": 1.8}.get(self.at_uom, 1)
 
 
 type ValTemperatureType = Nil | _ValTemperatureTypeInner
