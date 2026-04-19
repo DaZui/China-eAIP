@@ -80,7 +80,7 @@ class _ValDistanceTypeInner(WithDollar[_ValDistanceBaseType]):
 
 type ValDistanceType = Nil | _ValDistanceTypeInner
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceVerticalType.html"""
-type _ValDistanceVerticalBaseType = (
+type ValDistanceVerticalBaseType = (
     decimal.Decimal | Literal["UNL", "GND", "FLOOR", "CEILING"]
 )
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceVerticalBaseType.html"""
@@ -99,7 +99,7 @@ CONVERT_TO_METER: dict[_UomDistanceType | UomDistanceVerticalType, float] = {
 }
 
 
-class _ValDistanceVerticalTypeInner(WithDollar[_ValDistanceVerticalBaseType]):
+class _ValDistanceVerticalTypeInner(WithDollar[ValDistanceVerticalBaseType]):
     at_uom: Annotated[UomDistanceVerticalType, Field(alias="@uom")] = "M"
 
     def __str__(self) -> str:
@@ -110,6 +110,19 @@ class _ValDistanceVerticalTypeInner(WithDollar[_ValDistanceVerticalBaseType]):
         if self.dollar in ("UNL", "GND", "FLOOR", "CEILING"):
             return 0
         return float(self.dollar) * CONVERT_TO_METER[self.at_uom]
+
+    @property
+    def text(self) -> str:
+        if self.dollar == "GND":
+            return "GND: the Surface of the Earth"
+        if self.dollar == "UNL":
+            return "UNL: unlimited"
+        if self.dollar == "FLOOR":
+            return "FLOOR: the bottom of the airspace"
+        if self.dollar == "CEILING":
+            return "CEILING: the top of the airspace"
+
+        return f"{self.in_m:.1f} m / {self.in_m / CONVERT_TO_METER['FT']:.1f} ft / FL{self.in_m / CONVERT_TO_METER['FL']:.0f}"
 
 
 type ValDistanceVerticalType = Nil | _ValDistanceVerticalTypeInner

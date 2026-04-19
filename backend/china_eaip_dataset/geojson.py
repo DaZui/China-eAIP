@@ -67,7 +67,7 @@ class GeometryCollection(pydantic.BaseModel, title="GeoJSON GeometryCollection")
 
 class Feature(pydantic.BaseModel, title="GeoJSON Feature"):
     type: typing.Literal["Feature"] = "Feature"
-    geometry: Point | GeometryCollection
+    geometry: Point | LineString | GeometryCollection
     properties: typing.Any
     id: str
 
@@ -79,3 +79,8 @@ class TypedFeature[Geometry: Point | GeometryCollection, Properties: typing.Any]
     geometry: Geometry
     properties: Properties
     id: str
+
+
+class FeatureCollection(pydantic.BaseModel):
+    type: typing.Literal["FeatureCollection"] = "FeatureCollection"
+    features: collections.abc.Sequence[Feature]

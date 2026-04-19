@@ -1,3 +1,4 @@
+import functools
 import typing
 
 import pydantic
@@ -6,6 +7,7 @@ from ... import geojson
 from ...base import (
     BaseModel,
     Link,
+    Nil,
     WithAtGmlId,
     WithAtOwns,
     WithAtSrsName,
@@ -27,23 +29,6 @@ class _Unit[A: typing.Literal["deg", "KM"]](WithDollar[float]):
     at_uom: typing.Annotated[
         A | typing.Literal["UNKNOWN"], pydantic.Field(alias="@uom")
     ]
-
-    @pydantic.model_validator(mode="wrap")
-    @classmethod
-    def validate_nil(
-        cls, data: typing.Any, handler: pydantic.ModelWrapValidatorHandler[typing.Self]
-    ) -> typing.Self:
-        if isinstance(data, str):
-            return handler({"$": data, "@uom": "UNKNOWN"})
-        return handler(data)
-
-    @pydantic.model_serializer(mode="wrap")
-    def serialize_nil(
-        self, handler: pydantic.SerializerFunctionWrapHandler
-    ) -> typing.Any:
-        if self.at_uom == "UNKNOWN":
-            return self.dollar
-        return handler(self)
 
 
 class _WithAtNumDerivatives(BaseModel):
@@ -96,6 +81,18 @@ class _GmlGeodesicStringItem(_WithAtNumDerivatives):
     gml_pos_list: typing.Annotated[
         WithDollar[list[float]], pydantic.Field(alias="gml:posList")
     ]
+
+    @functools.cached_property
+    def points(self) -> list[geojson.Position2D]:
+        return list(zip(self.gml_pos_list.dollar[1::2], self.gml_pos_list.dollar[::2]))
+
+    @functools.cached_property
+    def is_valid(self) -> bool:
+        return len(self.points) > 1
+
+    @functools.cached_property
+    def geometry(self) -> geojson.LineString:
+        return geojson.LineString(coordinates=self.points)
 
 
 class _GmlSegments(BaseModel):
@@ -193,9 +190,47 @@ class _AixmGeometryComponentItem(BaseModel):
         pydantic.Field(alias="aixm:AirspaceGeometryComponent"),
     ]
 
+    @functools.cached_property
+    def upper_limit_display(self) -> str:
+        limit = self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.aixm_upper_limit
+        reference = self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.aixm_upper_limit_reference
+        if isinstance(limit, Nil):
+            return "Not Available"
+        text: str = (
+            ""
+            if isinstance(reference, Nil)
+            else {
+                "SFC": "SFC: from the surface of the Earth (Above Ground Level, AGL)",
+                "MSL": "MSL: from mean sea level (Altitude)",
+                "W84": "W84: from the WGS84 ellipsoid",
+                "STD": "STD: with an altimeter set to the standard atmosphere",
+                "OTHER": "OTHER",
+            }[reference.dollar]
+        )
+        return limit.text + text
+
+    @functools.cached_property
+    def lower_limit_display(self) -> str:
+        limit = self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.aixm_lower_limit
+        reference = self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.aixm_lower_limit_reference
+        if isinstance(limit, Nil):
+            return "Not Available"
+        text: str = (
+            ""
+            if isinstance(reference, Nil)
+            else {
+                "SFC": "SFC: from the surface of the Earth (Above Ground Level, AGL)",
+                "MSL": "MSL: from mean sea level (Altitude)",
+                "W84": "W84: from the WGS84 ellipsoid",
+                "STD": "STD: with an altimeter set to the standard atmosphere",
+                "OTHER": "OTHER",
+            }[reference.dollar]
+        )
+        return limit.text + text
+
 
 class AixmGeometryCompoents(pydantic.RootModel[list[_AixmGeometryComponentItem]]):
-    root: list[_AixmGeometryComponentItem] = []
+    root: list[_AixmGeometryComponentItem]
 
 
 class Airspace(AixmTimeSlice, WithAixmAnnotation):
@@ -209,4 +244,4 @@ class Airspace(AixmTimeSlice, WithAixmAnnotation):
 
     aixm_geometry_component: typing.Annotated[
         AixmGeometryCompoents, pydantic.Field(alias="aixm:geometryComponent")
-    ] = AixmGeometryCompoents(root=[])
+    ]
