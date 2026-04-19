@@ -22,8 +22,9 @@ class Properties(_Common):
     aixm_annotations: str
     aixm_availability: str
 
+    aixm_field_elevation: tuple[float | None, float | None]
+
     aixm_name_display: str
-    aixm_field_elevation_display: list[str]
     aixm_reference_temperature_display: list[str]
     aixm_magnetic_variation_display: list[str]
 

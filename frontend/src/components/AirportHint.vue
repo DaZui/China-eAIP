@@ -13,6 +13,10 @@
       <p class="card-text"></p>
       <table class="table table-sm spread">
         <tbody>
+          <tr>
+            <th>Field Elevation</th>
+            <td>{{ store.转换高度(airport.properties.aixm_field_elevation) }}</td>
+          </tr>
           <DisplayList
             v-for="([a, b, c], idx) in items"
             :key="idx"
@@ -26,13 +30,15 @@
   </div>
 </template>
 <script setup lang="ts">
+import { useGreatCircleMapStore } from '@/stores/GreatCircleMap'
 import type { 机场 } from '@/stores/types'
-import DisplayList from './DisplayList.vue'
 import { computed, type ComputedRef } from 'vue'
+import DisplayList from './DisplayList.vue'
+
+const store = useGreatCircleMapStore()
 const props = defineProps<{ airport: 机场 }>()
 
 const items: ComputedRef<[string, boolean, string[]][]> = computed(() => [
-  ['Field Elevation', true, props.airport.properties.aixm_field_elevation_display],
   ['Reference Temperature', true, props.airport.properties.aixm_reference_temperature_display],
   ['Magnetic Variation', false, props.airport.properties.aixm_magnetic_variation_display],
   [

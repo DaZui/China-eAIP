@@ -79,10 +79,14 @@ function 标准化角(角度: number, 中心角度: number): number {
   return 角度
 }
 
+type DistanceUnits = 'M' | 'FT' | 'FL' | 'SM' | 'CM' | 'KM' | 'MI' | 'NM'
+
 export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
   const 国内模式: ComputedRef<boolean> = computed(() =>
     window.location.hostname.endsWith('lihanming.cn'),
   )
+
+  const 高度单位: Ref<DistanceUnits> = ref('M')
   const 底图语言: Ref<'zh-CN' | 'en-US' | string> = ref('zh-CN')
   const 底图风格: Ref<'street' | 'satellite' | 'hybrid' | 'terrain'> = ref('street')
   const 底图边界标准: Ref<'cn' | 'us' | 'aq' | 'jp'> = ref('cn')
@@ -93,6 +97,37 @@ export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
   const 底图中心: Ref<LatLngLiteral> = ref({ lat: 23, lng: 113 })
   const 显示设置界面: Ref<boolean> = ref(true)
   const 使用中国坐标: Ref<'wgs84' | 'gcj02'> = ref(国内模式.value ? 'gcj02' : 'wgs84')
+
+  function 距离转换(value: number | null, from: DistanceUnits, to: DistanceUnits): number | null {
+    if (value === null) return null
+    const 转换表: Map<DistanceUnits, number> = new Map([
+      ['M', 1],
+      ['CM', 0.01],
+      ['FL', 30.48],
+      ['FT', 0.3048],
+      ['KM', 1000],
+      ['MI', 1609.344],
+      ['NM', 1852],
+      ['SM', 10],
+    ])
+    return (value * 转换表.get(from)!) / 转换表.get(to)!
+  }
+
+  function 转换高度(values: [number | null, number | null]) {
+    const elevation = 距离转换(values[0], 'M', 高度单位.value)
+    const accuracy = 距离转换(values[1], 'M', 高度单位.value)
+
+    if (elevation === null) return 'Not Available'
+
+    if (高度单位.value === 'FL')
+      return `FL${elevation.toFixed()}` + (accuracy ? ` ± ${accuracy.toFixed()}` : '')
+
+    return (
+      elevation.toFixed(1) +
+      (accuracy ? ` ± ${accuracy.toFixed(1)} ` : ` `) +
+      高度单位.value.toLocaleLowerCase()
+    )
+  }
 
   function 转换Position(raw: Position): Position {
     const position: Position = 使用中国坐标.value == 'gcj02' ? wgs84_to_gcj02(raw) : raw
@@ -208,5 +243,7 @@ export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
     显示设置界面,
     项目s,
     转换Feature,
+    高度单位,
+    转换高度,
   }
 })

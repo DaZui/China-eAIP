@@ -32,6 +32,12 @@
     label="Coordinate System"
     v-model="store.使用中国坐标"
   />
+  <ColSelect
+    :options="高度单位s"
+    :size="labelWidth"
+    label="Vertical Unit"
+    v-model="store.高度单位"
+  />
 </template>
 
 <script setup lang="ts">
@@ -98,6 +104,15 @@ const coordinates: ComputedRef<Options> = computed(
   (): Options => [
     ['wgs84', 'WGS-84'],
     ['gcj02', 'GCJ-02 (only for Reference)'],
+  ],
+)
+
+const 高度单位s: ComputedRef<Options> = computed(
+  (): Options => [
+    ['M', 'Meters'],
+    ['FT', 'Feet'],
+    ['FL', 'Flight Level (hundreds of feet)'],
+    ['SM', 'Standard Meters (tens of meters)'],
   ],
 )
 </script>

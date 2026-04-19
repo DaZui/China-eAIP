@@ -61,8 +61,9 @@ interface 机场 extends Feature {
     aixm_designator_iata: string
     aixm_annotations: string
 
+    aixm_field_elevation: [number | null, number | null]
+
     aixm_name_display: string
-    aixm_field_elevation_display: string[]
     aixm_reference_temperature_display: string[]
     aixm_magnetic_variation_display: string[]
   }

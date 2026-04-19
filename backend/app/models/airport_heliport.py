@@ -1,5 +1,4 @@
 from china_eaip_dataset import geojson
-from china_eaip_dataset.aixm.data_types import CONVERT_TO_METER
 from django.db import models
 
 from .. import schemas
@@ -63,23 +62,11 @@ class AirportHeliport(common.Common):
         return f"{self.aixm_served_city} / {self.aixm_name}".title()
 
     @property
-    def aixm_field_elevation_display(self) -> list[str]:
-        if self.aixm_field_elevation_in_meter is None:
-            return []
-
-        elevation_in_m: float = self.aixm_field_elevation_in_meter
-        elevation_in_ft: float = elevation_in_m / CONVERT_TO_METER["FT"]
-
-        if self.aixm_field_elevation_accuracy_in_meter is None:
-            return [f"{elevation_in_m:.1f} m", f"{elevation_in_ft:.1f} ft"]
-
-        accuracy_in_m: float = self.aixm_field_elevation_accuracy_in_meter
-        accuracy_in_ft: float = accuracy_in_m / CONVERT_TO_METER["FT"]
-
-        return [
-            f"{elevation_in_m:.1f} ± {accuracy_in_m:.1f} m",
-            f"{elevation_in_ft:.1f} ± {accuracy_in_ft:.1f} ft",
-        ]
+    def aixm_field_elevation(self) -> tuple[float | None, float | None]:
+        return (
+            self.aixm_field_elevation_in_meter,
+            self.aixm_field_elevation_accuracy_in_meter,
+        )
 
     @property
     def aixm_reference_temperature_display(self) -> list[str]:
