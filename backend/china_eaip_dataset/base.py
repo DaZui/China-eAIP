@@ -1,5 +1,4 @@
 import datetime
-import decimal
 import typing
 
 import pydantic
@@ -47,33 +46,6 @@ class WithDollar[Inner: typing.Any = str](BaseModel):
 
     def __str__(self) -> str:
         return str(self.dollar)
-
-
-class Unit[
-    A: typing.Literal["C", "deg", "KHZ", "KM", "M", "MHZ"],
-    Digit: decimal.Decimal | float,
-](WithDollar[Digit]):
-    at_uom: typing.Annotated[
-        A | typing.Literal["UNKNOWN"],
-        pydantic.Field(alias="@uom"),
-    ]
-
-    @pydantic.model_validator(mode="wrap")
-    @classmethod
-    def validate_nil(
-        cls, data: typing.Any, handler: pydantic.ModelWrapValidatorHandler[typing.Self]
-    ) -> typing.Self:
-        if isinstance(data, str):
-            return handler({"$": data, "@uom": "UNKNOWN"})
-        return handler(data)
-
-    @pydantic.model_serializer(mode="wrap")
-    def serialize_nil(
-        self, handler: pydantic.SerializerFunctionWrapHandler
-    ) -> typing.Any:
-        if self.at_uom == "UNKNOWN":
-            return self.dollar
-        return handler(self)
 
 
 class Nil(BaseModel, validate_by_name=True):

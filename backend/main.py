@@ -66,7 +66,7 @@ class BaselineDataPackage(
 
     @classmethod
     def list_all(
-        cls, timestamp: datetime.datetime
+        cls, timestamp: datetime.datetime = datetime.datetime.now(datetime.UTC)
     ) -> collections.abc.Iterable[typing.Self]:
         for x in root_path.iterdir():
             if x.is_dir():
@@ -198,7 +198,23 @@ def list_all_airports_heliports(
         for x in models.AirportHeliport.objects.filter(
             information_valid_since__lte=package.effective_since,
             information_valid_until__gte=package.effective_until,
-        ).order_by("aixm_location_indicator_icao")
+        ).order_by("aixm_designator")
+    ]
+
+
+@web_app.get(path="/api/china-eaip-datasets/{filename}/Airspace/elements")
+def list_all_airspaces(
+    filename: str,
+) -> list[schemas.Airspace]:
+    package: BaselineDataPackage = BaselineDataPackage(filename=filename)
+    return [
+        x.feature
+        for x in models.Airspace.objects.filter(
+            aixm_type="FIR",
+            aixm_name="BEIJING FIR",
+            information_valid_since__lte=package.effective_since,
+            information_valid_until__gte=package.effective_until,
+        ).order_by("aixm_designator")
     ]
 
 

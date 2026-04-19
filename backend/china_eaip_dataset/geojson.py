@@ -1,8 +1,9 @@
+import collections.abc
 import typing
 
 import pydantic
 
-Longitude = typing.Annotated[
+type Longitude = typing.Annotated[
     float,
     pydantic.Field(
         allow_inf_nan=False,
@@ -12,7 +13,7 @@ Longitude = typing.Annotated[
         title="Longitude / Easting",
     ),
 ]
-Latitude = typing.Annotated[
+type Latitude = typing.Annotated[
     float,
     pydantic.Field(
         allow_inf_nan=False,
@@ -22,7 +23,7 @@ Latitude = typing.Annotated[
         title="Latitude / Northing",
     ),
 ]
-Altitude = typing.Annotated[
+type Altitude = typing.Annotated[
     float,
     pydantic.Field(
         allow_inf_nan=False,
@@ -30,14 +31,23 @@ Altitude = typing.Annotated[
         title="Altitude / Elevation",
     ),
 ]
-Position3D = typing.Annotated[
+type Position2D = typing.Annotated[
+    tuple[Longitude, Latitude],
+    pydantic.Field(
+        description="(longitude, latitude)",
+        examples=[(116.391220088889, 39.9073541194444)],
+        title="GeoJSON Position without Altitude",
+    ),
+]
+type Position3D = typing.Annotated[
     tuple[Longitude, Latitude, Altitude],
     pydantic.Field(
         description="(longitude, latitude, altitude)",
         examples=[(116.391220088889, 39.9073541194444, 110)],
-        title="GeoJSON Position w/ Altitude",
+        title="GeoJSON Position with Altitude",
     ),
 ]
+type Position = Position3D | Position2D
 
 
 class Point(pydantic.BaseModel, title="GeoJSON Point"):
@@ -45,14 +55,24 @@ class Point(pydantic.BaseModel, title="GeoJSON Point"):
     coordinates: Position3D
 
 
+class LineString(pydantic.BaseModel, title="GeoJSON LineString"):
+    type: typing.Literal["LineString"] = "LineString"
+    coordinates: collections.abc.Sequence[Position]
+
+
+class GeometryCollection(pydantic.BaseModel, title="GeoJSON GeometryCollection"):
+    type: typing.Literal["GeometryCollection"] = "GeometryCollection"
+    geometries: collections.abc.Sequence[Point | LineString]
+
+
 class Feature(pydantic.BaseModel, title="GeoJSON Feature"):
     type: typing.Literal["Feature"] = "Feature"
-    geometry: Point
+    geometry: Point | GeometryCollection
     properties: typing.Any
     id: str
 
 
-class TypedFeature[Geometry: Point, Properties: typing.Any](
+class TypedFeature[Geometry: Point | GeometryCollection, Properties: typing.Any](
     pydantic.BaseModel, title="Typed GeoJSON Feature"
 ):
     type: typing.Literal["Feature"] = "Feature"

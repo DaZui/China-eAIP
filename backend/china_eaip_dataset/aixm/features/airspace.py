@@ -1,12 +1,11 @@
-from typing import Annotated, Literal
+import typing
 
-from pydantic import Field
+import pydantic
 
 from ... import geojson
 from ...base import (
     BaseModel,
     Link,
-    Unit,
     WithAtGmlId,
     WithAtOwns,
     WithAtSrsName,
@@ -24,145 +23,190 @@ from ..data_types import (
 from .notes import WithAixmAnnotation
 
 
+class _Unit[A: typing.Literal["deg", "KM"]](WithDollar[float]):
+    at_uom: typing.Annotated[
+        A | typing.Literal["UNKNOWN"], pydantic.Field(alias="@uom")
+    ]
+
+    @pydantic.model_validator(mode="wrap")
+    @classmethod
+    def validate_nil(
+        cls, data: typing.Any, handler: pydantic.ModelWrapValidatorHandler[typing.Self]
+    ) -> typing.Self:
+        if isinstance(data, str):
+            return handler({"$": data, "@uom": "UNKNOWN"})
+        return handler(data)
+
+    @pydantic.model_serializer(mode="wrap")
+    def serialize_nil(
+        self, handler: pydantic.SerializerFunctionWrapHandler
+    ) -> typing.Any:
+        if self.at_uom == "UNKNOWN":
+            return self.dollar
+        return handler(self)
+
+
 class _WithAtNumDerivatives(BaseModel):
-    at_num_derivative_interior: Annotated[
-        Literal[0], Field(alias="@numDerivativeInterior")
+    at_num_derivative_interior: typing.Annotated[
+        typing.Literal[0], pydantic.Field(alias="@numDerivativeInterior")
     ]
-    at_num_derivatives_at_end: Annotated[
-        Literal[0], Field(alias="@numDerivativesAtEnd")
+    at_num_derivatives_at_end: typing.Annotated[
+        typing.Literal[0], pydantic.Field(alias="@numDerivativesAtEnd")
     ]
-    at_num_derivatives_at_start: Annotated[
-        Literal[0], Field(alias="@numDerivativesAtStart")
+    at_num_derivatives_at_start: typing.Annotated[
+        typing.Literal[0], pydantic.Field(alias="@numDerivativesAtStart")
     ]
-
-
-class _WithAtInterpolation[
-    Inner: Literal["circularArcCenterPointWithRadius", "geodesic", "planar"]
-](BaseModel):
-    at_interpolation: Annotated[Inner, Field(alias="@interpolation")]
 
 
 class _GmlPointProperty(Link):
-    at_xlink_title: Annotated[str, Field(alias="@xlink:title")]
+    at_xlink_title: typing.Annotated[str, pydantic.Field(alias="@xlink:title")]
 
 
-class _GmlCircleByCenterPointItem(
-    _WithAtInterpolation[Literal["circularArcCenterPointWithRadius"]],
-    _WithAtNumDerivatives,
-):
-    gml_pos: Annotated[
+class _GmlCircleByCenterPointItem(_WithAtNumDerivatives):
+    at_interpolation: typing.Annotated[
+        typing.Literal["circularArcCenterPointWithRadius"],
+        pydantic.Field(alias="@interpolation"),
+    ]
+    gml_pos: typing.Annotated[
         WithDollar[tuple[geojson.Latitude, geojson.Longitude]] | None,
-        Field(alias="gml:pos"),
+        pydantic.Field(alias="gml:pos"),
     ] = None
-    gml_point_property: Annotated[
-        _GmlPointProperty | None, Field(alias="gml:pointProperty")
+    gml_point_property: typing.Annotated[
+        _GmlPointProperty | None, pydantic.Field(alias="gml:pointProperty")
     ] = None
-    at_num_arc: Annotated[Literal[1], Field(alias="@numArc")]
-    gml_radius: Annotated[Unit[Literal["KM"], float], Field(alias="gml:radius")]
-
-
-class _GmlArcByCenterPointItem(_GmlCircleByCenterPointItem):
-    gml_end_angle: Annotated[Unit[Literal["deg"], float], Field(alias="gml:endAngle")]
-    gml_start_angle: Annotated[
-        Unit[Literal["deg"], float], Field(alias="gml:startAngle")
+    at_num_arc: typing.Annotated[typing.Literal[1], pydantic.Field(alias="@numArc")]
+    gml_radius: typing.Annotated[
+        _Unit[typing.Literal["KM"]], pydantic.Field(alias="gml:radius")
     ]
 
 
-class _GmlGeodesicStringItem(
-    _WithAtInterpolation[Literal["geodesic"]], _WithAtNumDerivatives
-):
-    gml_pos_list: Annotated[WithDollar[list[float]], Field(alias="gml:posList")]
+class _GmlArcByCenterPointItem(_GmlCircleByCenterPointItem):
+    gml_end_angle: typing.Annotated[
+        _Unit[typing.Literal["deg"]], pydantic.Field(alias="gml:endAngle")
+    ]
+    gml_start_angle: typing.Annotated[
+        _Unit[typing.Literal["deg"]], pydantic.Field(alias="gml:startAngle")
+    ]
+
+
+class _GmlGeodesicStringItem(_WithAtNumDerivatives):
+    at_interpolation: typing.Annotated[
+        typing.Literal["geodesic"], pydantic.Field(alias="@interpolation")
+    ]
+    gml_pos_list: typing.Annotated[
+        WithDollar[list[float]], pydantic.Field(alias="gml:posList")
+    ]
 
 
 class _GmlSegments(BaseModel):
-    gml_arc_by_center_point: Annotated[
-        list[_GmlArcByCenterPointItem], Field(alias="gml:ArcByCenterPoint")
+    gml_arc_by_center_point: typing.Annotated[
+        list[_GmlArcByCenterPointItem], pydantic.Field(alias="gml:ArcByCenterPoint")
     ] = []
-    gml_circle_by_center_point: Annotated[
-        list[_GmlCircleByCenterPointItem], Field(alias="gml:CircleByCenterPoint")
+    gml_circle_by_center_point: typing.Annotated[
+        list[_GmlCircleByCenterPointItem],
+        pydantic.Field(alias="gml:CircleByCenterPoint"),
     ] = []
-    gml_geodesic_string: Annotated[
-        list[_GmlGeodesicStringItem], Field(alias="gml:GeodesicString")
+    gml_geodesic_string: typing.Annotated[
+        list[_GmlGeodesicStringItem], pydantic.Field(alias="gml:GeodesicString")
     ] = []
 
 
 class _AixmCurve(WithAtGmlId, WithAixmAnnotation):
-    gml_segments: Annotated[_GmlSegments, Field(alias="gml:segments")]
+    gml_segments: typing.Annotated[_GmlSegments, pydantic.Field(alias="gml:segments")]
 
 
 class _GmlCurveMemberItem(WithAtOwns, WithAtXlinkType):
-    aixm_curve: Annotated[_AixmCurve, Field(alias="aixm:Curve")]
+    aixm_curve: typing.Annotated[_AixmCurve, pydantic.Field(alias="aixm:Curve")]
 
 
 class _GmlRing(BaseModel):
-    gml_curve_member: Annotated[
-        list[_GmlCurveMemberItem], Field(alias="gml:curveMember")
+    gml_curve_member: typing.Annotated[
+        list[_GmlCurveMemberItem], pydantic.Field(alias="gml:curveMember")
     ]
 
 
 class _GmlExterior(BaseModel):
-    gml_ring: Annotated[_GmlRing, Field(alias="gml:Ring")]
+    gml_ring: typing.Annotated[_GmlRing, pydantic.Field(alias="gml:Ring")]
 
 
-class _GmlPolygonPatchItem(_WithAtInterpolation[Literal["planar"]]):
-    gml_exterior: Annotated[_GmlExterior, Field(alias="gml:exterior")]
+class _GmlPolygonPatchItem(BaseModel):
+    at_interpolation: typing.Annotated[
+        typing.Literal["planar"], pydantic.Field(alias="@interpolation")
+    ]
+    gml_exterior: typing.Annotated[_GmlExterior, pydantic.Field(alias="gml:exterior")]
 
 
 class _GmlPatches(BaseModel):
-    gml_polygon_patch: Annotated[
-        list[_GmlPolygonPatchItem], Field(alias="gml:PolygonPatch")
+    gml_polygon_patch: typing.Annotated[
+        list[_GmlPolygonPatchItem], pydantic.Field(alias="gml:PolygonPatch")
     ]
 
 
 class _AixmElevatedSurface(WithAtGmlId, WithAtSrsName):
-    gml_patches: Annotated[_GmlPatches, Field(alias="gml:patches")]
+    """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_Surface.html"""
 
-
-class _AixmHorizontalProjection(BaseModel):
-    aixm_elevated_surface: Annotated[
-        _AixmElevatedSurface, Field(alias="aixm:ElevatedSurface")
-    ]
+    gml_patches: typing.Annotated[_GmlPatches, pydantic.Field(alias="gml:patches")]
 
 
 class _AirspaceVolume(WithAtGmlId):
-    aixm_upper_limit: Annotated[ValDistanceVerticalType, Field(alias="aixm:upperLimit")]
-    aixm_upper_limit_reference: Annotated[
-        CodeVerticalReferenceType, Field(alias="aixm:upperLimitReference")
+    """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_AirspaceVolume.html"""
+
+    aixm_upper_limit: typing.Annotated[
+        ValDistanceVerticalType, pydantic.Field(alias="aixm:upperLimit")
     ]
-    aixm_lower_limit: Annotated[ValDistanceVerticalType, Field(alias="aixm:lowerLimit")]
-    aixm_lower_limit_reference: Annotated[
-        CodeVerticalReferenceType, Field(alias="aixm:lowerLimitReference")
+    aixm_upper_limit_reference: typing.Annotated[
+        CodeVerticalReferenceType, pydantic.Field(alias="aixm:upperLimitReference")
     ]
-    aixm_horizontal_projection: Annotated[
-        _AixmHorizontalProjection, Field(alias="aixm:horizontalProjection")
+    aixm_lower_limit: typing.Annotated[
+        ValDistanceVerticalType, pydantic.Field(alias="aixm:lowerLimit")
     ]
+    aixm_lower_limit_reference: typing.Annotated[
+        CodeVerticalReferenceType, pydantic.Field(alias="aixm:lowerLimitReference")
+    ]
+
+    class _AixmHorizontalProjection(BaseModel):
+        aixm_elevated_surface: typing.Annotated[
+            _AixmElevatedSurface, pydantic.Field(alias="aixm:ElevatedSurface")
+        ]
+
+    aixm_horizontal_projection: typing.Annotated[
+        _AixmHorizontalProjection, pydantic.Field(alias="aixm:horizontalProjection")
+    ]
+
+
+class _AixmAirspaceGeometryComponent(WithAtGmlId):
+    """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_AirspaceGeometryComponent.html"""
+
+    class _AixmTheAirspaceVolume(BaseModel):
+        aixm_airspace_volume: typing.Annotated[
+            _AirspaceVolume, pydantic.Field(alias="aixm:AirspaceVolume")
+        ]
+
+    aixm_the_airspace_volume: typing.Annotated[
+        _AixmTheAirspaceVolume, pydantic.Field(alias="aixm:theAirspaceVolume")
+    ]
+
+
+class _AixmGeometryComponentItem(BaseModel):
+    aixm_airspace_geometry_component: typing.Annotated[
+        _AixmAirspaceGeometryComponent,
+        pydantic.Field(alias="aixm:AirspaceGeometryComponent"),
+    ]
+
+
+class AixmGeometryCompoents(pydantic.RootModel[list[_AixmGeometryComponentItem]]):
+    root: list[_AixmGeometryComponentItem] = []
 
 
 class Airspace(AixmTimeSlice, WithAixmAnnotation):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_Airspace.html"""
 
-    aixm_type: Annotated[CodeAirspaceType, Field(alias="aixm:type")]
-    aixm_designator: Annotated[
-        CodeAirspaceDesignatorType, Field(alias="aixm:designator")
+    aixm_type: typing.Annotated[CodeAirspaceType, pydantic.Field(alias="aixm:type")]
+    aixm_designator: typing.Annotated[
+        CodeAirspaceDesignatorType, pydantic.Field(alias="aixm:designator")
     ]
-    aixm_name: Annotated[TextNameType, Field(alias="aixm:name")]
+    aixm_name: typing.Annotated[TextNameType, pydantic.Field(alias="aixm:name")]
 
-    class _AixmGeometryComponentItem(BaseModel):
-        class _AixmAirspaceGeometryComponent(WithAtGmlId):
-            class _AixmTheAirspaceVolume(BaseModel):
-                aixm_airspace_volume: Annotated[
-                    _AirspaceVolume, Field(alias="aixm:AirspaceVolume")
-                ]
-
-            aixm_the_airspace_volume: Annotated[
-                _AixmTheAirspaceVolume, Field(alias="aixm:theAirspaceVolume")
-            ]
-
-        aixm_airspace_geometry_component: Annotated[
-            _AixmAirspaceGeometryComponent,
-            Field(alias="aixm:AirspaceGeometryComponent"),
-        ]
-
-    aixm_geometry_component: Annotated[
-        list[_AixmGeometryComponentItem], Field(alias="aixm:geometryComponent")
-    ] = []
+    aixm_geometry_component: typing.Annotated[
+        AixmGeometryCompoents, pydantic.Field(alias="aixm:geometryComponent")
+    ] = AixmGeometryCompoents(root=[])

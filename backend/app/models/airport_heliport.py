@@ -1,51 +1,44 @@
-import datetime
-
 from china_eaip_dataset import geojson
 from china_eaip_dataset.aixm.data_types import CONVERT_TO_METER
 from django.db import models
 
-from . import schemas
-
-BooleanField = models.BooleanField[bool, bool]
-BooleanOptional = models.BooleanField[bool | None, bool | None]
-CharField = models.CharField[str, str]
-DateField = models.DateField[datetime.date, datetime.date]
-DateOptional = models.DateField[datetime.date | None, datetime.date | None]
-DateTimeField = models.DateTimeField[datetime.datetime, datetime.datetime]
-FloatField = models.FloatField[float, float]
-FloatOptional = models.FloatField[float | None, float | None]
-IntegerField = models.IntegerField[int, int]
-IntegerOptional = models.IntegerField[int | None, int | None]
+from .. import schemas
+from . import common
 
 
 # Create your models here.
-class AirportHeliport(models.Model):
-    uuid: CharField = models.CharField()
-    information_valid_since: DateTimeField = models.DateTimeField()
-    information_valid_until: DateTimeField = models.DateTimeField()
-    aixm_sequence_number: IntegerField = models.IntegerField()
-    aixm_correction_number: IntegerField = models.IntegerField()
-    aixm_designator: CharField = models.CharField()
-    aixm_name: CharField = models.CharField()
-    aixm_location_indicator_icao: CharField = models.CharField()
-    aixm_designator_iata: CharField = models.CharField()
-    aixm_type: CharField = models.CharField()
-    aixm_certified_icao: BooleanOptional = models.BooleanField(null=True)
-    aixm_control_type: CharField = models.CharField()
-    aixm_field_elevation_in_meter: FloatOptional = models.FloatField(null=True)
-    aixm_field_elevation_accuracy_in_meter: FloatOptional = models.FloatField(null=True)
-    aixm_magnetic_variation: FloatOptional = models.FloatField(null=True)
-    aixm_magnetic_variation_accuracy: FloatOptional = models.FloatField(null=True)
-    aixm_date_magnetic_variation: IntegerOptional = models.IntegerField(null=True)
-    aixm_magnetic_variation_change: FloatOptional = models.FloatField(null=True)
-    aixm_reference_temperature_in_celcius: FloatOptional = models.FloatField(null=True)
-    aixm_certification_date: DateOptional = models.DateField(null=True)
-    aixm_certification_expiration_date: DateOptional = models.DateField(null=True)
-    aixm_served_city: CharField = models.CharField()
-    aixm_latitude: FloatField = models.FloatField()
-    aixm_longitude: FloatField = models.FloatField()
-    aixm_annotations: CharField = models.CharField()
-    aixm_availability: CharField = models.CharField()
+class AirportHeliport(common.Common):
+    aixm_designator: common.CharField = models.CharField()
+    aixm_name: common.CharField = models.CharField()
+    aixm_location_indicator_icao: common.CharField = models.CharField()
+    aixm_designator_iata: common.CharField = models.CharField()
+    aixm_type: common.CharField = models.CharField()
+    aixm_certified_icao: common.BooleanOptional = models.BooleanField(null=True)
+    aixm_control_type: common.CharField = models.CharField()
+    aixm_field_elevation_in_meter: common.FloatOptional = models.FloatField(null=True)
+    aixm_field_elevation_accuracy_in_meter: common.FloatOptional = models.FloatField(
+        null=True
+    )
+    aixm_magnetic_variation: common.FloatOptional = models.FloatField(null=True)
+    aixm_magnetic_variation_accuracy: common.FloatOptional = models.FloatField(
+        null=True
+    )
+    aixm_date_magnetic_variation: common.IntegerOptional = models.IntegerField(
+        null=True
+    )
+    aixm_magnetic_variation_change: common.FloatOptional = models.FloatField(null=True)
+    aixm_reference_temperature_in_celcius: common.FloatOptional = models.FloatField(
+        null=True
+    )
+    aixm_certification_date: common.DateOptional = models.DateField(null=True)
+    aixm_certification_expiration_date: common.DateOptional = models.DateField(
+        null=True
+    )
+    aixm_served_city: common.CharField = models.CharField()
+    aixm_latitude: common.FloatField = models.FloatField()
+    aixm_longitude: common.FloatField = models.FloatField()
+    aixm_annotations: common.CharField = models.CharField()
+    aixm_availability: common.CharField = models.CharField()
 
     @property
     def feature(self) -> schemas.AirportHeliport:
