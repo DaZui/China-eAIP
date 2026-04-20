@@ -1,12 +1,21 @@
+import dayjs from 'dayjs'
 import type { LatLngLiteral } from 'leaflet'
 import { defineStore } from 'pinia'
 import { computed, ref, type ComputedRef, type Ref } from 'vue'
 import type { AirportHeliport, Airspace, BaselineDataPackage } from './types'
-
 export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
   const 国内模式: ComputedRef<boolean> = computed(() =>
     window.location.hostname.endsWith('lihanming.cn'),
   )
+
+  const 参考时间输入: Ref<string> = ref(dayjs().format().slice(0, 16))
+  const 参考时间输出: ComputedRef<string> = computed(() => dayjs(参考时间输入.value).toISOString())
+
+  function 判断时间范围(since: string, until: string) {
+    if (参考时间输出.value < since) return 'Upcoming'
+    if (参考时间输出.value >= until) return 'Expired'
+    return 'Current'
+  }
 
   const 底图语言: Ref<'zh-CN' | 'en-US' | string> = ref('zh-CN')
   const 底图风格: Ref<'street' | 'satellite' | 'hybrid' | 'terrain'> = ref('street')
@@ -34,9 +43,12 @@ export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
   const selectedAirspaces: Ref<Airspace[]> = ref([])
 
   return {
+    参考时间输出,
+    参考时间输入,
     底图边界标准,
     底图风格,
     底图缩放,
+    判断时间范围,
     底图提供商,
     底图语言,
     底图中心,

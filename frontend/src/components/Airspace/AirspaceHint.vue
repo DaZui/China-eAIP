@@ -28,14 +28,8 @@ import DisplayList from '../DisplayList.vue'
 const props = defineProps<{ airspace: Airspace }>()
 
 const items: ComputedRef<[string, string[]][]> = computed(() => [
-  ['Version', [`${props.airspace.aixm_sequence_number}.${props.airspace.aixm_correction_number}`]],
-  [
-    'Validity',
-    [
-      `Since ${props.airspace.information_valid_since}`,
-      `Until ${props.airspace.information_valid_until}`,
-    ],
-  ],
+  ['Version', [`${props.airspace.大版本号}.${props.airspace.小版本号}`]],
+  ['Validity', [`Since ${props.airspace.有效期自}`, `Until ${props.airspace.有效期至}`]],
 ])
 </script>
 

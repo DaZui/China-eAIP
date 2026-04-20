@@ -1,95 +1,96 @@
 <template>
-  <div class="card my-3">
+  <div
+    class="card font-monospace"
+    :class="{
+      'text-bg-danger': 状态 === 'Expired',
+      'text-bg-warning': 状态 === 'Upcoming',
+    }"
+  >
+    <div class="card-header">
+      {{ 属性.名称 }} <span class="badge text-bg-secondary">{{ 状态 }}: {{ 版本号 }}</span>
+    </div>
+
     <div class="card-body">
-      <h5 class="card-title">{{ airport.properties.aixm_name_display }}</h5>
-      <h6 class="card-subtitle mb-2 text-body-secondary">
-        {{ airport.properties.aixm_location_indicator_icao }} /
-        {{ airport.properties.aixm_designator_iata }}
-      </h6>
-      <h6 class="card-subtitle mb-2 text-body-secondary">
-        {{ airport.geometry.coordinates[1].toFixed(6) }}°N,
-        {{ airport.geometry.coordinates[0].toFixed(6) }}°E
-      </h6>
+      <div class="row">
+        <div class="col-5">{{ 属性.ICAO代码 }}</div>
+        <div class="col-7 text-end">{{ airport.geometry.coordinates[1].toFixed(5) }}°N</div>
+        <div class="col-5">{{ 属性.IATA代码 }}</div>
+        <div class="col-7 text-end">{{ airport.geometry.coordinates[0].toFixed(5) }}°E</div>
+        <div class="col-6">{{ convertLength(属性.海拔) }}</div>
+        <div class="col-6 text-end">{{ convertLength(属性.海拔, 1, 'ft') }}</div>
+        <div class="col-6">{{ convertTemperature(referenceTemperature) }}</div>
+        <div class="col-6 text-end">{{ convertTemperature(referenceTemperature, 1, '°F') }}</div>
+      </div>
 
-      <table class="table table-sm spread">
-        <tbody>
-          <tr>
-            <th>Field Elevation</th>
-            <td colspan="2">
-              {{ convertLength(airport.properties.aixm_field_elevation) }} /
-              {{ convertLength(airport.properties.aixm_field_elevation, 1, 'ft') }}
-            </td>
-          </tr>
-          <tr>
-            <th>Reference Temperature</th>
-            <td colspan="2">
-              {{ convertTemperature(referenceTemperature) }} /
-              {{ convertTemperature(referenceTemperature, 1, '°F') }}
-            </td>
-          </tr>
-          <tr>
-            <th>Magnetic Variation</th>
-            <td colspan="2">{{ airport.properties.aixm_magnetic_variation_display.join(' ') }}</td>
-          </tr>
-          <tr>
-            <th>Annotations</th>
-            <td colspan="2">{{ airport.properties.aixm_annotations }}</td>
-          </tr>
-          <tr>
-            <th>Version</th>
-            <td colspan="2">
-              v{{ airport.properties.aixm_sequence_number }}.{{
-                airport.properties.aixm_correction_number
-              }}
-              ({{ airport.properties.information_valid_since }} ~
-              {{ airport.properties.information_valid_until }})
-            </td>
-          </tr>
-          <template v-for="(runway, idx) in airport.properties.runways" :key="idx">
-            <tr>
-              <th :rowspan="3">RWY {{ runway.aixm_designator }}</th>
-              <th>Size</th>
-              <td>
-                <div v-for="unit in ['m', 'ft'] as const" :key="unit">
-                  {{ convertLength(runway.长度, 0, unit) }} x
-                  {{ convertLength(runway.宽度, 0, unit) }}
+      <div
+        v-show="verbose"
+        v-for="([title, value], idx) in [
+          ['Magnetic Variation', 属性.aixm_magnetic_variation_display.join(' ')],
+        ].concat(属性.notes)"
+        :key="idx"
+      >
+        <div class="fst-italic">{{ title }}:</div>
+        <div class="text-end">{{ value }}</div>
+      </div>
+    </div>
 
-                  <span v-if="runway.路肩宽度[0]">
-                    ({{ convertLength(runway.路肩宽度, 0, unit) }})
-                  </span>
-                </div>
-              </td>
-            </tr>
-            <tr>
-              <th>Annotations</th>
-              <td>{{ runway.aixm_annotations }}</td>
-            </tr>
-            <tr>
-              <th>Version</th>
-              <td>
-                v{{ runway.aixm_sequence_number }}.{{ runway.aixm_correction_number }} ({{
-                  runway.information_valid_since
-                }}
-                ~ {{ runway.information_valid_until }})
-              </td>
-            </tr>
-          </template>
-        </tbody>
-      </table>
+    <ul
+      class="list-group list-group-flush"
+      :class="{
+        'list-group-item-danger': 状态 === 'Expired',
+        'list-group-item-warning': 状态 === 'Upcoming',
+      }"
+    >
+      <li class="list-group-item" v-for="(runway, idx) in 属性.runways" :key="idx">
+        <div>
+          RWY {{ runway.aixm_designator }}
+          <span class="badge text-bg-secondary">v{{ runway.大版本号 }}.{{ runway.小版本号 }}</span>
+        </div>
+
+        <div class="row">
+          <div class="col-6">{{ convertLength(runway.长度, 0) }}</div>
+          <div class="col-6 text-end">{{ convertLength(runway.长度, 0, 'ft') }}</div>
+          <div class="col">{{ convertLength(runway.宽度, 0) }}</div>
+          <div class="col text-end">{{ convertLength(runway.宽度, 0, 'ft') }}</div>
+        </div>
+
+        <div class="row" v-if="verbose && runway.路肩宽度[0]">
+          <div class="col-6">{{ convertLength(runway.路肩宽度, 1) }}</div>
+          <div class="col-6 text-end">{{ convertLength(runway.路肩宽度, 1, 'ft') }}</div>
+        </div>
+
+        <div v-if="verbose">
+          <div class="fst-italic">Surface from {{ runway.notes[0]![0][0] }}:</div>
+          <div class="row" v-for="(x, idx) in runway.notes" :key="idx">
+            <div class="col-4">{{ x[0][1] }} - {{ x[0][2] }}</div>
+            <div class="col-8 text-end">{{ x[0][3] }}</div>
+          </div>
+          <div class="text-end">Since {{ runway.有效期自.slice(2, 16) }}Z</div>
+          <div class="text-end">Until {{ runway.有效期至.slice(2, 16) }}Z</div>
+        </div>
+      </li>
+    </ul>
+    <div class="card-footer text-end">
+      <div>Since {{ 属性.有效期自.slice(2, 16) }}Z</div>
+      <div>Until {{ 属性.有效期至.slice(2, 16) }}Z</div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { type AirportHeliport } from '@/stores/types'
+import { useGreatCircleMapStore } from '@/stores/GreatCircleMap'
+import { type AirportHeliport, type AirportHeliportProperties } from '@/stores/types'
 import { convertLength, convertTemperature } from '@/stores/units'
 import { computed, type ComputedRef } from 'vue'
 
+const store = useGreatCircleMapStore()
 const props = defineProps<{ airport: AirportHeliport; verbose?: boolean }>()
-
-const referenceTemperature: ComputedRef<number | null> = computed(
-  () => props.airport.properties.aixm_reference_temperature_in_celcius,
+const 属性: ComputedRef<AirportHeliportProperties> = computed(() => props.airport.properties)
+const 状态: ComputedRef<'Upcoming' | 'Expired' | 'Current'> = computed(() =>
+  store.判断时间范围(属性.value.有效期自, 属性.value.有效期至),
 )
+const 版本号: ComputedRef<string> = computed(() => `v${属性.value.大版本号}.${属性.value.小版本号}`)
+const referenceTemperature: ComputedRef<number | null> = computed(() => 属性.value.温度)
 </script>
 
 <style scoped>

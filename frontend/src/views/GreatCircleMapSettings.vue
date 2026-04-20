@@ -42,8 +42,8 @@ const currentOption: Ref<number> = ref(0)
 const options: ComputedRef<string[]> = computed(() =>
   store.selectedChinaEaipDataset === ''
     ? store.国内模式
-      ? ['地图设置', 'AIP']
-      : ['Base Map', 'AIP']
+      ? ['地图设置', 'AIP', '机场 Airport / Heliport']
+      : ['Base Map', 'AIP', 'Airport / Heliport']
     : store.国内模式
       ? ['地图设置', 'AIP', '机场 Airport / Heliport', '空域 Airspace']
       : ['Base Map', 'AIP', 'Airport / Heliport', 'Airspace'],

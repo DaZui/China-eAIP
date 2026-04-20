@@ -179,6 +179,29 @@ def list_all_datasets(
     return list(BaselineDataPackage.list_all(timestamp=timestamp))
 
 
+@web_app.get(path="/api/china-eaip-datasets/AirportHeliports")
+def list_all_airports_heliports() -> list[schemas.AirportHeliport]:
+    return [
+        x.feature
+        for x in models.AirportHeliport.objects.order_by(
+            "aixm_designator", "information_valid_since"
+        )
+    ]
+
+
+@web_app.get(path="/api/china-eaip-datasets/AirportHeliports/{query}")
+def list_all_airports_heliports_by_query(query: str) -> list[schemas.AirportHeliport]:
+    return [
+        x.feature
+        for x in (
+            models.AirportHeliport.objects.filter(aixm_location_indicator_icao=query)
+            | models.AirportHeliport.objects.filter(aixm_designator_iata=query)
+            | models.AirportHeliport.objects.filter(aixm_designator=query)
+            | models.AirportHeliport.objects.filter(uuid=query)
+        ).order_by("aixm_designator", "information_valid_since")
+    ]
+
+
 @web_app.get(path="/api/china-eaip-datasets/{filename}/{keyword}")
 def airport_heliport_dataset_by_timestamp(
     filename: str, keyword: File
@@ -188,36 +211,16 @@ def airport_heliport_dataset_by_timestamp(
     )
 
 
-@web_app.get(path="/api/china-eaip-datasets/{filename}/AirportHeliport/elements")
-def list_all_airports_heliports(
-    filename: str,
-) -> list[schemas.AirportHeliport]:
-    package: BaselineDataPackage = BaselineDataPackage(filename=filename)
-    return [
-        x.feature
-        for x in models.AirportHeliport.objects.filter(
-            information_valid_since__lte=package.effective_since,
-            information_valid_until__gte=package.effective_until,
-        ).order_by("aixm_designator")
-    ]
-
-
 @web_app.get(
     path="/api/china-eaip-datasets/{filename}/Airspace/elements",
     response_model=list[schemas.Airspace],
 )
-def list_all_airspaces(
-    filename: str,
-) -> collections.abc.Iterable[models.Airspace]:
-    package: BaselineDataPackage = BaselineDataPackage(filename=filename)
+def list_all_airspaces() -> collections.abc.Iterable[models.Airspace]:
     return [
         x
-        for x in models.Airspace.objects.filter(
-            # aixm_type="FIR",
-            # aixm_name="BEIJING FIR",
-            information_valid_since__lte=package.effective_since,
-            information_valid_until__gte=package.effective_until,
-        ).order_by("aixm_type", "aixm_designator", "aixm_name")
+        for x in models.Airspace.objects.order_by(
+            "aixm_type", "aixm_designator", "aixm_name", "information_valid_since"
+        )
         if len(x.features.features) > 0
     ]
 

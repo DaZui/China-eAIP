@@ -50,10 +50,10 @@ interface FeatureCollection {
 }
 interface Base {
   uuid: string
-  information_valid_since: string
-  information_valid_until: string
-  aixm_sequence_number: number
-  aixm_correction_number: number
+  有效期自: string
+  有效期至: string
+  大版本号: number
+  小版本号: number
 }
 
 interface WithAnnotations {
@@ -66,19 +66,21 @@ interface Runway extends Base, WithAnnotations {
   宽度: [number | null, number | null]
   路肩宽度: [number | null, null]
   aixm_associated_airport_heliport: string
+  notes: [[string, number, number, string], [string, number, number, string]][]
 }
 
 interface AirportHeliportProperties extends Base, WithAnnotations {
-  aixm_location_indicator_icao: string
-  aixm_designator_iata: string
+  ICAO代码: string
+  IATA代码: string
 
-  aixm_field_elevation: [number | null, number | null]
-  aixm_reference_temperature_in_celcius: number | null
+  海拔: [number | null, number | null]
+  温度: number | null
 
-  aixm_name_display: string
+  名称: string
   aixm_magnetic_variation_display: string[]
 
   runways: Runway[]
+  notes: [string, string][]
 }
 
 interface AirportHeliport extends Feature {
@@ -103,6 +105,7 @@ interface BaselineDataPackage {
 
 export type {
   AirportHeliport,
+  AirportHeliportProperties,
   Airspace,
   BaselineDataPackage,
   Feature,

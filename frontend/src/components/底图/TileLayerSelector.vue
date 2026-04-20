@@ -32,6 +32,12 @@
     label="Coordinate System"
     v-model="store.使用中国坐标"
   />
+  <div class="mb-3">
+    <label class="form-label" v-if="store.国内模式">参考时间戳</label>
+    <label class="form-label" v-else>Reference Timestamp</label>
+    <input v-model="store.参考时间输入" type="datetime-local" class="form-control" />
+  </div>
+  {{ store.参考时间输出 }}
 </template>
 
 <script setup lang="ts">
