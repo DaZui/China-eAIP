@@ -32,12 +32,6 @@
     label="Coordinate System"
     v-model="store.使用中国坐标"
   />
-  <ColSelect
-    :options="温度单位s"
-    :size="labelWidth"
-    label="Temperature Unit"
-    v-model="store.温度单位"
-  />
 </template>
 
 <script setup lang="ts">
@@ -104,14 +98,6 @@ const coordinates: ComputedRef<Options> = computed(
   (): Options => [
     ['wgs84', 'WGS-84'],
     ['gcj02', 'GCJ-02 (only for Reference)'],
-  ],
-)
-
-const 温度单位s: ComputedRef<Options> = computed(
-  (): Options => [
-    ['°C', '°C: Celsius'],
-    ['°F', '°F: Fahrenheit'],
-    ['K', 'K: Kelvin'],
   ],
 )
 </script>
