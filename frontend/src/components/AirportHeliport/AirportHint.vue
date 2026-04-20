@@ -17,9 +17,11 @@
         <div class="col-5">{{ 属性.IATA代码 }}</div>
         <div class="col-7 text-end">{{ airport.geometry.coordinates[0].toFixed(5) }}°E</div>
         <div class="col-6">{{ convertLength(属性.海拔) }}</div>
-        <div class="col-6 text-end">{{ convertLength(属性.海拔, 1, 'ft') }}</div>
+        <div class="col-6 text-end fst-italic">{{ convertLength(属性.海拔, 1, 'ft') }}</div>
         <div class="col-6">{{ convertTemperature(referenceTemperature) }}</div>
-        <div class="col-6 text-end">{{ convertTemperature(referenceTemperature, 1, '°F') }}</div>
+        <div class="col-6 text-end fst-italic">
+          {{ convertTemperature(referenceTemperature, 1, '°F') }}
+        </div>
       </div>
 
       <div
@@ -49,28 +51,36 @@
 
         <div class="row">
           <div class="col-6">{{ convertLength(runway.长度, 0) }}</div>
-          <div class="col-6 text-end">{{ convertLength(runway.长度, 0, 'ft') }}</div>
+          <div class="col-6 text-end fst-italic">{{ convertLength(runway.长度, 0, 'ft') }}</div>
           <div class="col">{{ convertLength(runway.宽度, 0) }}</div>
-          <div class="col text-end">{{ convertLength(runway.宽度, 0, 'ft') }}</div>
+          <div class="col text-end fst-italic">{{ convertLength(runway.宽度, 0, 'ft') }}</div>
         </div>
 
         <div class="row" v-if="verbose && runway.路肩宽度[0]">
           <div class="col-6">{{ convertLength(runway.路肩宽度, 1) }}</div>
-          <div class="col-6 text-end">{{ convertLength(runway.路肩宽度, 1, 'ft') }}</div>
+          <div class="col-6 text-end fst-italic">{{ convertLength(runway.路肩宽度, 1, 'ft') }}</div>
         </div>
 
         <div v-if="verbose">
           <div class="fst-italic">Surface from {{ runway.notes[0]![0][0] }}:</div>
           <div class="row" v-for="(x, idx) in runway.notes" :key="idx">
-            <div class="col-4">{{ x[0][1] }} - {{ x[0][2] }}</div>
-            <div class="col-8 text-end">{{ x[0][3] }}</div>
+            <div class="col">
+              <div>
+                {{ convertLength([x[0][1], null], 0) }} - {{ convertLength([x[0][2], null], 0) }}
+              </div>
+              <div class="fst-italic">
+                {{ convertLength([x[0][1], null], 0, 'ft') }} -
+                {{ convertLength([x[0][2], null], 0, 'ft') }}
+              </div>
+            </div>
+            <div class="col text-end">{{ x[0][3] }}</div>
           </div>
           <div class="text-end">Since {{ runway.有效期自.slice(2, 16) }}Z</div>
           <div class="text-end">Until {{ runway.有效期至.slice(2, 16) }}Z</div>
         </div>
       </li>
     </ul>
-    <div class="card-footer text-end">
+    <div class="card-footer text-end" v-if="verbose">
       <div>Since {{ 属性.有效期自.slice(2, 16) }}Z</div>
       <div>Until {{ 属性.有效期至.slice(2, 16) }}Z</div>
     </div>
