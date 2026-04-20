@@ -21,22 +21,13 @@
 </template>
 
 <script setup lang="ts">
-import { useGreatCircleMapStore } from '@/stores/GreatCircleMap'
 import { type Airspace } from '@/stores/types'
 import { computed, type ComputedRef } from 'vue'
 import DisplayList from '../DisplayList.vue'
 
-const store = useGreatCircleMapStore()
 const props = defineProps<{ airspace: Airspace }>()
 
 const items: ComputedRef<[string, string[]][]> = computed(() => [
-  // ['Field Elevation', [store.转换高度(props.airspace.properties.aixm_field_elevation)]],
-  // [
-  //   'Reference Temperature',
-  //   [store.转换温度(props.airspace.properties.aixm_reference_temperature_in_celcius)],
-  // ],
-  // ['Magnetic Variation', props.airspace.properties.aixm_magnetic_variation_display],
-  // ['Annotations', props.airspace.properties.aixm_annotations.split(/[:,]/).map((x) => x.trim())],
   ['Version', [`${props.airspace.aixm_sequence_number}.${props.airspace.aixm_correction_number}`]],
   [
     'Validity',

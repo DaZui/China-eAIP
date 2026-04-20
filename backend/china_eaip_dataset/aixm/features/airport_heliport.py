@@ -29,6 +29,7 @@ from ..data_types import (
     ValMagneticVariationChangeType,
     ValMagneticVariationType,
     ValTemperatureType,
+    to_meter,
 )
 from .geometry import ElevatedPoint, WithAixmLocation
 from .notes import WithAixmAnnotation
@@ -114,20 +115,13 @@ class AirportHeliport(AixmTimeSlice, WithAixmAnnotation):
     aixm_field_elevation: Annotated[
         ValDistanceVerticalType, Field(alias="aixm:fieldElevation")
     ]
-
-    @property
-    def aixm_field_elevation_float(self) -> float | None:
-        if not isinstance(self.aixm_field_elevation, Nil):
-            return self.aixm_field_elevation.in_m
-
     aixm_field_elevation_accuracy: Annotated[
         ValDistanceVerticalType, Field(alias="aixm:fieldElevationAccuracy")
     ]
 
     @property
     def aixm_field_elevation_accuracy_float(self) -> float | None:
-        if not isinstance(self.aixm_field_elevation_accuracy, Nil):
-            return self.aixm_field_elevation_accuracy.in_m
+        return to_meter(value=self.aixm_field_elevation_accuracy)
 
     aixm_magnetic_variation: Annotated[
         ValMagneticVariationType, Field(alias="aixm:magneticVariation")

@@ -16,14 +16,25 @@ class _Common(pydantic.BaseModel):
     aixm_correction_number: int
 
 
-class Properties(_Common):
+class _WithAnnotation(pydantic.BaseModel):
+    aixm_annotations: str
+
+
+class Runway(_Common, _WithAnnotation):
+    aixm_designator: str
+    aixm_associated_airport_heliport: str
+    长度: tuple[float | None, float | None]
+    宽度: tuple[float | None, float | None]
+    路肩宽度: tuple[float | None, None]
+
+
+class Properties(_Common, _WithAnnotation):
     aixm_location_indicator_icao: str
     aixm_designator_iata: str
     aixm_magnetic_variation: float | None
     aixm_magnetic_variation_accuracy: float | None
     aixm_date_magnetic_variation: int | None
     aixm_magnetic_variation_change: float | None
-    aixm_annotations: str
     aixm_availability: str
 
     aixm_field_elevation: tuple[float | None, float | None]
@@ -31,6 +42,8 @@ class Properties(_Common):
 
     aixm_name_display: str
     aixm_magnetic_variation_display: list[str]
+
+    runways: list[Runway]
 
 
 class AirportHeliport(geojson.TypedFeature[geojson.Point, Properties]):

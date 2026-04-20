@@ -23,6 +23,7 @@ from ..data_types import (
     TextNameType,
     ValDistanceVerticalBaseType,
     ValDistanceVerticalType,
+    to_meter,
 )
 from .notes import WithAixmAnnotation
 
@@ -198,16 +199,18 @@ type _LimitAndReference = tuple[
 def _display_upper_lower_limit(
     limit: ValDistanceVerticalType, reference: CodeVerticalReferenceType
 ) -> _LimitAndReference:
-    if isinstance(limit, Nil):
-        return None, "OTHER"
+    distance: float | None = to_meter(limit)
 
-    if limit.dollar in ("GND", "UNL", "FLOOR", "CEILING"):
-        return None, limit.dollar
+    if distance is None:
+        if isinstance(limit, Nil):
+            return None, "OTHER"
+        if limit.dollar in ("GND", "UNL", "FLOOR", "CEILING"):
+            return None, limit.dollar
 
     if isinstance(reference, Nil):
-        return limit.in_m, "OTHER"
+        return distance, "OTHER"
 
-    return limit.in_m, reference.dollar
+    return distance, reference.dollar
 
 
 class _AirspaceVolume(WithAtGmlId):
@@ -291,4 +294,4 @@ class Airspace(AixmTimeSlice, WithAixmAnnotation):
 
     aixm_geometry_component: typing.Annotated[
         AixmGeometryCompoents, pydantic.Field(alias="aixm:geometryComponent")
-    ]
+    ] = AixmGeometryCompoents(root=[])

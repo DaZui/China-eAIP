@@ -1,19 +1,79 @@
 <template>
-  <div class="card">
+  <div class="card my-3">
     <div class="card-body">
       <h5 class="card-title">{{ airport.properties.aixm_name_display }}</h5>
       <h6 class="card-subtitle mb-2 text-body-secondary">
-        {{ airport.properties.aixm_designator_iata }} /
-        {{ airport.properties.aixm_location_indicator_icao }}
+        {{ airport.properties.aixm_location_indicator_icao }} /
+        {{ airport.properties.aixm_designator_iata }}
       </h6>
       <h6 class="card-subtitle mb-2 text-body-secondary">
         {{ airport.geometry.coordinates[1].toFixed(6) }}°N,
         {{ airport.geometry.coordinates[0].toFixed(6) }}°E
       </h6>
-      <p class="card-text"></p>
+
       <table class="table table-sm spread">
         <tbody>
-          <DisplayList v-for="([a, c], idx) in items" :key="idx" :title="a" :items="c" />
+          <tr>
+            <th>Field Elevation</th>
+            <td colspan="2">
+              {{ convertLength(airport.properties.aixm_field_elevation) }} /
+              {{ convertLength(airport.properties.aixm_field_elevation, 1, 'ft') }}
+            </td>
+          </tr>
+          <tr>
+            <th>Reference Temperature</th>
+            <td colspan="2">
+              {{ convertTemperature(referenceTemperature) }} /
+              {{ convertTemperature(referenceTemperature, 1, '°F') }}
+            </td>
+          </tr>
+          <tr>
+            <th>Magnetic Variation</th>
+            <td colspan="2">{{ airport.properties.aixm_magnetic_variation_display.join(' ') }}</td>
+          </tr>
+          <tr>
+            <th>Annotations</th>
+            <td colspan="2">{{ airport.properties.aixm_annotations }}</td>
+          </tr>
+          <tr>
+            <th>Version</th>
+            <td colspan="2">
+              v{{ airport.properties.aixm_sequence_number }}.{{
+                airport.properties.aixm_correction_number
+              }}
+              ({{ airport.properties.information_valid_since }} ~
+              {{ airport.properties.information_valid_until }})
+            </td>
+          </tr>
+          <template v-for="(runway, idx) in airport.properties.runways" :key="idx">
+            <tr>
+              <th :rowspan="3">RWY {{ runway.aixm_designator }}</th>
+              <th>Size</th>
+              <td>
+                <div v-for="unit in ['m', 'ft'] as const" :key="unit">
+                  {{ convertLength(runway.长度, 0, unit) }} x
+                  {{ convertLength(runway.宽度, 0, unit) }}
+
+                  <span v-if="runway.路肩宽度[0]">
+                    ({{ convertLength(runway.路肩宽度, 0, unit) }})
+                  </span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <th>Annotations</th>
+              <td>{{ runway.aixm_annotations }}</td>
+            </tr>
+            <tr>
+              <th>Version</th>
+              <td>
+                v{{ runway.aixm_sequence_number }}.{{ runway.aixm_correction_number }} ({{
+                  runway.information_valid_since
+                }}
+                ~ {{ runway.information_valid_until }})
+              </td>
+            </tr>
+          </template>
         </tbody>
       </table>
     </div>
@@ -21,36 +81,15 @@
 </template>
 
 <script setup lang="ts">
-import { useGreatCircleMapStore } from '@/stores/GreatCircleMap'
 import { type AirportHeliport } from '@/stores/types'
+import { convertLength, convertTemperature } from '@/stores/units'
 import { computed, type ComputedRef } from 'vue'
-import DisplayList from '../DisplayList.vue'
 
-const store = useGreatCircleMapStore()
-const props = defineProps<{ airport: AirportHeliport }>()
+const props = defineProps<{ airport: AirportHeliport; verbose?: boolean }>()
 
-const items: ComputedRef<[string, string[]][]> = computed(() => [
-  ['Field Elevation', [store.转换高度(props.airport.properties.aixm_field_elevation)]],
-  [
-    'Reference Temperature',
-    [store.转换温度(props.airport.properties.aixm_reference_temperature_in_celcius)],
-  ],
-  ['Magnetic Variation', props.airport.properties.aixm_magnetic_variation_display],
-  ['Annotations', props.airport.properties.aixm_annotations.split(/[:,]/).map((x) => x.trim())],
-  [
-    'Version',
-    [
-      `${props.airport.properties.aixm_sequence_number}.${props.airport.properties.aixm_correction_number}`,
-    ],
-  ],
-  [
-    'Validity',
-    [
-      `Since ${props.airport.properties.information_valid_since}`,
-      `Until ${props.airport.properties.information_valid_until}`,
-    ],
-  ],
-])
+const referenceTemperature: ComputedRef<number | null> = computed(
+  () => props.airport.properties.aixm_reference_temperature_in_celcius,
+)
 </script>
 
 <style scoped>

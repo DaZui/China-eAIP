@@ -16,9 +16,9 @@
   </select>
 
   <AirportHint
+    verbose
     :airport="airport"
     :key="idx"
-    class="my-1"
     v-for="(airport, idx) in store.selectedAirportsHeliports"
   />
 </template>

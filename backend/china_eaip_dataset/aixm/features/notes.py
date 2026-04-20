@@ -1,3 +1,4 @@
+import re
 from typing import Annotated
 
 from pydantic import Field
@@ -41,19 +42,12 @@ class WithAixmAnnotation(BaseModel):
     @property
     def annotation(self) -> str:
         return "\n\n".join(
-            sorted(
-                {
-                    f"{x.aixm_note.aixm_property_name} {x.aixm_note.aixm_purpose}:\n"
-                    + "\n".join(
-                        sorted(
-                            {
-                                f"{y.aixm_linguistic_note.aixm_note.at_lang}: {y.aixm_linguistic_note.aixm_note.dollar}"
-                                for y in x.aixm_note.aixm_translated_note
-                                if not isinstance(y.aixm_linguistic_note.aixm_note, Nil)
-                            }
-                        )
-                    )
-                    for x in self.aixm_annotation
-                }
-            )
+            re.sub(
+                pattern=r"([:,]) *",
+                repl=r"\1\n",
+                string=y.aixm_linguistic_note.aixm_note.dollar,
+            ).replace("\r\n", "\n")
+            for x in self.aixm_annotation
+            for y in x.aixm_note.aixm_translated_note
+            if not isinstance(y.aixm_linguistic_note.aixm_note, Nil)
         )

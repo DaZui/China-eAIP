@@ -3,6 +3,7 @@ from django.db import models
 
 from .. import schemas
 from . import common
+from .runway import Runway
 
 
 # Create your models here.
@@ -36,9 +37,17 @@ class AirportHeliport(common.Common):
     aixm_served_city: common.CharField = models.CharField()
     aixm_latitude: common.FloatField = models.FloatField()
     aixm_longitude: common.FloatField = models.FloatField()
-    aixm_horizontal_accuracy_in_meter: common.FloatOptional = models.FloatField(null=True)
+    aixm_horizontal_accuracy_in_meter: common.FloatOptional = models.FloatField(
+        null=True
+    )
     aixm_annotations: common.CharField = models.CharField()
     aixm_availability: common.CharField = models.CharField()
+
+    @property
+    def runways(self) -> models.QuerySet[Runway]:
+        return Runway.objects.filter(
+            aixm_associated_airport_heliport=self.uuid
+        ).order_by("aixm_designator")
 
     @property
     def feature(self) -> schemas.AirportHeliport:
@@ -81,11 +90,11 @@ class AirportHeliport(common.Common):
         ]
 
         if self.aixm_date_magnetic_variation:
-            rv.append(f"Last Measured in {self.aixm_date_magnetic_variation}")
+            rv.append(f"(updated at {self.aixm_date_magnetic_variation})")
 
         if self.aixm_magnetic_variation_change:
             rv.append(
-                f"Changing at {self.aixm_magnetic_variation_change:.2f} ° per year"
+                f"(changing at {self.aixm_magnetic_variation_change:.2f} ° per year)"
             )
 
         return rv

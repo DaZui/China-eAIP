@@ -2,15 +2,14 @@ import type { LatLngLiteral } from 'leaflet'
 import { defineStore } from 'pinia'
 import { computed, ref, type ComputedRef, type Ref } from 'vue'
 import type { AirportHeliport, Airspace, BaselineDataPackage } from './types'
-import type { DistanceUnits, TemperatureUnits } from './units'
-import { convertDistanceFromMeter, convertTemperatureFromCelsius } from './units'
+import type { TemperatureUnits } from './units'
+import { convertTemperature } from './units'
 
 export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
   const 国内模式: ComputedRef<boolean> = computed(() =>
     window.location.hostname.endsWith('lihanming.cn'),
   )
 
-  const 高度单位: Ref<DistanceUnits> = ref('m')
   const 温度单位: Ref<TemperatureUnits> = ref('°C')
   const 底图语言: Ref<'zh-CN' | 'en-US' | string> = ref('zh-CN')
   const 底图风格: Ref<'street' | 'satellite' | 'hybrid' | 'terrain'> = ref('street')
@@ -23,24 +22,8 @@ export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
   const 显示设置界面: Ref<boolean> = ref(true)
   const 使用中国坐标: Ref<'wgs84' | 'gcj02'> = ref(国内模式.value ? 'gcj02' : 'wgs84')
 
-  function 转换高度(values: [number | null, number | null]): string {
-    const elevation = convertDistanceFromMeter(values[0], 高度单位.value)
-    const accuracy = convertDistanceFromMeter(values[1], 高度单位.value)
-
-    if (elevation === null) return 'Not Available'
-
-    if (高度单位.value === 'FL')
-      return accuracy
-        ? `FL${elevation.toFixed()} ± ${accuracy.toFixed()}`
-        : `FL${elevation.toFixed()}`
-
-    return accuracy
-      ? `${elevation.toFixed(1)} ± ${accuracy.toFixed(1)} ${高度单位.value.toLocaleLowerCase()}`
-      : `${elevation.toFixed(1)} ${高度单位.value.toLocaleLowerCase()}`
-  }
-
   function 转换温度(value: number | null): string {
-    const elevation = convertTemperatureFromCelsius(value, 温度单位.value)
+    const elevation = convertTemperature(value, 温度单位.value)
     return elevation ? `${elevation.toFixed(1)} ${温度单位.value}` : 'Not Available'
   }
 
@@ -65,12 +48,10 @@ export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
     底图提供商,
     底图语言,
     底图中心,
-    高度单位,
     国内模式,
     使用中国坐标,
     温度单位,
     显示设置界面,
-    转换高度,
     转换温度,
     allAirportsHeliports,
     allAirspaces,
