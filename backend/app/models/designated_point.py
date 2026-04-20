@@ -12,18 +12,4 @@ class DesignatedPoint(common.Common):
     aixm_horizontal_accuracy_in_meter: common.FloatOptional = models.FloatField(
         null=True
     )
-
-    # @property
-    # def feature(self) -> schemas.DesignatedPoint:
-    #     return schemas.DesignatedPoint(
-    #         geometry=geojson.Point(
-    #             coordinates=(
-    #                 self.aixm_longitude,
-    #                 self.aixm_latitude,
-    #             )
-    #         ),
-    #         properties=schemas.Properties1.model_validate(
-    #             obj=self, from_attributes=True
-    #         ),
-    #         id=self.uuid,
-    #     )
+    aixm_airport_heliport: common.CharField = models.CharField()

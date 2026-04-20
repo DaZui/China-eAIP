@@ -123,6 +123,9 @@ def handle_designated_point(folder: BaselineDataPackage):
             "aixm_latitude": info.aixm_location.aixm_point.latitude,
             "aixm_longitude": info.aixm_location.aixm_point.longitude,
             "aixm_horizontal_accuracy_in_meter": info.aixm_location.aixm_point.horizontal_accuracy,
+            "aixm_airport_heliport": ""
+            if info.aixm_airport_heliport is None
+            else info.aixm_airport_heliport.at_xlink_href.replace("urn:uuid:", ""),
         }
         models.DesignatedPoint.objects.update_or_create(
             uuid=designated_point.aixm_designated_point.at_gml_id,
