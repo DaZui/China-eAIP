@@ -26,8 +26,16 @@ class Point(WithAtGmlId, WithAtSrsName):
     def longitude(self) -> float:
         return self.gml_pos.dollar[1] if self.gml_pos else 0
 
+    @property
     def point(self, elevation: float = 0) -> geojson.Point:
         return geojson.Point(coordinates=(self.longitude, self.latitude, elevation))
+
+    @property
+    def horizontal_accuracy(self) -> float | None:
+        if self.aixm_horizontal_accuracy and not isinstance(
+            self.aixm_horizontal_accuracy, Nil
+        ):
+            return float(self.aixm_horizontal_accuracy.dollar)
 
 
 class ElevatedPoint(Point):

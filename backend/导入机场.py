@@ -7,6 +7,7 @@ from app import models
 from china_eaip_dataset.aixm.features import CommonRoot
 from china_eaip_dataset.aixm.features.airport_heliport import AirportHeliport
 from china_eaip_dataset.aixm.features.airspace import Airspace
+from china_eaip_dataset.aixm.features.navaids_points import DesignatedPoint
 from main import BaselineDataPackage
 
 
@@ -46,6 +47,7 @@ def handle_airport_heliport(folder: BaselineDataPackage):
             "aixm_served_city": str(info.aixm_served_city[0].aixm_city.aixm_name),
             "aixm_latitude": info.aixm_arp.aixm_elevated_point.latitude,
             "aixm_longitude": info.aixm_arp.aixm_elevated_point.longitude,
+            "aixm_horizontal_accuracy_in_meter": info.aixm_arp.aixm_elevated_point.horizontal_accuracy,
             "aixm_annotations": info.annotation,
             "aixm_availability": info.availability,
         }
@@ -97,6 +99,44 @@ def handle_airspace(folder: BaselineDataPackage):
         )
 
 
-for folder in BaselineDataPackage.list_all():
+def handle_designated_point(folder: BaselineDataPackage):
+    for designated_point in tqdm.tqdm(
+        iterable=CommonRoot.model_validate(
+            obj=folder.read_file("DesignatedPoint")
+        ).message_has_member,
+        desc=folder.folder.stem,
+    ):
+        if designated_point.aixm_designated_point is None:
+            continue
+        info: DesignatedPoint | None = (
+            designated_point.aixm_designated_point.aixm_time_slice[
+                0
+            ].aixm_designated_point_time_slice
+        )
+        if info is None:
+            continue
+
+        data: dict[str, typing.Any] = {
+            "information_valid_until": folder.effective_until,
+            "aixm_designator": str(info.aixm_designator),
+            "aixm_name": str(info.aixm_name),
+            "aixm_latitude": info.aixm_location.aixm_point.latitude,
+            "aixm_longitude": info.aixm_location.aixm_point.longitude,
+            "aixm_horizontal_accuracy_in_meter": info.aixm_location.aixm_point.horizontal_accuracy,
+        }
+        models.DesignatedPoint.objects.update_or_create(
+            uuid=designated_point.aixm_designated_point.at_gml_id,
+            aixm_sequence_number=info.aixm_sequence_number,
+            aixm_correction_number=info.aixm_correction_number,
+            defaults=data,
+            create_defaults={
+                **data,
+                "information_valid_since": info.gml_valid_time.gml_time_period.gml_begin_position.dollar,
+            },
+        )
+
+
+for folder in sorted(BaselineDataPackage.list_all(), key=lambda x: x.filename):
     # handle_airport_heliport(folder=folder)
-    handle_airspace(folder=folder)
+    # handle_airspace(folder=folder)
+    handle_designated_point(folder=folder)

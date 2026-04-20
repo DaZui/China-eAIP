@@ -36,6 +36,7 @@ class AirportHeliport(common.Common):
     aixm_served_city: common.CharField = models.CharField()
     aixm_latitude: common.FloatField = models.FloatField()
     aixm_longitude: common.FloatField = models.FloatField()
+    aixm_horizontal_accuracy_in_meter: common.FloatOptional = models.FloatField(null=True)
     aixm_annotations: common.CharField = models.CharField()
     aixm_availability: common.CharField = models.CharField()
 
