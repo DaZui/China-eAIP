@@ -179,25 +179,18 @@ def list_all_datasets(
     return list(BaselineDataPackage.list_all(timestamp=timestamp))
 
 
-@web_app.get(path="/api/china-eaip-datasets/AirportHeliports")
-def list_all_airports_heliports() -> list[schemas.AirportHeliport]:
+@web_app.get(
+    path="/api/china-eaip-datasets/AirportHeliports",
+    response_model=list[schemas.AirportHeliport],
+)
+def list_all_airports_heliports(
+    timestamp: pydantic.AwareDatetime,
+) -> list[schemas.AirportHeliport]:
     return [
         x.feature
-        for x in models.AirportHeliport.objects.order_by(
-            "aixm_designator", "information_valid_since"
-        )
-    ]
-
-
-@web_app.get(path="/api/china-eaip-datasets/AirportHeliports/{query}")
-def list_all_airports_heliports_by_query(query: str) -> list[schemas.AirportHeliport]:
-    return [
-        x.feature
-        for x in (
-            models.AirportHeliport.objects.filter(aixm_location_indicator_icao=query)
-            | models.AirportHeliport.objects.filter(aixm_designator_iata=query)
-            | models.AirportHeliport.objects.filter(aixm_designator=query)
-            | models.AirportHeliport.objects.filter(uuid=query)
+        for x in models.AirportHeliport.objects.filter(
+            information_valid_since__lte=timestamp,
+            information_valid_until__gt=timestamp,
         ).order_by("aixm_designator", "information_valid_since")
     ]
 
