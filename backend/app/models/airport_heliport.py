@@ -34,5 +34,5 @@ class AirportHeliport(common.Common):
         models.ForeignKey(base.ElevatedPoint, models.PROTECT)
     )
     aixm_served_city: common.CharField = models.CharField()
-    aixm_annotations: models.JSONField[typing.Any, typing.Any] = models.JSONField()
+    aixm_annotation: models.JSONField[typing.Any, typing.Any] = models.JSONField()
     aixm_availability: models.JSONField[typing.Any, typing.Any] = models.JSONField()

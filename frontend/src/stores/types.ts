@@ -1,17 +1,17 @@
-type Position = [number, number, number?]
+type GeoJSONPosition = [number, number, number?]
 
-interface Point {
-  coordinates: Position
+interface GeoJSONPoint {
+  coordinates: GeoJSONPosition
   type: 'Point'
 }
 
-interface LineString {
-  coordinates: Position[]
+interface GeoJSONLineString {
+  coordinates: GeoJSONPosition[]
   type: 'LineString'
 }
 
-interface MultiLineString {
-  coordinates: Position[][]
+interface GeoJSONMultiLineString {
+  coordinates: GeoJSONPosition[][]
   type: 'MultiLineString'
 }
 
@@ -21,6 +21,23 @@ interface Base {
   有效期至: string
   大版本号: number
   小版本号: number
+}
+
+interface Nil {
+  '@nilReason': 'unknown'
+  '@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance'
+  '@xsi:nil': 'true'
+}
+
+interface WithAnnotation {
+  aixm_annotation: {
+    '@gml:id': string
+    'aixm:propertyName': { $: string }
+    'aixm:purpose': { $: string }
+    'aixm:translatedNote': {
+      'aixm:LinguisticNote': { '@gml:id': string; 'aixm:note': { $: string; '@lang': string } }
+    }[]
+  }[]
 }
 
 interface CentrelinePoint extends Base {
@@ -41,11 +58,7 @@ interface CentrelinePoint extends Base {
       'aixm:RunwayDeclaredDistanceValue': {
         '@gml:id': string
         'aixm:distance': { $: string; '@uom': 'M' }
-        'aixm:distanceAccuracy': {
-          '@nilReason': 'unknown'
-          '@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance'
-          '@xsi:nil': 'true'
-        }
+        'aixm:distanceAccuracy': Nil
       }
     }[]
   }[]
@@ -70,7 +83,18 @@ interface Runway extends Base {
   方向s: Direction[]
 }
 
-interface AirportHeliport extends Base {
+interface Point {
+  latitude: number
+  longitude: number
+  geometry: GeoJSONPoint | null
+}
+
+interface ElevatedPoint extends Point {
+  aixm_elevation: number | null
+  aixm_special_elevation: '' | 'UNL' | 'GND' | 'FLOOR' | 'CEILING'
+}
+
+interface AirportHeliport extends Base, WithAnnotation {
   aixm_designator: string
   aixm_name: string
   aixm_location_indicator_icao: string
@@ -79,27 +103,46 @@ interface AirportHeliport extends Base {
   aixm_certified_icao: boolean | null
   aixm_control_type: string
   aixm_field_elevation: number | null
-  aixm_field_elevation_accuracy: number | null
   aixm_magnetic_variation: number | null
-  aixm_magnetic_variation_accuracy: number | null
   aixm_date_magnetic_variation: number | null
-  aixm_magnetic_variation_change: number | null
   aixm_reference_temperature: number | null
   aixm_certification_date: string | null
   aixm_certification_expiration_date: string | null
+  aixm_arp: ElevatedPoint
   aixm_served_city: string
-  aixm_latitude: number
-  aixm_longitude: number
-  aixm_horizontal_accuracy: number | null
-  aixm_annotations: string
-  aixm_availability: string
+  aixm_availability: {
+    '@gml:id': string
+    'aixm:usage': {
+      'aixm:AirportHeliportUsage': {
+        '@gml:id': string
+        'aixm:selection': {
+          'aixm:ConditionCombination': {
+            '@gml:id': string
+            'aixm:flight': {
+              'aixm:FlightCharacteristic': {
+                '@gml:id': string
+                'aixm:type': { $: string } | Nil
+                'aixm:rule': { $: string } | Nil
+                'aixm:military': { $: string } | Nil
+                'aixm:purpose': { $: string } | Nil
+              }
+            }[]
+          }
+        }
+      }
+    }[]
+  }[]
 
   跑道s: Runway[]
-  geometry: Point
-  notes: [string, string][]
+  坐标点: GeoJSONPoint
+  注解s: { [key: string]: string[] }
   名称: string
-  海拔: [number | null, number | null]
-  地磁偏角: [number | null, number | null, number | null, number | null]
 }
 
-export type { AirportHeliport, LineString, MultiLineString, Point, Position }
+export type {
+  AirportHeliport,
+  GeoJSONLineString as LineString,
+  GeoJSONMultiLineString as MultiLineString,
+  GeoJSONPoint as Point,
+  GeoJSONPosition as Position,
+}

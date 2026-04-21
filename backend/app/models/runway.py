@@ -11,5 +11,5 @@ class Runway(common.Common):
     aixm_nominal_width: common.FloatOptional = models.FloatField(null=True)
     aixm_width_accuracy: common.FloatOptional = models.FloatField(null=True)
     aixm_width_shoulder: common.FloatOptional = models.FloatField(null=True)
-    aixm_annotations: common.CharField = models.CharField()
+    aixm_annotation: common.CharField = models.CharField()
     aixm_associated_airport_heliport: common.CharField = models.CharField()

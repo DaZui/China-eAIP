@@ -1,13 +1,16 @@
 import datetime
-import decimal
 import re
 import typing
 
 import pydantic
 from china_eaip_dataset import geojson
 from china_eaip_dataset.aixm.data_types import ValDistanceVerticalSpecialBaseType
-from china_eaip_dataset.aixm.features.airport_heliport import RunwayDeclaredDistance
+from china_eaip_dataset.aixm.features.airport_heliport import (
+    AirportHeliportAvailability,
+    RunwayDeclaredDistance,
+)
 from china_eaip_dataset.aixm.features.notes import Note
+from china_eaip_dataset.base import Nil
 
 
 class _Common(pydantic.BaseModel):
@@ -27,44 +30,44 @@ class _Common(pydantic.BaseModel):
 
 
 class _WithAnnotation(pydantic.BaseModel):
-    aixm_annotations: str
+    aixm_annotation: list[Note]
 
 
 class Point(pydantic.BaseModel):
-    latitude: decimal.Decimal | None
-    longitude: decimal.Decimal | None
+    latitude: float | None
+    longitude: float | None
 
     @pydantic.computed_field
     @property
     def geometry(self) -> geojson.Point | None:
         if self.longitude and self.latitude:
-            coordinates: geojson.Position2D = (
-                float(self.longitude),
-                float(self.latitude),
-            )
-            return geojson.Point(coordinates=coordinates)
+            return geojson.Point(coordinates=(self.longitude, self.latitude))
 
 
 class ElevatedPoint(Point):
-    aixm_elevation: decimal.Decimal | None
+    aixm_elevation: float | None
     aixm_special_elevation: ValDistanceVerticalSpecialBaseType | typing.Literal[""]
 
     @pydantic.computed_field
     @property
     def geometry(self) -> geojson.Point | None:
         if self.longitude and self.latitude and self.aixm_elevation:
-            coordinates: geojson.Position3D = (
-                float(self.longitude),
-                float(self.latitude),
-                float(self.aixm_elevation),
+            return geojson.Point(
+                coordinates=(self.longitude, self.latitude, self.aixm_elevation)
             )
-            return geojson.Point(coordinates=coordinates)
+        return super().geometry
+
+    def geometry_with_given_elevation(
+        self, elevation: float | None
+    ) -> geojson.Point | None:
+        if self.longitude and self.latitude and elevation:
+            return geojson.Point(coordinates=(self.longitude, self.latitude, elevation))
+        return self.geometry
 
 
-class RunwayCentrelinePoint(_Common):
+class RunwayCentrelinePoint(_Common, _WithAnnotation):
     aixm_on_runway: str
     aixm_role: str
-    aixm_annotations: list[Note]
     aixm_associated_declared_distances: list[RunwayDeclaredDistance]
     aixm_location: ElevatedPoint | None
 
@@ -89,7 +92,6 @@ class Runway(_Common, _WithAnnotation):
     aixm_nominal_width: float | None
     aixm_width_accuracy: float | None
     aixm_width_shoulder: float | None
-    aixm_annotations: str
     aixm_associated_airport_heliport: str
 
     方向s: list[RunwayDirection] = []
@@ -109,38 +111,38 @@ class Runway(_Common, _WithAnnotation):
     def 路肩宽度(self) -> tuple[float | None, None]:
         return (self.aixm_width_shoulder, None)
 
-    @pydantic.computed_field
-    @property
-    def notes(
-        self,
-    ) -> list[tuple[tuple[str, float, float, str], tuple[str, float, float, str]]]:
-        try:
-            items: list[str] = self.aixm_annotations.splitlines()
-            length: int = len(items)
-            方向s: list[list[str]] = [items[: length // 2], items[length // 2 :]]
-            跑道s: set[tuple[str, float, float, str]] = set()
-            for 方向 in 方向s:
-                跑道编号: str = 方向[0][3:-1]
-                if len(方向) == 3:
-                    道面材质: str = f"{方向[1]} {方向[2]}"
-                    起点, 终点 = 0, self.长度[0] or 0
-                    跑道s.add((跑道编号, 起点, 终点, 道面材质))
-                else:
-                    for i in range(1, len(方向), 3):
-                        道面材质: str = f"{方向[i + 1]} {方向[i + 2]}"
-                        起点, 终点 = [float(x) for x in 方向[i][1:-2].split("-")]
-                        跑道s.add((跑道编号, 起点, 终点, 道面材质))
-            排序后跑道s = sorted(跑道s)
+    # @pydantic.computed_field
+    # @property
+    # def notes(
+    #     self,
+    # ) -> list[tuple[tuple[str, float, float, str], tuple[str, float, float, str]]]:
+    #     try:
+    #         items: list[str] = self.aixm_annotation.splitlines()
+    #         length: int = len(items)
+    #         方向s: list[list[str]] = [items[: length // 2], items[length // 2 :]]
+    #         跑道s: set[tuple[str, float, float, str]] = set()
+    #         for 方向 in 方向s:
+    #             跑道编号: str = 方向[0][3:-1]
+    #             if len(方向) == 3:
+    #                 道面材质: str = f"{方向[1]} {方向[2]}"
+    #                 起点, 终点 = 0, self.长度[0] or 0
+    #                 跑道s.add((跑道编号, 起点, 终点, 道面材质))
+    #             else:
+    #                 for i in range(1, len(方向), 3):
+    #                     道面材质: str = f"{方向[i + 1]} {方向[i + 2]}"
+    #                     起点, 终点 = [float(x) for x in 方向[i][1:-2].split("-")]
+    #                     跑道s.add((跑道编号, 起点, 终点, 道面材质))
+    #         排序后跑道s = sorted(跑道s)
 
-            长度: int = len(排序后跑道s)
+    #         长度: int = len(排序后跑道s)
 
-            return list(zip(排序后跑道s[: 长度 // 2], 排序后跑道s[长度 // 2 :][::-1]))
+    #         return list(zip(排序后跑道s[: 长度 // 2], 排序后跑道s[长度 // 2 :][::-1]))
 
-        except Exception as e:
-            print(e)
-            return [
-                (("", 0, 0, self.aixm_annotations), ("", 0, 0, self.aixm_annotations))
-            ]
+    #     except Exception as e:
+    #         print(e)
+    #         return [
+    #             (("", 0, 0, self.aixm_annotation), ("", 0, 0, self.aixm_annotation))
+    #         ]
 
 
 class AirportHeliport(_Common, _WithAnnotation):
@@ -152,50 +154,55 @@ class AirportHeliport(_Common, _WithAnnotation):
     aixm_certified_icao: bool | None
     aixm_control_type: str
     aixm_field_elevation: float | None
-    aixm_field_elevation_accuracy: float | None
     aixm_magnetic_variation: float | None
-    aixm_magnetic_variation_accuracy: float | None
-    aixm_date_magnetic_variation: int | None
-    aixm_magnetic_variation_change: float | None
+    aixm_date_magnetic_variation: float | None
     aixm_reference_temperature: float | None
     aixm_certification_date: datetime.date | None
     aixm_certification_expiration_date: datetime.date | None
+    aixm_arp: ElevatedPoint
     aixm_served_city: str
-    aixm_latitude: float
-    aixm_longitude: float
-    aixm_annotations: str
-    aixm_availability: str
+    aixm_availability: list[AirportHeliportAvailability]
 
     跑道s: list[Runway] = []
 
     @pydantic.computed_field
     @property
-    def geometry(self) -> geojson.Point:
-        return geojson.Point(
-            coordinates=(
-                self.aixm_longitude,
-                self.aixm_latitude,
-                self.aixm_field_elevation or 0,
-            )
+    def 坐标点(self) -> geojson.Point | None:
+        return self.aixm_arp.geometry_with_given_elevation(
+            elevation=self.aixm_field_elevation
         )
 
     @pydantic.computed_field
     @property
-    def notes(self) -> list[tuple[str, str]]:
-        matches: re.Match[str] | None = re.fullmatch(
-            pattern=r"^(Site at AD): (.*), (Direction and distance from city): (.*)$",
-            string=self.aixm_annotations.replace("\n", " "),
-        )
-        if matches is None:
-            return [("Annotations", self.aixm_annotations)]
-
+    def 注解s(self) -> dict[str, set[str]]:
         def standardization(x: str) -> str:
             return re.sub(pattern=r" *\(", repl=" (", string=x)
 
-        return [
-            (matches[1], standardization(x=matches[2])),
-            (matches[3], standardization(x=matches[4])),
-        ]
+        rv: dict[
+            typing.Literal["Site at AD", "Direction and distance from city"] | str,
+            set[str],
+        ] = {"Site at AD": set(), "Direction and distance from city": set()}
+
+        def insert(key: str, value: str) -> None:
+            if key not in rv:
+                rv[key] = set()
+            rv[key].add(standardization(value))
+
+        for x in self.aixm_annotation:
+            prefix: str = f"{x.aixm_property_name} {x.aixm_purpose}"
+            for y in x.aixm_translated_note:
+                if isinstance(y.aixm_linguistic_note.aixm_note, Nil):
+                    continue
+                matches: re.Match[str] | None = re.fullmatch(
+                    pattern=r"Site at AD:(.*?),Direction and distance from city:(.*)",
+                    string=y.aixm_linguistic_note.aixm_note.dollar,
+                )
+                if matches:
+                    insert(key="Site at AD", value=matches[1])
+                    insert(key="Direction and distance from city", value=matches[2])
+                else:
+                    insert(key=prefix, value=y.aixm_linguistic_note.aixm_note.dollar)
+        return rv
 
     @pydantic.computed_field
     @property
@@ -203,18 +210,3 @@ class AirportHeliport(_Common, _WithAnnotation):
         if self.aixm_served_city == self.aixm_name:
             return self.aixm_name.title()
         return f"{self.aixm_served_city} / {self.aixm_name}".title()
-
-    @pydantic.computed_field
-    @property
-    def 海拔(self) -> tuple[float | None, float | None]:
-        return self.aixm_field_elevation, self.aixm_field_elevation_accuracy
-
-    @pydantic.computed_field
-    @property
-    def 地磁偏角(self) -> tuple[float | None, float | None, int | None, float | None]:
-        return (
-            self.aixm_magnetic_variation,
-            self.aixm_magnetic_variation_accuracy,
-            self.aixm_date_magnetic_variation,
-            self.aixm_magnetic_variation_change,
-        )

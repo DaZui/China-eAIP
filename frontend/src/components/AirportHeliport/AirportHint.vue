@@ -5,26 +5,30 @@
     <div class="card-body">
       <div class="row">
         <div class="col-5">{{ airport.aixm_location_indicator_icao }}</div>
-        <div class="col-7 text-end">{{ airport.geometry.coordinates[1].toFixed(5) }}°N</div>
+        <div class="col-7 text-end">{{ airport.坐标点.coordinates[1].toFixed(5) }}°N</div>
         <div class="col-5">{{ airport.aixm_designator_iata }}</div>
-        <div class="col-7 text-end">{{ airport.geometry.coordinates[0].toFixed(5) }}°E</div>
-        <div class="col-6">{{ convertLength(airport.海拔) }}</div>
-        <div class="col-6 text-end fst-italic">{{ convertLength(airport.海拔, 1, 'ft') }}</div>
+        <div class="col-7 text-end">{{ airport.坐标点.coordinates[0].toFixed(5) }}°E</div>
+        <div class="col-6">{{ convertLength([airport.aixm_field_elevation, null]) }}</div>
+        <div class="col-6 text-end fst-italic">
+          {{ convertLength([airport.aixm_field_elevation, null], 1, 'ft') }}
+        </div>
         <div class="col-6">{{ convertTemperature(airport.aixm_reference_temperature) }}</div>
         <div class="col-6 text-end fst-italic">
           {{ convertTemperature(airport.aixm_reference_temperature, 1, '°F') }}
         </div>
       </div>
 
-      <div
-        v-show="verbose"
-        v-for="([title, value], idx) in [['Magnetic Variation', `${airport.地磁偏角}`]].concat(
-          airport.notes,
-        )"
-        :key="idx"
-      >
-        <div class="fst-italic">{{ title }}:</div>
-        <div class="text-end">{{ value }}</div>
+      <div v-if="airport.aixm_magnetic_variation">
+        <div class="fst-italic">Magnetic Variation:</div>
+        <div class="text-end">{{ airport.aixm_magnetic_variation.toFixed(2) }}°</div>
+        <div class="text-end" v-if="airport.aixm_date_magnetic_variation">
+          Updated in {{ airport.aixm_date_magnetic_variation }}
+        </div>
+      </div>
+
+      <div v-for="(items, key) in airport.注解s" :key="key">
+        <div class="fst-italic">{{ key }}:</div>
+        <div class="text-end" v-for="(item, idx) in items" :key="idx">{{ item }}</div>
       </div>
     </div>
 

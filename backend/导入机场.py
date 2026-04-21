@@ -58,7 +58,7 @@ def handle_airport_heliport(folder: BaselineDataPackage):
             "aixm_arp": models.ElevatedPoint.from_xml(
                 info.aixm_arp.aixm_elevated_point
             ),
-            "aixm_annotations": [x.aixm_note.dump() for x in info.aixm_annotation],
+            "aixm_annotation": [x.aixm_note.dump() for x in info.aixm_annotation],
             "aixm_availability": [
                 x.aixm_airport_heliport_availability.dump()
                 for x in info.aixm_availability
@@ -174,7 +174,7 @@ def handle_runway(folder: BaselineDataPackage):
             "aixm_nominal_width": to_meter(value=info.aixm_nominal_width),
             "aixm_width_accuracy": to_meter(value=info.aixm_width_accuracy),
             "aixm_width_shoulder": to_meter(value=info.aixm_width_shoulder),
-            "aixm_annotations": info.annotation,
+            "aixm_annotation": info.annotation,
             "aixm_associated_airport_heliport": info.aixm_associated_airport_heliport.at_xlink_href.replace(
                 "urn:uuid:", ""
             ),
@@ -214,7 +214,7 @@ def handle_runway_centreline_point(folder: BaselineDataPackage):
             "aixm_on_runway": info.aixm_on_runway.at_xlink_href.replace(
                 "urn:uuid:", ""
             ),
-            "aixm_annotations": [x.aixm_note.dump() for x in info.aixm_annotation],
+            "aixm_annotation": [x.aixm_note.dump() for x in info.aixm_annotation],
             "aixm_associated_declared_distances": [
                 x.aixm_runway_declared_distance.dump()
                 for x in info.aixm_associated_declared_distance

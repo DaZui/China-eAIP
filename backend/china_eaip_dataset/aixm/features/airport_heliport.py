@@ -73,7 +73,7 @@ class _AirportHeliportUsage(_UsageCondition):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_AirportHeliportUsage.html"""
 
 
-class _AirportHeliportAvailability(WithAtGmlId):
+class AirportHeliportAvailability(WithAtGmlId):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_AirportHeliportAvailability.html"""
 
     class _AixmUsageItem(BaseModel):
@@ -152,7 +152,7 @@ class AirportHeliport(AixmTimeSlice, WithAixmAnnotation):
 
     class _AixmAvailabilityItem(BaseModel):
         aixm_airport_heliport_availability: Annotated[
-            _AirportHeliportAvailability,
+            AirportHeliportAvailability,
             Field(alias="aixm:AirportHeliportAvailability"),
         ]
 

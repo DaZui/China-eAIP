@@ -22,7 +22,7 @@
       <LGeoJson
         v-for="(item, idx) in store.selectedAirportsHeliports"
         :key="idx"
-        :geojson="converter.convert(item.geometry)"
+        :geojson="converter.convert(item.坐标点)"
       >
         <LPopup><AirportHint :airport="item" /></LPopup>
         <LTooltip><AirportHint :airport="item" /></LTooltip>
