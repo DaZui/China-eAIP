@@ -61,12 +61,10 @@ type _CodeMilitaryOperationsBaseType = Literal["CIVIL", "MIL", "JOINT", "OTHER"]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeMilitaryOperationsBaseType.html"""
 type CodeMilitaryOperationsType = Nil | WithDollar[_CodeMilitaryOperationsBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeMilitaryOperationsType.html"""
-type _UomDistanceType = Literal["NM", "KM", "M", "FT", "MI", "CM", "OTHER"]
+type UomDistanceType = Literal["NM", "KM", "M", "FT", "MI", "CM", "OTHER"]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_UomDistanceType.html"""
-type _UomDistanceVerticalType = Literal["FT", "M", "FL", "SM", "OTHER"]
+type UomDistanceVerticalType = Literal["FT", "M", "FL", "SM", "OTHER"]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_UomDistanceVerticalType.html"""
-
-
 type _ValDistanceBaseType = Annotated[decimal.Decimal, Field(ge=0)]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceBaseType.html"""
 type ValDistanceVerticalSpecialBaseType = Literal["UNL", "GND", "FLOOR", "CEILING"]
@@ -75,48 +73,17 @@ type ValDistanceVerticalBaseType = decimal.Decimal | ValDistanceVerticalSpecialB
 
 
 class _ValDistanceTypeInner(WithDollar[_ValDistanceBaseType]):
-    at_uom: Annotated[_UomDistanceType, Field(alias="@uom")] = "M"
-
-    def __str__(self) -> str:
-        return f"{self.dollar} {self.at_uom}"
+    at_uom: Annotated[UomDistanceType, Field(alias="@uom")] = "M"
 
 
 class _ValDistanceVerticalTypeInner(WithDollar[ValDistanceVerticalBaseType]):
-    at_uom: Annotated[_UomDistanceVerticalType, Field(alias="@uom")] = "M"
-
-    def __str__(self) -> str:
-        return f"{self.dollar} {self.at_uom}"
+    at_uom: Annotated[UomDistanceVerticalType, Field(alias="@uom")] = "M"
 
 
 type ValDistanceType = Nil | _ValDistanceTypeInner
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceVerticalType.html"""
 type ValDistanceVerticalType = Nil | _ValDistanceVerticalTypeInner
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceVerticalType.html"""
-
-
-def to_meter(
-    value: ValDistanceType | ValDistanceVerticalType | None,
-) -> decimal.Decimal | None:
-    if value is None or isinstance(value, Nil):
-        return None
-    if value.dollar in ("UNL", "GND", "FLOOR", "CEILING"):
-        return None
-
-    CONVERT_TO_METER: dict[_UomDistanceType | _UomDistanceVerticalType, str] = {
-        "CM": "0.01",
-        "FL": "30.48",
-        "FT": "0.3048",
-        "KM": "1000",
-        "M": "1",
-        "MI": "1609.344",
-        "NM": "1852",
-        "OTHER": "0",
-        "SM": "10",
-    }
-
-    return value.dollar * decimal.Decimal(value=CONVERT_TO_METER[value.at_uom])
-
-
 type _ValMagneticVariationBaseType = Annotated[decimal.Decimal, Field(ge=-180, le=180)]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValMagneticVariationBaseType.html"""
 type ValMagneticVariationType = Nil | WithDollar[_ValMagneticVariationBaseType]
@@ -149,9 +116,6 @@ type _UomTemperatureType = Literal["C", "F", "K", "OTHER"]
 
 class _ValTemperatureTypeInner(WithDollar[_ValTemperatureBaseType]):
     at_uom: Annotated[_UomTemperatureType, Field(alias="@uom")]
-
-    def __str__(self) -> str:
-        return f"{self.dollar} {self.at_uom}"
 
 
 type ValTemperatureType = Nil | _ValTemperatureTypeInner
@@ -262,9 +226,6 @@ type _UomFrequencyType = Literal["HZ", "KHZ", "MHZ", "GHZ", "OTHER"]
 
 class _ValFrequencyTypeInner(WithDollar[_ValFrequencyBaseType]):
     at_uom: Annotated[_UomFrequencyType, Field(alias="@uom")]
-
-    def __str__(self) -> str:
-        return f"{self.dollar} {self.at_uom}"
 
 
 type ValFrequencyType = Nil | _ValFrequencyTypeInner

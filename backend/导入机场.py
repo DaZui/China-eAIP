@@ -1,19 +1,17 @@
-import decimal
 import typing
 
 import tqdm
 
 from api.wsgi import application  # pyright: ignore[reportUnusedImport] # isort:skip # noqa: F401
 from app import models
-from china_eaip_dataset.aixm.data_types import to_meter
 from china_eaip_dataset.aixm.features import CommonRoot
 from china_eaip_dataset.aixm.features.airport_heliport import (
     AirportHeliport,
     Runway,
     RunwayCentrelinePoint,
     RunwayDirection,
-    extract_number,
 )
+from china_eaip_dataset.aixm.helpers import extract_value, to_celsius, to_meter
 from china_eaip_dataset.base import Nil
 from main import BaselineDataPackage
 
@@ -35,35 +33,36 @@ def handle_airport_heliport(folder: BaselineDataPackage):
 
         data: dict[str, typing.Any] = {
             "information_valid_until": folder.effective_until,
-            "aixm_designator": str(info.aixm_designator),
-            "aixm_name": str(info.aixm_name),
-            "aixm_location_indicator_icao": str(info.aixm_location_indicator_icao),
-            "aixm_designator_iata": str(info.aixm_designator_iata),
-            "aixm_type": str(info.aixm_type),
+            "aixm_designator": extract_value(info.aixm_designator),
+            "aixm_name": extract_value(info.aixm_name),
+            "aixm_location_indicator_icao": extract_value(
+                info.aixm_location_indicator_icao
+            ),
+            "aixm_designator_iata": extract_value(info.aixm_designator_iata),
+            "aixm_type": extract_value(info.aixm_type),
             "aixm_certified_icao": info.aixm_certified_icao_bool,
-            "aixm_control_type": str(info.aixm_control_type),
-            "aixm_field_elevation": float(
-                to_meter(value=info.aixm_field_elevation) or 0
+            "aixm_control_type": extract_value(info.aixm_control_type),
+            "aixm_field_elevation": to_meter(value=info.aixm_field_elevation),
+            "aixm_magnetic_variation": extract_value(info.aixm_magnetic_variation),
+            "aixm_date_magnetic_variation": extract_value(
+                info.aixm_date_magnetic_variation
             ),
-            "aixm_field_elevation_accuracy": float(
-                to_meter(value=info.aixm_field_elevation_accuracy) or 0
+            "aixm_reference_temperature": to_celsius(info.aixm_reference_temperature),
+            "aixm_certification_date": extract_value(info.aixm_certification_date),
+            "aixm_certification_expiration_date": extract_value(
+                info.aixm_certification_expiration_date
             ),
-            "aixm_magnetic_variation": info.aixm_magnetic_variation_float,
-            "aixm_magnetic_variation_accuracy": info.aixm_magnetic_variation_accuracy_float,
-            "aixm_date_magnetic_variation": int(
-                extract_number(info.aixm_date_magnetic_variation) or 0
+            "aixm_served_city": extract_value(
+                info.aixm_served_city[0].aixm_city.aixm_name
             ),
-            "aixm_magnetic_variation_change": extract_number(
-                info.aixm_magnetic_variation_change, decimal.Decimal()
+            "aixm_arp": models.ElevatedPoint.from_xml(
+                info.aixm_arp.aixm_elevated_point
             ),
-            "aixm_reference_temperature": info.aixm_reference_temperature_float,
-            "aixm_certification_date": info.aixm_certification_date_datetime_date,
-            "aixm_certification_expiration_date": info.aixm_certification_expiration_date_datetime_date,
-            "aixm_served_city": str(info.aixm_served_city[0].aixm_city.aixm_name),
-            "aixm_latitude": info.aixm_arp.aixm_elevated_point.latitude,
-            "aixm_longitude": info.aixm_arp.aixm_elevated_point.longitude,
-            "aixm_annotations": info.annotation,
-            "aixm_availability": info.availability,
+            "aixm_annotations": [x.aixm_note.dump() for x in info.aixm_annotation],
+            "aixm_availability": [
+                x.aixm_airport_heliport_availability.dump()
+                for x in info.aixm_availability
+            ],
         }
         models.AirportHeliport.objects.update_or_create(
             uuid=airport.aixm_airport_heliport.at_gml_id,
@@ -279,9 +278,9 @@ def handle_runway_direction(folder: BaselineDataPackage):
 
 
 for folder in sorted(BaselineDataPackage.list_all(), key=lambda x: x.filename):
-    # handle_airport_heliport(folder=folder)
+    handle_airport_heliport(folder=folder)
     # handle_airspace(folder=folder)
     # handle_designated_point(folder=folder)
     # handle_runway(folder=folder)
     # handle_runway_direction(folder=folder)
-    handle_runway_centreline_point(folder=folder)
+    # handle_runway_centreline_point(folder=folder)

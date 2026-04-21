@@ -1,10 +1,8 @@
-import datetime
-import typing
 from typing import Annotated
 
 from pydantic import Field
 
-from ...base import BaseModel, Link, Nil, WithAtGmlId, WithDollar
+from ...base import BaseModel, Link, Nil, WithAtGmlId
 from ..abstract_feature import AixmTimeSlice
 from ..data_types import (
     CodeAirportHeliportDesignatorType,
@@ -27,7 +25,6 @@ from ..data_types import (
     ValBearingType,
     ValDistanceType,
     ValDistanceVerticalType,
-    ValMagneticVariationChangeType,
     ValMagneticVariationType,
     ValTemperatureType,
 )
@@ -87,14 +84,6 @@ class _AirportHeliportAvailability(WithAtGmlId):
     aixm_usage: Annotated[list[_AixmUsageItem], Field(alias="aixm:usage")]
 
 
-def extract_number[T: typing.Any](
-    value: Nil | WithDollar[T], default: T | None = None
-) -> T | None:
-    if not isinstance(value, Nil):
-        return value.dollar
-    return default
-
-
 class AirportHeliport(AixmTimeSlice, WithAixmAnnotation):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_AirportHeliport.html"""
 
@@ -124,62 +113,30 @@ class AirportHeliport(AixmTimeSlice, WithAixmAnnotation):
         ValDistanceVerticalType, Field(alias="aixm:fieldElevation")
     ]
     aixm_field_elevation_accuracy: Annotated[
-        ValDistanceVerticalType, Field(alias="aixm:fieldElevationAccuracy")
+        Nil,  # 原为 ValDistanceVerticalType，实际未出现
+        Field(alias="aixm:fieldElevationAccuracy"),
     ]
     aixm_magnetic_variation: Annotated[
         ValMagneticVariationType, Field(alias="aixm:magneticVariation")
     ]
-
-    @property
-    def aixm_magnetic_variation_float(self) -> float | None:
-        if not isinstance(self.aixm_magnetic_variation, Nil):
-            return float(self.aixm_magnetic_variation.dollar)
-
     aixm_magnetic_variation_accuracy: Annotated[
-        ValAngleType, Field(alias="aixm:magneticVariationAccuracy")
+        Nil,  # 原为 ValAngleType
+        Field(alias="aixm:magneticVariationAccuracy"),
     ]
-
-    @property
-    def aixm_magnetic_variation_accuracy_float(self) -> float | None:
-        if not isinstance(self.aixm_magnetic_variation_accuracy, Nil):
-            return float(self.aixm_magnetic_variation_accuracy.dollar)
-
     aixm_date_magnetic_variation: Annotated[
         DateYearType, Field(alias="aixm:dateMagneticVariation")
     ]
-
     aixm_magnetic_variation_change: Annotated[
-        ValMagneticVariationChangeType, Field(alias="aixm:magneticVariationChange")
+        Nil,  # 原为 ValMagneticVariationChangeType
+        Field(alias="aixm:magneticVariationChange"),
     ]
     aixm_reference_temperature: Annotated[
         ValTemperatureType, Field(alias="aixm:referenceTemperature")
     ]
-
-    @property
-    def aixm_reference_temperature_float(self) -> float | None:
-        if not isinstance(self.aixm_reference_temperature, Nil):
-            subtract: float = {"K": 273.15, "F": 32}.get(
-                self.aixm_reference_temperature.at_uom, 0
-            )
-            return (float(self.aixm_reference_temperature.dollar) - subtract) / {
-                "F": 1.8
-            }.get(self.aixm_reference_temperature.at_uom, 1)
-
     aixm_certification_date: Annotated[DateType, Field(alias="aixm:certificationDate")]
-
-    @property
-    def aixm_certification_date_datetime_date(self) -> datetime.date | None:
-        if not isinstance(self.aixm_certification_date, Nil):
-            return self.aixm_certification_date.dollar
-
     aixm_certification_expiration_date: Annotated[
         DateType, Field(alias="aixm:certificationExpirationDate")
     ]
-
-    @property
-    def aixm_certification_expiration_date_datetime_date(self) -> datetime.date | None:
-        if not isinstance(self.aixm_certification_expiration_date, Nil):
-            return self.aixm_certification_expiration_date.dollar
 
     class _AixmArpItem(BaseModel):
         aixm_elevated_point: Annotated[ElevatedPoint, Field(alias="aixm:ElevatedPoint")]
@@ -202,27 +159,6 @@ class AirportHeliport(AixmTimeSlice, WithAixmAnnotation):
     aixm_availability: Annotated[
         tuple[_AixmAvailabilityItem], Field(alias="aixm:availability")
     ]
-
-    @property
-    def availability(self) -> str:
-        return "\n".join(
-            ["military,purpose,rule,type"]
-            + sorted(
-                {
-                    ",".join(
-                        [
-                            f"{z.aixm_flight_characteristic.aixm_military}",
-                            f"{z.aixm_flight_characteristic.aixm_purpose}",
-                            f"{z.aixm_flight_characteristic.aixm_rule}",
-                            f"{z.aixm_flight_characteristic.aixm_type}",
-                        ]
-                    )
-                    for x in self.aixm_availability
-                    for y in x.aixm_airport_heliport_availability.aixm_usage
-                    for z in y.aixm_airport_heliport_usage.aixm_selection.aixm_condition_combination.aixm_flight
-                }
-            )
-        )
 
 
 class Runway(AixmTimeSlice, WithAixmAnnotation):

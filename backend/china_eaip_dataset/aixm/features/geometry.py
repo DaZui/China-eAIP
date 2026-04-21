@@ -7,10 +7,6 @@ from ...base import BaseModel, Nil, WithAtGmlId, WithAtSrsName, WithDollar
 from ..data_types import ValDistanceVerticalBaseType, ValDistanceVerticalType
 
 
-def get_value[T: str](a: Nil | WithDollar[T] | None) -> T | None:
-    return None if a is None or isinstance(a, Nil) else a.dollar
-
-
 class Point(WithAtGmlId, WithAtSrsName):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_Point.html"""
 

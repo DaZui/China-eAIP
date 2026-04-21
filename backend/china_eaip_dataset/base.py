@@ -45,9 +45,6 @@ class Link(WithAtOwns, WithAtXlinkType):
 class WithDollar[Inner: typing.Any = str](BaseModel):
     dollar: typing.Annotated[Inner, pydantic.Field(alias="$")]
 
-    def __str__(self) -> str:
-        return str(self.dollar)
-
 
 class Nil(BaseModel, validate_by_name=True):
     at_nil_reason: typing.Annotated[
@@ -64,9 +61,6 @@ class Nil(BaseModel, validate_by_name=True):
     at_xsi_nil: typing.Annotated[
         typing.Literal["true"], pydantic.Field(alias="@xsi:nil")
     ]
-
-    def __str__(self) -> str:
-        return ""
 
 
 class _GmlBeginPosition(WithDollar[datetime.datetime]):
