@@ -76,15 +76,9 @@ class RunwayCentrelinePoint(_Common, _WithAnnotation):
 
 class RunwayDirection(_Common):
     aixm_designator: str
-    aixm_true_bearing: float | None
-    aixm_true_bearing_accuracy: float | None
+    aixm_true_bearing: float
     aixm_used_runway: str
     中线点s: list[RunwayCentrelinePoint] = []
-
-    @pydantic.computed_field
-    @property
-    def 航向角(self) -> tuple[float | None, float | None]:
-        return (self.aixm_true_bearing, self.aixm_true_bearing_accuracy)
 
 
 class Runway(_Common, _WithAnnotation):

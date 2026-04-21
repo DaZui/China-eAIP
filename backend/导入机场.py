@@ -256,9 +256,8 @@ def handle_runway_direction(folder: BaselineDataPackage):
 
         data: dict[str, typing.Any] = {
             "information_valid_until": folder.effective_until,
-            "aixm_designator": str(info.aixm_designator),
-            "aixm_true_bearing": info.aixm_true_bearing_float,
-            "aixm_true_bearing_accuracy": info.aixm_true_bearing_accuracy_float,
+            "aixm_designator": extract_value(info.aixm_designator),
+            "aixm_true_bearing": extract_value(info.aixm_true_bearing),
             "aixm_used_runway": info.aixm_used_runway.at_xlink_href.replace(
                 "urn:uuid:", ""
             ),
@@ -279,6 +278,6 @@ for folder in sorted(BaselineDataPackage.list_all(), key=lambda x: x.filename):
     # handle_airport_heliport(folder=folder)
     # handle_airspace(folder=folder)
     # handle_designated_point(folder=folder)
-    handle_runway(folder=folder)
-    # handle_runway_direction(folder=folder)
+    # handle_runway(folder=folder)
+    handle_runway_direction(folder=folder)
     # handle_runway_centreline_point(folder=folder)

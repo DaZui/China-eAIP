@@ -67,10 +67,8 @@ interface CentrelinePoint extends Base {
 
 interface Direction extends Base {
   aixm_designator: string
-  aixm_true_bearing: number | null
-  aixm_true_bearing_accuracy: number | null
+  aixm_true_bearing: number
   aixm_used_runway: string
-  航向角: [number | null, number | null]
   中线点s: CentrelinePoint[]
 }
 

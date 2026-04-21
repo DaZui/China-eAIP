@@ -57,7 +57,7 @@
         <div>RWY{{ runway.aixm_designator }}</div>
 
         <div class="text-center">
-          {{ runway.方向s.map((val) => `${val.aixm_true_bearing?.toFixed(2)}°`).join(' / ') }}
+          {{ runway.方向s.map((val) => `${val.aixm_true_bearing.toFixed(2)}°`).join(' / ') }}
         </div>
 
         <div class="row">

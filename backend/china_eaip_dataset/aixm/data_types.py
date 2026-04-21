@@ -232,7 +232,8 @@ type ValFrequencyType = Nil | _ValFrequencyTypeInner
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValFrequencyType.html"""
 type _ValBearingBaseType = Annotated[decimal.Decimal, Field(ge=0, le=360)]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValBearingBaseType.html"""
-type ValBearingType = Nil | WithDollar[_ValBearingBaseType]
+type MustValBearingType = WithDollar[_ValBearingBaseType]
+type ValBearingType = Nil | MustValBearingType
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValBearingType.html"""
 type _CodeAuralMorseBaseType = Annotated[str, StringConstraints(pattern=r"^([\-\.]*)$")]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeAuralMorseBaseType.html"""
