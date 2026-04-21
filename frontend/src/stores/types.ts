@@ -23,6 +23,14 @@ interface Base {
   小版本号: number
 }
 
+interface Direction extends Base {
+  aixm_designator: string
+  aixm_true_bearing: number | null
+  aixm_true_bearing_accuracy: number | null
+  aixm_used_runway: string
+  航向角: [number | null, number | null]
+}
+
 interface Runway extends Base {
   aixm_designator: string
   长度: [number | null, number | null]
@@ -30,6 +38,7 @@ interface Runway extends Base {
   路肩宽度: [number | null, null]
   aixm_associated_airport_heliport: string
   notes: [[string, number, number, string], [string, number, number, string]][]
+  方向s: Direction[]
 }
 
 interface AirportHeliport extends Base {

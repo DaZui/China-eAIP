@@ -30,7 +30,11 @@
 
     <ul class="list-group list-group-flush" v-if="airport.跑道s.length > 0">
       <li class="list-group-item" v-for="(runway, idx) in airport.跑道s" :key="idx">
-        <div>RWY {{ runway.aixm_designator }}</div>
+        <div>RWY{{ runway.aixm_designator }}</div>
+
+        <div class="text-center">
+          {{ runway.方向s.map((val) => `${val.aixm_true_bearing?.toFixed(2)}°`).join(' / ') }}
+        </div>
 
         <div class="row">
           <div class="col-6">{{ convertLength(runway.长度, 0) }}</div>
