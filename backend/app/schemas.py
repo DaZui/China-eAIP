@@ -7,9 +7,11 @@ from china_eaip_dataset import geojson
 from china_eaip_dataset.aixm.data_types import ValDistanceVerticalSpecialBaseType
 from china_eaip_dataset.aixm.features.airport_heliport import (
     AirportHeliportAvailability,
+    FlightCharacteristic,
     RunwayDeclaredDistance,
 )
 from china_eaip_dataset.aixm.features.notes import Note
+from china_eaip_dataset.aixm.helpers import extract_value
 from china_eaip_dataset.base import Nil
 
 
@@ -210,3 +212,25 @@ class AirportHeliport(_Common, _WithAnnotation):
         if self.aixm_served_city == self.aixm_name:
             return self.aixm_name.title()
         return f"{self.aixm_served_city} / {self.aixm_name}".title()
+
+    @pydantic.computed_field
+    @property
+    def 用途s(self) -> list[tuple[str, str, str, str]]:
+        characteristics: list[FlightCharacteristic] = [
+            y.aixm_airport_heliport_usage.aixm_selection.aixm_condition_combination.aixm_flight[
+                0
+            ].aixm_flight_characteristic
+            for x in self.aixm_availability
+            for y in x.aixm_usage
+        ]
+        return sorted(
+            {
+                (
+                    extract_value(value=s.aixm_military) or "",
+                    extract_value(value=s.aixm_purpose) or "",
+                    extract_value(value=s.aixm_rule) or "",
+                    extract_value(value=s.aixm_type) or "",
+                )
+                for s in characteristics
+            }
+        )

@@ -32,7 +32,7 @@ from .geometry import ElevatedPoint, WithAixmLocation
 from .notes import WithAixmAnnotation
 
 
-class _FlightCharacteristic(WithAtGmlId):
+class FlightCharacteristic(WithAtGmlId):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_FlightCharacteristic.html"""
 
     aixm_type: Annotated[CodeFlightType, Field(alias="aixm:type")]
@@ -52,7 +52,7 @@ class _ConditionCombination(WithAtGmlId):
 
     class _AixmFlightItem(BaseModel):
         aixm_flight_characteristic: Annotated[
-            _FlightCharacteristic, Field(alias="aixm:FlightCharacteristic")
+            FlightCharacteristic, Field(alias="aixm:FlightCharacteristic")
         ]
 
     aixm_flight: Annotated[tuple[_AixmFlightItem], Field(alias="aixm:flight")]

@@ -137,6 +137,7 @@ interface AirportHeliport extends Base, WithAnnotation {
   坐标点: GeoJSONPoint
   注解s: { [key: string]: string[] }
   名称: string
+  用途s: [string, string, string, string][]
 }
 
 export type {

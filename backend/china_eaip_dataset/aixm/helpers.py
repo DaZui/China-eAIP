@@ -12,11 +12,10 @@ from .data_types import (
 
 
 def extract_value[T: str | decimal.Decimal | datetime.date](
-    value: Nil | WithDollar[T], default: T | None = None
+    value: Nil | WithDollar[T],
 ) -> T | None:
     if not isinstance(value, Nil):
         return value.dollar
-    return default
 
 
 def to_meter(

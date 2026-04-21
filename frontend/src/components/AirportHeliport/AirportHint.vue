@@ -1,9 +1,9 @@
 <template>
-  <div class="card font-monospace">
+  <div class="card">
     <div class="card-header">{{ airport.名称 }}</div>
 
     <div class="card-body">
-      <div class="row">
+      <div class="row font-monospace">
         <div class="col-5">{{ airport.aixm_location_indicator_icao }}</div>
         <div class="col-7 text-end">{{ airport.坐标点.coordinates[1].toFixed(5) }}°N</div>
         <div class="col-5">{{ airport.aixm_designator_iata }}</div>
@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <div v-if="airport.aixm_magnetic_variation">
+      <div v-if="verbose && airport.aixm_magnetic_variation">
         <div class="fst-italic">Magnetic Variation:</div>
         <div class="text-end">{{ airport.aixm_magnetic_variation.toFixed(2) }}°</div>
         <div class="text-end" v-if="airport.aixm_date_magnetic_variation">
@@ -26,9 +26,27 @@
         </div>
       </div>
 
-      <div v-for="(items, key) in airport.注解s" :key="key">
+      <div v-for="(items, key) in verbose ? airport.注解s : []" :key="key">
         <div class="fst-italic">{{ key }}:</div>
         <div class="text-end" v-for="(item, idx) in items" :key="idx">{{ item }}</div>
+      </div>
+
+      <div v-if="verbose && airport.用途s.length > 0">
+        <div class="fst-italic">Availability:</div>
+
+        <table class="table table-sm">
+          <thead>
+            <th>Military</th>
+            <th>Purpose</th>
+            <th>Rule</th>
+            <th>Type</th>
+          </thead>
+          <tbody>
+            <tr v-for="(item, idx) in airport.用途s" :key="idx">
+              <td v-for="(value, idx2) in item" :key="idx2">{{ value }}</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
 
