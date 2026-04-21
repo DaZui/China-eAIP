@@ -181,9 +181,7 @@ def 列出所有机场(
     ],
 ) -> list[schemas.AirportHeliport]:
     airports: django.db.models.QuerySet[models.AirportHeliport] = (
-        models.AirportHeliport.objects.filter(query, aixm_designator="ZGGG").order_by(
-            "aixm_designator"
-        )
+        models.AirportHeliport.objects.filter(query).order_by("aixm_designator")
     )
     runways: django.db.models.QuerySet[models.Runway] = models.Runway.objects.filter(
         query
