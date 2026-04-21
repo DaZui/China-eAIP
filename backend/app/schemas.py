@@ -94,8 +94,6 @@ class Properties(_Common, _WithAnnotation):
     aixm_name_display: typing.Annotated[str, pydantic.Field(serialization_alias="名称")]
     aixm_magnetic_variation_display: list[str]
 
-    runways: list[Runway]
-
     @pydantic.computed_field
     @property
     def notes(self) -> list[tuple[str, str]]:

@@ -29,8 +29,8 @@
       </div>
     </div>
 
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item" v-for="(runway, idx) in 属性.runways" :key="idx">
+    <ul class="list-group list-group-flush" v-if="runways.length > 0">
+      <li class="list-group-item" v-for="(runway, idx) in runways" :key="idx">
         <div>
           RWY {{ runway.aixm_designator }}
           <span class="badge text-bg-secondary">v{{ runway.大版本号 }}.{{ runway.小版本号 }}</span>
@@ -75,10 +75,12 @@
 </template>
 
 <script setup lang="ts">
-import { type AirportHeliport, type AirportHeliportProperties } from '@/stores/types'
+import { type AirportHeliport, type AirportHeliportProperties, type Runway } from '@/stores/types'
 import { convertLength, convertTemperature } from '@/stores/units'
-import { computed, type ComputedRef } from 'vue'
+import { computed, ref, type ComputedRef, type Ref } from 'vue'
 
 const props = defineProps<{ airport: AirportHeliport; verbose?: boolean }>()
 const 属性: ComputedRef<AirportHeliportProperties> = computed(() => props.airport.properties)
+
+const runways: Ref<Runway[]> = ref([])
 </script>

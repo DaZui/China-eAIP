@@ -9,6 +9,7 @@ import re
 import typing
 
 import china_eaip_dataset.aixm.features
+import django.db.models
 import fastapi
 import pydantic
 import uvicorn
@@ -179,13 +180,8 @@ def list_all_datasets(
     return list(BaselineDataPackage.list_all(timestamp=timestamp))
 
 
-@web_app.get(
-    path="/api/china-eaip-datasets/AirportHeliports",
-    response_model=list[schemas.AirportHeliport],
-)
-def list_all_airports_heliports(
-    timestamp: pydantic.AwareDatetime,
-) -> list[schemas.AirportHeliport]:
+@web_app.get(path="/api/china-eaip-datasets/AirportHeliports")
+def 列出所有机场(timestamp: pydantic.AwareDatetime) -> list[schemas.AirportHeliport]:
     return [
         x.feature
         for x in models.AirportHeliport.objects.filter(
@@ -193,6 +189,19 @@ def list_all_airports_heliports(
             information_valid_until__gt=timestamp,
         ).order_by("aixm_designator", "information_valid_since")
     ]
+
+
+@web_app.get(
+    path="/api/china-eaip-datasets/Runways", response_model=list[schemas.Runway]
+)
+def 列出一座机场的所有跑道(
+    airportHeliportId: str, timestamp: pydantic.AwareDatetime
+) -> django.db.models.QuerySet[models.Runway]:
+    return models.Runway.objects.filter(
+        aixm_associated_airport_heliport=airportHeliportId,
+        information_valid_since__lte=timestamp,
+        information_valid_until__gt=timestamp,
+    ).order_by("aixm_designator", "information_valid_since")
 
 
 @web_app.get(path="/api/china-eaip-datasets/{filename}/{keyword}")

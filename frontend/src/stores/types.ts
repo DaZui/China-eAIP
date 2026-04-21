@@ -119,4 +119,5 @@ export type {
   Point,
   Polygon,
   Position,
+  Runway,
 }

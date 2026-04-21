@@ -3,7 +3,6 @@ from django.db import models
 
 from .. import schemas
 from . import common
-from .runway import Runway
 
 
 # Create your models here.
@@ -42,15 +41,6 @@ class AirportHeliport(common.Common):
     )
     aixm_annotations: common.CharField = models.CharField()
     aixm_availability: common.CharField = models.CharField()
-
-    @property
-    def runways(self) -> models.QuerySet[Runway]:
-        return (
-            Runway.objects.filter(aixm_associated_airport_heliport=self.uuid)
-            .exclude(information_valid_since__gte=self.information_valid_until)
-            .exclude(information_valid_until__lte=self.information_valid_since)
-            .order_by("aixm_designator", "information_valid_since")
-        )
 
     @property
     def feature(self) -> schemas.AirportHeliport:
