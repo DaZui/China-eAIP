@@ -1,9 +1,6 @@
 <template>
   <div class="card font-monospace">
-    <div class="card-header">
-      {{ airport.名称 }}
-      <span class="badge text-bg-secondary">v{{ airport.大版本号 }}.{{ airport.小版本号 }}</span>
-    </div>
+    <div class="card-header">{{ airport.名称 }}</div>
 
     <div class="card-body">
       <div class="row">
@@ -33,10 +30,7 @@
 
     <ul class="list-group list-group-flush" v-if="airport.跑道s.length > 0">
       <li class="list-group-item" v-for="(runway, idx) in airport.跑道s" :key="idx">
-        <div>
-          RWY {{ runway.aixm_designator }}
-          <span class="badge text-bg-secondary">v{{ runway.大版本号 }}.{{ runway.小版本号 }}</span>
-        </div>
+        <div>RWY {{ runway.aixm_designator }}</div>
 
         <div class="row">
           <div class="col-6">{{ convertLength(runway.长度, 0) }}</div>
@@ -64,15 +58,9 @@
             </div>
             <div class="col text-end">{{ x[0][3] }}</div>
           </div>
-          <div class="text-end">Since {{ runway.有效期自.slice(2, 16) }}Z</div>
-          <div class="text-end">Until {{ runway.有效期至.slice(2, 16) }}Z</div>
         </div>
       </li>
     </ul>
-    <div class="card-footer text-end" v-if="verbose">
-      <div>Since {{ airport.有效期自.slice(2, 16) }}Z</div>
-      <div>Until {{ airport.有效期至.slice(2, 16) }}Z</div>
-    </div>
   </div>
 </template>
 
