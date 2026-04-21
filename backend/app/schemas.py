@@ -163,7 +163,9 @@ class AirportHeliport(_Common, _WithAnnotation):
     aixm_certification_expiration_date: datetime.date | None
     aixm_arp: ElevatedPoint
     aixm_served_city: str
-    aixm_availability: list[AirportHeliportAvailability]
+    aixm_availability: typing.Annotated[
+        list[AirportHeliportAvailability], pydantic.Field(exclude=True)
+    ]
 
     跑道s: list[Runway] = []
 

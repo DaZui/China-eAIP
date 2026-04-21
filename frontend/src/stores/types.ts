@@ -110,28 +110,28 @@ interface AirportHeliport extends Base, WithAnnotation {
   aixm_certification_expiration_date: string | null
   aixm_arp: ElevatedPoint
   aixm_served_city: string
-  aixm_availability: {
-    '@gml:id': string
-    'aixm:usage': {
-      'aixm:AirportHeliportUsage': {
-        '@gml:id': string
-        'aixm:selection': {
-          'aixm:ConditionCombination': {
-            '@gml:id': string
-            'aixm:flight': {
-              'aixm:FlightCharacteristic': {
-                '@gml:id': string
-                'aixm:type': { $: string } | Nil
-                'aixm:rule': { $: string } | Nil
-                'aixm:military': { $: string } | Nil
-                'aixm:purpose': { $: string } | Nil
-              }
-            }[]
-          }
-        }
-      }
-    }[]
-  }[]
+  // aixm_availability: {
+  //   '@gml:id': string
+  //   'aixm:usage': {
+  //     'aixm:AirportHeliportUsage': {
+  //       '@gml:id': string
+  //       'aixm:selection': {
+  //         'aixm:ConditionCombination': {
+  //           '@gml:id': string
+  //           'aixm:flight': {
+  //             'aixm:FlightCharacteristic': {
+  //               '@gml:id': string
+  //               'aixm:type': { $: string } | Nil
+  //               'aixm:rule': { $: string } | Nil
+  //               'aixm:military': { $: string } | Nil
+  //               'aixm:purpose': { $: string } | Nil
+  //             }
+  //           }[]
+  //         }
+  //       }
+  //     }
+  //   }[]
+  // }[]
 
   跑道s: Runway[]
   坐标点: GeoJSONPoint
