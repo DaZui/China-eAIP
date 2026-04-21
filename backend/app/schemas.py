@@ -32,7 +32,7 @@ class _Common(pydantic.BaseModel):
 
 
 class _WithAnnotation(pydantic.BaseModel):
-    aixm_annotation: list[Note]
+    aixm_annotation: typing.Annotated[list[Note], pydantic.Field(exclude=True)]
 
 
 class Point(pydantic.BaseModel):
@@ -148,21 +148,21 @@ class Runway(_Common, _WithAnnotation):
 
 
 class AirportHeliport(_Common, _WithAnnotation):
-    aixm_designator: str
-    aixm_name: str
+    # aixm_designator: str
+    aixm_name: typing.Annotated[str, pydantic.Field(exclude=True)]
     aixm_location_indicator_icao: str
     aixm_designator_iata: str
-    aixm_type: str
-    aixm_certified_icao: bool | None
-    aixm_control_type: str
+    # aixm_type: str
+    # aixm_certified_icao: bool | None
+    # aixm_control_type: str
     aixm_field_elevation: float | None
     aixm_magnetic_variation: float | None
     aixm_date_magnetic_variation: float | None
     aixm_reference_temperature: float | None
-    aixm_certification_date: datetime.date | None
-    aixm_certification_expiration_date: datetime.date | None
-    aixm_arp: ElevatedPoint
-    aixm_served_city: str
+    # aixm_certification_date: datetime.date | None
+    # aixm_certification_expiration_date: datetime.date | None
+    aixm_arp: typing.Annotated[ElevatedPoint, pydantic.Field(exclude=True)]
+    aixm_served_city: typing.Annotated[str, pydantic.Field(exclude=True)]
     aixm_availability: typing.Annotated[
         list[AirportHeliportAvailability], pydantic.Field(exclude=True)
     ]

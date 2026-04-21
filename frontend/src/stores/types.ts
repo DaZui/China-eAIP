@@ -29,15 +29,16 @@ interface Nil {
   '@xsi:nil': 'true'
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 interface WithAnnotation {
-  aixm_annotation: {
-    '@gml:id': string
-    'aixm:propertyName': { $: string }
-    'aixm:purpose': { $: string }
-    'aixm:translatedNote': {
-      'aixm:LinguisticNote': { '@gml:id': string; 'aixm:note': { $: string; '@lang': string } }
-    }[]
-  }[]
+  // aixm_annotation: {
+  //   '@gml:id': string
+  //   'aixm:propertyName': { $: string }
+  //   'aixm:purpose': { $: string }
+  //   'aixm:translatedNote': {
+  //     'aixm:LinguisticNote': { '@gml:id': string; 'aixm:note': { $: string; '@lang': string } }
+  //   }[]
+  // }[]
 }
 
 interface CentrelinePoint extends Base {
@@ -83,33 +84,33 @@ interface Runway extends Base {
   方向s: Direction[]
 }
 
-interface Point {
-  latitude: number
-  longitude: number
-  geometry: GeoJSONPoint | null
-}
+// interface Point {
+//   latitude: number
+//   longitude: number
+//   geometry: GeoJSONPoint | null
+// }
 
-interface ElevatedPoint extends Point {
-  aixm_elevation: number | null
-  aixm_special_elevation: '' | 'UNL' | 'GND' | 'FLOOR' | 'CEILING'
-}
+// interface ElevatedPoint extends Point {
+//   aixm_elevation: number | null
+//   aixm_special_elevation: '' | 'UNL' | 'GND' | 'FLOOR' | 'CEILING'
+// }
 
 interface AirportHeliport extends Base, WithAnnotation {
-  aixm_designator: string
-  aixm_name: string
+  // aixm_designator: string
+  // aixm_name: string
   aixm_location_indicator_icao: string
   aixm_designator_iata: string
-  aixm_type: string
-  aixm_certified_icao: boolean | null
-  aixm_control_type: string
+  // aixm_type: string
+  // aixm_certified_icao: boolean | null
+  // aixm_control_type: string
   aixm_field_elevation: number | null
   aixm_magnetic_variation: number | null
   aixm_date_magnetic_variation: number | null
   aixm_reference_temperature: number | null
-  aixm_certification_date: string | null
-  aixm_certification_expiration_date: string | null
-  aixm_arp: ElevatedPoint
-  aixm_served_city: string
+  // aixm_certification_date: string | null
+  // aixm_certification_expiration_date: string | null
+  // aixm_arp: ElevatedPoint
+  // aixm_served_city: string
   // aixm_availability: {
   //   '@gml:id': string
   //   'aixm:usage': {
