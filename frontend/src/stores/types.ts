@@ -76,12 +76,14 @@ interface Direction extends Base {
 
 interface Runway extends Base {
   aixm_designator: string
-  长度: [number | null, number | null]
-  宽度: [number | null, number | null]
-  路肩宽度: [number | null, null]
+  aixm_nominal_length: number
+  aixm_nominal_width: number
+  aixm_width_shoulder: number | null
   aixm_associated_airport_heliport: string
-  notes: [[string, number, number, string], [string, number, number, string]][]
+
   方向s: Direction[]
+
+  notes: [[string, number, number, string], [string, number, number, string]][]
 }
 
 // interface Point {

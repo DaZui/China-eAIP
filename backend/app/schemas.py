@@ -89,10 +89,8 @@ class RunwayDirection(_Common):
 
 class Runway(_Common, _WithAnnotation):
     aixm_designator: str
-    aixm_nominal_length: float | None
-    aixm_length_accuracy: float | None
-    aixm_nominal_width: float | None
-    aixm_width_accuracy: float | None
+    aixm_nominal_length: float
+    aixm_nominal_width: float
     aixm_width_shoulder: float | None
     aixm_associated_airport_heliport: str
 
@@ -100,51 +98,36 @@ class Runway(_Common, _WithAnnotation):
 
     @pydantic.computed_field
     @property
-    def 长度(self) -> tuple[float | None, float | None]:
-        return (self.aixm_nominal_length, self.aixm_length_accuracy)
+    def notes(
+        self,
+    ) -> list[tuple[tuple[str, float, float, str], tuple[str, float, float, str]]]:
+        # try:
+        跑道s: set[tuple[str, float, float, str]] = set()
+        for x in self.aixm_annotation:
+            for y in x.aixm_translated_note:
+                text: str = extract_value(y.aixm_linguistic_note.aixm_note) or ""
+                segments: list[str] = text.replace(":", "\n").splitlines()
+                总长度: int = len(segments)
+                for 跑道 in [segments[: 总长度 // 2], segments[总长度 // 2 :]]:
+                    if len(跑道) == 3:
+                        output: tuple[str, float, float, str] = (
+                            跑道[0][3:],
+                            0,
+                            self.aixm_nominal_length,
+                            f"{跑道[1]} {跑道[2]}",
+                        )
+                        跑道s.add(output)
+                    else:
+                        跑道编号: str = 跑道[0][3:]
+                        for a, b, c in [
+                            跑道[idx : idx + 3] for idx in range(1, len(跑道), 3)
+                        ]:
+                            起, 止 = (int(x) for x in a[1:-2].split("-"))
+                            跑道s.add((跑道编号, 起, 止, f"{b} {c}"))
 
-    @pydantic.computed_field
-    @property
-    def 宽度(self) -> tuple[float | None, float | None]:
-        return (self.aixm_nominal_width, self.aixm_width_accuracy)
-
-    @pydantic.computed_field
-    @property
-    def 路肩宽度(self) -> tuple[float | None, None]:
-        return (self.aixm_width_shoulder, None)
-
-    # @pydantic.computed_field
-    # @property
-    # def notes(
-    #     self,
-    # ) -> list[tuple[tuple[str, float, float, str], tuple[str, float, float, str]]]:
-    #     try:
-    #         items: list[str] = self.aixm_annotation.splitlines()
-    #         length: int = len(items)
-    #         方向s: list[list[str]] = [items[: length // 2], items[length // 2 :]]
-    #         跑道s: set[tuple[str, float, float, str]] = set()
-    #         for 方向 in 方向s:
-    #             跑道编号: str = 方向[0][3:-1]
-    #             if len(方向) == 3:
-    #                 道面材质: str = f"{方向[1]} {方向[2]}"
-    #                 起点, 终点 = 0, self.长度[0] or 0
-    #                 跑道s.add((跑道编号, 起点, 终点, 道面材质))
-    #             else:
-    #                 for i in range(1, len(方向), 3):
-    #                     道面材质: str = f"{方向[i + 1]} {方向[i + 2]}"
-    #                     起点, 终点 = [float(x) for x in 方向[i][1:-2].split("-")]
-    #                     跑道s.add((跑道编号, 起点, 终点, 道面材质))
-    #         排序后跑道s = sorted(跑道s)
-
-    #         长度: int = len(排序后跑道s)
-
-    #         return list(zip(排序后跑道s[: 长度 // 2], 排序后跑道s[长度 // 2 :][::-1]))
-
-    #     except Exception as e:
-    #         print(e)
-    #         return [
-    #             (("", 0, 0, self.aixm_annotation), ("", 0, 0, self.aixm_annotation))
-    #         ]
+        排序后跑道s: list[tuple[str, float, float, str]] = sorted(跑道s)
+        长度: int = len(排序后跑道s)
+        return list(zip(排序后跑道s[: 长度 // 2], 排序后跑道s[长度 // 2 :][::-1]))
 
 
 class AirportHeliport(_Common, _WithAnnotation):

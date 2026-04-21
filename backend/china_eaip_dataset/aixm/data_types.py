@@ -72,7 +72,7 @@ type ValDistanceVerticalBaseType = decimal.Decimal | ValDistanceVerticalSpecialB
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceVerticalBaseType.html"""
 
 
-class _ValDistanceTypeInner(WithDollar[_ValDistanceBaseType]):
+class MustValDistanceType(WithDollar[_ValDistanceBaseType]):
     at_uom: Annotated[UomDistanceType, Field(alias="@uom")] = "M"
 
 
@@ -80,7 +80,7 @@ class _ValDistanceVerticalTypeInner(WithDollar[ValDistanceVerticalBaseType]):
     at_uom: Annotated[UomDistanceVerticalType, Field(alias="@uom")] = "M"
 
 
-type ValDistanceType = Nil | _ValDistanceTypeInner
+type ValDistanceType = Nil | MustValDistanceType
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceVerticalType.html"""
 type ValDistanceVerticalType = Nil | _ValDistanceVerticalTypeInner
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceVerticalType.html"""

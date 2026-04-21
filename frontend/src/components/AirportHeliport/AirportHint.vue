@@ -61,18 +61,28 @@
         </div>
 
         <div class="row">
-          <div class="col-6">{{ convertLength(runway.长度, 0) }}</div>
-          <div class="col-6 text-end fst-italic">{{ convertLength(runway.长度, 0, 'ft') }}</div>
-          <div class="col">{{ convertLength(runway.宽度, 0) }}</div>
-          <div class="col text-end fst-italic">{{ convertLength(runway.宽度, 0, 'ft') }}</div>
+          <div class="col-6">{{ convertLength([runway.aixm_nominal_length, null], 0) }}</div>
+          <div class="col-6 text-end fst-italic">
+            {{ convertLength([runway.aixm_nominal_length, null], 0, 'ft') }}
+          </div>
+          <div class="col">{{ convertLength([runway.aixm_nominal_width, null], 0) }}</div>
+          <div class="col text-end fst-italic">
+            {{ convertLength([runway.aixm_nominal_width, null], 0, 'ft') }}
+          </div>
         </div>
 
-        <div class="row" v-if="verbose && runway.路肩宽度[0]">
-          <div class="col-6">{{ convertLength(runway.路肩宽度, 1) }}</div>
-          <div class="col-6 text-end fst-italic">{{ convertLength(runway.路肩宽度, 1, 'ft') }}</div>
+        <div class="row" v-if="verbose && runway.aixm_width_shoulder">
+          <div class="col-6">{{ convertLength([runway.aixm_width_shoulder, null], 1) }}</div>
+          <div class="col-6 text-end fst-italic">
+            {{ convertLength([runway.aixm_width_shoulder, null], 1, 'ft') }}
+          </div>
         </div>
 
-        <div v-if="verbose">
+        <div v-if="verbose && runway.notes.length === 1">
+          <div class="fst-italic">Surface:</div>
+          <div class="text-end">{{ runway.notes[0]![0][3] }}</div>
+        </div>
+        <div v-if="verbose && runway.notes.length > 1">
           <div class="fst-italic">Surface from {{ runway.notes[0]![0][0] }}:</div>
           <div class="row" v-for="(x, idx) in runway.notes" :key="idx">
             <div class="col">

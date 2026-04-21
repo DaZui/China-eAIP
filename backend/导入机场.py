@@ -168,13 +168,11 @@ def handle_runway(folder: BaselineDataPackage):
 
         data: dict[str, typing.Any] = {
             "information_valid_until": folder.effective_until,
-            "aixm_designator": str(info.aixm_designator),
+            "aixm_designator": extract_value(info.aixm_designator),
             "aixm_nominal_length": to_meter(value=info.aixm_nominal_length),
-            "aixm_length_accuracy": to_meter(value=info.aixm_length_accuracy),
             "aixm_nominal_width": to_meter(value=info.aixm_nominal_width),
-            "aixm_width_accuracy": to_meter(value=info.aixm_width_accuracy),
             "aixm_width_shoulder": to_meter(value=info.aixm_width_shoulder),
-            "aixm_annotation": info.annotation,
+            "aixm_annotation": [x.aixm_note.dump() for x in info.aixm_annotation],
             "aixm_associated_airport_heliport": info.aixm_associated_airport_heliport.at_xlink_href.replace(
                 "urn:uuid:", ""
             ),
@@ -278,9 +276,9 @@ def handle_runway_direction(folder: BaselineDataPackage):
 
 
 for folder in sorted(BaselineDataPackage.list_all(), key=lambda x: x.filename):
-    handle_airport_heliport(folder=folder)
+    # handle_airport_heliport(folder=folder)
     # handle_airspace(folder=folder)
     # handle_designated_point(folder=folder)
-    # handle_runway(folder=folder)
+    handle_runway(folder=folder)
     # handle_runway_direction(folder=folder)
     # handle_runway_centreline_point(folder=folder)

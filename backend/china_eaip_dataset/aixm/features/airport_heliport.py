@@ -19,6 +19,7 @@ from ..data_types import (
     CodeYesNoType,
     DateType,
     DateYearType,
+    MustValDistanceType,
     TextDesignatorType,
     TextNameType,
     ValAngleType,
@@ -165,10 +166,22 @@ class Runway(AixmTimeSlice, WithAixmAnnotation):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_Runway.html"""
 
     aixm_designator: Annotated[TextDesignatorType, Field(alias="aixm:designator")]
-    aixm_nominal_length: Annotated[ValDistanceType, Field(alias="aixm:nominalLength")]
-    aixm_length_accuracy: Annotated[ValDistanceType, Field(alias="aixm:lengthAccuracy")]
-    aixm_nominal_width: Annotated[ValDistanceType, Field(alias="aixm:nominalWidth")]
-    aixm_width_accuracy: Annotated[ValDistanceType, Field(alias="aixm:widthAccuracy")]
+    aixm_nominal_length: Annotated[
+        MustValDistanceType,  # 原为 ValDistanceType
+        Field(alias="aixm:nominalLength"),
+    ]
+    aixm_length_accuracy: Annotated[
+        Nil,  # 原为 ValDistanceType
+        Field(alias="aixm:lengthAccuracy"),
+    ]
+    aixm_nominal_width: Annotated[
+        MustValDistanceType,  # 原为 ValDistanceType
+        Field(alias="aixm:nominalWidth"),
+    ]
+    aixm_width_accuracy: Annotated[
+        Nil,  # 原为 ValDistanceType
+        Field(alias="aixm:widthAccuracy"),
+    ]
     aixm_width_shoulder: Annotated[ValDistanceType, Field(alias="aixm:widthShoulder")]
     aixm_associated_airport_heliport: Annotated[
         Link, Field(alias="aixm:associatedAirportHeliport")
