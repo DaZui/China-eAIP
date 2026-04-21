@@ -227,7 +227,6 @@ def handle_runway_centreline_point(folder: BaselineDataPackage):
                     info.aixm_location.aixm_elevated_point
                 )
             ),
-            "content": info.model_dump(mode="json", by_alias=True, exclude_unset=True),
         }
         models.RunwayCentrelinePoint.objects.update_or_create(
             uuid=runway_centreline_point.aixm_runway_centreline_point.at_gml_id,
