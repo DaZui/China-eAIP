@@ -9,6 +9,7 @@ from china_eaip_dataset.aixm.features import CommonRoot
 from china_eaip_dataset.aixm.features.airport_heliport import (
     AirportHeliport,
     Runway,
+    RunwayCentrelinePoint,
     RunwayDirection,
 )
 from china_eaip_dataset.aixm.features.airspace import Airspace
@@ -186,6 +187,42 @@ def handle_runway(folder: BaselineDataPackage):
         )
 
 
+def handle_runway_centreline_point(folder: BaselineDataPackage):
+    for runway_centreline_point in tqdm.tqdm(
+        iterable=CommonRoot.model_validate(
+            obj=folder.read_file("RunwayCentrelinePoint")
+        ).message_has_member,
+        desc=folder.folder.stem,
+    ):
+        if runway_centreline_point.aixm_runway_centreline_point is None:
+            continue
+        info: RunwayCentrelinePoint | None = (
+            runway_centreline_point.aixm_runway_centreline_point.aixm_time_slice[
+                0
+            ].aixm_runway_centreline_point_time_slice
+        )
+        if info is None:
+            continue
+
+        data: dict[str, typing.Any] = {
+            "information_valid_until": folder.effective_until,
+            "aixm_role": str(info.aixm_role),
+            "aixm_on_runway": info.aixm_on_runway.at_xlink_href.replace(
+                "urn:uuid:", ""
+            ),
+        }
+        models.RunwayCentrelinePoint.objects.update_or_create(
+            uuid=runway_centreline_point.aixm_runway_centreline_point.at_gml_id,
+            aixm_sequence_number=info.aixm_sequence_number,
+            aixm_correction_number=info.aixm_correction_number,
+            defaults=data,
+            create_defaults={
+                **data,
+                "information_valid_since": info.gml_valid_time.gml_time_period.gml_begin_position.dollar,
+            },
+        )
+
+
 def handle_runway_direction(folder: BaselineDataPackage):
     for runway_direction in tqdm.tqdm(
         iterable=CommonRoot.model_validate(
@@ -229,4 +266,5 @@ for folder in sorted(BaselineDataPackage.list_all(), key=lambda x: x.filename):
     # handle_airspace(folder=folder)
     # handle_designated_point(folder=folder)
     # handle_runway(folder=folder)
-    handle_runway_direction(folder=folder)
+    # handle_runway_direction(folder=folder)
+    handle_runway_centreline_point(folder=folder)

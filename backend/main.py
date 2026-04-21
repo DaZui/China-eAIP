@@ -186,6 +186,9 @@ def 列出所有机场(
     runways: django.db.models.QuerySet[models.Runway] = models.Runway.objects.filter(
         query
     ).order_by("aixm_designator")
+    runway_centreline_points: django.db.models.QuerySet[
+        models.RunwayCentrelinePoint
+    ] = models.RunwayCentrelinePoint.objects.filter(query)
     runway_directions: django.db.models.QuerySet[models.RunwayDirection] = (
         models.RunwayDirection.objects.filter(query).order_by("aixm_designator")
     )
@@ -200,11 +203,21 @@ def 列出所有机场(
                 obj=runway, from_attributes=True
             )
             for direction in runway_directions.filter(aixm_used_runway=runway.uuid):
-                output_runway.方向s.append(
+                output_direction: schemas.RunwayDirection = (
                     schemas.RunwayDirection.model_validate(
                         obj=direction, from_attributes=True
                     )
                 )
+                for centreline_point in runway_centreline_points.filter(
+                    aixm_on_runway=direction.uuid
+                ):
+                    output_centreline_point: schemas.RunwayCentrelinePoint = (
+                        schemas.RunwayCentrelinePoint.model_validate(
+                            obj=centreline_point, from_attributes=True
+                        )
+                    )
+                    output_direction.中线点s.append(output_centreline_point)
+                output_runway.方向s.append(output_direction)
             output_airport.跑道s.append(output_runway)
         rv.append(output_airport)
     return rv

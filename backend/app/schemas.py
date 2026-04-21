@@ -26,11 +26,26 @@ class _WithAnnotation(pydantic.BaseModel):
     aixm_annotations: str
 
 
+class RunwayCentrelinePoint(_Common):
+    """"""
+
+    # aixm_designator: str
+    # aixm_true_bearing: float | None
+    # aixm_true_bearing_accuracy: float | None
+    # aixm_used_runway: str
+
+    # @pydantic.computed_field
+    # @property
+    # def 航向角(self) -> tuple[float | None, float | None]:
+    #     return (self.aixm_true_bearing, self.aixm_true_bearing_accuracy)
+
+
 class RunwayDirection(_Common):
     aixm_designator: str
     aixm_true_bearing: float | None
     aixm_true_bearing_accuracy: float | None
     aixm_used_runway: str
+    中线点s: list[RunwayCentrelinePoint] = []
 
     @pydantic.computed_field
     @property
