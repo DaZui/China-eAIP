@@ -14,6 +14,7 @@ from china_eaip_dataset.aixm.features.airport_heliport import (
 )
 from china_eaip_dataset.aixm.features.airspace import Airspace
 from china_eaip_dataset.aixm.features.navaids_points import DesignatedPoint
+from china_eaip_dataset.base import Nil
 from main import BaselineDataPackage
 
 
@@ -204,12 +205,21 @@ def handle_runway_centreline_point(folder: BaselineDataPackage):
         if info is None:
             continue
 
+        if not isinstance(info.aixm_location, Nil):
+            print(info)
+
         data: dict[str, typing.Any] = {
             "information_valid_until": folder.effective_until,
             "aixm_role": str(info.aixm_role),
             "aixm_on_runway": info.aixm_on_runway.at_xlink_href.replace(
                 "urn:uuid:", ""
             ),
+            "aixm_annotations": [x.aixm_note.dump() for x in info.aixm_annotation],
+            "aixm_associated_declared_distances": [
+                x.aixm_runway_declared_distance.dump()
+                for x in info.aixm_associated_declared_distance
+            ],
+            "content": info.model_dump(mode="json", by_alias=True, exclude_unset=True),
         }
         models.RunwayCentrelinePoint.objects.update_or_create(
             uuid=runway_centreline_point.aixm_runway_centreline_point.at_gml_id,

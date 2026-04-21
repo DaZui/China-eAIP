@@ -4,6 +4,8 @@ import typing
 
 import pydantic
 from china_eaip_dataset import geojson
+from china_eaip_dataset.aixm.features.airport_heliport import RunwayDeclaredDistance
+from china_eaip_dataset.aixm.features.notes import Note
 
 
 class _Common(pydantic.BaseModel):
@@ -27,17 +29,10 @@ class _WithAnnotation(pydantic.BaseModel):
 
 
 class RunwayCentrelinePoint(_Common):
-    """"""
-
-    # aixm_designator: str
-    # aixm_true_bearing: float | None
-    # aixm_true_bearing_accuracy: float | None
-    # aixm_used_runway: str
-
-    # @pydantic.computed_field
-    # @property
-    # def 航向角(self) -> tuple[float | None, float | None]:
-    #     return (self.aixm_true_bearing, self.aixm_true_bearing_accuracy)
+    aixm_on_runway: str
+    aixm_role: str
+    aixm_annotations: list[Note]
+    aixm_associated_declared_distances: list[RunwayDeclaredDistance]
 
 
 class RunwayDirection(_Common):

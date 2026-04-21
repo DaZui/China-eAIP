@@ -251,7 +251,7 @@ class _RunwayDeclaredDistanceValue(WithAtGmlId):
     ]
 
 
-class _RunwayDeclaredDistance(WithAtGmlId):
+class RunwayDeclaredDistance(WithAtGmlId):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_RunwayDeclaredDistance.html"""
 
     aixm_type: Annotated[CodeDeclaredDistanceType, Field(alias="aixm:type")]
@@ -274,7 +274,7 @@ class RunwayCentrelinePoint(AixmTimeSlice, WithAixmAnnotation, WithAixmLocation)
 
     class _AixmAssociatedDeclaredDistanceItem(BaseModel):
         aixm_runway_declared_distance: Annotated[
-            _RunwayDeclaredDistance, Field(alias="aixm:RunwayDeclaredDistance")
+            RunwayDeclaredDistance, Field(alias="aixm:RunwayDeclaredDistance")
         ]
 
     aixm_associated_declared_distance: Annotated[

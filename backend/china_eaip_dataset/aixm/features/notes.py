@@ -13,7 +13,7 @@ class _LinguisticNote(WithAtGmlId):
     aixm_note: Annotated[TextNoteType, Field(alias="aixm:note")]
 
 
-class _Note(WithAtGmlId):
+class Note(WithAtGmlId):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_Note.html"""
 
     aixm_property_name: Annotated[
@@ -33,7 +33,7 @@ class _Note(WithAtGmlId):
 
 class WithAixmAnnotation(BaseModel):
     class _AixmAnnotationItem(BaseModel):
-        aixm_note: Annotated[_Note, Field(alias="aixm:Note")]
+        aixm_note: Annotated[Note, Field(alias="aixm:Note")]
 
     aixm_annotation: Annotated[
         list[_AixmAnnotationItem], Field(alias="aixm:annotation")

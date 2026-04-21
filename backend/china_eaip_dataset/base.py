@@ -5,7 +5,8 @@ import pydantic
 
 
 class BaseModel(pydantic.BaseModel, extra="forbid"):
-    pass
+    def dump(self) -> dict[str, typing.Any]:
+        return self.model_dump(mode="json", by_alias=True, exclude_unset=True)
 
 
 SpecialUuid = typing.Annotated[

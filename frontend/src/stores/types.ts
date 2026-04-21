@@ -23,12 +23,26 @@ interface Base {
   小版本号: number
 }
 
+interface CentrelinePoint extends Base {
+  aixm_on_runway: string
+  aixm_role: string
+  aixm_annotations: {
+    '@gml:id': string
+    'aixm:propertyName': { $: string }
+    'aixm:purpose': { $: string }
+    'aixm:translatedNote': {
+      'aixm:LinguisticNote': { '@gml:id': string; 'aixm:note': { '@lang': 'eng'; $: string } }
+    }[]
+  }[]
+}
+
 interface Direction extends Base {
   aixm_designator: string
   aixm_true_bearing: number | null
   aixm_true_bearing_accuracy: number | null
   aixm_used_runway: string
   航向角: [number | null, number | null]
+  中线点s: CentrelinePoint[]
 }
 
 interface Runway extends Base {
