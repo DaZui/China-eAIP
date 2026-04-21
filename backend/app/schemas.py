@@ -4,10 +4,6 @@ import typing
 
 import pydantic
 from china_eaip_dataset import geojson
-from china_eaip_dataset.aixm.data_types import (
-    CodeVerticalReferenceBaseType,
-    ValDistanceVerticalBaseType,
-)
 
 
 class _Common(pydantic.BaseModel):
@@ -71,28 +67,42 @@ class Runway(_Common, _WithAnnotation):
             ]
 
 
-class Properties(_Common, _WithAnnotation):
-    aixm_location_indicator_icao: typing.Annotated[
-        str, pydantic.Field(serialization_alias="ICAO代码")
-    ]
-    aixm_designator_iata: typing.Annotated[
-        str, pydantic.Field(serialization_alias="IATA代码")
-    ]
+class AirportHeliport(_Common, _WithAnnotation):
+    aixm_designator: str
+    aixm_name: str
+    aixm_location_indicator_icao: str
+    aixm_designator_iata: str
+    aixm_type: str
+    aixm_certified_icao: bool | None
+    aixm_control_type: str
+    aixm_field_elevation: float | None
+    aixm_field_elevation_accuracy: float | None
     aixm_magnetic_variation: float | None
     aixm_magnetic_variation_accuracy: float | None
     aixm_date_magnetic_variation: int | None
     aixm_magnetic_variation_change: float | None
+    aixm_reference_temperature: float | None
+    aixm_certification_date: datetime.date | None
+    aixm_certification_expiration_date: datetime.date | None
+    aixm_served_city: str
+    aixm_latitude: float
+    aixm_longitude: float
+    aixm_horizontal_accuracy: float | None
+    aixm_annotations: str
     aixm_availability: str
 
-    aixm_field_elevation: typing.Annotated[
-        tuple[float | None, float | None], pydantic.Field(serialization_alias="海拔")
-    ]
-    aixm_reference_temperature_in_celcius: typing.Annotated[
-        float | None, pydantic.Field(serialization_alias="温度")
-    ]
+    跑道s: list[Runway] = []
 
-    aixm_name_display: typing.Annotated[str, pydantic.Field(serialization_alias="名称")]
-    aixm_magnetic_variation_display: list[str]
+    @pydantic.computed_field
+    @property
+    def geometry(self) -> geojson.Point:
+        return geojson.Point(
+            coordinates=(
+                self.aixm_longitude,
+                self.aixm_latitude,
+                self.aixm_field_elevation or 0,
+            )
+        )
 
     @pydantic.computed_field
     @property
@@ -112,36 +122,24 @@ class Properties(_Common, _WithAnnotation):
             (matches[3], standardization(x=matches[4])),
         ]
 
+    @pydantic.computed_field
+    @property
+    def 名称(self) -> str:
+        if self.aixm_served_city == self.aixm_name:
+            return self.aixm_name.title()
+        return f"{self.aixm_served_city} / {self.aixm_name}".title()
 
-class AirportHeliport(geojson.TypedFeature[geojson.Point, Properties]):
-    pass
+    @pydantic.computed_field
+    @property
+    def 海拔(self) -> tuple[float | None, float | None]:
+        return self.aixm_field_elevation, self.aixm_field_elevation_accuracy
 
-
-class Properties2(_Common):
-    aixm_type: str
-    aixm_designator: str
-    aixm_name: str
-
-    upper_limit: tuple[
-        float | None, ValDistanceVerticalBaseType | CodeVerticalReferenceBaseType
-    ]
-    lower_limit: tuple[
-        float | None, ValDistanceVerticalBaseType | CodeVerticalReferenceBaseType
-    ]
-
-
-class Airspace(_Common):
-    aixm_type: str
-    aixm_designator: str
-    aixm_name: str
-
-    features: geojson.FeatureCollection
-
-
-class AirspaceComponent(pydantic.BaseModel):
-    upper_limit: tuple[
-        float | None, ValDistanceVerticalBaseType | CodeVerticalReferenceBaseType
-    ]
-    lower_limit: tuple[
-        float | None, ValDistanceVerticalBaseType | CodeVerticalReferenceBaseType
-    ]
+    @pydantic.computed_field
+    @property
+    def 地磁偏角(self) -> tuple[float | None, float | None, int | None, float | None]:
+        return (
+            self.aixm_magnetic_variation,
+            self.aixm_magnetic_variation_accuracy,
+            self.aixm_date_magnetic_variation,
+            self.aixm_magnetic_variation_change,
+        )

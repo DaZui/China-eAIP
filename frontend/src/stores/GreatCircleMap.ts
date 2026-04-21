@@ -2,7 +2,8 @@ import dayjs from 'dayjs'
 import type { LatLngLiteral } from 'leaflet'
 import { defineStore } from 'pinia'
 import { computed, ref, type ComputedRef, type Ref } from 'vue'
-import type { AirportHeliport, Airspace, BaselineDataPackage } from './types'
+import type { AirportHeliport } from './types'
+
 export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
   const 国内模式: ComputedRef<boolean> = computed(() =>
     window.location.hostname.endsWith('lihanming.cn'),
@@ -28,19 +29,8 @@ export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
   const 显示设置界面: Ref<boolean> = ref(true)
   const 使用中国坐标: Ref<'wgs84' | 'gcj02'> = ref(国内模式.value ? 'gcj02' : 'wgs84')
 
-  const allChinaEaipDatasets: Ref<BaselineDataPackage[]> = ref([])
-  const selectedChinaEaipDataset: Ref<string> = ref('')
-
-  async function fetchChinaEaipDatasets() {
-    const response = await fetch(`/api/china-eaip-datasets`)
-    allChinaEaipDatasets.value = await response.json()
-  }
-
   const allAirportsHeliports: Ref<AirportHeliport[]> = ref([])
   const selectedAirportsHeliports: Ref<AirportHeliport[]> = ref([])
-
-  const allAirspaces: Ref<Airspace[]> = ref([])
-  const selectedAirspaces: Ref<Airspace[]> = ref([])
 
   return {
     参考时间输出,
@@ -56,11 +46,6 @@ export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
     使用中国坐标,
     显示设置界面,
     allAirportsHeliports,
-    allAirspaces,
-    allChinaEaipDatasets,
-    fetchChinaEaipDatasets,
     selectedAirportsHeliports,
-    selectedAirspaces,
-    selectedChinaEaipDataset,
   }
 })

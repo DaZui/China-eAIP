@@ -5,11 +5,6 @@ interface Point {
   type: 'Point'
 }
 
-interface MultiPoint {
-  coordinates: Position[]
-  type: 'MultiPoint'
-}
-
 interface LineString {
   coordinates: Position[]
   type: 'LineString'
@@ -20,34 +15,6 @@ interface MultiLineString {
   type: 'MultiLineString'
 }
 
-interface Polygon {
-  coordinates: Position[][]
-  type: 'Polygon'
-}
-
-interface MultiPolygon {
-  coordinates: Position[][][]
-  type: 'MultiPolygon'
-}
-
-type Geometry = Point | MultiPoint | LineString | MultiLineString | Polygon | MultiPolygon
-
-interface GeometryCollection {
-  geometries: Geometry[]
-  type: 'GeometryCollection'
-}
-
-interface Feature {
-  geometry: Geometry | GeometryCollection
-  id: string
-  properties: object
-  type: 'Feature'
-}
-
-interface FeatureCollection {
-  type: 'FeatureCollection'
-  features: Feature[]
-}
 interface Base {
   uuid: string
   有效期自: string
@@ -56,11 +23,7 @@ interface Base {
   小版本号: number
 }
 
-interface WithAnnotations {
-  aixm_annotations: string
-}
-
-interface Runway extends Base, WithAnnotations {
+interface Runway extends Base {
   aixm_designator: string
   长度: [number | null, number | null]
   宽度: [number | null, number | null]
@@ -69,55 +32,36 @@ interface Runway extends Base, WithAnnotations {
   notes: [[string, number, number, string], [string, number, number, string]][]
 }
 
-interface AirportHeliportProperties extends Base, WithAnnotations {
-  ICAO代码: string
-  IATA代码: string
-
-  海拔: [number | null, number | null]
-  温度: number | null
-
-  名称: string
-  aixm_magnetic_variation_display: string[]
-
-  runways: Runway[]
-  notes: [string, string][]
-}
-
-interface AirportHeliport extends Feature {
-  geometry: Point
-  properties: AirportHeliportProperties
-}
-
-interface Airspace extends Base {
-  aixm_type: string
+interface AirportHeliport extends Base {
   aixm_designator: string
   aixm_name: string
-  features: FeatureCollection
+  aixm_location_indicator_icao: string
+  aixm_designator_iata: string
+  aixm_type: string
+  aixm_certified_icao: boolean | null
+  aixm_control_type: string
+  aixm_field_elevation: number | null
+  aixm_field_elevation_accuracy: number | null
+  aixm_magnetic_variation: number | null
+  aixm_magnetic_variation_accuracy: number | null
+  aixm_date_magnetic_variation: number | null
+  aixm_magnetic_variation_change: number | null
+  aixm_reference_temperature: number | null
+  aixm_certification_date: string | null
+  aixm_certification_expiration_date: string | null
+  aixm_served_city: string
+  aixm_latitude: number
+  aixm_longitude: number
+  aixm_horizontal_accuracy: number | null
+  aixm_annotations: string
+  aixm_availability: string
+
+  跑道s: Runway[]
+  geometry: Point
+  notes: [string, string][]
+  名称: string
+  海拔: [number | null, number | null]
+  地磁偏角: [number | null, number | null, number | null, number | null]
 }
 
-interface BaselineDataPackage {
-  publication_number: string
-  version_number: string
-  filename: string
-  effective_since: string
-  status: 'current' | 'expired' | 'upcoming'
-}
-
-export type {
-  AirportHeliport,
-  AirportHeliportProperties,
-  Airspace,
-  BaselineDataPackage,
-  Feature,
-  FeatureCollection,
-  Geometry,
-  GeometryCollection,
-  LineString,
-  MultiLineString,
-  MultiPoint,
-  MultiPolygon,
-  Point,
-  Polygon,
-  Position,
-  Runway,
-}
+export type { AirportHeliport, LineString, MultiLineString, Point, Position }

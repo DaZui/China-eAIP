@@ -22,19 +22,10 @@
       <LGeoJson
         v-for="(item, idx) in store.selectedAirportsHeliports"
         :key="idx"
-        :geojson="converter.convert(item)"
+        :geojson="converter.convert(item.geometry)"
       >
         <LPopup><AirportHint :airport="item" /></LPopup>
         <LTooltip><AirportHint :airport="item" /></LTooltip>
-      </LGeoJson>
-
-      <LGeoJson
-        v-for="(item, idx) in store.selectedAirspaces"
-        :key="idx"
-        :geojson="converter.convert(item.features)"
-      >
-        <LPopup><AirspaceHint :airspace="item" /></LPopup>
-        <LTooltip><AirspaceHint :airspace="item" /></LTooltip>
       </LGeoJson>
     </LMap>
   </div>
@@ -42,7 +33,6 @@
 
 <script setup lang="ts">
 import AirportHint from '@/components/AirportHeliport/AirportHint.vue'
-import AirspaceHint from '@/components/Airspace/AirspaceHint.vue'
 import TileLayerBase from '@/components/底图/TileLayerBase.vue'
 import { useGreatCircleMapStore } from '@/stores/GreatCircleMap'
 import { Converter } from '@/stores/wgsgcj'

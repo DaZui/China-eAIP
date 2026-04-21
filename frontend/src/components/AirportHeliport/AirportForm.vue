@@ -6,18 +6,18 @@
       :key="prefix"
     >
       <option
-        :key="airport.id"
+        :key="airport.uuid"
         :value="airport"
         class="font-monospace"
         v-for="airport of store.allAirportsHeliports.filter(
-          (x) => x.properties.ICAO代码.slice(1, 2) === prefix,
+          (x) => x.aixm_location_indicator_icao.slice(1, 2) === prefix,
         )"
       >
-        {{ airport.properties.ICAO代码 }}
-        {{ airport.properties.IATA代码 }}
-        {{ airport.properties.名称 }}
-        ({{ airport.properties.大版本号 }}.{{ airport.properties.小版本号 }},
-        {{ airport.properties.有效期自 }} ~ {{ airport.properties.有效期至 }})
+        {{ airport.aixm_location_indicator_icao }}
+        {{ airport.aixm_designator_iata }}
+        {{ airport.名称 }}
+        ({{ airport.大版本号 }}.{{ airport.小版本号 }}, {{ airport.有效期自 }} ~
+        {{ airport.有效期至 }})
       </option>
     </optgroup>
   </select>

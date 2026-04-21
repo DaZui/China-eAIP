@@ -1,15 +1,4 @@
-import type {
-  Feature,
-  FeatureCollection,
-  Geometry,
-  GeometryCollection,
-  MultiLineString,
-  MultiPoint,
-  MultiPolygon,
-  Point,
-  Polygon,
-  Position,
-} from './types'
+import type { LineString, MultiLineString, Point, Position } from './types'
 
 function deg2rad(v: number): number {
   return v * (Math.PI / 180)
@@ -115,16 +104,11 @@ class Converter {
     return outputLineStrings
   }
 
-  convertGeometry(origin: Geometry): Point | MultiPoint | MultiLineString | Polygon | MultiPolygon {
+  convert(origin: Point | LineString | MultiLineString): Point | MultiLineString {
     if (origin.type === 'Point')
       return {
         coordinates: this.convertPoint(origin.coordinates),
         type: 'Point',
-      }
-    if (origin.type === 'MultiPoint')
-      return {
-        coordinates: this.convertPoints(origin.coordinates),
-        type: 'MultiPoint',
       }
     if (origin.type === 'LineString')
       return {
@@ -137,38 +121,6 @@ class Converter {
         type: 'MultiLineString',
       }
     return origin
-  }
-
-  convertGeometryCollection(origin: GeometryCollection): GeometryCollection {
-    return {
-      geometries: origin.geometries.map((x) => this.convertGeometry(x)),
-      type: 'GeometryCollection',
-    }
-  }
-
-  convertFeature(origin: Feature): Feature {
-    return {
-      properties: origin.properties,
-      id: origin.id,
-      type: 'Feature',
-      geometry:
-        origin.geometry.type === 'GeometryCollection'
-          ? this.convertGeometryCollection(origin.geometry)
-          : this.convertGeometry(origin.geometry),
-    }
-  }
-
-  convert(
-    origin: Feature | FeatureCollection | Geometry | GeometryCollection,
-  ): Feature | FeatureCollection | Geometry | GeometryCollection {
-    if (origin.type === 'Feature') return this.convertFeature(origin)
-    if (origin.type === 'FeatureCollection')
-      return {
-        features: origin.features.map((x) => this.convertFeature(x)),
-        type: 'FeatureCollection',
-      }
-    if (origin.type === 'GeometryCollection') return this.convertGeometryCollection(origin)
-    return this.convertGeometry(origin)
   }
 }
 

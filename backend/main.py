@@ -8,7 +8,6 @@ import pathlib
 import re
 import typing
 
-import china_eaip_dataset.aixm.features
 import django.db.models
 import fastapi
 import pydantic
@@ -165,30 +164,40 @@ class BaselineDataPackage(
 
 
 # 允许 CORS 跨站访问
-web_app.add_middleware(
-    middleware_class=cors.CORSMiddleware,
-    allow_origins=[
-        "*",
-    ],
-)
+web_app.add_middleware(middleware_class=cors.CORSMiddleware, allow_origins=["*"])
 
 
-@web_app.get(path="/api/china-eaip-datasets")
-def list_all_datasets(
-    timestamp: datetime.datetime = datetime.datetime.now(tz=datetime.UTC),
-) -> list[BaselineDataPackage]:
-    return list(BaselineDataPackage.list_all(timestamp=timestamp))
+def 根据时间戳建立查询(timestamp: pydantic.AwareDatetime) -> django.db.models.Q:
+    return django.db.models.Q(
+        information_valid_since__lte=timestamp, information_valid_until__gt=timestamp
+    )
 
 
 @web_app.get(path="/api/china-eaip-datasets/AirportHeliports")
-def 列出所有机场(timestamp: pydantic.AwareDatetime) -> list[schemas.AirportHeliport]:
-    return [
-        x.feature
-        for x in models.AirportHeliport.objects.filter(
-            information_valid_since__lte=timestamp,
-            information_valid_until__gt=timestamp,
-        ).order_by("aixm_designator", "information_valid_since")
-    ]
+def 列出所有机场(
+    query: typing.Annotated[
+        django.db.models.Q,
+        fastapi.Depends(dependency=根据时间戳建立查询, use_cache=True),
+    ],
+) -> list[schemas.AirportHeliport]:
+    airports: django.db.models.QuerySet[models.AirportHeliport] = (
+        models.AirportHeliport.objects.filter(query).order_by("aixm_designator")
+    )
+    runways: django.db.models.QuerySet[models.Runway] = models.Runway.objects.filter(
+        query
+    ).order_by("aixm_designator")
+
+    rv: list[schemas.AirportHeliport] = []
+    for x in airports:
+        output_airport: schemas.AirportHeliport = (
+            schemas.AirportHeliport.model_validate(obj=x, from_attributes=True)
+        )
+        output_airport.跑道s = [
+            schemas.Runway.model_validate(obj=x, from_attributes=True)
+            for x in runways.filter(aixm_associated_airport_heliport=x.uuid)
+        ]
+        rv.append(output_airport)
+    return rv
 
 
 @web_app.get(
@@ -204,47 +213,9 @@ def 列出一座机场的所有跑道(
     ).order_by("aixm_designator", "information_valid_since")
 
 
-@web_app.get(path="/api/china-eaip-datasets/{filename}/{keyword}")
-def airport_heliport_dataset_by_timestamp(
-    filename: str, keyword: File
-) -> china_eaip_dataset.aixm.features.CommonRoot:
-    return china_eaip_dataset.aixm.features.CommonRoot.model_validate(
-        obj=BaselineDataPackage(filename=filename).read_file(keyword=keyword)
-    )
-
-
-@web_app.get(
-    path="/api/china-eaip-datasets/{filename}/Airspace/elements",
-    response_model=list[schemas.Airspace],
-)
-def list_all_airspaces() -> collections.abc.Iterable[models.Airspace]:
-    return [
-        x
-        for x in models.Airspace.objects.order_by(
-            "aixm_type", "aixm_designator", "aixm_name", "information_valid_since"
-        )
-        if len(x.features.features) > 0
-    ]
-
-
-@web_app.get(path="/api/china-eaip-datasets/{filename}/{keyword}")
-def fetch_china_eaip_dataset_by_timestamp(filename: str, keyword: File) -> typing.Any:
-    return BaselineDataPackage(filename=filename).read_file(keyword=keyword)
-
-
 # 挂载 django app 的其他部分
-web_app.mount(
-    path="/static",
-    app=staticfiles.StaticFiles(
-        directory="./static",
-    ),
-)
-web_app.mount(
-    path="/",
-    app=wsgi.WSGIMiddleware(
-        app=application,
-    ),
-)
+web_app.mount(path="/static", app=staticfiles.StaticFiles(directory="./static"))
+web_app.mount(path="/", app=wsgi.WSGIMiddleware(app=application))
 
 if __name__ == "__main__":
     uvicorn.run(app="main:web_app", reload=True, host="::")

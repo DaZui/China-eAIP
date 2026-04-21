@@ -1,27 +1,29 @@
 <template>
   <div class="card font-monospace">
     <div class="card-header">
-      {{ 属性.名称 }}
-      <span class="badge text-bg-secondary">v{{ 属性.大版本号 }}.{{ 属性.小版本号 }}</span>
+      {{ airport.名称 }}
+      <span class="badge text-bg-secondary">v{{ airport.大版本号 }}.{{ airport.小版本号 }}</span>
     </div>
 
     <div class="card-body">
       <div class="row">
-        <div class="col-5">{{ 属性.ICAO代码 }}</div>
+        <div class="col-5">{{ airport.aixm_location_indicator_icao }}</div>
         <div class="col-7 text-end">{{ airport.geometry.coordinates[1].toFixed(5) }}°N</div>
-        <div class="col-5">{{ 属性.IATA代码 }}</div>
+        <div class="col-5">{{ airport.aixm_designator_iata }}</div>
         <div class="col-7 text-end">{{ airport.geometry.coordinates[0].toFixed(5) }}°E</div>
-        <div class="col-6">{{ convertLength(属性.海拔) }}</div>
-        <div class="col-6 text-end fst-italic">{{ convertLength(属性.海拔, 1, 'ft') }}</div>
-        <div class="col-6">{{ convertTemperature(属性.温度) }}</div>
-        <div class="col-6 text-end fst-italic">{{ convertTemperature(属性.温度, 1, '°F') }}</div>
+        <div class="col-6">{{ convertLength(airport.海拔) }}</div>
+        <div class="col-6 text-end fst-italic">{{ convertLength(airport.海拔, 1, 'ft') }}</div>
+        <div class="col-6">{{ convertTemperature(airport.aixm_reference_temperature) }}</div>
+        <div class="col-6 text-end fst-italic">
+          {{ convertTemperature(airport.aixm_reference_temperature, 1, '°F') }}
+        </div>
       </div>
 
       <div
         v-show="verbose"
-        v-for="([title, value], idx) in [
-          ['Magnetic Variation', 属性.aixm_magnetic_variation_display.join(' ')],
-        ].concat(属性.notes)"
+        v-for="([title, value], idx) in [['Magnetic Variation', `${airport.地磁偏角}`]].concat(
+          airport.notes,
+        )"
         :key="idx"
       >
         <div class="fst-italic">{{ title }}:</div>
@@ -29,8 +31,8 @@
       </div>
     </div>
 
-    <ul class="list-group list-group-flush" v-if="runways.length > 0">
-      <li class="list-group-item" v-for="(runway, idx) in runways" :key="idx">
+    <ul class="list-group list-group-flush" v-if="airport.跑道s.length > 0">
+      <li class="list-group-item" v-for="(runway, idx) in airport.跑道s" :key="idx">
         <div>
           RWY {{ runway.aixm_designator }}
           <span class="badge text-bg-secondary">v{{ runway.大版本号 }}.{{ runway.小版本号 }}</span>
@@ -68,19 +70,15 @@
       </li>
     </ul>
     <div class="card-footer text-end" v-if="verbose">
-      <div>Since {{ 属性.有效期自.slice(2, 16) }}Z</div>
-      <div>Until {{ 属性.有效期至.slice(2, 16) }}Z</div>
+      <div>Since {{ airport.有效期自.slice(2, 16) }}Z</div>
+      <div>Until {{ airport.有效期至.slice(2, 16) }}Z</div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { type AirportHeliport, type AirportHeliportProperties, type Runway } from '@/stores/types'
+import { type AirportHeliport } from '@/stores/types'
 import { convertLength, convertTemperature } from '@/stores/units'
-import { computed, ref, type ComputedRef, type Ref } from 'vue'
 
-const props = defineProps<{ airport: AirportHeliport; verbose?: boolean }>()
-const 属性: ComputedRef<AirportHeliportProperties> = computed(() => props.airport.properties)
-
-const runways: Ref<Runway[]> = ref([])
+defineProps<{ airport: AirportHeliport; verbose?: boolean }>()
 </script>

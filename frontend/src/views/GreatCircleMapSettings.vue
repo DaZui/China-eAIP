@@ -20,9 +20,7 @@
             </li>
           </ul>
           <TileLayerSelector v-if="currentOption === 0" />
-          <AipForm v-else-if="currentOption === 1" />
-          <AirportForm v-else-if="currentOption === 2" />
-          <AirspaceForm v-else-if="currentOption === 3" />
+          <AirportForm v-else-if="currentOption === 1" />
         </div>
       </div>
     </div>
@@ -31,22 +29,14 @@
 
 <script setup lang="ts">
 import { computed, ref, type ComputedRef, type Ref } from 'vue'
-import AipForm from '../components/AipForm.vue'
 import AirportForm from '../components/AirportHeliport/AirportForm.vue'
-import AirspaceForm from '../components/Airspace/AirspaceForm.vue'
 import TileLayerSelector from '../components/底图/TileLayerSelector.vue'
 import { useGreatCircleMapStore } from '../stores/GreatCircleMap'
 
 const store = useGreatCircleMapStore()
 const currentOption: Ref<number> = ref(0)
 const options: ComputedRef<string[]> = computed(() =>
-  store.selectedChinaEaipDataset === ''
-    ? store.国内模式
-      ? ['地图设置', 'AIP', '机场 Airport / Heliport']
-      : ['Base Map', 'AIP', 'Airport / Heliport']
-    : store.国内模式
-      ? ['地图设置', 'AIP', '机场 Airport / Heliport', '空域 Airspace']
-      : ['Base Map', 'AIP', 'Airport / Heliport', 'Airspace'],
+  store.国内模式 ? ['地图设置', '机场 Airport / Heliport'] : ['Base Map', 'Airport / Heliport'],
 )
 </script>
 
