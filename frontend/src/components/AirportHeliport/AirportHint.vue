@@ -36,10 +36,12 @@
 
         <table class="table table-sm">
           <thead>
-            <th>Military</th>
-            <th>Purpose</th>
-            <th>Rule</th>
-            <th>Type</th>
+            <tr>
+              <th>Military</th>
+              <th>Purpose</th>
+              <th>Rule</th>
+              <th>Type</th>
+            </tr>
           </thead>
           <tbody>
             <tr v-for="(item, idx) in airport.用途s" :key="idx">
