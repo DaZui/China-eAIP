@@ -186,16 +186,26 @@ def 列出所有机场(
     runways: django.db.models.QuerySet[models.Runway] = models.Runway.objects.filter(
         query
     ).order_by("aixm_designator")
+    runway_directions: django.db.models.QuerySet[models.RunwayDirection] = (
+        models.RunwayDirection.objects.filter(query).order_by("aixm_designator")
+    )
 
     rv: list[schemas.AirportHeliport] = []
-    for x in airports:
+    for airport in airports:
         output_airport: schemas.AirportHeliport = (
-            schemas.AirportHeliport.model_validate(obj=x, from_attributes=True)
+            schemas.AirportHeliport.model_validate(obj=airport, from_attributes=True)
         )
-        output_airport.跑道s = [
-            schemas.Runway.model_validate(obj=x, from_attributes=True)
-            for x in runways.filter(aixm_associated_airport_heliport=x.uuid)
-        ]
+        for runway in runways.filter(aixm_associated_airport_heliport=airport.uuid):
+            output_runway: schemas.Runway = schemas.Runway.model_validate(
+                obj=runway, from_attributes=True
+            )
+            for direction in runway_directions.filter(aixm_used_runway=runway.uuid):
+                output_runway.方向s.append(
+                    schemas.RunwayDirection.model_validate(
+                        obj=direction, from_attributes=True
+                    )
+                )
+            output_airport.跑道s.append(output_runway)
         rv.append(output_airport)
     return rv
 

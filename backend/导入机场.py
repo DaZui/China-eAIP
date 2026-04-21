@@ -6,7 +6,11 @@ from api.wsgi import application  # pyright: ignore[reportUnusedImport] # isort:
 from app import models
 from china_eaip_dataset.aixm.data_types import to_meter
 from china_eaip_dataset.aixm.features import CommonRoot
-from china_eaip_dataset.aixm.features.airport_heliport import AirportHeliport, Runway
+from china_eaip_dataset.aixm.features.airport_heliport import (
+    AirportHeliport,
+    Runway,
+    RunwayDirection,
+)
 from china_eaip_dataset.aixm.features.airspace import Airspace
 from china_eaip_dataset.aixm.features.navaids_points import DesignatedPoint
 from main import BaselineDataPackage
@@ -182,8 +186,47 @@ def handle_runway(folder: BaselineDataPackage):
         )
 
 
+def handle_runway_direction(folder: BaselineDataPackage):
+    for runway_direction in tqdm.tqdm(
+        iterable=CommonRoot.model_validate(
+            obj=folder.read_file("RunwayDirection")
+        ).message_has_member,
+        desc=folder.folder.stem,
+    ):
+        if runway_direction.aixm_runway_direction is None:
+            continue
+        info: RunwayDirection | None = (
+            runway_direction.aixm_runway_direction.aixm_time_slice[
+                0
+            ].aixm_runway_direction_time_slice
+        )
+        if info is None:
+            continue
+
+        data: dict[str, typing.Any] = {
+            "information_valid_until": folder.effective_until,
+            "aixm_designator": str(info.aixm_designator),
+            "aixm_true_bearing": info.aixm_true_bearing_float,
+            "aixm_true_bearing_accuracy": info.aixm_true_bearing_accuracy_float,
+            "aixm_used_runway": info.aixm_used_runway.at_xlink_href.replace(
+                "urn:uuid:", ""
+            ),
+        }
+        models.RunwayDirection.objects.update_or_create(
+            uuid=runway_direction.aixm_runway_direction.at_gml_id,
+            aixm_sequence_number=info.aixm_sequence_number,
+            aixm_correction_number=info.aixm_correction_number,
+            defaults=data,
+            create_defaults={
+                **data,
+                "information_valid_since": info.gml_valid_time.gml_time_period.gml_begin_position.dollar,
+            },
+        )
+
+
 for folder in sorted(BaselineDataPackage.list_all(), key=lambda x: x.filename):
-    handle_airport_heliport(folder=folder)
+    # handle_airport_heliport(folder=folder)
     # handle_airspace(folder=folder)
     # handle_designated_point(folder=folder)
-    handle_runway(folder=folder)
+    # handle_runway(folder=folder)
+    handle_runway_direction(folder=folder)

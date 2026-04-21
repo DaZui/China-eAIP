@@ -287,7 +287,19 @@ class RunwayCentrelinePoint(AixmTimeSlice, WithAixmAnnotation, WithAixmLocation)
 class RunwayDirection(AixmTimeSlice):
     aixm_designator: Annotated[TextDesignatorType, Field(alias="aixm:designator")]
     aixm_true_bearing: Annotated[ValBearingType, Field(alias="aixm:trueBearing")]
+
+    @property
+    def aixm_true_bearing_float(self) -> float | None:
+        if not isinstance(self.aixm_true_bearing, Nil):
+            return float(self.aixm_true_bearing.dollar)
+
     aixm_true_bearing_accuracy: Annotated[
         ValAngleType, Field(alias="aixm:trueBearingAccuracy")
     ]
+
+    @property
+    def aixm_true_bearing_accuracy_float(self) -> float | None:
+        if not isinstance(self.aixm_true_bearing_accuracy, Nil):
+            return float(self.aixm_true_bearing_accuracy.dollar)
+
     aixm_used_runway: Annotated[Link, Field(alias="aixm:usedRunway")]

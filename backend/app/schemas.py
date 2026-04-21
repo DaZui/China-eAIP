@@ -26,12 +26,44 @@ class _WithAnnotation(pydantic.BaseModel):
     aixm_annotations: str
 
 
+class RunwayDirection(_Common):
+    aixm_designator: str
+    aixm_true_bearing: float | None
+    aixm_true_bearing_accuracy: float | None
+    aixm_used_runway: str
+
+    @pydantic.computed_field
+    @property
+    def 航向角(self) -> tuple[float | None, float | None]:
+        return (self.aixm_true_bearing, self.aixm_true_bearing_accuracy)
+
+
 class Runway(_Common, _WithAnnotation):
     aixm_designator: str
+    aixm_nominal_length: float | None
+    aixm_length_accuracy: float | None
+    aixm_nominal_width: float | None
+    aixm_width_accuracy: float | None
+    aixm_width_shoulder: float | None
+    aixm_annotations: str
     aixm_associated_airport_heliport: str
-    长度: tuple[float | None, float | None]
-    宽度: tuple[float | None, float | None]
-    路肩宽度: tuple[float | None, None]
+
+    方向s: list[RunwayDirection] = []
+
+    @pydantic.computed_field
+    @property
+    def 长度(self) -> tuple[float | None, float | None]:
+        return (self.aixm_nominal_length, self.aixm_length_accuracy)
+
+    @pydantic.computed_field
+    @property
+    def 宽度(self) -> tuple[float | None, float | None]:
+        return (self.aixm_nominal_width, self.aixm_width_accuracy)
+
+    @pydantic.computed_field
+    @property
+    def 路肩宽度(self) -> tuple[float | None, None]:
+        return (self.aixm_width_shoulder, None)
 
     @pydantic.computed_field
     @property
