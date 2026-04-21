@@ -56,7 +56,7 @@ type Position = Position3D | Position2D
 
 class Point(pydantic.BaseModel, title="GeoJSON Point"):
     type: typing.Literal["Point"] = "Point"
-    coordinates: Position3D
+    coordinates: Position
 
 
 class LineString(pydantic.BaseModel, title="GeoJSON LineString"):

@@ -1,9 +1,10 @@
 import datetime
+import typing
 from typing import Annotated
 
 from pydantic import Field
 
-from ...base import BaseModel, Link, Nil, WithAtGmlId
+from ...base import BaseModel, Link, Nil, WithAtGmlId, WithDollar
 from ..abstract_feature import AixmTimeSlice
 from ..data_types import (
     CodeAirportHeliportDesignatorType,
@@ -29,7 +30,6 @@ from ..data_types import (
     ValMagneticVariationChangeType,
     ValMagneticVariationType,
     ValTemperatureType,
-    to_meter,
 )
 from .geometry import ElevatedPoint, WithAixmLocation
 from .notes import WithAixmAnnotation
@@ -87,6 +87,14 @@ class _AirportHeliportAvailability(WithAtGmlId):
     aixm_usage: Annotated[list[_AixmUsageItem], Field(alias="aixm:usage")]
 
 
+def extract_number[T: typing.Any](
+    value: Nil | WithDollar[T], default: T | None = None
+) -> T | None:
+    if not isinstance(value, Nil):
+        return value.dollar
+    return default
+
+
 class AirportHeliport(AixmTimeSlice, WithAixmAnnotation):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_AirportHeliport.html"""
 
@@ -118,11 +126,6 @@ class AirportHeliport(AixmTimeSlice, WithAixmAnnotation):
     aixm_field_elevation_accuracy: Annotated[
         ValDistanceVerticalType, Field(alias="aixm:fieldElevationAccuracy")
     ]
-
-    @property
-    def aixm_field_elevation_accuracy_float(self) -> float | None:
-        return to_meter(value=self.aixm_field_elevation_accuracy)
-
     aixm_magnetic_variation: Annotated[
         ValMagneticVariationType, Field(alias="aixm:magneticVariation")
     ]
@@ -145,20 +148,9 @@ class AirportHeliport(AixmTimeSlice, WithAixmAnnotation):
         DateYearType, Field(alias="aixm:dateMagneticVariation")
     ]
 
-    @property
-    def aixm_date_magnetic_variation_int(self) -> int | None:
-        if not isinstance(self.aixm_date_magnetic_variation, Nil):
-            return int(self.aixm_date_magnetic_variation.dollar)
-
     aixm_magnetic_variation_change: Annotated[
         ValMagneticVariationChangeType, Field(alias="aixm:magneticVariationChange")
     ]
-
-    @property
-    def aixm_magnetic_variation_change_float(self) -> float | None:
-        if not isinstance(self.aixm_magnetic_variation_change, Nil):
-            return float(self.aixm_magnetic_variation_change.dollar)
-
     aixm_reference_temperature: Annotated[
         ValTemperatureType, Field(alias="aixm:referenceTemperature")
     ]
@@ -166,7 +158,12 @@ class AirportHeliport(AixmTimeSlice, WithAixmAnnotation):
     @property
     def aixm_reference_temperature_float(self) -> float | None:
         if not isinstance(self.aixm_reference_temperature, Nil):
-            return self.aixm_reference_temperature.in_celsius
+            subtract: float = {"K": 273.15, "F": 32}.get(
+                self.aixm_reference_temperature.at_uom, 0
+            )
+            return (float(self.aixm_reference_temperature.dollar) - subtract) / {
+                "F": 1.8
+            }.get(self.aixm_reference_temperature.at_uom, 1)
 
     aixm_certification_date: Annotated[DateType, Field(alias="aixm:certificationDate")]
 

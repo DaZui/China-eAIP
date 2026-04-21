@@ -1,9 +1,11 @@
 import datetime
+import decimal
 import re
 import typing
 
 import pydantic
 from china_eaip_dataset import geojson
+from china_eaip_dataset.aixm.data_types import ValDistanceVerticalSpecialBaseType
 from china_eaip_dataset.aixm.features.airport_heliport import RunwayDeclaredDistance
 from china_eaip_dataset.aixm.features.notes import Note
 
@@ -28,11 +30,43 @@ class _WithAnnotation(pydantic.BaseModel):
     aixm_annotations: str
 
 
+class Point(pydantic.BaseModel):
+    latitude: decimal.Decimal | None
+    longitude: decimal.Decimal | None
+
+    @pydantic.computed_field
+    @property
+    def geometry(self) -> geojson.Point | None:
+        if self.longitude and self.latitude:
+            coordinates: geojson.Position2D = (
+                float(self.longitude),
+                float(self.latitude),
+            )
+            return geojson.Point(coordinates=coordinates)
+
+
+class ElevatedPoint(Point):
+    aixm_elevation: decimal.Decimal | None
+    aixm_special_elevation: ValDistanceVerticalSpecialBaseType | typing.Literal[""]
+
+    @pydantic.computed_field
+    @property
+    def geometry(self) -> geojson.Point | None:
+        if self.longitude and self.latitude and self.aixm_elevation:
+            coordinates: geojson.Position3D = (
+                float(self.longitude),
+                float(self.latitude),
+                float(self.aixm_elevation),
+            )
+            return geojson.Point(coordinates=coordinates)
+
+
 class RunwayCentrelinePoint(_Common):
     aixm_on_runway: str
     aixm_role: str
     aixm_annotations: list[Note]
     aixm_associated_declared_distances: list[RunwayDeclaredDistance]
+    aixm_location: ElevatedPoint | None
 
 
 class RunwayDirection(_Common):
@@ -129,7 +163,6 @@ class AirportHeliport(_Common, _WithAnnotation):
     aixm_served_city: str
     aixm_latitude: float
     aixm_longitude: float
-    aixm_horizontal_accuracy: float | None
     aixm_annotations: str
     aixm_availability: str
 

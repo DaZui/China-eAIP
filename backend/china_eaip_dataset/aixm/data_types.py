@@ -69,9 +69,8 @@ type _UomDistanceVerticalType = Literal["FT", "M", "FL", "SM", "OTHER"]
 
 type _ValDistanceBaseType = Annotated[decimal.Decimal, Field(ge=0)]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceBaseType.html"""
-type ValDistanceVerticalBaseType = (
-    decimal.Decimal | Literal["UNL", "GND", "FLOOR", "CEILING"]
-)
+type ValDistanceVerticalSpecialBaseType = Literal["UNL", "GND", "FLOOR", "CEILING"]
+type ValDistanceVerticalBaseType = decimal.Decimal | ValDistanceVerticalSpecialBaseType
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceVerticalBaseType.html"""
 
 
@@ -95,25 +94,27 @@ type ValDistanceVerticalType = Nil | _ValDistanceVerticalTypeInner
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValDistanceVerticalType.html"""
 
 
-def to_meter(value: ValDistanceType | ValDistanceVerticalType) -> float | None:
-    if isinstance(value, Nil):
+def to_meter(
+    value: ValDistanceType | ValDistanceVerticalType | None,
+) -> decimal.Decimal | None:
+    if value is None or isinstance(value, Nil):
         return None
     if value.dollar in ("UNL", "GND", "FLOOR", "CEILING"):
         return None
 
-    CONVERT_TO_METER: dict[_UomDistanceType | _UomDistanceVerticalType, float] = {
-        "CM": 0.01,
-        "FL": 30.48,
-        "FT": 0.3048,
-        "KM": 1000,
-        "M": 1,
-        "MI": 1609.344,
-        "NM": 1852,
-        "OTHER": 0,
-        "SM": 10,
+    CONVERT_TO_METER: dict[_UomDistanceType | _UomDistanceVerticalType, str] = {
+        "CM": "0.01",
+        "FL": "30.48",
+        "FT": "0.3048",
+        "KM": "1000",
+        "M": "1",
+        "MI": "1609.344",
+        "NM": "1852",
+        "OTHER": "0",
+        "SM": "10",
     }
 
-    return float(value.dollar) * CONVERT_TO_METER[value.at_uom]
+    return value.dollar * decimal.Decimal(value=CONVERT_TO_METER[value.at_uom])
 
 
 type _ValMagneticVariationBaseType = Annotated[decimal.Decimal, Field(ge=-180, le=180)]
@@ -124,9 +125,7 @@ type _ValAngleBaseType = Annotated[decimal.Decimal, Field(ge=-180, le=180)]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValAngleBaseType.html"""
 type ValAngleType = Nil | WithDollar[_ValAngleBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_ValAngleType.html"""
-type _DateYearBaseType = Annotated[
-    str, StringConstraints(pattern=r"^[1-9][0-9][0-9][0-9]$")
-]
+type _DateYearBaseType = Annotated[decimal.Decimal, Field(ge=1000, le=9999)]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_DateYearBaseType.html"""
 type DateYearType = Nil | WithDollar[_DateYearBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_DateYearType.html"""
@@ -153,11 +152,6 @@ class _ValTemperatureTypeInner(WithDollar[_ValTemperatureBaseType]):
 
     def __str__(self) -> str:
         return f"{self.dollar} {self.at_uom}"
-
-    @property
-    def in_celsius(self) -> float:
-        subtract: float = {"K": 273.15, "F": 32}.get(self.at_uom, 0)
-        return (float(self.dollar) - subtract) / {"F": 1.8}.get(self.at_uom, 1)
 
 
 type ValTemperatureType = Nil | _ValTemperatureTypeInner
@@ -243,9 +237,9 @@ type CodeNavaidDesignatorBaseType = Annotated[
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeNavaidDesignatorBaseType.html"""
 type CodeNavaidDesignatorType = Nil | WithDollar[CodeNavaidDesignatorBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeNavaidDesignatorType.html"""
-type CodeVerticalDatumBaseType = Literal["EGM_96", "AHD", "NAVD88", "OTHER"]
+type _CodeVerticalDatumBaseType = Literal["EGM_96", "AHD", "NAVD88", "OTHER"]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeVerticalDatumBaseType.html"""
-type CodeVerticalDatumType = Nil | WithDollar[CodeVerticalDatumBaseType]
+type CodeVerticalDatumType = Nil | WithDollar[_CodeVerticalDatumBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeVerticalDatumType.html"""
 type CodeDMEChannelBaseType = (
     Annotated[str, StringConstraints(pattern=r"^[1-9][XY]$")]
@@ -271,12 +265,6 @@ class _ValFrequencyTypeInner(WithDollar[_ValFrequencyBaseType]):
 
     def __str__(self) -> str:
         return f"{self.dollar} {self.at_uom}"
-
-    @property
-    def in_hz(self) -> float:
-        return float(self.dollar) * {"KHZ": 1e3, "MHZ": 1e6, "GHZ": 1e9}.get(
-            self.at_uom, 1
-        )
 
 
 type ValFrequencyType = Nil | _ValFrequencyTypeInner

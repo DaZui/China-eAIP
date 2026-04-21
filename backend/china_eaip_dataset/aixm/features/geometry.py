@@ -4,7 +4,11 @@ from pydantic import Field
 
 from ... import geojson
 from ...base import BaseModel, Nil, WithAtGmlId, WithAtSrsName, WithDollar
-from ..data_types import CodeVerticalDatumType, ValDistanceType, ValDistanceVerticalType
+from ..data_types import ValDistanceVerticalBaseType, ValDistanceVerticalType
+
+
+def get_value[T: str](a: Nil | WithDollar[T] | None) -> T | None:
+    return None if a is None or isinstance(a, Nil) else a.dollar
 
 
 class Point(WithAtGmlId, WithAtSrsName):
@@ -13,9 +17,6 @@ class Point(WithAtGmlId, WithAtSrsName):
     gml_pos: Annotated[
         WithDollar[tuple[geojson.Latitude, geojson.Longitude]] | None,
         Field(alias="gml:pos"),
-    ] = None
-    aixm_horizontal_accuracy: Annotated[
-        ValDistanceType | None, Field(alias="aixm:horizontalAccuracy")
     ] = None
 
     @property
@@ -26,16 +27,10 @@ class Point(WithAtGmlId, WithAtSrsName):
     def longitude(self) -> float:
         return self.gml_pos.dollar[1] if self.gml_pos else 0
 
-    @property
-    def point(self, elevation: float = 0) -> geojson.Point:
-        return geojson.Point(coordinates=(self.longitude, self.latitude, elevation))
-
-    @property
-    def horizontal_accuracy(self) -> float | None:
-        if self.aixm_horizontal_accuracy and not isinstance(
-            self.aixm_horizontal_accuracy, Nil
-        ):
-            return float(self.aixm_horizontal_accuracy.dollar)
+    aixm_horizontal_accuracy: Annotated[
+        # ValDistanceType | # 实际当中没有出现
+        Nil | None, Field(alias="aixm:horizontalAccuracy")
+    ] = None
 
 
 class ElevatedPoint(Point):
@@ -44,11 +39,19 @@ class ElevatedPoint(Point):
     aixm_elevation: Annotated[
         ValDistanceVerticalType | None, Field(alias="aixm:elevation")
     ] = None
+
+    @property
+    def computed_elevation(self) -> ValDistanceVerticalBaseType | None:
+        if not (self.aixm_elevation is None or isinstance(self.aixm_elevation, Nil)):
+            return self.aixm_elevation.dollar
+
     aixm_vertical_accuracy: Annotated[
-        ValDistanceType | None, Field(alias="aixm:verticalAccuracy")
+        # ValDistanceType | # 实际当中没有出现
+        Nil | None, Field(alias="aixm:verticalAccuracy")
     ] = None
     aixm_vertical_datum: Annotated[
-        CodeVerticalDatumType | None, Field(alias="aixm:verticalDatum")
+        # CodeVerticalDatumType | # 实际当中没有出现
+        Nil | None, Field(alias="aixm:verticalDatum")
     ] = None
 
 

@@ -7,7 +7,6 @@ from ... import geojson
 from ...base import (
     BaseModel,
     Link,
-    Nil,
     WithAtGmlId,
     WithAtOwns,
     WithAtSrsName,
@@ -18,12 +17,9 @@ from ..abstract_feature import AixmTimeSlice
 from ..data_types import (
     CodeAirspaceDesignatorType,
     CodeAirspaceType,
-    CodeVerticalReferenceBaseType,
     CodeVerticalReferenceType,
     TextNameType,
-    ValDistanceVerticalBaseType,
     ValDistanceVerticalType,
-    to_meter,
 )
 from .notes import WithAixmAnnotation
 
@@ -191,28 +187,6 @@ class _AixmElevatedSurface(WithAtGmlId, WithAtSrsName):
     gml_patches: typing.Annotated[_GmlPatches, pydantic.Field(alias="gml:patches")]
 
 
-type _LimitAndReference = tuple[
-    float | None, ValDistanceVerticalBaseType | CodeVerticalReferenceBaseType
-]
-
-
-def _display_upper_lower_limit(
-    limit: ValDistanceVerticalType, reference: CodeVerticalReferenceType
-) -> _LimitAndReference:
-    distance: float | None = to_meter(limit)
-
-    if distance is None:
-        if isinstance(limit, Nil):
-            return None, "OTHER"
-        if limit.dollar in ("GND", "UNL", "FLOOR", "CEILING"):
-            return None, limit.dollar
-
-    if isinstance(reference, Nil):
-        return distance, "OTHER"
-
-    return distance, reference.dollar
-
-
 class _AirspaceVolume(WithAtGmlId):
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/Class_AirspaceVolume.html"""
 
@@ -228,18 +202,6 @@ class _AirspaceVolume(WithAtGmlId):
     aixm_lower_limit_reference: typing.Annotated[
         CodeVerticalReferenceType, pydantic.Field(alias="aixm:lowerLimitReference")
     ]
-
-    @functools.cached_property
-    def 高度上限(self) -> _LimitAndReference:
-        return _display_upper_lower_limit(
-            limit=self.aixm_upper_limit, reference=self.aixm_upper_limit_reference
-        )
-
-    @functools.cached_property
-    def 高度下限(self) -> _LimitAndReference:
-        return _display_upper_lower_limit(
-            limit=self.aixm_lower_limit, reference=self.aixm_lower_limit_reference
-        )
 
     class _AixmHorizontalProjection(BaseModel):
         aixm_elevated_surface: typing.Annotated[
@@ -269,14 +231,6 @@ class _AixmGeometryComponentItem(BaseModel):
         _AixmAirspaceGeometryComponent,
         pydantic.Field(alias="aixm:AirspaceGeometryComponent"),
     ]
-
-    @functools.cached_property
-    def 高度上限(self) -> _LimitAndReference:
-        return self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.高度上限
-
-    @functools.cached_property
-    def 高度下限(self) -> _LimitAndReference:
-        return self.aixm_airspace_geometry_component.aixm_the_airspace_volume.aixm_airspace_volume.高度下限
 
 
 class AixmGeometryCompoents(pydantic.RootModel[list[_AixmGeometryComponentItem]]):

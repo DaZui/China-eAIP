@@ -34,6 +34,21 @@ interface CentrelinePoint extends Base {
       'aixm:LinguisticNote': { '@gml:id': string; 'aixm:note': { '@lang': 'eng'; $: string } }
     }[]
   }[]
+  aixm_associated_declared_distances: {
+    '@gml:id': string
+    'aixm:type': { $: string }
+    'aixm:declaredValue': {
+      'aixm:RunwayDeclaredDistanceValue': {
+        '@gml:id': string
+        'aixm:distance': { $: string; '@uom': 'M' }
+        'aixm:distanceAccuracy': {
+          '@nilReason': 'unknown'
+          '@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance'
+          '@xsi:nil': 'true'
+        }
+      }
+    }[]
+  }[]
 }
 
 interface Direction extends Base {
