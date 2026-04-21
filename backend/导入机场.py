@@ -208,7 +208,7 @@ def handle_runway_centreline_point(folder: BaselineDataPackage):
 
         data: dict[str, typing.Any] = {
             "information_valid_until": folder.effective_until,
-            "aixm_role": str(info.aixm_role),
+            "aixm_role": extract_value(info.aixm_role),
             "aixm_on_runway": info.aixm_on_runway.at_xlink_href.replace(
                 "urn:uuid:", ""
             ),
@@ -279,5 +279,5 @@ for folder in sorted(BaselineDataPackage.list_all(), key=lambda x: x.filename):
     # handle_airspace(folder=folder)
     # handle_designated_point(folder=folder)
     # handle_runway(folder=folder)
-    handle_runway_direction(folder=folder)
-    # handle_runway_centreline_point(folder=folder)
+    # handle_runway_direction(folder=folder)
+    handle_runway_centreline_point(folder=folder)

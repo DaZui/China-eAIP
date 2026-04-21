@@ -1,4 +1,5 @@
 import datetime
+import decimal
 import re
 import typing
 
@@ -11,7 +12,7 @@ from china_eaip_dataset.aixm.features.airport_heliport import (
     RunwayDeclaredDistance,
 )
 from china_eaip_dataset.aixm.features.notes import Note
-from china_eaip_dataset.aixm.helpers import extract_value
+from china_eaip_dataset.aixm.helpers import extract_value, to_meter
 from china_eaip_dataset.base import Nil
 
 
@@ -70,8 +71,28 @@ class ElevatedPoint(Point):
 class RunwayCentrelinePoint(_Common, _WithAnnotation):
     aixm_on_runway: str
     aixm_role: str
-    aixm_associated_declared_distances: list[RunwayDeclaredDistance]
+    aixm_associated_declared_distances: typing.Annotated[
+        list[RunwayDeclaredDistance], pydantic.Field(exclude=True)
+    ]
     aixm_location: ElevatedPoint | None
+
+    @pydantic.computed_field
+    @property
+    def 距离s(self) -> dict[str, list[float]]:
+        rv: dict[str, list[float]] = {}
+        for x in self.aixm_associated_declared_distances:
+            if isinstance(x.aixm_type, Nil):
+                continue
+            key: str = x.aixm_type.dollar
+            for y in x.aixm_declared_distance:
+                s: decimal.Decimal | None = to_meter(
+                    value=y.aixm_runway_declared_distance_value.aixm_distance
+                )
+                if s:
+                    if key not in rv:
+                        rv[key] = []
+                    rv[key].append(float(s))
+        return rv
 
 
 class RunwayDirection(_Common):

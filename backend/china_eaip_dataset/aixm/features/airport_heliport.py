@@ -192,7 +192,8 @@ class _RunwayDeclaredDistanceValue(WithAtGmlId):
 
     aixm_distance: Annotated[ValDistanceType, Field(alias="aixm:distance")]
     aixm_distance_accuracy: Annotated[
-        ValDistanceType, Field(alias="aixm:distanceAccuracy")
+        Nil,  # 原为 ValDistanceType
+        Field(alias="aixm:distanceAccuracy"),
     ]
 
 
