@@ -7,7 +7,7 @@ services:
     entrypoint: /code/entrypoint.sh
     environment:
       - DEBUG=FALSE
-    image: ghcr.io/astral-sh/uv:python3.14-bookworm-slim
+    image: ghcr.io/astral-sh/uv:python3.14-trixie-slim
     restart: unless-stopped
     volumes:
       - uv-venv:/code/.venv
