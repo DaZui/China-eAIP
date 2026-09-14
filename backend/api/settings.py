@@ -82,10 +82,10 @@ DATABASES: dict[str, dict[str, str]] = {
         # "ENGINE": "django.db.backends.sqlite3",
         # "NAME": BASE_DIR / "db.sqlite3",
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "postgres",
+        "NAME": "ChinaEaipDataset",
         "USER": "postgres",
         "PASSWORD": "postgres",
-        "HOST": "100.66.44.107",
+        "HOST": "10.19.97.254",
         "PORT": "5432",
     }
 }
