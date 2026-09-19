@@ -34,11 +34,11 @@ class _Service(AixmTimeSlice, WithAixmAnnotation):
         ]
 
     aixm_call_sign: Annotated[
-        list[_AixmCallSignItem], Field(alias="aixm:call-sign")
-    ] = []
+        list[_AixmCallSignItem], Field(default_factory=list, alias="aixm:call-sign")
+    ]
     aixm_radio_communication: Annotated[
-        list[Link], Field(alias="aixm:radioCommunication")
-    ] = []
+        list[Link], Field(default_factory=list, alias="aixm:radioCommunication")
+    ]
 
 
 class _TrafficSeparationService(_Service):

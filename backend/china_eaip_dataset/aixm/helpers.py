@@ -48,6 +48,6 @@ def to_celsius(value: ValTemperatureType | None) -> decimal.Decimal | None:
     if value.at_uom == "K":
         output -= decimal.Decimal("273.15")
     if value.at_uom == "F":
-        output -= decimal.Decimal("32")
+        output -= decimal.Decimal(32)
         output /= decimal.Decimal("1.8")
     return output

@@ -1,4 +1,4 @@
-from api.wsgi import application  # pyright: ignore[reportUnusedImport] # isort:skip # noqa: F401
+from api.wsgi import application  # pyright: ignore[reportUnusedImport] # isort:skip
 import collections.abc
 import datetime
 import functools
@@ -67,8 +67,10 @@ class BaselineDataPackage(
 
     @classmethod
     def list_all(
-        cls, timestamp: datetime.datetime = datetime.datetime.now(datetime.UTC)
+        cls, timestamp: datetime.datetime | None = None
     ) -> collections.abc.Iterable[typing.Self]:
+        if timestamp is None:
+            timestamp = datetime.datetime.now(datetime.UTC)
         for x in root_path.iterdir():
             if not x.is_dir() and x.suffix != ".zip":
                 continue

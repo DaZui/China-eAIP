@@ -1,5 +1,6 @@
 import datetime
 import decimal
+from typing import ClassVar
 
 from django.db import models
 
@@ -21,7 +22,7 @@ IntegerOptional = models.IntegerField[int | None, int | None]
 class Common(models.Model):
     class Meta:
         abstract = True
-        constraints: list[models.UniqueConstraint] = [
+        constraints: ClassVar[list[models.UniqueConstraint]] = [
             models.UniqueConstraint(
                 fields=["uuid", "aixm_sequence_number", "aixm_correction_number"],
                 name="%(app_label)s %(class)s 元素唯一",

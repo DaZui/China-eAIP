@@ -30,10 +30,16 @@ type _CodeMilitaryStatusBaseType = Literal["MIL", "CIVIL", "ALL", "OTHER"]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeMilitaryStatusBaseType.html"""
 type CodeMilitaryStatusType = Nil | WithDollar[_CodeMilitaryStatusBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeMilitaryStatusType.html"""
-type _CodeFlightPurposeBaseType = (
-    Literal["SCHEDULED", "NON_SCHEDULED", "PRIVATE", "AIR_TRAINING"]
-    | Literal["AIR_WORK", "ALL", "PARTICIPANT", "OTHER"]
-)
+type _CodeFlightPurposeBaseType = Literal[
+    "SCHEDULED",
+    "NON_SCHEDULED",
+    "PRIVATE",
+    "AIR_TRAINING",
+    "AIR_WORK",
+    "ALL",
+    "PARTICIPANT",
+    "OTHER",
+]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeFlightPurposeBaseType.html"""
 type CodeFlightPurposeType = Nil | WithDollar[_CodeFlightPurposeBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeFlightPurposeType.html"""
@@ -161,13 +167,54 @@ type TextNameBaseType = Annotated[
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_TextNameBaseType.html"""
 type TextNameType = Nil | WithDollar[TextNameBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_TextNameType.html"""
-type _CodeAirspaceBaseType = (
-    Literal["NAS", "FIR", "FIR_P", "UIR", "UIR_P", "CTA", "CTA_P", "OCA_P", "OCA", "P"]
-    | Literal["UTA", "UTA_P", "TMA", "TMA_P", "CTR", "CTR_P", "OTA", "SECTOR", "ATZ_P"]
-    | Literal["SECTOR_C", "TSA", "CBA", "RCA", "RAS", "AWY", "MTR", "POLITICAL", "HTZ"]
-    | Literal["R", "D", "ADIZ", "NO_FIR", "PART", "CLASS", "D_OTHER", "NAS_P", "OTHER"]
-    | Literal["TRA", "A", "W", "PROTECT", "AMA", "ASR", "ADV", "UADV", "ATZ"]
-)
+type _CodeAirspaceBaseType = Literal[
+    "NAS",
+    "FIR",
+    "FIR_P",
+    "UIR",
+    "UIR_P",
+    "CTA",
+    "CTA_P",
+    "OCA_P",
+    "OCA",
+    "P",
+    "UTA",
+    "UTA_P",
+    "TMA",
+    "TMA_P",
+    "CTR",
+    "CTR_P",
+    "OTA",
+    "SECTOR",
+    "ATZ_P",
+    "SECTOR_C",
+    "TSA",
+    "CBA",
+    "RCA",
+    "RAS",
+    "AWY",
+    "MTR",
+    "POLITICAL",
+    "HTZ",
+    "R",
+    "D",
+    "ADIZ",
+    "NO_FIR",
+    "PART",
+    "CLASS",
+    "D_OTHER",
+    "NAS_P",
+    "OTHER",
+    "TRA",
+    "A",
+    "W",
+    "PROTECT",
+    "AMA",
+    "ASR",
+    "ADV",
+    "UADV",
+    "ATZ",
+]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeAirspaceBaseType.html"""
 type CodeAirspaceType = Nil | WithDollar[_CodeAirspaceBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeAirspaceType.html"""
@@ -239,11 +286,27 @@ type _CodeAuralMorseBaseType = Annotated[str, StringConstraints(pattern=r"^([\-\
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeAuralMorseBaseType.html"""
 type CodeAuralMorseType = Nil | WithDollar[_CodeAuralMorseBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeAuralMorseType.html"""
-type _CodeNavaidServiceBaseType = (
-    Literal["VOR", "DME", "NDB", "TACAN", "MKR", "ILS", "ILS_DME", "MLS", "MLS_DME"]
-    | Literal["VOR_DME", "NDB_DME", "TLS", "LOC", "LOC_DME", "NDB_MKR", "DF", "SDF"]
-    | Literal["VORTAC", "OTHER"]
-)
+type _CodeNavaidServiceBaseType = Literal[
+    "VOR",
+    "DME",
+    "NDB",
+    "TACAN",
+    "MKR",
+    "ILS",
+    "ILS_DME",
+    "MLS",
+    "MLS_DME",
+    "VOR_DME",
+    "NDB_DME",
+    "TLS",
+    "LOC",
+    "LOC_DME",
+    "NDB_MKR",
+    "DF",
+    "SDF",
+    "VORTAC",
+    "OTHER",
+]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeNavaidServiceBaseType.html"""
 type CodeNavaidServiceType = Nil | WithDollar[_CodeNavaidServiceBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeNavaidServiceType.html"""
@@ -251,10 +314,25 @@ type CodeNavaidPurposeBaseType = Literal["TERMINAL", "ENROUTE", "ALL", "OTHER"]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeNavaidPurposeBaseType.html"""
 type CodeNavaidPurposeType = Nil | WithDollar[CodeNavaidPurposeBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeNavaidPurposeType.html"""
-type _CodeRouteDesignatorLetterBaseType = (
-    Literal["A", "B", "G", "H", "J", "L", "M", "N", "P", "Q", "R", "T", "V", "W", "Y"]
-    | Literal["Z", "OTHER"]
-)
+type _CodeRouteDesignatorLetterBaseType = Literal[
+    "A",
+    "B",
+    "G",
+    "H",
+    "J",
+    "L",
+    "M",
+    "N",
+    "P",
+    "Q",
+    "R",
+    "T",
+    "V",
+    "W",
+    "Y",
+    "Z",
+    "OTHER",
+]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeRouteDesignatorLetterBaseType.html"""
 type CodeRouteDesignatorLetterType = (
     Nil | WithDollar[_CodeRouteDesignatorLetterBaseType]
@@ -286,11 +364,22 @@ type _TextDesignatorBaseType = Annotated[
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_TextDesignatorBaseType.html"""
 type TextDesignatorType = Nil | WithDollar[_TextDesignatorBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_TextDesignatorType.html"""
-type _CodeRunwayPointRoleBaseType = (
-    Literal["ABEAM_ELEVATION", "ABEAM_GLIDESLOPE", "ABEAM_PAR", "ABEAM_RER", "DISTHR"]
-    | Literal["ABEAM_TDR", "START_RUN", "LAHSO", "OTHER", "START", "END", "MID", "TDZ"]
-    | Literal["THR"]
-)
+type _CodeRunwayPointRoleBaseType = Literal[
+    "ABEAM_ELEVATION",
+    "ABEAM_GLIDESLOPE",
+    "ABEAM_PAR",
+    "ABEAM_RER",
+    "DISTHR",
+    "ABEAM_TDR",
+    "START_RUN",
+    "LAHSO",
+    "OTHER",
+    "START",
+    "END",
+    "MID",
+    "TDZ",
+    "THR",
+]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeRunwayPointRoleBaseType.html"""
 type CodeRunwayPointRoleType = Nil | WithDollar[_CodeRunwayPointRoleBaseType]
 """https://aixm.aero/sites/default/files/imce/AIXM511HTML/AIXM/DataType_CodeRunwayPointRoleType.html"""

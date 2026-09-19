@@ -139,15 +139,17 @@ class _GmlGeodesicStringItem(_WithAtNumDerivatives):
 
 class _GmlSegments(BaseModel):
     gml_arc_by_center_point: typing.Annotated[
-        list[_GmlArcByCenterPointItem], pydantic.Field(alias="gml:ArcByCenterPoint")
-    ] = []
+        list[_GmlArcByCenterPointItem],
+        pydantic.Field(default_factory=list, alias="gml:ArcByCenterPoint"),
+    ]
     gml_circle_by_center_point: typing.Annotated[
         list[_GmlCircleByCenterPointItem],
-        pydantic.Field(alias="gml:CircleByCenterPoint"),
-    ] = []
+        pydantic.Field(default_factory=list, alias="gml:CircleByCenterPoint"),
+    ]
     gml_geodesic_string: typing.Annotated[
-        list[_GmlGeodesicStringItem], pydantic.Field(alias="gml:GeodesicString")
-    ] = []
+        list[_GmlGeodesicStringItem],
+        pydantic.Field(default_factory=list, alias="gml:GeodesicString"),
+    ]
 
 
 class _AixmCurve(WithAtGmlId, WithAixmAnnotation):

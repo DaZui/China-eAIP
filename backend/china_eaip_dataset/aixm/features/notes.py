@@ -35,5 +35,6 @@ class WithAixmAnnotation(BaseModel):
         aixm_note: Annotated[Note, Field(alias="aixm:Note")]
 
     aixm_annotation: Annotated[
-        list[_AixmAnnotationItem], Field(alias="aixm:annotation")
-    ] = []
+        list[_AixmAnnotationItem],
+        Field(default_factory=list, alias="aixm:annotation"),
+    ]

@@ -99,7 +99,9 @@ class Navaid(AixmTimeSlice, WithAixmLocation):
     aixm_designator: Annotated[CodeNavaidDesignatorType, Field(alias="aixm:designator")]
     aixm_name: Annotated[TextNameType, Field(alias="aixm:name")]
     aixm_purpose: Annotated[CodeNavaidPurposeType, Field(alias="aixm:purpose")]
-    aixm_served_airport: Annotated[list[Link], Field(alias="aixm:servedAirport")] = []
+    aixm_served_airport: Annotated[
+        list[Link], Field(default_factory=list, alias="aixm:servedAirport")
+    ]
 
     class _AixmNavaidEquipmentItem(BaseModel):
         class _AixmNavaidComponent(WithAtGmlId):
@@ -112,8 +114,9 @@ class Navaid(AixmTimeSlice, WithAixmLocation):
         ]
 
     aixm_navaid_equipment: Annotated[
-        list[_AixmNavaidEquipmentItem], Field(alias="aixm:navaidEquipment")
-    ] = []
+        list[_AixmNavaidEquipmentItem],
+        Field(default_factory=list, alias="aixm:navaidEquipment"),
+    ]
 
     class _AixmAvailabilityItem(BaseModel):
         aixm_navaid_operational_status: Annotated[
@@ -121,8 +124,9 @@ class Navaid(AixmTimeSlice, WithAixmLocation):
         ]
 
     aixm_availability: Annotated[
-        list[_AixmAvailabilityItem], Field(alias="aixm:availability")
-    ] = []
+        list[_AixmAvailabilityItem],
+        Field(default_factory=list, alias="aixm:availability"),
+    ]
 
 
 class NDB(Glidepath):
