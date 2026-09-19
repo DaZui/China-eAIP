@@ -25,7 +25,8 @@ interface Base {
 
 interface Nil {
   '@nilReason': 'unknown'
-  '@xmlns:xsi': 'http://www.w3.org/2001/XMLSchema-instance'
+  // AIRAC2608 起改在根元素上声明，此处不再重复出现
+  '@xmlns:xsi'?: 'http://www.w3.org/2001/XMLSchema-instance'
   '@xsi:nil': 'true'
 }
 
@@ -141,8 +142,18 @@ interface AirportHeliport extends Base, WithAnnotation {
   用途s: [string, string, string, string][]
 }
 
+interface EaipWebPackage {
+  name: string
+  year: number
+  issue: number
+  version: string
+  modified: string
+  url: string
+}
+
 export type {
   AirportHeliport,
+  EaipWebPackage,
   GeoJSONLineString as LineString,
   GeoJSONMultiLineString as MultiLineString,
   GeoJSONPoint as Point,

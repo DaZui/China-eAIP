@@ -55,9 +55,10 @@ class Nil(BaseModel, validate_by_name=True):
     ]
     """https://aixm.aero/sites/default/files/imce/AIXM511HTML/ISO%2019136/DataType_NilReasonEnumeration.html"""
     at_xmlns_xsi: typing.Annotated[
-        typing.Literal["http://www.w3.org/2001/XMLSchema-instance"],
+        # AIRAC2608 起改在根元素上声明，此处不再重复出现
+        typing.Literal["http://www.w3.org/2001/XMLSchema-instance"] | None,
         pydantic.Field(alias="@xmlns:xsi"),
-    ]
+    ] = None
     at_xsi_nil: typing.Annotated[
         typing.Literal["true"], pydantic.Field(alias="@xsi:nil")
     ]

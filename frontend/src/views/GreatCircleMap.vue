@@ -14,7 +14,7 @@
     <LMap
       :options="{ attributionControl: false }"
       :use-global-leaflet="false"
-      v-model:center="store.底图中心"
+      v-model:center="底图中心"
       v-model:zoom="store.底图缩放"
     >
       <TileLayerBase />
@@ -38,10 +38,20 @@ import { useGreatCircleMapStore } from '@/stores/GreatCircleMap'
 import { Converter } from '@/stores/wgsgcj'
 import GreatCircleMapSettings from '@/views/GreatCircleMapSettings.vue'
 import { LGeoJson, LMap, LPopup, LTooltip } from '@vue-leaflet/vue-leaflet'
+import { latLng, type LatLngExpression, type PointExpression } from 'leaflet'
 import 'leaflet/dist/leaflet.css'
 import { computed, type ComputedRef } from 'vue'
 
 const store = useGreatCircleMapStore()
+
+// vue-leaflet 把 LMap 的 center 标注为 leaflet 的 PointExpression([x, y] 像素坐标),
+// 但运行时接受并回传 LatLng 表达式, 这里按运行时的真实类型与 store 的 LatLngLiteral 互转。
+const 底图中心 = computed({
+  get: (): PointExpression => store.底图中心 as unknown as PointExpression,
+  set: (value: PointExpression): void => {
+    store.底图中心 = latLng(value as unknown as LatLngExpression)
+  },
+})
 
 const converter: ComputedRef<Converter> = computed(
   () => new Converter(store.使用中国坐标, store.底图中心.lng),

@@ -35,6 +35,25 @@ ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
     "[::1]",
+    # 统一入口域名(Caddy/traefik 上同时提供前端、API 与解压后的 AIP 网页包)
+    "china-eaip.hanming.li",
+    "china-eaip.lihanming.cn",
+    "china-eaip-dataset.hanming.li",
+    "china-eaip-dataset.lihanming.cn",
+]
+
+# 请求经 traefik -> Caddy -> uvicorn 转发, 依据 X-Forwarded-Proto 判断原始协议,
+# 否则 Django 认为站点是 http, 导致 admin 登录等 POST 请求 CSRF 校验失败。
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+# 链路末端的 Caddy 会用自己收到的协议(上游为 http)覆盖 X-Forwarded-Proto,
+# 因此 Django 判定 request.is_secure() 为假; 而 Django 6 只要请求带 Origin 就校验来源,
+# 会把 https://<域名> 与 http://<域名> 判为不匹配。这里显式声明受信来源。
+CSRF_TRUSTED_ORIGINS = [
+    "https://china-eaip.hanming.li",
+    "https://china-eaip.lihanming.cn",
+    "https://china-eaip-dataset.hanming.li",
+    "https://china-eaip-dataset.lihanming.cn",
 ]
 
 
@@ -128,9 +147,20 @@ USE_I18N = True
 USE_TZ = True
 
 
+# 安全相关的告警（例如 CSRF 校验失败、DisallowedHost）打到容器日志, 便于排查线上 403/400
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "handlers": {"console": {"class": "logging.StreamHandler"}},
+    "loggers": {
+        "django.security": {"handlers": ["console"], "level": "WARNING"},
+        "django.request": {"handlers": ["console"], "level": "WARNING"},
+    },
+}
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
-
 STATIC_ROOT = "static/"
 STATIC_URL = "static/"
 

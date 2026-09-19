@@ -2,7 +2,7 @@ import dayjs from 'dayjs'
 import type { LatLngLiteral } from 'leaflet'
 import { defineStore } from 'pinia'
 import { computed, ref, type ComputedRef, type Ref } from 'vue'
-import type { AirportHeliport } from './types'
+import type { AirportHeliport, EaipWebPackage } from './types'
 
 export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
   const 国内模式: ComputedRef<boolean> = computed(() =>
@@ -31,6 +31,8 @@ export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
 
   const allAirportsHeliports: Ref<AirportHeliport[]> = ref([])
   const selectedAirportsHeliports: Ref<AirportHeliport[]> = ref([])
+  // raw/*.zip 解压出的各期电子 AIP 网页包, 与数据集共用同一站点
+  const eaipWebPackages: Ref<EaipWebPackage[]> = ref([])
 
   return {
     参考时间输出,
@@ -47,5 +49,6 @@ export const useGreatCircleMapStore = defineStore('great-circle-map', () => {
     显示设置界面,
     allAirportsHeliports,
     selectedAirportsHeliports,
+    eaipWebPackages,
   }
 })

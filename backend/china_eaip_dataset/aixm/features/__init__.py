@@ -309,6 +309,16 @@ class CommonRoot(WithAtGmlId):
     at_xmlns_xlink: Annotated[
         Literal["http://www.w3.org/1999/xlink"], Field(alias="@xmlns:xlink")
     ]
+    at_xmlns_xsi: Annotated[
+        # AIRAC2608 起新增于根元素
+        Literal["http://www.w3.org/2001/XMLSchema-instance"] | None,
+        Field(alias="@xmlns:xsi"),
+    ] = None
+    at_xsi_schema_location: Annotated[
+        # AIRAC2608 起新增于根元素
+        str | None,
+        Field(alias="@xsi:schemaLocation"),
+    ] = None
 
     class _MessageHasMemberItem(WithAtXlinkType, WithAtOwns):
         class _AixmContent(WithAtGmlId):

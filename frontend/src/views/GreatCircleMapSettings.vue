@@ -21,6 +21,7 @@
           </ul>
           <TileLayerSelector v-if="currentOption === 0" />
           <AirportForm v-else-if="currentOption === 1" />
+          <EaipWebPackageList v-else-if="currentOption === 2" />
         </div>
       </div>
     </div>
@@ -30,13 +31,16 @@
 <script setup lang="ts">
 import { computed, ref, type ComputedRef, type Ref } from 'vue'
 import AirportForm from '../components/AirportHeliport/AirportForm.vue'
+import EaipWebPackageList from '../components/EaipWebPackageList.vue'
 import TileLayerSelector from '../components/底图/TileLayerSelector.vue'
 import { useGreatCircleMapStore } from '../stores/GreatCircleMap'
 
 const store = useGreatCircleMapStore()
 const currentOption: Ref<number> = ref(0)
 const options: ComputedRef<string[]> = computed(() =>
-  store.国内模式 ? ['地图设置', '机场 Airport / Heliport'] : ['Base Map', 'Airport / Heliport'],
+  store.国内模式
+    ? ['地图设置', '机场 Airport / Heliport', '电子 AIP eAIP']
+    : ['Base Map', 'Airport / Heliport', 'eAIP'],
 )
 </script>
 

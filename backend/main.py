@@ -7,6 +7,7 @@ import os
 import pathlib
 import re
 import typing
+import zipfile
 
 import django.db.models
 import fastapi
@@ -69,16 +70,21 @@ class BaselineDataPackage(
         cls, timestamp: datetime.datetime = datetime.datetime.now(datetime.UTC)
     ) -> collections.abc.Iterable[typing.Self]:
         for x in root_path.iterdir():
-            if x.is_dir():
-                folder: typing.Self = cls(filename=x.stem, reference=timestamp)
-                if folder.is_valid:
-                    yield folder
+            if not x.is_dir() and x.suffix != ".zip":
+                continue
+            folder: typing.Self = cls(filename=x.stem, reference=timestamp)
+            if folder.is_valid:
+                yield folder
 
     filename: str
 
     @functools.cached_property
     def folder(self) -> pathlib.Path:
-        return root_path.joinpath(self.filename)
+        """数据包所在的位置，可能是已解压的目录，也可能是尚未解压的 ZIP 压缩包。"""
+        folder: pathlib.Path = root_path.joinpath(self.filename)
+        if folder.is_dir():
+            return folder
+        return root_path.joinpath(f"{self.filename}.zip")
 
     reference: typing.Annotated[
         datetime.datetime,
@@ -145,26 +151,119 @@ class BaselineDataPackage(
             return "current"
         return "upcoming"
 
+    def read_baseline(self, keyword: File) -> pathlib.Path | bytes:
+        """定位 Baseline 中文件名含有 keyword 的 XML，返回其路径或内容。"""
+        if self.folder.is_dir():
+            for file in self.folder.joinpath("Baseline").iterdir():
+                if f"_{keyword}_" in file.stem:
+                    return file
+        else:
+            with zipfile.ZipFile(self.folder) as archive:
+                for name in archive.namelist():
+                    path: pathlib.PurePosixPath = pathlib.PurePosixPath(name)
+                    if path.parent.name == "Baseline" and f"_{keyword}_" in path.stem:
+                        return archive.read(name)
+        raise FileNotFoundError(f"{self.filename} 中没有 {keyword}")
+
     def read_file(self, keyword: File) -> typing.Any:
-        for file in self.folder.joinpath("Baseline").iterdir():
-            if f"_{keyword}_" in file.stem:
-                cache_file = pathlib.Path(f"./cache/{self.filename}/{keyword}.json")
-                if not cache_file.exists():
-                    cache_file.parent.mkdir(parents=True, exist_ok=True)
-                    text: str = json.dumps(
-                        obj=schema.to_dict(source=file, force_dict=True),
-                        indent=2,
-                        sort_keys=True,
-                        ensure_ascii=False,
-                        default=str,
-                    )
-                    cache_file.write_text(data=text)
-                return json.loads(s=cache_file.read_text())
-        raise FileNotFoundError
+        cache_file: pathlib.Path = pathlib.Path(
+            f"./cache/{self.filename}/{keyword}.json"
+        )
+        if not cache_file.exists():
+            cache_file.parent.mkdir(parents=True, exist_ok=True)
+            cache_file.write_text(
+                data=json.dumps(
+                    obj=schema.to_dict(
+                        source=self.read_baseline(keyword), force_dict=True
+                    ),
+                    indent=2,
+                    sort_keys=True,
+                    ensure_ascii=False,
+                    default=str,
+                )
+            )
+        return json.loads(s=cache_file.read_text())
 
 
 # 允许 CORS 跨站访问
 web_app.add_middleware(middleware_class=cors.CORSMiddleware, allow_origins=["*"])
+
+
+# raw/*.zip 解压后的离线 eAIP 网页包目录 (docker-compose 中以只读方式挂载)
+aip_root: pathlib.Path = pathlib.Path(
+    os.environ.get("EAIP_CONTENT_ROOT", default="../content")
+)
+
+
+class EaipWebPackage(
+    pydantic.BaseModel, frozen=True, title="电子 AIP 网页包 eAIP Web Package"
+):
+    """
+    由 raw/ 中对应的 zip 解压得到的离线 eAIP 站点，目录名形如 EAIP2026-10.V1.4_Web。
+
+    An offline eAIP website extracted from the corresponding zip in raw/, with a
+    directory name such as EAIP2026-10.V1.4_Web.
+    """
+
+    @classmethod
+    def list_all(cls) -> collections.abc.Iterable[typing.Self]:
+        if not aip_root.is_dir():
+            return
+        for folder in sorted(aip_root.iterdir()):
+            match: re.Match[str] | None = re.fullmatch(
+                pattern=r"EAIP(\d{4})-(\d{2})\.(V[\d.]+)_Web",
+                string=folder.name,
+            )
+            if not folder.is_dir() or match is None:
+                continue
+            yield cls(
+                name=folder.name,
+                year=int(match[1]),
+                issue=int(match[2]),
+                version=match[3],
+                modified=datetime.datetime.fromtimestamp(
+                    timestamp=folder.stat().st_mtime, tz=datetime.UTC
+                ),
+            )
+
+    name: str = pydantic.Field(
+        title="目录名 Folder Name",
+        description="解压后的目录名，同时也是站点根路径下的访问路径。",
+        examples=["EAIP2026-10.V1.4_Web"],
+    )
+    year: int = pydantic.Field(title="年份 Year", examples=[2026])
+    issue: int = pydantic.Field(title="期号 Issue Number", examples=[10])
+    version: str = pydantic.Field(title="版本号 Version Number", examples=["V1.4"])
+    modified: datetime.datetime = pydantic.Field(
+        title="解压时间 Extracted At",
+        description="数据包解压到服务器的时间。",
+    )
+
+    @pydantic.computed_field(
+        title="访问路径 URL",
+        description="站点根路径下访问该 eAIP 站的相对地址。",
+        examples=["/EAIP2026-10.V1.4_Web/"],
+    )
+    @functools.cached_property
+    def url(self) -> str:
+        return f"/{self.name}/"
+
+
+@web_app.get(
+    path="/api/china-eaip-datasets/EaipWebPackages",
+    response_model=list[EaipWebPackage],
+)
+def 列出所有电子AIP网页包() -> list[EaipWebPackage]:
+    """列出已解压的各期电子 AIP 网页包，供前端在同一站点下跳转浏览。"""
+    return sorted(
+        EaipWebPackage.list_all(),
+        key=lambda package: (
+            package.year,
+            package.issue,
+            *[int(part) for part in package.version.lstrip("V").split(".")],
+        ),
+        reverse=True,
+    )
 
 
 def 根据时间戳建立查询(timestamp: pydantic.AwareDatetime) -> django.db.models.Q:

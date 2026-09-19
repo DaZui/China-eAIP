@@ -274,10 +274,9 @@ def handle_runway_direction(folder: BaselineDataPackage):
         )
 
 
-for folder in sorted(BaselineDataPackage.list_all(), key=lambda x: x.filename):
-    # handle_airport_heliport(folder=folder)
-    # handle_airspace(folder=folder)
-    # handle_designated_point(folder=folder)
-    # handle_runway(folder=folder)
-    # handle_runway_direction(folder=folder)
-    handle_runway_centreline_point(folder=folder)
+if __name__ == "__main__":
+    for folder in sorted(BaselineDataPackage.list_all(), key=lambda x: x.filename):
+        handle_airport_heliport(folder=folder)
+        handle_runway(folder=folder)
+        handle_runway_direction(folder=folder)
+        handle_runway_centreline_point(folder=folder)

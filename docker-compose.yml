@@ -3,11 +3,29 @@ networks:
     external: True
 
 services:
+  # 一次性服务: 把 raw/*.zip 解压到 content/, 并对重复文件做硬链接去重
+  # 已解压的 zip(存在同名目录)会被跳过, 因此重复执行无副作用
+  extract:
+    command: python /work/优化.py
+    image: ghcr.io/astral-sh/uv:python3.14-trixie-slim
+    # 以宿主用户身份写入 content/, 这样宿主机上也能直接读写这些文件
+    user: "1000:1000"
+    restart: "no"
+    volumes:
+      - ./raw:/work/raw:ro
+      - ./content:/work/content
+      - ./优化.py:/work/优化.py:ro
+    working_dir: /work
+
+  # 数据集后台: FastAPI (/api, /docs) + Django admin (/admin)
   backend:
     entrypoint: /code/entrypoint.sh
     environment:
       - DEBUG=FALSE
+      - EAIP_CONTENT_ROOT=/aip
     image: ghcr.io/astral-sh/uv:python3.14-trixie-slim
+    networks:
+      - web
     restart: unless-stopped
     volumes:
       - uv-venv:/code/.venv
@@ -15,8 +33,10 @@ services:
       - ./backend:/code
       - ./data:/data
       - ./schema:/schema
+      - ./content:/aip:ro
     working_dir: /code
 
+  # 数据集前端: bun 构建到 bun-dist, 由 app(caddy) 以 /srv 提供
   frontend:
     entrypoint: /code/entrypoint.sh
     image: oven/bun:slim
@@ -27,19 +47,23 @@ services:
       - ./frontend:/code
     working_dir: /code
 
+  # 统一入口: 数据集前端 + 数据集后台 API + 解压后的 AIP 静态包, 同一域名下访问
   app:
     depends_on:
       - backend
+      - frontend
     image: caddy
     labels:
       traefik.enable: True
-      traefik.http.routers.china-eaip-dataset.rule: Host(`china-eaip-dataset.hanming.li`) || Host(`china-eaip-dataset.lihanming.cn`)
+      traefik.http.routers.china-eaip.rule: Host(`china-eaip.hanming.li`) || Host(`china-eaip.lihanming.cn`) || Host(`china-eaip-dataset.hanming.li`) || Host(`china-eaip-dataset.lihanming.cn`)
     networks:
       - web
+    restart: unless-stopped
+    command: caddy run --config /etc/caddy/Caddyfile
     volumes:
       - bun-dist:/srv
-      - ./Caddyfile:/etc/caddy/Caddyfile
-    restart: unless-stopped
+      - ./content:/aip:ro
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
 
 volumes:
   bun-dist:
