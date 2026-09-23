@@ -36,22 +36,10 @@ services:
       - ./content:/aip:ro
     working_dir: /code
 
-  # 数据集前端: bun 构建到 bun-dist, 由 app(caddy) 以 /srv 提供
-  frontend:
-    entrypoint: /code/entrypoint.sh
-    image: oven/bun:slim
-    restart: on-failure
-    volumes:
-      - bun-dist:/code/dist
-      - bun-node-modules:/code/node_modules
-      - ./frontend:/code
-    working_dir: /code
-
   # 统一入口: 数据集前端 + 数据集后台 API + 解压后的 AIP 静态包, 同一域名下访问
   app:
     depends_on:
       - backend
-      - frontend
     image: caddy
     labels:
       traefik.enable: True
@@ -61,12 +49,10 @@ services:
     restart: unless-stopped
     command: caddy run --config /etc/caddy/Caddyfile
     volumes:
-      - bun-dist:/srv
+      - ./frontend/dist:/srv:ro
       - ./content:/aip:ro
       - ./Caddyfile:/etc/caddy/Caddyfile:ro
 
 volumes:
-  bun-dist:
-  bun-node-modules:
   django-static:
   uv-venv:
